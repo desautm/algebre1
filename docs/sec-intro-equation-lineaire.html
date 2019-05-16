@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Algèbre linéaire et géométrie vectorielle</title>
+  <title>1.1 Une introduction aux équations linéaires | Algèbre linéaire et géométrie vectorielle</title>
   <meta name="description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
   <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Algèbre linéaire et géométrie vectorielle" />
+  <meta property="og:title" content="1.1 Une introduction aux équations linéaires | Algèbre linéaire et géométrie vectorielle" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="desautm/algebre1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Algèbre linéaire et géométrie vectorielle" />
+  <meta name="twitter:title" content="1.1 Une introduction aux équations linéaires | Algèbre linéaire et géométrie vectorielle" />
   
   <meta name="twitter:description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="a-propos-de-ce-document.html">
+<link rel="prev" href="sel.html">
+<link rel="next" href="systeme-equation-lineaire.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -100,21 +100,70 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Algèbre linéaire et géométrie vectorielle</h1>
-<p class="author"><em>Marc-André Désautels</em></p>
-<p class="date"><em>2019-05-16</em></p>
+<div id="sec:intro_equation_lineaire" class="section level2">
+<h2><span class="header-section-number">1.1</span> Une introduction aux équations linéaires</h2>
+<p>Dans cette section, nous introduisons les notions d’équation linéaire et de système d’équations linéaires. Nous introduisons la façon de résoudre de petits systèmes d’équations linéaires. En pratique, les systèmes d’équations linéaires sont résolus grâce aux ordinateurs. Ces systèmes contiennent habituellement des centaines, des milliers (même des millions) d’équations et d’inconnues.</p>
+<p>Intuitivement, une équation linéaire est une équation où toutes les variables sont affectées de l’exposant <span class="math inline">\(1\)</span> et ne sont pas multipliées entre elles.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-3" class="definition"><strong>Définition 1.1  (Une équation linéaire)  </strong></span>Une équation de <span class="math inline">\(n\)</span> variables <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span>, … et <span class="math inline">\(x_n\)</span>, est dite <strong>linéaire</strong> si elle peut être écrite sous la forme:
+<span class="math display">\[\begin{align*}
+a_1x_1+a_2x_2+\ldots+a_nx_n &amp;= b
+\end{align*}\]</span>
+où <span class="math inline">\(a_1\)</span>, <span class="math inline">\(a_2\)</span>, … et <span class="math inline">\(a_n\)</span> sont appelés les <strong>coefficients</strong> de l’équation linéaire et <span class="math inline">\(b\)</span> est le <strong>terme constant</strong> de l’équation.</p>
+<p>Les <strong>coefficients</strong> <span class="math inline">\(a_1\)</span>, <span class="math inline">\(a_2\)</span>, … et <span class="math inline">\(a_n\)</span> ainsi que le <strong>terme constant</strong> <span class="math inline">\(b\)</span> sont habituellement des nombres réels.</p>
+Si <span class="math inline">\(b=0\)</span>, nous disons que l’équation linéaire est <strong>homogène</strong>.
 </div>
-<div id="introduction" class="section level1 unnumbered">
-<h1>Introduction</h1> 
+
+
+<div class="definition">
+<span id="def:unnamed-chunk-4" class="definition"><strong>Définition 1.2  (La solution d’une équation linéaire)  </strong></span>Une <strong>solution</strong> d’une équation linéaire de <span class="math inline">\(n\)</span> variables de la forme
+<span class="math display">\[\begin{align*}
+a_1x_1+a_2x_2+...+a_nx_n=b
+\end{align*}\]</span>
+est un <span class="math inline">\(n\)</span>-uplet écrit sous la forme <span class="math inline">\((r_1,r_2,...,r_n)\)</span> (qui veut dire <span class="math inline">\(x_1=r_1\)</span>, <span class="math inline">\(x_2=r_2\)</span>,… et <span class="math inline">\(x_n=r_n\)</span>), qui vérifie l’équation.
+</div>
+
+
+<div class="definition">
+<span id="def:unnamed-chunk-5" class="definition"><strong>Définition 1.3  (L’ensemble solution d’une équation linéaire)  </strong></span>L’<strong>ensemble solution</strong> d’une équation linéaire est l’ensemble de toutes les solutions possibles de l’équation. Nous le notons par <span class="math inline">\(ES\)</span>.
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-6" class="example"><strong>Exemple 1.3  </strong></span>Pour convertir une température en degrés Celsius, notée <span class="math inline">\(C\)</span>, en une température en degrés Fahrenheit, notée <span class="math inline">\(F\)</span>, il faut utiliser l’équation:
+<span class="math display">\[\begin{align*}
+F &amp;= \dfrac{9}{5}C+32
+\end{align*}\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>Est-ce que l’équation précédente est une équation linéaire?</li>
+<li>Démontrez que <span class="math inline">\(C=5^{\circ}\)</span> et <span class="math inline">\(F=41^{\circ}\)</span> forment une solution de l’équation linéaire qui permet de convertir une température en degrés Celsius en une température en degrés Fahrenheit.
+</div></li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:celsius-fahrenheit"></span>
+<img src="algebre1_files/figure-html/celsius-fahrenheit-1.png" alt="L'équation linéaire permettant de convertir des degrés Celsius en degrés Fahrenheit." width="90%" />
+<p class="caption">
+Figure 1.1: L’équation linéaire permettant de convertir des degrés Celsius en degrés Fahrenheit.
+</p>
+</div>
+<p>Dans le cas où nous n’avons qu’une seule équation linéaire, nous verrons qu’il est relativement simple de résoudre ce type d’équations.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-7" class="example"><strong>Exemple 1.4  </strong></span>Résolvez les équations linéaires suivantes:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(3x+1=4\)</span></li>
+<li><span class="math inline">\(F=\dfrac{9}{5}C+32\)</span></li>
+<li><span class="math inline">\(2x_1+x_2-3x_3-5=0\)</span>
+</div></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="a-propos-de-ce-document.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sel.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="systeme-equation-lineaire.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -144,7 +193,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/desautm/algebre1/edit/master/index.Rmd",
+"link": "https://github.com/desautm/algebre1/edit/master/01-systeme-equation-lineaire.Rmd",
 "text": "Modifier"
 },
 "history": {

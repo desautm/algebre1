@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 1 Les systèmes d’équations linéaires | Algèbre linéaire et géométrie vectorielle</title>
+  <title>1.5 Une application | Algèbre linéaire et géométrie vectorielle</title>
   <meta name="description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
   <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 1 Les systèmes d’équations linéaires | Algèbre linéaire et géométrie vectorielle" />
+  <meta property="og:title" content="1.5 Une application | Algèbre linéaire et géométrie vectorielle" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="desautm/algebre1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 1 Les systèmes d’équations linéaires | Algèbre linéaire et géométrie vectorielle" />
+  <meta name="twitter:title" content="1.5 Une application | Algèbre linéaire et géométrie vectorielle" />
   
   <meta name="twitter:description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="a-propos-de-ce-document.html">
-<link rel="next" href="sec-intro-equation-lineaire.html">
+<link rel="prev" href="methode-gauss.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -100,33 +100,63 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="sel" class="section level1">
-<h1><span class="header-section-number">Chapitre 1</span> Les systèmes d’équations linéaires</h1>
+<div id="une-application" class="section level2">
+<h2><span class="header-section-number">1.5</span> Une application</h2>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-1" class="example"><strong>Exemple 1.1  </strong></span>Pourquoi utilisez-vous Google?</p>
-<p>Les calculs que doivent faire Google pour ordonner les sites de votre requête représente l’un des plus gros problèmes d’algèbre matricielle présentement résolus sur la planète.</p>
-<p>Les résultats de l’algorithme de Google après les déplacements du promeneur impartial.</p>
-<img src="https://upload.wikimedia.org/wikipedia/en/8/8b/PageRanks-Example.jpg" />
+<span id="exm:plaque2d" class="example"><strong>Exemple 1.10  </strong></span>La distribution de la chaleur à long terme dans une plaque de métal de forme carrée dont les côtés sont tenus à une certaine température constante peut être étudiée à l’aide d’une grille où chaque point est à la même distance que ses voisins. En première approximation, la chaleur à long terme en chaque point de cette grille est donnée par la température moyenne de ses voisins. Déterminez la température en chacun des points de la plaque suivante:
 </div>
 
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-23"></span>
+<img src="algebre1_files/figure-html/unnamed-chunk-23-1.png" alt="Plaque chauffée." width="75%" />
+<p class="caption">
+Figure 1.3: Plaque chauffée.
+</p>
+</div>
+<p>Pour obtenir une meilleure précision dans nos calculs, nous pourrions raffiner notre grille, c’est-à-dire lui ajouter des points. Par exemple, si nous prenons une grille <span class="math inline">\(5\times 5\)</span>,
+nous obtenons le système d’équations linéaires présenté sous la forme d’une matrice augmentée suivant:
+<span class="math display">\[
+\left[
+\begin{smallmatrix}
+4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;250\\
+-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;140\\
+0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;140\\
+0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;140\\
+0&amp;0&amp;0&amp;-1&amp;4&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;260\\
+-1&amp;0&amp;0&amp;0&amp;0&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;110\\
+0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;120\\
+0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;110\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;120\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;110\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;120\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;240\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;130\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;130\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;130\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;250\\
+\end{smallmatrix}
+\right]
+\]</span>
+Comme nous pouvons le constater, le système d’équations linéaires devient rapidement beaucoup trop grand pour le résoudre “à la main”. Nous allons donc utiliser un logiciel de calcul pour le résoudre.</p>
 
-<div class="example">
-<p><span id="exm:unnamed-chunk-2" class="example"><strong>Exemple 1.2  (Où suis-je?)  </strong></span>Le Global Positioning System (GPS) (en français : « Système mondial de positionnement » [littéralement] ou « Géo-positionnement par satellite »), originellement connu sous le nom de Navstar GPS, est un système de positionnement par satellites appartenant au gouvernement des États-Unis. Mis en place par le département de la Défense des États-Unis à des fins militaires à partir de 1973, le système avec 24 satellites est totalement opérationnel en 1995 et s’ouvre au civil en 2000.</p>
-<p>Le principe de fonctionnement repose sur la trilatération de signaux électromagnétiques synchronisés émis par les satellites. Pour assurer la précision du positionnement, le système GPS utilise des technologies sophistiquées : horloges atomiques embarquées, compensation d’effets relativistes, mise en place de stations d’observation et de synchronisation. Les coordonnées terrestres calculées se réfèrent au système géodésique WGS 84.</p>
-<p><img src="https://gisgeography.com/wp-content/uploads/2016/11/GPS-Trilateration-Feature-678x322.png" /></p>
-<p>Les positions des satellites sont choisies pour que au moins 4 satellites soient visibles de n’importe quel point du globe à tout moment.</p>
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/27/GPS24goldenSML.gif" />
 </div>
- 
-</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="a-propos-de-ce-document.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="sec-intro-equation-lineaire.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="methode-gauss.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

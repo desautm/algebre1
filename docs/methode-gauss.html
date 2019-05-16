@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Algèbre linéaire et géométrie vectorielle</title>
+  <title>1.4 La méthode d’élimination de Gauss | Algèbre linéaire et géométrie vectorielle</title>
   <meta name="description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
   <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Algèbre linéaire et géométrie vectorielle" />
+  <meta property="og:title" content="1.4 La méthode d’élimination de Gauss | Algèbre linéaire et géométrie vectorielle" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="desautm/algebre1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Algèbre linéaire et géométrie vectorielle" />
+  <meta name="twitter:title" content="1.4 La méthode d’élimination de Gauss | Algèbre linéaire et géométrie vectorielle" />
   
   <meta name="twitter:description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="a-propos-de-ce-document.html">
+<link rel="prev" href="systeme-equation-lineaire-echelonnee.html">
+<link rel="next" href="une-application.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -100,21 +100,85 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Algèbre linéaire et géométrie vectorielle</h1>
-<p class="author"><em>Marc-André Désautels</em></p>
-<p class="date"><em>2019-05-16</em></p>
+<div id="methode-gauss" class="section level2">
+<h2><span class="header-section-number">1.4</span> La méthode d’élimination de Gauss</h2>
+<p>Nous avons vu dans la section précédente comment résoudre des systèmes d’équations linéaires sous forme échelonnée ou sous forme échelonnée réduite. Dans cette section, nous voulons voir de quelle façon il est possible de transformer tout système d’équations linéaires sous l’une de ces deux formes.</p>
+<p>Pour être en mesure de transformer un système d’équations linéaires, nous allons avoir besoin de connaître les opérations qui permettent de modifier des équations linéaires tout en conservant le même ensemble solution.</p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-16" class="definition"><strong>Définition 1.9  (Systèmes d’équations linéaires équivalents)  </strong></span>Deux systèmes d’équations linéaires <span class="math inline">\(S_1\)</span> et <span class="math inline">\(S_2\)</span> sont dits <strong>équivalents</strong> s’ils possèdent le même ensemble solution. Nous notons alors <span class="math inline">\(S_1\sim S_2\)</span>.
 </div>
-<div id="introduction" class="section level1 unnumbered">
-<h1>Introduction</h1> 
+
+<p>Les opérations élémentaires sur les équations vont permettre de modifier le système d’équations linéaires en un système équivalent, notamment sous la forme d’un système échelonné.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-17" class="definition"><strong>Définition 1.10  (Opérations élémentaires sur les équations linéaires)  </strong></span>Soit <span class="math inline">\(L_i\)</span> la ième équation d’un système d’équations linéaires. Les  sont les suivantes:</p>
+<ul>
+<li>Nous pouvons additionner ou soustraire deux équations: <span class="math inline">\(L_i \pm L_j \rightarrow L_i\)</span></li>
+<li>Nous pouvons multiplier une équation par une constante non-nulle: <span class="math inline">\(kL_i \rightarrow L_i\)</span></li>
+<li>Nous pouvons intervertir deux équations: <span class="math inline">\(L_i \leftrightarrow L_j\)</span>
+</div></li>
+</ul>
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-18" class="theorem"><strong>Théorème 1.2  </strong></span>Les trois opérations élémentaires sur les équations linéaires ne changent pas l’ensemble solution du système d’équations linéaires.
+</div>
+
+
+<div class="proposition">
+<span id="prp:unnamed-chunk-19" class="proposition"><strong>Proposition 1.1  </strong></span>L’opération
+<span class="math display">\[\begin{align*}
+L_i\leftarrow k_1L_i+k_2L_j
+\end{align*}\]</span>
+avec <span class="math inline">\(i\neq j\)</span> et <span class="math inline">\(k_1,k_2\in\mathbb{R}\setminus \{0\}\)</span> n’affecte pas l’ensemble solution du système d’équations linéaires.
+</div>
+
+<p>Maintenant, nous voulons utiliser les opérations élémentaires sur les lignes pour transformer la matrice augmentée sous la forme échelonnée. C’est ce que nous nommons <strong>la méthode de Gauss</strong>.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-20" class="example"><strong>Exemple 1.7  </strong></span>Résolvez le système d’équations linéaires de l’exemple <a href="systeme-equation-lineaire.html#exm:chinois">1.5</a> à l’aide de la méthode de Gauss.
+<span class="math display">\[\begin{align*}
+\begin{array}{cccccccc}
+&amp;3x&amp;+&amp;2y&amp;+&amp;z&amp;=&amp;39\\
+&amp;2x&amp;+&amp;3y&amp;+&amp;z&amp;=&amp;34\\
+&amp;x&amp;+&amp;2y&amp;+&amp;3z&amp;=&amp;26\\
+\end{array}
+\end{align*}\]</span>
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-21" class="example"><strong>Exemple 1.8  </strong></span>Résolvez le système d’équations linéaires suivant à l’aide de la méthode de Gauss.
+<span class="math display">\[\begin{align*}
+\begin{array}{cccccccc}
+&amp;3x&amp;-&amp;7y&amp;+&amp;4z&amp;=&amp;34\\
+&amp;-6x&amp;-&amp;2y&amp;+&amp;9z&amp;=&amp;49\\
+&amp;7x&amp;-&amp;2y&amp;-&amp;5z&amp;=&amp;-21\\
+\end{array}
+\end{align*}\]</span>
+</div>
+
+<p>Il est parfois possible que nous devions interchanger deux lignes pour obtenir une matrice sous forme échelonnée. L’exemple suivant permettra de montrer comment faire.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-22" class="example"><strong>Exemple 1.9  </strong></span>Résolvez le système d’équations linéaires suivant.
+<span class="math display">\[\begin{align*}
+\begin{array}{cccccccc}
+&amp;&amp;&amp;3y&amp;-&amp;4z&amp;=&amp;-31\\
+&amp;2x&amp;-&amp;y&amp;+&amp;2z&amp;=&amp;17\\
+&amp;3x&amp;+&amp;2y&amp;-&amp;5z&amp;=&amp;-24\\
+\end{array}
+\end{align*}\]</span>
+</div>
+
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="a-propos-de-ce-document.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="systeme-equation-lineaire-echelonnee.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="une-application.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -144,7 +208,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/desautm/algebre1/edit/master/index.Rmd",
+"link": "https://github.com/desautm/algebre1/edit/master/01-systeme-equation-lineaire.Rmd",
 "text": "Modifier"
 },
 "history": {
