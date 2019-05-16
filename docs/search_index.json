@@ -1,0 +1,6 @@
+[
+["index.html", "Algèbre linéaire et géométrie vectorielle Introduction ", " Algèbre linéaire et géométrie vectorielle Marc-André Désautels 2019-05-16 Introduction "],
+["a-propos-de-ce-document.html", "À propos de ce document", " À propos de ce document Remerciements Ce document est généré par l’excellente extension bookdown de Yihui Xie. License Ce document est mis à disposition selon les termes de la Licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International. Licence Creative Commons "],
+["sel.html", "Chapitre 1 Les systèmes d’équations linéaires ", " Chapitre 1 Les systèmes d’équations linéaires "],
+["sec-intro-sel.html", "1.1 Une introduction aux systèmes d’équations linéaires", " 1.1 Une introduction aux systèmes d’équations linéaires Dans cette section, nous introduisons les notions d’équation linéaire et de système d’équations linéaires. Nous introduisons la façon de résoudre de petits systèmes d’équations linéaires. En pratique, les systèmes d’équations linéaires sont résolus grâce aux ordinateurs. Ces systèmes contiennent habituellement des centaines, des milliers (même des millions) d’équations et d’inconnues. Intuitivement, une équation linéaire est une équation où toutes les variables sont affectées de l’exposant \\(1\\) et ne sont pas multipliées entre elles. "]
+]
