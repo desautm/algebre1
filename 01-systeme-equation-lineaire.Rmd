@@ -1,0 +1,9 @@
+# (PART) L'algèbre matricielle {-}
+
+# Les systèmes d'équations linéaires {#sel}
+
+## Une introduction aux systèmes d'équations linéaires {#sec:intro_sel}
+
+Dans cette section, nous introduisons les notions d'équation linéaire et de système d'équations linéaires. Nous introduisons la façon de résoudre de petits systèmes d'équations linéaires. En pratique, les systèmes d'équations linéaires sont résolus grâce aux ordinateurs. Ces systèmes contiennent habituellement des centaines, des milliers (même des millions) d'équations et d'inconnues.
+
+Intuitivement, une équation linéaire est une équation où toutes les variables sont affectées de l'exposant $1$ et ne sont pas multipliées entre elles.
