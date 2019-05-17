@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="systeme-equation-lineaire-echelonnee.html">
-<link rel="next" href="une-application.html">
+<link rel="next" href="les-systemes-dequations-lineaires-homogenes.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -77,8 +77,12 @@
 <li class="chapter" data-level="1.1" data-path="sec-intro-equation-lineaire.html"><a href="sec-intro-equation-lineaire.html"><i class="fa fa-check"></i><b>1.1</b> Une introduction aux équations linéaires</a></li>
 <li class="chapter" data-level="1.2" data-path="systeme-equation-lineaire.html"><a href="systeme-equation-lineaire.html"><i class="fa fa-check"></i><b>1.2</b> Les systèmes d’équations linéaires</a></li>
 <li class="chapter" data-level="1.3" data-path="systeme-equation-lineaire-echelonnee.html"><a href="systeme-equation-lineaire-echelonnee.html"><i class="fa fa-check"></i><b>1.3</b> La résolution de système d’équations linéaires échelonnés</a></li>
-<li class="chapter" data-level="1.4" data-path="methode-gauss.html"><a href="methode-gauss.html"><i class="fa fa-check"></i><b>1.4</b> La méthode d’élimination de Gauss</a></li>
-<li class="chapter" data-level="1.5" data-path="une-application.html"><a href="une-application.html"><i class="fa fa-check"></i><b>1.5</b> Une application</a></li>
+<li class="chapter" data-level="1.4" data-path="methode-gauss.html"><a href="methode-gauss.html"><i class="fa fa-check"></i><b>1.4</b> La méthode d’élimination de Gauss</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="methode-gauss.html"><a href="methode-gauss.html#une-application"><i class="fa fa-check"></i><b>1.4.1</b> Une application</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="les-systemes-dequations-lineaires-homogenes.html"><a href="les-systemes-dequations-lineaires-homogenes.html"><i class="fa fa-check"></i><b>1.5</b> Les systèmes d’équations linéaires homogènes</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="les-systemes-dequations-lineaires-homogenes.html"><a href="les-systemes-dequations-lineaires-homogenes.html#des-applications"><i class="fa fa-check"></i><b>1.5.1</b> Des applications</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Publié avec bookdown</a></li>
@@ -171,6 +175,88 @@ avec <span class="math inline">\(i\neq j\)</span> et <span class="math inline">\
 \end{align*}\]</span>
 </div>
 
+<p>Nous obtenons parfois une infinité de solutions à notre système d’équations linéaires.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-26" class="example"><strong>Exemple 1.10  </strong></span>Résolvez le système d’équations linéaires suivant:
+<span class="math display">\[\begin{align*}
+\begin{array}{cccccccc}
+&amp;4x&amp;+&amp;3y&amp;-&amp;8z&amp;=&amp;14\\
+&amp;-x&amp;-&amp;y&amp;+&amp;3z&amp;=&amp;-4\\
+&amp;5x&amp;-&amp;2y&amp;+&amp;13z&amp;=&amp;6\\
+\end{array}
+\end{align*}\]</span>
+</div>
+
+<p>Nous obtenons parfois aucune solution à notre système d’équations linéaires.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-27" class="example"><strong>Exemple 1.11  </strong></span>Résolvez le système d’équations linéaires suivant:
+<span class="math display">\[\begin{align*}
+\begin{array}{cccccccc}
+&amp;-7x&amp;-&amp;4y&amp;-&amp;6z&amp;=&amp;-1\\
+&amp;17x&amp;+&amp;8y&amp;+&amp;15z&amp;=&amp;-8\\
+&amp;-7x&amp;-&amp;16y&amp;-&amp;3z&amp;=&amp;3\\
+\end{array}
+\end{align*}\]</span>
+</div>
+
+<div id="une-application" class="section level3">
+<h3><span class="header-section-number">1.4.1</span> Une application</h3>
+
+<div class="example">
+<span id="exm:plaque2d" class="example"><strong>Exemple 1.12  </strong></span>La distribution de la chaleur à long terme dans une plaque de métal de forme carrée dont les côtés sont tenus à une certaine température constante peut être étudiée à l’aide d’une grille où chaque point est à la même distance que ses voisins. En première approximation, la chaleur à long terme en chaque point de cette grille est donnée par la température moyenne de ses voisins. Déterminez la température en chacun des points de la plaque suivante:
+</div>
+
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-28"></span>
+<img src="algebre1_files/figure-html/unnamed-chunk-28-1.png" alt="Plaque chauffée." width="75%" />
+<p class="caption">
+Figure 1.3: Plaque chauffée.
+</p>
+</div>
+<p>Pour obtenir une meilleure précision dans nos calculs, nous pourrions raffiner notre grille, c’est-à-dire lui ajouter des points. Par exemple, si nous prenons une grille <span class="math inline">\(5\times 5\)</span>,
+nous obtenons le système d’équations linéaires présenté sous la forme d’une matrice augmentée suivant:
+<span class="math display">\[
+\left[
+\begin{smallmatrix}
+4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;250\\
+-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;140\\
+0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;140\\
+0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;140\\
+0&amp;0&amp;0&amp;-1&amp;4&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;260\\
+-1&amp;0&amp;0&amp;0&amp;0&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;110\\
+0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;120\\
+0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;110\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;120\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;110\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;120\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;4&amp;-1&amp;0&amp;0&amp;0&amp;240\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;0&amp;130\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;0&amp;130\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;-1&amp;130\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;-1&amp;4&amp;250\\
+\end{smallmatrix}
+\right]
+\]</span>
+Comme nous pouvons le constater, le système d’équations linéaires devient rapidement beaucoup trop grand pour le résoudre “à la main”. Nous allons donc utiliser un logiciel de calcul pour le résoudre.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-29"></span>
+<img src="algebre1_files/figure-html/unnamed-chunk-29-1.png" alt="Plaque chauffée." width="75%" />
+<p class="caption">
+Figure 1.4: Plaque chauffée.
+</p>
+</div>
+<p>La figure suivante présente le même problème étudié précédemment, mais sur une grille <span class="math inline">\(50\times 50\)</span>.</p>
+<p><img src="resources/images/grille_chaleur.png" width="280" /></p>
+</div>
 </div>
             </section>
 
@@ -178,7 +264,7 @@ avec <span class="math inline">\(i\neq j\)</span> et <span class="math inline">\
         </div>
       </div>
 <a href="systeme-equation-lineaire-echelonnee.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="une-application.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="les-systemes-dequations-lineaires-homogenes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

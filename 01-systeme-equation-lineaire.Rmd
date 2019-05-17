@@ -354,8 +354,7 @@ Résolvez le système d'équations linéaires suivant:
 \end{align*}
 ```
 
-
-## Une application
+### Une application
 
 ```{example, plaque2d}
 La distribution de la chaleur à long terme dans une plaque de métal de forme carrée dont les côtés sont tenus à une certaine température constante peut être étudiée à l'aide d'une grille où chaque point est à la même distance que ses voisins.  En première approximation, la chaleur à long terme en chaque point de cette grille est donnée par la température moyenne de ses voisins. Déterminez la température en chacun des points de la plaque suivante:
@@ -492,3 +491,128 @@ La figure suivante présente le même problème étudié précédemment, mais su
 ```{r, echo=FALSE}
 knitr::include_graphics("resources/images/grille_chaleur.png")
 ```
+
+## Les systèmes d'équations linéaires homogènes
+
+Les systèmes d'équations linéaires homogènes sont une classe particulière de systèmes d'équations linéaires. Ceux-ci ont la particularité de toujours posséder au moins une solution. Il est impossible qu'un tel système ne possède aucune solution.
+
+```{definition, name="Un système d'équations linéaires homogène"}
+Un **système d'équations linéaires homogène** de $m$ équations et $n$ variables (ou inconnues) $x_1$, $x_2$, ... et $x_n$ est un ensemble de $m$ équations linéaires de la forme:
+\begin{align*}
+\begin{array}{cccccccccc}
+&a_{1,1}x_1&+&a_{1,2}x_2&+&\ldots &+&a_{1,n}x_n&=&0 \\
+&a_{2,1}x_1&+&a_{2,2}x_2&+&\ldots &+&a_{2,n}x_n&=&0 \\
+&&&&&&&&\vdots & \\
+&a_{m,1}x_1&+&a_{m,2}x_2&+&\ldots &+&a_{m,n}x_n&=&0
+\end{array}
+\end{align*}
+La matrice augmentée d'un tel système est:
+\begin{align*}
+\crochet{\begin{array}{cccc|c}
+a_{1,1}&a_{1,2}&\ldots &a_{1,n}&0 \\
+a_{2,1}&a_{2,2}&\ldots &a_{2,n}&0 \\
+\vdots &\vdots &&\vdots & \vdots \\
+a_{m,1}&a_{m,2}&\ldots &a_{m,n}&0
+\end{array}}
+\end{align*}
+```
+
+Un système d'équations linéaires homogène possède toujours une solution. En effet, la solution triviale $x_1=x_2=\ldots=x_n=0$ forme toujours une solution d'un système. Puisqu'il est impossible que le système ne possède aucune solution, il possède soit une solution unique (la solution triviale) soit une infinité de solutions.
+
+```{example}
+Déterminez les valeurs de $a$, $b$, $c$ et $d$ qui équilibrent l'équation chimique suivante:
+\begin{align*}
+aC_2H_6+bO_2 \rightarrow cCO_2+dH_2O
+\end{align*}
+```
+
+### Des applications
+
+```{example}
+La loi des leviers d'Archimède stipule que deux masses sont en équilibre sur une balance si leurs poids sont inversement proportionnels à leur distance par rapport au point d'appui. En d'autres mots, pour que deux masses $m_1$ et $m_2$ situées respectivement à des distances $d_1$ et $d_2$ du point d'appui soient en équilibre, il faut que:
+\begin{align*}
+	m_1d_1 &= m_2d_2
+\end{align*}
+Trouvez les masses $m_1$, $m_2$, $m_3$ et $m_4$ pour que le système suivant soit en équilibre.
+```
+
+```{tikz, echo=FALSE, fig.cap = "La loi des leviers d'Archimède.", fig.ext = 'png', cache=TRUE, fig.align="center", out.width="75%"}
+\begin{tikzpicture}[scale=0.5]
+
+\draw[thick] (0,0)--(0,-2)--(-5,-2) node[midway,above] {5} --(-5,-4)--(-7,-4) node[midway,above] {2}--(-7,-5);
+\draw[thick] (-5,-4)--(1,-4) node[midway,above] {6} -- (1,-5);
+\draw[thick] (0,-2)--(10,-2) node[midway,above] {10} --(10,-4)--(8,-4) node[midway,above] {2}--(8,-5);
+\draw[thick] (10,-4)--(18,-4) node[midway,above] {8} --(18,-5);
+
+\draw[fill=gray] (-7.5,-5) rectangle ++(1,-2);
+\draw[fill=gray] (0.5,-5) rectangle ++(1,-2);
+\draw[fill=gray] (7.5,-5) rectangle ++(1,-2);
+\draw[fill=gray] (17.5,-5) rectangle ++(1,-2);
+
+\node[below] at (-7,-7) {$m_1$};
+\node[below] at (1,-7) {$m_2$};
+\node[below] at (8,-7) {$m_3$};
+\node[below] at (18,-7) {$m_4$};
+
+\end{tikzpicture}
+```
+
+## La méthode de Gauss avec substitution arrière
+
+La section précédente nous a permis d'introduire la méthode d'élimination de Gauss. Celle-ci permettait d'obtenir une matrice sous forme échelonnée. Une fois cette matrice obtenue, il nous était possible d'utiliser la méthode de substitution arrière pour trouver l'ensemble solution du système d'équations linéaires. Dans cette section, nous introduirons la méthode d'élimination de Gauss avec substitution arrière, c'est-à-dire que nous obtiendrons une matrice échelonnée réduite en effectuant la méthode de Gauss et ensuite la méthode de substitution arrière directement sur la matrice augmentée.
+
+```{example}
+Résolvez le système d'équations linéaires suivant à l'aide de la méthode de Gauss avec substitution arrière.
+\begin{align*}
+\begin{array}{cccccccc}
+&-4x&+&5y&+&z&=&9\\
+&3x&&&+&5z&=&-19\\
+&3x&+&5y&-&4z&=&98\\
+&4x&-&5y&+&5z&=&-57\\
+\end{array}
+\end{align*}
+```
+
+```{example}
+Résolvez le système d'équations linéaires suivant:
+\begin{align*}
+\begin{array}{cccccccccc}
+&-2w&-&3x&+&5y&-&2z&=&0\\
+&4w&+&2x&-&3y&-&2z&=&4\\
+&14w&+&x&&&-&16z&=&10\\
+\end{array}
+\end{align*}
+```
+
+```{example}
+Résolvez le système d'équations linéaires suivant:
+\begin{align*}
+\begin{array}{cccccccccc}
+&-2x_{1}&-&3x_{2}&+&4x_{3}&-&20x_{4}&=&15\\
+&x_{1}&-&3x_{2}&-&2x_{3}&-&8x_{4}&=&6\\
+&x_{1}&&&-&2x_{3}&+&4x_{4}&=&-3\\
+\end{array}
+\end{align*}
+```
+
+### Une application
+
+```{example}
+Trouvez l'équation de la parabole passant par les points $P(1,6)$, $Q(-3,34)$ et $R(2,9)$.
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
