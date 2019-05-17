@@ -14,7 +14,6 @@ description: "Un livre sur l'algèbre linéaire et géométrie vectorielle."
 
 ```{r setup, include=FALSE}
 library(tidyverse)
-library(viridis)
 ```
 
 # Introduction {-}
