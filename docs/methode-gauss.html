@@ -24,7 +24,7 @@
 <meta name="author" content="Marc-André Désautels" />
 
 
-<meta name="date" content="2019-05-16" />
+<meta name="date" content="2019-05-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -106,13 +106,13 @@
 <p>Pour être en mesure de transformer un système d’équations linéaires, nous allons avoir besoin de connaître les opérations qui permettent de modifier des équations linéaires tout en conservant le même ensemble solution.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-16" class="definition"><strong>Définition 1.9  (Systèmes d’équations linéaires équivalents)  </strong></span>Deux systèmes d’équations linéaires <span class="math inline">\(S_1\)</span> et <span class="math inline">\(S_2\)</span> sont dits <strong>équivalents</strong> s’ils possèdent le même ensemble solution. Nous notons alors <span class="math inline">\(S_1\sim S_2\)</span>.
+<span id="def:unnamed-chunk-19" class="definition"><strong>Définition 1.9  (Systèmes d’équations linéaires équivalents)  </strong></span>Deux systèmes d’équations linéaires <span class="math inline">\(S_1\)</span> et <span class="math inline">\(S_2\)</span> sont dits <strong>équivalents</strong> s’ils possèdent le même ensemble solution. Nous notons alors <span class="math inline">\(S_1\sim S_2\)</span>.
 </div>
 
 <p>Les opérations élémentaires sur les équations vont permettre de modifier le système d’équations linéaires en un système équivalent, notamment sous la forme d’un système échelonné.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-17" class="definition"><strong>Définition 1.10  (Opérations élémentaires sur les équations linéaires)  </strong></span>Soit <span class="math inline">\(L_i\)</span> la ième équation d’un système d’équations linéaires. Les  sont les suivantes:</p>
+<p><span id="def:unnamed-chunk-20" class="definition"><strong>Définition 1.10  (Opérations élémentaires sur les équations linéaires)  </strong></span>Soit <span class="math inline">\(L_i\)</span> la ième équation d’un système d’équations linéaires. Les  sont les suivantes:</p>
 <ul>
 <li>Nous pouvons additionner ou soustraire deux équations: <span class="math inline">\(L_i \pm L_j \rightarrow L_i\)</span></li>
 <li>Nous pouvons multiplier une équation par une constante non-nulle: <span class="math inline">\(kL_i \rightarrow L_i\)</span></li>
@@ -121,12 +121,12 @@
 </ul>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-18" class="theorem"><strong>Théorème 1.2  </strong></span>Les trois opérations élémentaires sur les équations linéaires ne changent pas l’ensemble solution du système d’équations linéaires.
+<span id="thm:unnamed-chunk-21" class="theorem"><strong>Théorème 1.2  </strong></span>Les trois opérations élémentaires sur les équations linéaires ne changent pas l’ensemble solution du système d’équations linéaires.
 </div>
 
 
 <div class="proposition">
-<span id="prp:unnamed-chunk-19" class="proposition"><strong>Proposition 1.1  </strong></span>L’opération
+<span id="prp:unnamed-chunk-22" class="proposition"><strong>Proposition 1.1  </strong></span>L’opération
 <span class="math display">\[\begin{align*}
 L_i\leftarrow k_1L_i+k_2L_j
 \end{align*}\]</span>
@@ -136,7 +136,7 @@ avec <span class="math inline">\(i\neq j\)</span> et <span class="math inline">\
 <p>Maintenant, nous voulons utiliser les opérations élémentaires sur les lignes pour transformer la matrice augmentée sous la forme échelonnée. C’est ce que nous nommons <strong>la méthode de Gauss</strong>.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-20" class="example"><strong>Exemple 1.7  </strong></span>Résolvez le système d’équations linéaires de l’exemple <a href="systeme-equation-lineaire.html#exm:chinois">1.5</a> à l’aide de la méthode de Gauss.
+<span id="exm:unnamed-chunk-23" class="example"><strong>Exemple 1.7  </strong></span>Résolvez le système d’équations linéaires de l’exemple <a href="systeme-equation-lineaire.html#exm:chinois">1.5</a> à l’aide de la méthode de Gauss.
 <span class="math display">\[\begin{align*}
 \begin{array}{cccccccc}
 &amp;3x&amp;+&amp;2y&amp;+&amp;z&amp;=&amp;39\\
@@ -148,7 +148,7 @@ avec <span class="math inline">\(i\neq j\)</span> et <span class="math inline">\
 
 
 <div class="example">
-<span id="exm:unnamed-chunk-21" class="example"><strong>Exemple 1.8  </strong></span>Résolvez le système d’équations linéaires suivant à l’aide de la méthode de Gauss.
+<span id="exm:unnamed-chunk-24" class="example"><strong>Exemple 1.8  </strong></span>Résolvez le système d’équations linéaires suivant à l’aide de la méthode de Gauss.
 <span class="math display">\[\begin{align*}
 \begin{array}{cccccccc}
 &amp;3x&amp;-&amp;7y&amp;+&amp;4z&amp;=&amp;34\\
@@ -161,7 +161,7 @@ avec <span class="math inline">\(i\neq j\)</span> et <span class="math inline">\
 <p>Il est parfois possible que nous devions interchanger deux lignes pour obtenir une matrice sous forme échelonnée. L’exemple suivant permettra de montrer comment faire.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-22" class="example"><strong>Exemple 1.9  </strong></span>Résolvez le système d’équations linéaires suivant.
+<span id="exm:unnamed-chunk-25" class="example"><strong>Exemple 1.9  </strong></span>Résolvez le système d’équations linéaires suivant.
 <span class="math display">\[\begin{align*}
 \begin{array}{cccccccc}
 &amp;&amp;&amp;3y&amp;-&amp;4z&amp;=&amp;-31\\

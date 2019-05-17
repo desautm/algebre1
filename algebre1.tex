@@ -85,7 +85,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-05-16}
+    \date{2019-05-17}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -160,21 +160,21 @@ Ce document est mis à disposition selon les termes de la \href{http://creativec
 Les calculs que doivent faire Google pour ordonner les sites de votre requête représente l'un des plus gros problèmes d'algèbre matricielle présentement résolus sur la planète.
 
 Les résultats de l'algorithme de Google après les déplacements du promeneur impartial.
-
-\includegraphics{https://upload.wikimedia.org/wikipedia/en/8/8b/PageRanks-Example.jpg}
 \EndKnitrBlock{example}
 
+\includegraphics{resources/images/PageRanks-Example.jpg}
+
 \BeginKnitrBlock{example}[Où suis-je?]
-\protect\hypertarget{exm:unnamed-chunk-2}{}{\label{exm:unnamed-chunk-2} \iffalse (Où suis-je?) \fi{} }Le Global Positioning System (GPS) (en français : « Système mondial de positionnement » {[}littéralement{]} ou « Géo-positionnement par satellite »), originellement connu sous le nom de Navstar GPS, est un système de positionnement par satellites appartenant au gouvernement des États-Unis. Mis en place par le département de la Défense des États-Unis à des fins militaires à partir de 1973, le système avec 24 satellites est totalement opérationnel en 1995 et s'ouvre au civil en 2000.
+\protect\hypertarget{exm:unnamed-chunk-3}{}{\label{exm:unnamed-chunk-3} \iffalse (Où suis-je?) \fi{} }Le Global Positioning System (GPS) (en français : « Système mondial de positionnement » {[}littéralement{]} ou « Géo-positionnement par satellite »), originellement connu sous le nom de Navstar GPS, est un système de positionnement par satellites appartenant au gouvernement des États-Unis. Mis en place par le département de la Défense des États-Unis à des fins militaires à partir de 1973, le système avec 24 satellites est totalement opérationnel en 1995 et s'ouvre au civil en 2000.
 
 Le principe de fonctionnement repose sur la trilatération de signaux électromagnétiques synchronisés émis par les satellites. Pour assurer la précision du positionnement, le système GPS utilise des technologies sophistiquées : horloges atomiques embarquées, compensation d'effets relativistes, mise en place de stations d'observation et de synchronisation. Les coordonnées terrestres calculées se réfèrent au système géodésique WGS 84.
 
-\includegraphics{https://gisgeography.com/wp-content/uploads/2016/11/GPS-Trilateration-Feature-678x322.png}
-
 Les positions des satellites sont choisies pour que au moins 4 satellites soient visibles de n'importe quel point du globe à tout moment.
-
-\includegraphics{https://upload.wikimedia.org/wikipedia/commons/2/27/GPS24goldenSML.gif}
 \EndKnitrBlock{example}
+
+\includegraphics[width=9.42in]{resources/images/GPS-Trilateration-Feature-678x322}
+
+\includegraphics{resources/images/GPS24goldenSML.gif}
 
 \hypertarget{sec:intro_equation_lineaire}{%
 \section{Une introduction aux équations linéaires}\label{sec:intro_equation_lineaire}}
@@ -184,7 +184,7 @@ Dans cette section, nous introduisons les notions d'équation linéaire et de sy
 Intuitivement, une équation linéaire est une équation où toutes les variables sont affectées de l'exposant \(1\) et ne sont pas multipliées entre elles.
 
 \BeginKnitrBlock{definition}[Une équation linéaire]
-\protect\hypertarget{def:unnamed-chunk-3}{}{\label{def:unnamed-chunk-3} \iffalse (Une équation linéaire) \fi{} }Une équation de \(n\) variables \(x_1\), \(x_2\), \ldots{} et \(x_n\), est dite \textbf{linéaire} si elle peut être écrite sous la forme:
+\protect\hypertarget{def:unnamed-chunk-6}{}{\label{def:unnamed-chunk-6} \iffalse (Une équation linéaire) \fi{} }Une équation de \(n\) variables \(x_1\), \(x_2\), \ldots{} et \(x_n\), est dite \textbf{linéaire} si elle peut être écrite sous la forme:
 \begin{align*}
 a_1x_1+a_2x_2+\ldots+a_nx_n &= b
 \end{align*}
@@ -196,7 +196,7 @@ Si \(b=0\), nous disons que l'équation linéaire est \textbf{homogène}.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[La solution d'une équation linéaire]
-\protect\hypertarget{def:unnamed-chunk-4}{}{\label{def:unnamed-chunk-4} \iffalse (La solution d'une équation linéaire) \fi{} }Une \textbf{solution} d'une équation linéaire de \(n\) variables de la forme
+\protect\hypertarget{def:unnamed-chunk-7}{}{\label{def:unnamed-chunk-7} \iffalse (La solution d'une équation linéaire) \fi{} }Une \textbf{solution} d'une équation linéaire de \(n\) variables de la forme
 \begin{align*}
 a_1x_1+a_2x_2+...+a_nx_n=b
 \end{align*}
@@ -204,11 +204,11 @@ est un \(n\)-uplet écrit sous la forme \((r_1,r_2,...,r_n)\) (qui veut dire \(x
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[L'ensemble solution d'une équation linéaire]
-\protect\hypertarget{def:unnamed-chunk-5}{}{\label{def:unnamed-chunk-5} \iffalse (L'ensemble solution d'une équation linéaire) \fi{} }L'\textbf{ensemble solution} d'une équation linéaire est l'ensemble de toutes les solutions possibles de l'équation. Nous le notons par \(ES\).
+\protect\hypertarget{def:unnamed-chunk-8}{}{\label{def:unnamed-chunk-8} \iffalse (L'ensemble solution d'une équation linéaire) \fi{} }L'\textbf{ensemble solution} d'une équation linéaire est l'ensemble de toutes les solutions possibles de l'équation. Nous le notons par \(ES\).
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{exm:unnamed-chunk-6}{}{\label{exm:unnamed-chunk-6} }Pour convertir une température en degrés Celsius, notée \(C\), en une température en degrés Fahrenheit, notée \(F\), il faut utiliser l'équation:
+\protect\hypertarget{exm:unnamed-chunk-9}{}{\label{exm:unnamed-chunk-9} }Pour convertir une température en degrés Celsius, notée \(C\), en une température en degrés Fahrenheit, notée \(F\), il faut utiliser l'équation:
 \begin{align*}
 F &= \dfrac{9}{5}C+32
 \end{align*}
@@ -236,7 +236,7 @@ F &= \dfrac{9}{5}C+32
 Dans le cas où nous n'avons qu'une seule équation linéaire, nous verrons qu'il est relativement simple de résoudre ce type d'équations.
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{exm:unnamed-chunk-7}{}{\label{exm:unnamed-chunk-7} }Résolvez les équations linéaires suivantes:
+\protect\hypertarget{exm:unnamed-chunk-10}{}{\label{exm:unnamed-chunk-10} }Résolvez les équations linéaires suivantes:
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -275,7 +275,7 @@ est une solution du système d'équations linéaires précédent.
 Comme l'exemple précédent le démontre, il est simple de vérifier qu'un \(n\)-uplet forme une solution d'un système d'équations linéaires. Il sera par contre plus difficile de le trouver.
 
 \BeginKnitrBlock{definition}[Un système d'équations linéaires]
-\protect\hypertarget{def:unnamed-chunk-8}{}{\label{def:unnamed-chunk-8} \iffalse (Un système d'équations linéaires) \fi{} }Un \textbf{système d'équations linéaires} \(S\) de \(m\) équations et \(n\) variables (ou inconnues) \(x_1\), \(x_2\), \ldots{} et \(x_n\) est un ensemble de \(m\) équations linéaires de la forme:
+\protect\hypertarget{def:unnamed-chunk-11}{}{\label{def:unnamed-chunk-11} \iffalse (Un système d'équations linéaires) \fi{} }Un \textbf{système d'équations linéaires} \(S\) de \(m\) équations et \(n\) variables (ou inconnues) \(x_1\), \(x_2\), \ldots{} et \(x_n\) est un ensemble de \(m\) équations linéaires de la forme:
 \begin{align*}
 S=\left\{\begin{array}{cccccccccc}
 &a_{1,1}x_1&+&a_{1,2}x_2&+&\ldots &+&a_{1,n}x_n&=&b_1 \\
@@ -289,18 +289,18 @@ Les nombres \(a_{1,1}\), \(a_{1,2}\), \ldots, \(a_{1,n}\), \(a_{2,1}\), \ldots, 
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[La solution d'un système  d'équations linéaires]
-\protect\hypertarget{def:unnamed-chunk-9}{}{\label{def:unnamed-chunk-9} \iffalse (La solution d'un système d'équations linéaires) \fi{} }Une \textbf{solution} d'un système d'équations linéaires de \(m\) équations et de \(n\) variables
+\protect\hypertarget{def:unnamed-chunk-12}{}{\label{def:unnamed-chunk-12} \iffalse (La solution d'un système d'équations linéaires) \fi{} }Une \textbf{solution} d'un système d'équations linéaires de \(m\) équations et de \(n\) variables
 est un \(n\)-uplet écrit sous la forme \(r_1,r_2,...,r_n\) (qui veut dire \(x_1=r_1\), \(x_2=r_2\),\ldots{} et \(x_n=r_n\)), qui vérifie les \(m\) équations du système.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[L'ensemble solution d'un système  d'équations linéaires]
-\protect\hypertarget{def:unnamed-chunk-10}{}{\label{def:unnamed-chunk-10} \iffalse (L'ensemble solution d'un système d'équations linéaires) \fi{} }L'\textbf{ensemble solution} d'un système d'équations linéaires est l'ensemble de toutes les solutions possibles du système. Nous le notons par \(ES\).
+\protect\hypertarget{def:unnamed-chunk-13}{}{\label{def:unnamed-chunk-13} \iffalse (L'ensemble solution d'un système d'équations linéaires) \fi{} }L'\textbf{ensemble solution} d'un système d'équations linéaires est l'ensemble de toutes les solutions possibles du système. Nous le notons par \(ES\).
 \EndKnitrBlock{definition}
 
 Il existe trois types de solutions pour un système d'équations linéaires.
 
 \BeginKnitrBlock{theorem}[Les types de solutions d'un système d'équations linéaires]
-\protect\hypertarget{thm:unnamed-chunk-11}{}{\label{thm:unnamed-chunk-11} \iffalse (Les types de solutions d'un système d'équations linéaires) \fi{} }Les types de solutions d'un système d'équations linéaires sont:
+\protect\hypertarget{thm:unnamed-chunk-14}{}{\label{thm:unnamed-chunk-14} \iffalse (Les types de solutions d'un système d'équations linéaires) \fi{} }Les types de solutions d'un système d'équations linéaires sont:
 
 \begin{itemize}
 \tightlist
@@ -315,17 +315,17 @@ Il existe trois types de solutions pour un système d'équations linéaires.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.33\linewidth]{algebre1_files/figure-latex/unnamed-chunk-12-1} \includegraphics[width=0.33\linewidth]{algebre1_files/figure-latex/unnamed-chunk-12-2} \includegraphics[width=0.33\linewidth]{algebre1_files/figure-latex/unnamed-chunk-12-3} 
+{\centering \includegraphics[width=0.33\linewidth]{algebre1_files/figure-latex/unnamed-chunk-15-1} \includegraphics[width=0.33\linewidth]{algebre1_files/figure-latex/unnamed-chunk-15-2} \includegraphics[width=0.33\linewidth]{algebre1_files/figure-latex/unnamed-chunk-15-3} 
 
 }
 
-\caption{Les trois types de solutions d'un système d'équations linéaires}\label{fig:unnamed-chunk-12}
+\caption{Les trois types de solutions d'un système d'équations linéaires}\label{fig:unnamed-chunk-15}
 \end{figure}
 
 Il est possible d'abréger l'écriture d'un système d'équations linéaires en ne conservant que les coefficients et les constantes de ce système, en supposant que le nom et l'ordre des variables a été spécifié. Cette façon de représenter un système d'équations linéaires est appelé la matrice augmentée du système.
 
 \BeginKnitrBlock{definition}[La matrice augmentée d'un système d'équations linéaires]
-\protect\hypertarget{def:unnamed-chunk-13}{}{\label{def:unnamed-chunk-13} \iffalse (La matrice augmentée d'un système d'équations linéaires) \fi{} }Soit un système d'équations linéaires de la forme suivante:
+\protect\hypertarget{def:unnamed-chunk-16}{}{\label{def:unnamed-chunk-16} \iffalse (La matrice augmentée d'un système d'équations linéaires) \fi{} }Soit un système d'équations linéaires de la forme suivante:
 \begin{align*}
 \begin{array}{cccccccccc}
 &a_{1,1}x_1&+&a_{1,2}x_2&+&\ldots &+&a_{1,n}x_n&=&b_1 \\
@@ -356,7 +356,7 @@ Par contre, avant d'apprendre des méthodes générales pour résoudre des syst�
 Les systèmes les plus simples à résoudre sont ceux que nous rencontrons sous une forme échelonnée ou une forme échelonnée réduite.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-14}{}{\label{def:unnamed-chunk-14} }Un système d'équations linéaires est dit être sous la \textbf{forme échelonnée} si les conditions suivantes sont remplies:
+\protect\hypertarget{def:unnamed-chunk-17}{}{\label{def:unnamed-chunk-17} }Un système d'équations linéaires est dit être sous la \textbf{forme échelonnée} si les conditions suivantes sont remplies:
 
 \begin{itemize}
 \tightlist
@@ -393,7 +393,7 @@ a_{1,1}x_1 & +& a_{1,2}x_2 & +&  a_{1,3}x_3 & \ldots & +&  a_{1,n}x_n & =& b_1  
 Un système d'équations linéaires sous la forme échelonnée se résout lui aussi assez facilement à l'aide de la méthode dite de ``substitution arrière''. La méthode tient son nom du fait que nous commençons à résoudre l'équation située à la dernière ligne. Nous substituons ensuite la valeur trouvée dans l'équation précédente pour résoudre cette équation et nous répétons jusqu'à l'équation située sur la première ligne.
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{exm:unnamed-chunk-15}{}{\label{exm:unnamed-chunk-15} }Trouvez l'ensemble solution des systèmes d'équations linéaires suivants, présentés sous la forme échelonnée.
+\protect\hypertarget{exm:unnamed-chunk-18}{}{\label{exm:unnamed-chunk-18} }Trouvez l'ensemble solution des systèmes d'équations linéaires suivants, présentés sous la forme échelonnée.
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -435,13 +435,13 @@ Nous avons vu dans la section précédente comment résoudre des systèmes d'éq
 Pour être en mesure de transformer un système d'équations linéaires, nous allons avoir besoin de connaître les opérations qui permettent de modifier des équations linéaires tout en conservant le même ensemble solution.
 
 \BeginKnitrBlock{definition}[Systèmes d'équations linéaires équivalents]
-\protect\hypertarget{def:unnamed-chunk-16}{}{\label{def:unnamed-chunk-16} \iffalse (Systèmes d'équations linéaires équivalents) \fi{} }Deux systèmes d'équations linéaires \(S_1\) et \(S_2\) sont dits \textbf{équivalents} s'ils possèdent le même ensemble solution. Nous notons alors \(S_1\sim S_2\).
+\protect\hypertarget{def:unnamed-chunk-19}{}{\label{def:unnamed-chunk-19} \iffalse (Systèmes d'équations linéaires équivalents) \fi{} }Deux systèmes d'équations linéaires \(S_1\) et \(S_2\) sont dits \textbf{équivalents} s'ils possèdent le même ensemble solution. Nous notons alors \(S_1\sim S_2\).
 \EndKnitrBlock{definition}
 
 Les opérations élémentaires sur les équations vont permettre de modifier le système d'équations linéaires en un système équivalent, notamment sous la forme d'un système échelonné.
 
 \BeginKnitrBlock{definition}[Opérations élémentaires sur les équations linéaires]
-\protect\hypertarget{def:unnamed-chunk-17}{}{\label{def:unnamed-chunk-17} \iffalse (Opérations élémentaires sur les équations linéaires) \fi{} }Soit \(L_i\) la ième équation d'un système d'équations linéaires. Les \textbf{opérations élémentaires sur les équations linéaires} sont les suivantes:
+\protect\hypertarget{def:unnamed-chunk-20}{}{\label{def:unnamed-chunk-20} \iffalse (Opérations élémentaires sur les équations linéaires) \fi{} }Soit \(L_i\) la ième équation d'un système d'équations linéaires. Les \textbf{opérations élémentaires sur les équations linéaires} sont les suivantes:
 
 \begin{itemize}
 \tightlist
@@ -456,11 +456,11 @@ Les opérations élémentaires sur les équations vont permettre de modifier le 
 \end{itemize}
 
 \BeginKnitrBlock{theorem}
-\protect\hypertarget{thm:unnamed-chunk-18}{}{\label{thm:unnamed-chunk-18} }Les trois opérations élémentaires sur les équations linéaires ne changent pas l'ensemble solution du système d'équations linéaires.
+\protect\hypertarget{thm:unnamed-chunk-21}{}{\label{thm:unnamed-chunk-21} }Les trois opérations élémentaires sur les équations linéaires ne changent pas l'ensemble solution du système d'équations linéaires.
 \EndKnitrBlock{theorem}
 
 \BeginKnitrBlock{proposition}
-\protect\hypertarget{prp:unnamed-chunk-19}{}{\label{prp:unnamed-chunk-19} }L'opération
+\protect\hypertarget{prp:unnamed-chunk-22}{}{\label{prp:unnamed-chunk-22} }L'opération
 \begin{align*}
 L_i\leftarrow k_1L_i+k_2L_j
 \end{align*}
@@ -470,7 +470,7 @@ avec \(i\neq j\) et \(k_1,k_2\in\mathbb{R}\setminus \{0\}\) n'affecte pas l'ense
 Maintenant, nous voulons utiliser les opérations élémentaires sur les lignes pour transformer la matrice augmentée sous la forme échelonnée. C'est ce que nous nommons \textbf{la méthode de Gauss}.
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{exm:unnamed-chunk-20}{}{\label{exm:unnamed-chunk-20} }Résolvez le système d'équations linéaires de l'exemple \ref{exm:chinois} à l'aide de la méthode de Gauss.
+\protect\hypertarget{exm:unnamed-chunk-23}{}{\label{exm:unnamed-chunk-23} }Résolvez le système d'équations linéaires de l'exemple \ref{exm:chinois} à l'aide de la méthode de Gauss.
 \begin{align*}
 \begin{array}{cccccccc}
 &3x&+&2y&+&z&=&39\\
@@ -481,7 +481,7 @@ Maintenant, nous voulons utiliser les opérations élémentaires sur les lignes 
 \EndKnitrBlock{example}
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{exm:unnamed-chunk-21}{}{\label{exm:unnamed-chunk-21} }Résolvez le système d'équations linéaires suivant à l'aide de la méthode de Gauss.
+\protect\hypertarget{exm:unnamed-chunk-24}{}{\label{exm:unnamed-chunk-24} }Résolvez le système d'équations linéaires suivant à l'aide de la méthode de Gauss.
 \begin{align*}
 \begin{array}{cccccccc}
 &3x&-&7y&+&4z&=&34\\
@@ -494,7 +494,7 @@ Maintenant, nous voulons utiliser les opérations élémentaires sur les lignes 
 Il est parfois possible que nous devions interchanger deux lignes pour obtenir une matrice sous forme échelonnée. L'exemple suivant permettra de montrer comment faire.
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{exm:unnamed-chunk-22}{}{\label{exm:unnamed-chunk-22} }Résolvez le système d'équations linéaires suivant.
+\protect\hypertarget{exm:unnamed-chunk-25}{}{\label{exm:unnamed-chunk-25} }Résolvez le système d'équations linéaires suivant.
 \begin{align*}
 \begin{array}{cccccccc}
 &&&3y&-&4z&=&-31\\
@@ -513,11 +513,11 @@ Il est parfois possible que nous devions interchanger deux lignes pour obtenir u
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.75\linewidth]{algebre1_files/figure-latex/unnamed-chunk-23-1} 
+{\centering \includegraphics[width=0.75\linewidth]{algebre1_files/figure-latex/unnamed-chunk-26-1} 
 
 }
 
-\caption{Plaque chauffée.}\label{fig:unnamed-chunk-23}
+\caption{Plaque chauffée.}\label{fig:unnamed-chunk-26}
 \end{figure}
 
 Pour obtenir une meilleure précision dans nos calculs, nous pourrions raffiner notre grille, c'est-à-dire lui ajouter des points. Par exemple, si nous prenons une grille \(5\times 5\),
