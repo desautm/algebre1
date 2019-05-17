@@ -1,7 +1,0 @@
-language: r
-cache:
-  packages: true
-pandoc_version: 1.19.2.1
-
-script:
-  - Rscript -e "bookdown::render_book('index.Rmd', 'bookdown::gitbook')"
