@@ -1,5 +1,6 @@
 language: r
-cache: packages
+cache:
+  packages: true
 pandoc_version: 1.19.2.1
 
 before_script:

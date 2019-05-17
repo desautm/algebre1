@@ -328,6 +328,33 @@ Résolvez le système d'équations linéaires suivant.
 \end{align*}
 ```
 
+Nous obtenons parfois une infinité de solutions à notre système d'équations linéaires.
+
+```{example}
+Résolvez le système d'équations linéaires suivant:
+\begin{align*}
+\begin{array}{cccccccc}
+&4x&+&3y&-&8z&=&14\\
+&-x&-&y&+&3z&=&-4\\
+&5x&-&2y&+&13z&=&6\\
+\end{array}
+\end{align*}
+```
+
+Nous obtenons parfois aucune solution à notre système d'équations linéaires.
+
+```{example}
+Résolvez le système d'équations linéaires suivant:
+\begin{align*}
+\begin{array}{cccccccc}
+&-7x&-&4y&-&6z&=&-1\\
+&17x&+&8y&+&15z&=&-8\\
+&-7x&-&16y&-&3z&=&3\\
+\end{array}
+\end{align*}
+```
+
+
 ## Une application
 
 ```{example, plaque2d}
@@ -405,6 +432,63 @@ $$
 $$
 Comme nous pouvons le constater, le système d'équations linéaires devient rapidement beaucoup trop grand pour le résoudre "à la main". Nous allons donc utiliser un logiciel de calcul pour le résoudre.
 
+```{tikz, echo=FALSE, fig.cap = "Plaque chauffée.", fig.ext = 'png', cache=TRUE, fig.align="center", out.width="75%"}
+\begin{tikzpicture}
 
+\draw[thin] (1,1) grid (7,7);
 
+\foreach \i in {2,3,4,5,6}{
+	\foreach \j in {2,3,4,5,6}{
+		\draw[fill] (\i,\j) circle (2pt) node {};
+	}
+}
 
+\node[above right] at (2,6) {\tiny $125$};
+\node[above right] at (3,6) {\tiny $130.66$};
+\node[above right] at (4,6) {\tiny $132.66$};
+\node[above right] at (5,6) {\tiny $132.40$};
+\node[above right] at (6,6) {\tiny $129.37$};
+\node[above right] at (2,5) {\tiny $119.34$};
+\node[above right] at (3,5) {\tiny $125$};
+\node[above right] at (4,5) {\tiny $127.56$};
+\node[above right] at (5,5) {\tiny $127.58$};
+\node[above right] at (6,5) {\tiny $125.09$};
+\node[above right] at (2,4) {\tiny $117.34$};
+\node[above right] at (3,4) {\tiny $122.44$};
+\node[above right] at (4,4) {\tiny $125$};
+\node[above right] at (5,4) {\tiny $125.25$};
+\node[above right] at (6,4) {\tiny $123.43$};
+\node[above right] at (2,3) {\tiny $117.60$};
+\node[above right] at (3,3) {\tiny $122.42$};
+\node[above right] at (4,3) {\tiny $124.75$};
+\node[above right] at (5,3) {\tiny $125$};
+\node[above right] at (6,3) {\tiny $123.36$};
+\node[above right] at (2,2) {\tiny $120.63$};
+\node[above right] at (3,2) {\tiny $124.91$};
+\node[above right] at (4,2) {\tiny $126.58$};
+\node[above right] at (5,2) {\tiny $126.64$};
+
+% Frontiere gauche
+\foreach \j  in {2,3,4,5,6}{
+	\draw[fill] (1,\j) circle (2pt) node[left] {110};
+}
+% Frontiere droite
+\foreach \j  in {2,3,4,5,6}{
+	\draw[fill] (7,\j) circle (2pt) node[right] {120};
+}
+% Frontiere bas
+\foreach \i  in {2,3,4,5,6}{
+	\draw[fill] (\i,1) circle (2pt) node[below] {130};
+}
+% Frontiere haut
+\foreach \i  in {2,3,4,5,6}{
+	\draw[fill] (\i,7) circle (2pt) node[above] {140};
+}
+\end{tikzpicture}
+```
+
+La figure suivante présente le même problème étudié précédemment, mais sur une grille $50\times 50$.
+
+```{r, echo=FALSE}
+knitr::include_graphics("resources/images/grille_chaleur.png")
+```
