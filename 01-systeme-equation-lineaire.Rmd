@@ -1,6 +1,5 @@
 # (PART) L'algèbre matricielle {-}
 
-
 # Les systèmes d'équations linéaires {#sel}
 
 ```{example}
@@ -26,11 +25,11 @@ Les positions des satellites sont choisies pour que au moins 4 satellites soient
 
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width="75%", fig.align='center'}
 knitr::include_graphics("resources/images/GPS-Trilateration-Feature-678x322.png")
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics("resources/images/GPS24goldenSML.gif")
 ```
 
@@ -488,7 +487,7 @@ Comme nous pouvons le constater, le système d'équations linéaires devient rap
 
 La figure suivante présente le même problème étudié précédemment, mais sur une grille $50\times 50$.
 
-```{r, echo=FALSE}
+```{r, echo=FALSE,out.width="75%",fig.align='center'}
 knitr::include_graphics("resources/images/grille_chaleur.png")
 ```
 
@@ -508,12 +507,12 @@ Un **système d'équations linéaires homogène** de $m$ équations et $n$ varia
 \end{align*}
 La matrice augmentée d'un tel système est:
 \begin{align*}
-\crochet{\begin{array}{cccc|c}
+\left[\begin{array}{cccc|c}
 a_{1,1}&a_{1,2}&\ldots &a_{1,n}&0 \\
 a_{2,1}&a_{2,2}&\ldots &a_{2,n}&0 \\
 \vdots &\vdots &&\vdots & \vdots \\
 a_{m,1}&a_{m,2}&\ldots &a_{m,n}&0
-\end{array}}
+\end{array}\right]
 \end{align*}
 ```
 

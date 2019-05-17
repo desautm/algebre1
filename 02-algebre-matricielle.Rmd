@@ -1,0 +1,7 @@
+# Les matrices {#matrices}
+
+```{example, name="Les photos numériques"}
+Les écrans de nos téléphones intelligents 
+```
+
+[Une feuille de calcul pas comme les autres](https://docs.google.com/spreadsheets/d/e/2PACX-1vQlMpjcuG6vAjO40W1oMXe3J40wmDczGQEHzdvz1aHF_HadCymBE_OS-f197cYWvoGnnmqERiR7aKkw/pubhtml)
