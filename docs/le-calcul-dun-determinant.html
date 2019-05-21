@@ -162,7 +162,7 @@
 <h3><span class="header-section-number">3.1.2</span> Le calcul d’un déterminant d’une matrice <span class="math inline">\(2\times 2\)</span></h3>
 
 <div class="definition">
-<span id="def:unnamed-chunk-85" class="definition"><strong>Définition 2.16  </strong></span>Soit la matrice:
+<p><span id="def:unnamed-chunk-85" class="definition"><strong>Définition 2.16  </strong></span>Soit la matrice:
 <span class="math display">\[\begin{align*}
 A = \begin{bmatrix}
 a_{1,1} &amp; a_{1,2} \\
@@ -177,7 +177,7 @@ a_{2,1} &amp; a_{2,2}
 \end{vmatrix}
 =
 a_{1,1}\cdot a_{2,2}-a_{1,2}\cdot a_{2,1}
-\end{align*}\]</span>
+\end{align*}\]</span></p>
 </div>
 
 
@@ -210,7 +210,7 @@ a_{1,1}\cdot a_{2,2}-a_{1,2}\cdot a_{2,1}
 
 
 <div class="remark">
- <span class="remark"><em>Remarque. </em></span> Il est important de remarquer que le mineur d’une matrice de dimension <span class="math inline">\(n\times n\)</span> est toujours de dimension . Ceci signifie qu’un mineur diminue la dimension du déterminant que nous voulons calculer.
+ <span class="remark"><em>Remarque. </em></span> Il est important de remarquer que le mineur d’une matrice de dimension <span class="math inline">\(n\times n\)</span> est toujours de dimension <span class="math inline">\((n-1)\times (n-1)\)</span>. Ceci signifie qu’un mineur diminue la dimension du déterminant que nous voulons calculer.
 </div>
 
 
@@ -235,10 +235,10 @@ Nous remarquons que les signes alternent toujours avec un signe positif à l’�
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-92" class="definition"><strong>Définition 2.19  (L’expansion par cofacteurs d’un déterminant)  </strong></span>Soit <span class="math inline">\(A\)</span> une matrice de dimension <span class="math inline">\(n \times n\)</span>. Le déterminant de <span class="math inline">\(A\)</span> est donné par:
-<span class="math display">\[\begin{align*}
-\vert A\vert &amp;= \sum_{k=1}^{n} a_{i,k}C_{i,k} \qquad\text{selon la _ième_ ligne}\\
-\vert A\vert &amp;= \sum_{k=1}^{n} a_{k,j}C_{k,j} \qquad\text{selon la _jième_ colonne}
+<p><span id="def:unnamed-chunk-92" class="definition"><strong>Définition 2.19  (L’expansion par cofacteurs d’un déterminant)  </strong></span>Soit <span class="math inline">\(A\)</span> une matrice de dimension <span class="math inline">\(n \times n\)</span>. Le déterminant de <span class="math inline">\(A\)</span> est donné par:</p>
+<p><span class="math display">\[\begin{align*}
+\vert A\vert &amp;= \sum_{k=1}^{n} a_{i,k}C_{i,k} \text{selon la ième ligne}\\
+\vert A\vert &amp;= \sum_{k=1}^{n} a_{k,j}C_{k,j} \text{selon la jième colonne}
 \end{align*}\]</span></p>
 <p>Pour être plus précis, l’expansion du déterminant de <span class="math inline">\(A\)</span> par la <em>ième</em> ligne est donnée par:
 <span class="math display">\[\begin{align*}
@@ -290,9 +290,10 @@ A = \begin{bmatrix}
 <p><span id="exm:unnamed-chunk-96" class="example"><strong>Exemple 2.25  </strong></span>Calculez les déterminants des matrices suivantes:</p>
 <ol style="list-style-type: lower-alpha">
 <li><span class="math inline">\(A=\begin{bmatrix} 4&amp;3&amp;10&amp;5\\ 5&amp;-7&amp;-3&amp;-5\\ -5&amp;-8&amp;2&amp;0\\ 4&amp;0&amp;-6&amp;0\\ \end{bmatrix}\)</span></li>
-<li><span class="math inline">\(B=\begin{bmatrix} 8&amp;-5&amp;9&amp;-1&amp;-4\\ 10&amp;7&amp;-3&amp;0&amp;0\\ 1&amp;-5&amp;-6&amp;0&amp;5\\ 0&amp;0&amp;-5&amp;0&amp;0\\ -7&amp;-5&amp;2&amp;0&amp;0\\ \end{bmatrix}\)</span>
-</div></li>
+<li><span class="math inline">\(B=\begin{bmatrix} 8&amp;-5&amp;9&amp;-1&amp;-4\\ 10&amp;7&amp;-3&amp;0&amp;0\\ 1&amp;-5&amp;-6&amp;0&amp;5\\ 0&amp;0&amp;-5&amp;0&amp;0\\ -7&amp;-5&amp;2&amp;0&amp;0\\ \end{bmatrix}\)</span></li>
 </ol>
+</div>
+
 
 <div class="remark">
  <span class="remark"><em>Remarque. </em></span> L’expansion d’un déterminant à l’aide des cofacteurs implique que le déterminant de n’importe quelle matrice triangulaire supérieure ou inférieure est le produit des éléments de sa diagonale principale.

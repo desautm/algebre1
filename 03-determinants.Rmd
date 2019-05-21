@@ -44,6 +44,7 @@ a_{2,1} & a_{2,2}
 =
 a_{1,1}\cdot a_{2,2}-a_{1,2}\cdot a_{2,1}
 \end{align*}
+
 ```
 
 ```{example}
@@ -91,7 +92,7 @@ Répondez aux questions suivantes:
 ```
 
 ```{remark}
-Il est important de remarquer que le mineur d'une matrice de dimension $n\times n$ est toujours de dimension \text{$(n-1)\times (n-1)$}. Ceci signifie qu'un mineur diminue la dimension du déterminant que nous voulons calculer.
+Il est important de remarquer que le mineur d'une matrice de dimension $n\times n$ est toujours de dimension $(n-1)\times (n-1)$. Ceci signifie qu'un mineur diminue la dimension du déterminant que nous voulons calculer.
 ```
 
 ```{definition, name="Le cofacteur d'une matrice"}
@@ -115,9 +116,10 @@ Nous remarquons que les signes alternent toujours avec un signe positif à l'él
 
 ```{definition, name="L'expansion par cofacteurs d'un déterminant"}
 Soit $A$ une matrice de dimension $n \times n$. Le déterminant de $A$ est donné par:
+  
 \begin{align*}
-\vert A\vert &= \sum_{k=1}^{n} a_{i,k}C_{i,k} \qquad\text{selon la _ième_ ligne}\\
-\vert A\vert &= \sum_{k=1}^{n} a_{k,j}C_{k,j} \qquad\text{selon la _jième_ colonne}
+\vert A\vert &= \sum_{k=1}^{n} a_{i,k}C_{i,k} \text{selon la ième ligne}\\
+\vert A\vert &= \sum_{k=1}^{n} a_{k,j}C_{k,j} \text{selon la jième colonne}
 \end{align*}
 
 Pour être plus précis, l'expansion du déterminant de $A$ par la _ième_ ligne est donnée par:
@@ -128,6 +130,7 @@ Quant à elle, l'expansion du déterminant de $A$ par la _jième_ colonne est do
 \begin{align*}
 \vert A\vert &= \sum_{k=1}^{n} a_{k,j}C_{k,j} = a_{1,j}C_{1,j}+a_{2,j}C_{2,j}+\ldots + a_{n,j}C_{n,j}
 \end{align*}
+
 
 ```
 
@@ -143,6 +146,7 @@ A=\begin{bmatrix}
 \end{bmatrix}
 \end{align*}
   a. Trouvez le déterminant de la matrice précédente en utilisant l'expansion selon la première colonne.
+
 
 ```
 
@@ -181,7 +185,8 @@ Calculez les déterminants des matrices suivantes:
 0&0&-5&0&0\\
 -7&-5&2&0&0\\
 \end{bmatrix}$
-  
+
+
 ```
 
 ```{remark}
@@ -379,6 +384,7 @@ c_1 & c_2 & c_3
 \end{align*}
   - Soit $A_n$ et $B_n$. Nous avons alors $\det(AB)=\det(A)\det(B)$.
   - Si la matrice $A$ possède une matrice inverse, alors $\det(A^{-1})=\dfrac{1}{\det(A)}$.
+
 ```
 
 Les propriétés précédentes vont nous permettre de simplifier le calcul des déterminants un peu plus loin. Par contre, il n'existe pas de propriété simple pour l'addition de deux matrices.

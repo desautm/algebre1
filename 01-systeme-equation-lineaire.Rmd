@@ -73,8 +73,10 @@ Pour convertir une température en degrés Celsius, notée $C$, en une températ
 F &= \dfrac{9}{5}C+32
 \end{align*}
 
-  a) Est-ce que l'équation précédente est une équation linéaire?
-  a) Démontrez que $C=5^{\circ}$ et $F=41^{\circ}$ forment une solution de l'équation linéaire qui permet de convertir une température en degrés Celsius en une température en degrés Fahrenheit.
+  a. Est-ce que l'équation précédente est une équation linéaire?
+  a. Démontrez que $C=5^{\circ}$ et $F=41^{\circ}$ forment une solution de l'équation linéaire qui permet de convertir une température en degrés Celsius en une température en degrés Fahrenheit.
+
+
 ```
 
 ```{r celsius-fahrenheit, echo=FALSE, fig.width=6, fig.cap="L'équation linéaire permettant de convertir des degrés Celsius en degrés Fahrenheit.", fig.align='center', out.width="90%"}
@@ -98,6 +100,7 @@ Résolvez les équations linéaires suivantes:
   a. $3x+1=4$
   a. $F=\dfrac{9}{5}C+32$
   a. $2x_1+x_2-3x_3-5=0$
+  
   
 ```
 
@@ -256,7 +259,8 @@ Trouvez l'ensemble solution des systèmes d'équations linéaires suivants, pré
 0&0&0&133\\
 \end{array}\right]
 \end{align*}
-  
+
+
 ```
 
 ## La méthode d'élimination de Gauss {#methode-gauss}
@@ -277,7 +281,8 @@ Soit $L_i$ la ième équation d'un système d'équations linéaires. Les \textbf
   - Nous pouvons additionner ou soustraire deux équations: $L_i \pm L_j \rightarrow L_i$
   - Nous pouvons multiplier une équation par une constante non-nulle: $kL_i \rightarrow L_i$
   - Nous pouvons intervertir deux équations: $L_i \leftrightarrow L_j$
-  
+
+
 ```
 
 ```{theorem}
