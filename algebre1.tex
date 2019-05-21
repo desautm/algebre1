@@ -1,0 +1,2095 @@
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Algèbre linéaire et géométrie vectorielle},
+            pdfauthor={Marc-André Désautels},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\providecommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{Algèbre linéaire et géométrie vectorielle}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Marc-André Désautels}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{2019-05-21}
+
+\usepackage{booktabs}
+\usepackage{amsthm}
+\usepackage{multido}
+\usepackage[french]{babel}
+
+\hypersetup{colorlinks=true, urlcolor=blue}
+
+\renewcommand{\chaptername}{Chapitre}
+\renewcommand{\contentsname}{Table des Matières}
+\renewcommand{\partname}{Partie}
+\renewcommand\bibname{Bibliographie}
+
+\usepackage{amsthm}
+\newtheorem{theorem}{Théorème}[chapter]
+\newtheorem{lemma}{Lemme}[chapter]
+\newtheorem{corollary}{Corollaire}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{conjecture}{Conjecture}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Définition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Exemple}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercice}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remarque}
+\newtheorem*{solution}{Solution}
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{introduction}{%
+\chapter*{Introduction}\label{introduction}}
+\addcontentsline{toc}{chapter}{Introduction}
+
+\hypertarget{a-propos-de-ce-document}{%
+\section*{À propos de ce document}\label{a-propos-de-ce-document}}
+\addcontentsline{toc}{section}{À propos de ce document}
+
+\hypertarget{remerciements}{%
+\subsection*{Remerciements}\label{remerciements}}
+\addcontentsline{toc}{subsection}{Remerciements}
+
+Ce document est généré par l'excellente extension \href{https://bookdown.org/}{bookdown} de \href{https://yihui.name/}{Yihui Xie}.
+
+\hypertarget{license}{%
+\subsection*{License}\label{license}}
+\addcontentsline{toc}{subsection}{License}
+
+Ce document est mis à disposition selon les termes de la \href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Licence Creative Commons Attribution - Pas d'Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International}.
+
+\begin{figure}
+\centering
+\includegraphics{resources/icons/license_cc.png}
+\caption{Licence Creative Commons}
+\end{figure}
+
+\hypertarget{part-lalgebre-matricielle}{%
+\part{L'algèbre matricielle}\label{part-lalgebre-matricielle}}
+
+\hypertarget{sel}{%
+\chapter{Les systèmes d'équations linéaires}\label{sel}}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-1}{}{\label{exm:unnamed-chunk-1} }Pourquoi utilisez-vous Google?
+
+Les calculs que doivent faire Google pour ordonner les sites de votre requête représente l'un des plus gros problèmes d'algèbre matricielle présentement résolus sur la planète.
+
+Les résultats de l'algorithme de Google après les déplacements du promeneur impartial.
+\EndKnitrBlock{example}
+
+\includegraphics{resources/images/PageRanks-Example.jpg}
+
+\BeginKnitrBlock{example}[Où suis-je?]
+\protect\hypertarget{exm:unnamed-chunk-3}{}{\label{exm:unnamed-chunk-3} \iffalse (Où suis-je?) \fi{} }Le Global Positioning System (GPS) (en français : « Système mondial de positionnement » {[}littéralement{]} ou « Géo-positionnement par satellite »), originellement connu sous le nom de Navstar GPS, est un système de positionnement par satellites appartenant au gouvernement des États-Unis. Mis en place par le département de la Défense des États-Unis à des fins militaires à partir de 1973, le système avec 24 satellites est totalement opérationnel en 1995 et s'ouvre au civil en 2000.
+
+Le principe de fonctionnement repose sur la trilatération de signaux électromagnétiques synchronisés émis par les satellites. Pour assurer la précision du positionnement, le système GPS utilise des technologies sophistiquées : horloges atomiques embarquées, compensation d'effets relativistes, mise en place de stations d'observation et de synchronisation. Les coordonnées terrestres calculées se réfèrent au système géodésique WGS 84.
+
+Les positions des satellites sont choisies pour que au moins 4 satellites soient visibles de n'importe quel point du globe à tout moment.
+\EndKnitrBlock{example}
+
+\begin{center}\includegraphics[width=0.75\linewidth]{resources/images/GPS-Trilateration-Feature-678x322} \end{center}
+
+\hypertarget{sec:intro_equation_lineaire}{%
+\section{Une introduction aux équations linéaires}\label{sec:intro_equation_lineaire}}
+
+Dans cette section, nous introduisons les notions d'équation linéaire et de système d'équations linéaires. Nous introduisons la façon de résoudre de petits systèmes d'équations linéaires. En pratique, les systèmes d'équations linéaires sont résolus grâce aux ordinateurs. Ces systèmes contiennent habituellement des centaines, des milliers (même des millions) d'équations et d'inconnues.
+
+Intuitivement, une équation linéaire est une équation où toutes les variables sont affectées de l'exposant \(1\) et ne sont pas multipliées entre elles.
+
+\BeginKnitrBlock{definition}[Une équation linéaire]
+\protect\hypertarget{def:unnamed-chunk-6}{}{\label{def:unnamed-chunk-6} \iffalse (Une équation linéaire) \fi{} }Une équation de \(n\) variables \(x_1\), \(x_2\), \ldots{} et \(x_n\), est dite \textbf{linéaire} si elle peut être écrite sous la forme:
+\begin{align*}
+a_1x_1+a_2x_2+\ldots+a_nx_n &= b
+\end{align*}
+où \(a_1\), \(a_2\), \ldots{} et \(a_n\) sont appelés les \textbf{coefficients} de l'équation linéaire et \(b\) est le \textbf{terme constant} de l'équation.
+
+Les \textbf{coefficients} \(a_1\), \(a_2\), \ldots{} et \(a_n\) ainsi que le \textbf{terme constant} \(b\) sont habituellement des nombres réels.
+
+Si \(b=0\), nous disons que l'équation linéaire est \textbf{homogène}.
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{definition}[La solution d'une équation linéaire]
+\protect\hypertarget{def:unnamed-chunk-7}{}{\label{def:unnamed-chunk-7} \iffalse (La solution d'une équation linéaire) \fi{} }Une \textbf{solution} d'une équation linéaire de \(n\) variables de la forme
+\begin{align*}
+a_1x_1+a_2x_2+...+a_nx_n=b
+\end{align*}
+est un \(n\)-uplet écrit sous la forme \((r_1,r_2,...,r_n)\) (qui veut dire \(x_1=r_1\), \(x_2=r_2\),\ldots{} et \(x_n=r_n\)), qui vérifie l'équation.
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{definition}[L'ensemble solution d'une équation linéaire]
+\protect\hypertarget{def:unnamed-chunk-8}{}{\label{def:unnamed-chunk-8} \iffalse (L'ensemble solution d'une équation linéaire) \fi{} }L'\textbf{ensemble solution} d'une équation linéaire est l'ensemble de toutes les solutions possibles de l'équation. Nous le notons par \(ES\).
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-9}{}{\label{exm:unnamed-chunk-9} }Pour convertir une température en degrés Celsius, notée \(C\), en une température en degrés Fahrenheit, notée \(F\), il faut utiliser l'équation:
+\begin{align*}
+F &= \dfrac{9}{5}C+32
+\end{align*}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Est-ce que l'équation précédente est une équation linéaire?
+\item
+  Démontrez que \(C=5^{\circ}\) et \(F=41^{\circ}\) forment une solution de l'équation linéaire qui permet de convertir une température en degrés Celsius en une température en degrés Fahrenheit.
+
+  \EndKnitrBlock{example}
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{algebre1_files/figure-latex/celsius-fahrenheit-1} 
+
+}
+
+\caption{L'équation linéaire permettant de convertir des degrés Celsius en degrés Fahrenheit.}\label{fig:celsius-fahrenheit}
+\end{figure}
+
+Dans le cas où nous n'avons qu'une seule équation linéaire, nous verrons qu'il est relativement simple de résoudre ce type d'équations.
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-10}{}{\label{exm:unnamed-chunk-10} }Résolvez les équations linéaires suivantes:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \(3x+1=4\)
+\item
+  \(F=\dfrac{9}{5}C+32\)
+\item
+  \(2x_1+x_2-3x_3-5=0\)
+
+  \EndKnitrBlock{example}
+\end{enumerate}
+
+\hypertarget{systeme_equation_lineaire}{%
+\section{Les systèmes d'équations linéaires}\label{systeme_equation_lineaire}}
+
+Il semble donc qu'il soit simple de résoudre une seule équation linéaire, peu importe le nombre de variables. Par contre, en pratique, nous rencontrons la plupart du temps des systèmes d'équations linéaires, c'est-à-dire un ensemble d'équations linéaires.
+
+\BeginKnitrBlock{example}[Un système d'équations linéaires chinois du troisième siècle avant notre ère]
+\protect\hypertarget{exm:chinois}{}{\label{exm:chinois} \iffalse (Un système d'équations linéaires chinois du troisième siècle avant notre ère) \fi{} }Voici un exemple de système d'équations linéaires:
+\begin{align*}
+\begin{array}{cccccccc}
+&3x&+&2y&+&z&=&39\\
+&2x&+&3y&+&z&=&34\\
+&x&+&2y&+&3z&=&26\\
+\end{array}
+\end{align*}
+Ce système et sa solution se trouvent dans un livre chinois de mathématiques du troisième siècle avant notre ère. Vérifiez que
+\begin{align*}
+    x = \frac{37}{4},\quad y = \frac{17}{4},\quad z = \frac{11}{4}
+\end{align*}
+est une solution du système d'équations linéaires précédent.
+\EndKnitrBlock{example}
+
+Comme l'exemple précédent le démontre, il est simple de vérifier qu'un \(n\)-uplet forme une solution d'un système d'équations linéaires. Il sera par contre plus difficile de le trouver.
+
+\BeginKnitrBlock{definition}[Un système d'équations linéaires]
+\protect\hypertarget{def:unnamed-chunk-11}{}{\label{def:unnamed-chunk-11} \iffalse (Un système d'équations linéaires) \fi{} }Un \textbf{système d'équations linéaires} \(S\) de \(m\) équations et \(n\) variables (ou inconnues) \(x_1\), \(x_2\), \ldots{} et \(x_n\) est un ensemble de \(m\) équations linéaires de la forme:
+\begin{align*}
+S=\left\{\begin{array}{cccccccccc}
+&a_{1,1}x_1&+&a_{1,2}x_2&+&\ldots &+&a_{1,n}x_n&=&b_1 \\
+&a_{2,1}x_1&+&a_{2,2}x_2&+&\ldots &+&a_{2,n}x_n&=&b_2 \\
+&&&&&&&&\vdots & \\
+&a_{m,1}x_1&+&a_{m,2}x_2&+&\ldots &+&a_{m,n}x_n&=&b_m
+\end{array}
+\right.
+\end{align*}
+Les nombres \(a_{1,1}\), \(a_{1,2}\), \ldots, \(a_{1,n}\), \(a_{2,1}\), \ldots, \(a_{2,n}\), \ldots, \(a_{m,1}\), \ldots, \(a_{m,n}\) sont les \textbf{coefficients} du système et \(b_1\), \(b_2\), \ldots, \(b_m\) sont les \textbf{termes constants}. Si les termes constants sont tous zéros, le système est appelé \textbf{homogène}. Le système homogène qui possède les mêmes coefficients que le système ci-haut est dit être \textbf{associé} au système ci-haut.
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{definition}[La solution d'un système  d'équations linéaires]
+\protect\hypertarget{def:unnamed-chunk-12}{}{\label{def:unnamed-chunk-12} \iffalse (La solution d'un système d'équations linéaires) \fi{} }Une \textbf{solution} d'un système d'équations linéaires de \(m\) équations et de \(n\) variables
+est un \(n\)-uplet écrit sous la forme \(r_1,r_2,...,r_n\) (qui veut dire \(x_1=r_1\), \(x_2=r_2\),\ldots{} et \(x_n=r_n\)), qui vérifie les \(m\) équations du système.
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{definition}[L'ensemble solution d'un système  d'équations linéaires]
+\protect\hypertarget{def:unnamed-chunk-13}{}{\label{def:unnamed-chunk-13} \iffalse (L'ensemble solution d'un système d'équations linéaires) \fi{} }L'\textbf{ensemble solution} d'un système d'équations linéaires est l'ensemble de toutes les solutions possibles du système. Nous le notons par \(ES\).
+\EndKnitrBlock{definition}
+
+Il existe trois types de solutions pour un système d'équations linéaires.
+
+\BeginKnitrBlock{theorem}[Les types de solutions d'un système d'équations linéaires]
+\protect\hypertarget{thm:unnamed-chunk-14}{}{\label{thm:unnamed-chunk-14} \iffalse (Les types de solutions d'un système d'équations linéaires) \fi{} }Les types de solutions d'un système d'équations linéaires sont:
+
+\begin{itemize}
+\tightlist
+\item
+  Une solution unique, c'est-à-dire qu'il existe un unique \(n\)-uplet qui soit solution du système d'équations linéaires.
+\item
+  Aucune solution, c'est-à-dire qu'il n'existe aucun \(n\)-uplet qui soit solution du système d'équations linéaires.
+\item
+  Une infinité de solutions, c'est-à-dire qu'il existe une infinité de \(n\)-uplet qui sont solutions du système d'équations linéaires.
+\end{itemize}
+\EndKnitrBlock{theorem}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.33\linewidth]{algebre1_files/figure-latex/unnamed-chunk-15-1} \includegraphics[width=0.33\linewidth]{algebre1_files/figure-latex/unnamed-chunk-15-2} \includegraphics[width=0.33\linewidth]{algebre1_files/figure-latex/unnamed-chunk-15-3} 
+
+}
+
+\caption{Les trois types de solutions d'un système d'équations linéaires}\label{fig:unnamed-chunk-15}
+\end{figure}
+
+Il est possible d'abréger l'écriture d'un système d'équations linéaires en ne conservant que les coefficients et les constantes de ce système, en supposant que le nom et l'ordre des variables a été spécifié. Cette façon de représenter un système d'équations linéaires est appelé la matrice augmentée du système.
+
+\BeginKnitrBlock{definition}[La matrice augmentée d'un système d'équations linéaires]
+\protect\hypertarget{def:unnamed-chunk-16}{}{\label{def:unnamed-chunk-16} \iffalse (La matrice augmentée d'un système d'équations linéaires) \fi{} }Soit un système d'équations linéaires de la forme suivante:
+\begin{align*}
+\begin{array}{cccccccccc}
+&a_{1,1}x_1&+&a_{1,2}x_2&+&\ldots &+&a_{1,n}x_n&=&b_1 \\
+&a_{2,1}x_1&+&a_{2,2}x_2&+&\ldots &+&a_{2,n}x_n&=&b_2 \\
+&&&&&&&&\vdots & \\
+&a_{m,1}x_1&+&a_{m,2}x_2&+&\ldots &+&a_{m,n}x_n&=&b_m
+\end{array}
+\end{align*}
+La \textbf{matrice augmentée} de ce système est représentée par l'arrangement rectangulaire suivant:
+\begin{align*}
+\left[\begin{array}{cccc|c}
+a_{1,1}&a_{1,2}&\ldots &a_{1,n}&b_1 \\
+a_{2,1}&a_{2,2}&\ldots &a_{2,n}&b_2 \\
+\vdots &\vdots &&\vdots & \vdots \\
+a_{m,1}&a_{m,2}&\ldots &a_{m,n}&b_m
+\end{array}\right]
+\end{align*}
+Les coefficients sont placés en ordre à gauche de la barre verticale et les constantes sont placées à droite de la barre verticale. Cette barre symbolise l'égalité et permet de séparer visuellement les coefficients des constantes.
+\EndKnitrBlock{definition}
+
+\hypertarget{systeme-equation-lineaire-echelonnee}{%
+\section{La résolution de système d'équations linéaires échelonnés}\label{systeme-equation-lineaire-echelonnee}}
+
+Nous savons maintenant comment vérifier si les éléments d'un ensemble forme une solution d'un système d'équations linéaires. Nous ne savons par contre pas comment les trouver.
+
+Par contre, avant d'apprendre des méthodes générales pour résoudre des systèmes d'équations linéaires, nous allons étudier quelques formes particulières de système d'équations linéaires qui se résolvent facilement. Nous en profiterons également pour mettre en lien ces systèmes avec leurs différents types de solutions.
+
+Les systèmes les plus simples à résoudre sont ceux que nous rencontrons sous une forme échelonnée ou une forme échelonnée réduite.
+
+\BeginKnitrBlock{definition}
+\protect\hypertarget{def:unnamed-chunk-17}{}{\label{def:unnamed-chunk-17} }Un système d'équations linéaires est dit être sous la \textbf{forme échelonnée} si les conditions suivantes sont remplies:
+
+\begin{itemize}
+\tightlist
+\item
+  Toutes les lignes non-nulles, c'est-à-dire les lignes qui possèdent au moins un élément différent de zéro, se trouvent au-dessus des lignes nulles, c'est-à-dire des lignes qui ne possèdent que des zéros.
+\item
+  Le premier élément non-nul d'une ligne, c'est-à-dire le premier élément différent de zéro en partant de la gauche sur la ligne, est toujours situé à droite du premier élément non-nul de la ligne située au-dessus. Nous disons que le premier élément non-nul d'une ligne est le \textbf{pivot} de cette ligne.
+\item
+  Tous les éléments de la colonne situés sous un pivot sont composés de zéros.
+\end{itemize}
+
+Un système d'équations linéaires est dit être sous la \textbf{forme échelonnée réduite} s'il est déjà sous la forme échelonnée et si les conditions suivantes sont remplies:
+
+\begin{itemize}
+\tightlist
+\item
+  Le pivot d'une ligne est le seul élément non-nul de la colonne où il se situe.
+\item
+  Tous les pivots sont \(1\).
+\end{itemize}
+\EndKnitrBlock{definition}
+
+La présente section présente la façon de résoudre des systèmes d'équations linéaires sous forme échelonnée, c'est-à-dire un système composé de \(m\) équations et de \(n\) inconnues.
+\begin{align*}
+\begin{array}{cccccccccc}
+a_{1,1}x_1 & +& a_{1,2}x_2 & +&  a_{1,3}x_3 & \ldots & +&  a_{1,n}x_n & =& b_1  \\
+        & & a_{2,2}x_2 & +&  a_{2,3}x_3 & \ldots & +& a_{2,n}x_n & =& b_2  \\
+        & &         & &    & \ddots & & \vdots & =& \vdots   \\
+%         & &         & &          & \ddots & & a_{n-1,n} & =& b_{n-1}\\
+       & &         & &          &        & & a_{m,n}x_n & =& b_m
+\end{array}
+\end{align*}
+
+Un système d'équations linéaires sous la forme échelonnée se résout lui aussi assez facilement à l'aide de la méthode dite de ``substitution arrière''. La méthode tient son nom du fait que nous commençons à résoudre l'équation située à la dernière ligne. Nous substituons ensuite la valeur trouvée dans l'équation précédente pour résoudre cette équation et nous répétons jusqu'à l'équation située sur la première ligne.
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-18}{}{\label{exm:unnamed-chunk-18} }Trouvez l'ensemble solution des systèmes d'équations linéaires suivants, présentés sous la forme échelonnée.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \begin{align*}
+  \begin{array}{cccccccc}
+  &-10x&+&5y&-&7z&=&40 \\
+  &&&y&+&z&=&-12 \\
+  &&&&&3z&=&0
+  \end{array}
+  \end{align*}
+\item
+  \begin{align*}
+  \begin{array}{cccccccccc}
+  &-x_{1}&-&4x_{2}&-&2x_{3}&-&x_{4}&=&-4\\
+  &&&&&5x_{3}&+&2x_{4}&=&3\\
+  &&&&&&&x_{4}&=&-1\\
+  \end{array}
+  \end{align*}
+\item
+  \begin{align*}
+  \left[\begin{array}{ccc|c}
+  7&-4&-2&-9\\
+  0&-19&22&-62\\
+  0&0&196&826\\
+  0&0&0&133\\
+  \end{array}\right]
+  \end{align*}
+
+  \EndKnitrBlock{example}
+\end{enumerate}
+
+\hypertarget{methode-gauss}{%
+\section{La méthode d'élimination de Gauss}\label{methode-gauss}}
+
+Nous avons vu dans la section précédente comment résoudre des systèmes d'équations linéaires sous forme échelonnée ou sous forme échelonnée réduite. Dans cette section, nous voulons voir de quelle façon il est possible de transformer tout système d'équations linéaires sous l'une de ces deux formes.
+
+Pour être en mesure de transformer un système d'équations linéaires, nous allons avoir besoin de connaître les opérations qui permettent de modifier des équations linéaires tout en conservant le même ensemble solution.
+
+\BeginKnitrBlock{definition}[Systèmes d'équations linéaires équivalents]
+\protect\hypertarget{def:unnamed-chunk-19}{}{\label{def:unnamed-chunk-19} \iffalse (Systèmes d'équations linéaires équivalents) \fi{} }Deux systèmes d'équations linéaires \(S_1\) et \(S_2\) sont dits \textbf{équivalents} s'ils possèdent le même ensemble solution. Nous notons alors \(S_1\sim S_2\).
+\EndKnitrBlock{definition}
+
+Les opérations élémentaires sur les équations vont permettre de modifier le système d'équations linéaires en un système équivalent, notamment sous la forme d'un système échelonné.
+
+\BeginKnitrBlock{definition}[Opérations élémentaires sur les équations linéaires]
+\protect\hypertarget{def:unnamed-chunk-20}{}{\label{def:unnamed-chunk-20} \iffalse (Opérations élémentaires sur les équations linéaires) \fi{} }Soit \(L_i\) la ième équation d'un système d'équations linéaires. Les \textbf{opérations élémentaires sur les équations linéaires} sont les suivantes:
+
+\begin{itemize}
+\tightlist
+\item
+  Nous pouvons additionner ou soustraire deux équations: \(L_i \pm L_j \rightarrow L_i\)
+\item
+  Nous pouvons multiplier une équation par une constante non-nulle: \(kL_i \rightarrow L_i\)
+\item
+  Nous pouvons intervertir deux équations: \(L_i \leftrightarrow L_j\)
+
+  \EndKnitrBlock{definition}
+\end{itemize}
+
+\BeginKnitrBlock{theorem}
+\protect\hypertarget{thm:unnamed-chunk-21}{}{\label{thm:unnamed-chunk-21} }Les trois opérations élémentaires sur les équations linéaires ne changent pas l'ensemble solution du système d'équations linéaires.
+\EndKnitrBlock{theorem}
+
+\BeginKnitrBlock{proposition}
+\protect\hypertarget{prp:unnamed-chunk-22}{}{\label{prp:unnamed-chunk-22} }L'opération
+\begin{align*}
+L_i\leftarrow k_1L_i+k_2L_j
+\end{align*}
+avec \(i\neq j\) et \(k_1,k_2\in\mathbb{R}\setminus \{0\}\) n'affecte pas l'ensemble solution du système d'équations linéaires.
+\EndKnitrBlock{proposition}
+
+Maintenant, nous voulons utiliser les opérations élémentaires sur les lignes pour transformer la matrice augmentée sous la forme échelonnée. C'est ce que nous nommons \textbf{la méthode de Gauss}.
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-23}{}{\label{exm:unnamed-chunk-23} }Résolvez le système d'équations linéaires de l'exemple \ref{exm:chinois} à l'aide de la méthode de Gauss.
+\begin{align*}
+\begin{array}{cccccccc}
+&3x&+&2y&+&z&=&39\\
+&2x&+&3y&+&z&=&34\\
+&x&+&2y&+&3z&=&26\\
+\end{array}
+\end{align*}
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-24}{}{\label{exm:unnamed-chunk-24} }Résolvez le système d'équations linéaires suivant à l'aide de la méthode de Gauss.
+\begin{align*}
+\begin{array}{cccccccc}
+&3x&-&7y&+&4z&=&34\\
+&-6x&-&2y&+&9z&=&49\\
+&7x&-&2y&-&5z&=&-21\\
+\end{array}
+\end{align*}
+\EndKnitrBlock{example}
+
+Il est parfois possible que nous devions interchanger deux lignes pour obtenir une matrice sous forme échelonnée. L'exemple suivant permettra de montrer comment faire.
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-25}{}{\label{exm:unnamed-chunk-25} }Résolvez le système d'équations linéaires suivant.
+\begin{align*}
+\begin{array}{cccccccc}
+&&&3y&-&4z&=&-31\\
+&2x&-&y&+&2z&=&17\\
+&3x&+&2y&-&5z&=&-24\\
+\end{array}
+\end{align*}
+\EndKnitrBlock{example}
+
+Nous obtenons parfois une infinité de solutions à notre système d'équations linéaires.
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-26}{}{\label{exm:unnamed-chunk-26} }Résolvez le système d'équations linéaires suivant:
+\begin{align*}
+\begin{array}{cccccccc}
+&4x&+&3y&-&8z&=&14\\
+&-x&-&y&+&3z&=&-4\\
+&5x&-&2y&+&13z&=&6\\
+\end{array}
+\end{align*}
+\EndKnitrBlock{example}
+
+Nous obtenons parfois aucune solution à notre système d'équations linéaires.
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-27}{}{\label{exm:unnamed-chunk-27} }Résolvez le système d'équations linéaires suivant:
+\begin{align*}
+\begin{array}{cccccccc}
+&-7x&-&4y&-&6z&=&-1\\
+&17x&+&8y&+&15z&=&-8\\
+&-7x&-&16y&-&3z&=&3\\
+\end{array}
+\end{align*}
+\EndKnitrBlock{example}
+
+\hypertarget{une-application}{%
+\subsection{Une application}\label{une-application}}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:plaque2d}{}{\label{exm:plaque2d} }La distribution de la chaleur à long terme dans une plaque de métal de forme carrée dont les côtés sont tenus à une certaine température constante peut être étudiée à l'aide d'une grille où chaque point est à la même distance que ses voisins. En première approximation, la chaleur à long terme en chaque point de cette grille est donnée par la température moyenne de ses voisins. Déterminez la température en chacun des points de la plaque suivante:
+\EndKnitrBlock{example}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{algebre1_files/figure-latex/unnamed-chunk-28-1} 
+
+}
+
+\caption{Plaque chauffée.}\label{fig:unnamed-chunk-28}
+\end{figure}
+
+Pour obtenir une meilleure précision dans nos calculs, nous pourrions raffiner notre grille, c'est-à-dire lui ajouter des points. Par exemple, si nous prenons une grille \(5\times 5\),
+nous obtenons le système d'équations linéaires présenté sous la forme d'une matrice augmentée suivant:
+\[
+\left[
+\begin{smallmatrix}
+4&-1&0&0&0&-1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&250\\
+-1&4&-1&0&0&0&-1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&140\\
+0&-1&4&-1&0&0&0&-1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&140\\
+0&0&-1&4&-1&0&0&0&-1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&140\\
+0&0&0&-1&4&0&0&0&0&-1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&260\\
+-1&0&0&0&0&4&-1&0&0&0&-1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&110\\
+0&-1&0&0&0&-1&4&-1&0&0&0&-1&0&0&0&0&0&0&0&0&0&0&0&0&0&0\\
+0&0&-1&0&0&0&-1&4&-1&0&0&0&-1&0&0&0&0&0&0&0&0&0&0&0&0&0\\
+0&0&0&-1&0&0&0&-1&4&-1&0&0&0&-1&0&0&0&0&0&0&0&0&0&0&0&0\\
+0&0&0&0&-1&0&0&0&-1&4&0&0&0&0&-1&0&0&0&0&0&0&0&0&0&0&120\\
+0&0&0&0&0&-1&0&0&0&0&4&-1&0&0&0&-1&0&0&0&0&0&0&0&0&0&110\\
+0&0&0&0&0&0&-1&0&0&0&-1&4&-1&0&0&0&-1&0&0&0&0&0&0&0&0&0\\
+0&0&0&0&0&0&0&-1&0&0&0&-1&4&-1&0&0&0&-1&0&0&0&0&0&0&0&0\\
+0&0&0&0&0&0&0&0&-1&0&0&0&-1&4&-1&0&0&0&-1&0&0&0&0&0&0&0\\
+0&0&0&0&0&0&0&0&0&-1&0&0&0&-1&4&0&0&0&0&-1&0&0&0&0&0&120\\
+0&0&0&0&0&0&0&0&0&0&-1&0&0&0&0&4&-1&0&0&0&-1&0&0&0&0&110\\
+0&0&0&0&0&0&0&0&0&0&0&-1&0&0&0&-1&4&-1&0&0&0&-1&0&0&0&0\\
+0&0&0&0&0&0&0&0&0&0&0&0&-1&0&0&0&-1&4&-1&0&0&0&-1&0&0&0\\
+0&0&0&0&0&0&0&0&0&0&0&0&0&-1&0&0&0&-1&4&-1&0&0&0&-1&0&0\\
+0&0&0&0&0&0&0&0&0&0&0&0&0&0&-1&0&0&0&-1&4&0&0&0&0&-1&120\\
+0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&-1&0&0&0&0&4&-1&0&0&0&240\\
+0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&-1&0&0&0&-1&4&-1&0&0&130\\
+0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&-1&0&0&0&-1&4&-1&0&130\\
+0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&-1&0&0&0&-1&4&-1&130\\
+0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&-1&0&0&0&-1&4&250\\
+\end{smallmatrix}
+\right]
+\]
+Comme nous pouvons le constater, le système d'équations linéaires devient rapidement beaucoup trop grand pour le résoudre ``à la main''. Nous allons donc utiliser un logiciel de calcul pour le résoudre.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{algebre1_files/figure-latex/unnamed-chunk-29-1} 
+
+}
+
+\caption{Plaque chauffée.}\label{fig:unnamed-chunk-29}
+\end{figure}
+
+La figure suivante présente le même problème étudié précédemment, mais sur une grille \(50\times 50\).
+
+\begin{center}\includegraphics[width=0.75\linewidth]{resources/images/grille_chaleur} \end{center}
+
+\hypertarget{les-systemes-dequations-lineaires-homogenes}{%
+\section{Les systèmes d'équations linéaires homogènes}\label{les-systemes-dequations-lineaires-homogenes}}
+
+Les systèmes d'équations linéaires homogènes sont une classe particulière de systèmes d'équations linéaires. Ceux-ci ont la particularité de toujours posséder au moins une solution. Il est impossible qu'un tel système ne possède aucune solution.
+
+\BeginKnitrBlock{definition}[Un système d'équations linéaires homogène]
+\protect\hypertarget{def:unnamed-chunk-31}{}{\label{def:unnamed-chunk-31} \iffalse (Un système d'équations linéaires homogène) \fi{} }Un \textbf{système d'équations linéaires homogène} de \(m\) équations et \(n\) variables (ou inconnues) \(x_1\), \(x_2\), \ldots{} et \(x_n\) est un ensemble de \(m\) équations linéaires de la forme:
+\begin{align*}
+\begin{array}{cccccccccc}
+&a_{1,1}x_1&+&a_{1,2}x_2&+&\ldots &+&a_{1,n}x_n&=&0 \\
+&a_{2,1}x_1&+&a_{2,2}x_2&+&\ldots &+&a_{2,n}x_n&=&0 \\
+&&&&&&&&\vdots & \\
+&a_{m,1}x_1&+&a_{m,2}x_2&+&\ldots &+&a_{m,n}x_n&=&0
+\end{array}
+\end{align*}
+La matrice augmentée d'un tel système est:
+\begin{align*}
+\left[\begin{array}{cccc|c}
+a_{1,1}&a_{1,2}&\ldots &a_{1,n}&0 \\
+a_{2,1}&a_{2,2}&\ldots &a_{2,n}&0 \\
+\vdots &\vdots &&\vdots & \vdots \\
+a_{m,1}&a_{m,2}&\ldots &a_{m,n}&0
+\end{array}\right]
+\end{align*}
+\EndKnitrBlock{definition}
+
+Un système d'équations linéaires homogène possède toujours une solution. En effet, la solution triviale \(x_1=x_2=\ldots=x_n=0\) forme toujours une solution d'un système. Puisqu'il est impossible que le système ne possède aucune solution, il possède soit une solution unique (la solution triviale) soit une infinité de solutions.
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-32}{}{\label{exm:unnamed-chunk-32} }Déterminez les valeurs de \(a\), \(b\), \(c\) et \(d\) qui équilibrent l'équation chimique suivante:
+\begin{align*}
+aC_2H_6+bO_2 \rightarrow cCO_2+dH_2O
+\end{align*}
+\EndKnitrBlock{example}
+
+\hypertarget{des-applications}{%
+\subsection{Des applications}\label{des-applications}}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-33}{}{\label{exm:unnamed-chunk-33} }La loi des leviers d'Archimède stipule que deux masses sont en équilibre sur une balance si leurs poids sont inversement proportionnels à leur distance par rapport au point d'appui. En d'autres mots, pour que deux masses \(m_1\) et \(m_2\) situées respectivement à des distances \(d_1\) et \(d_2\) du point d'appui soient en équilibre, il faut que:
+\begin{align*}
+    m_1d_1 &= m_2d_2
+\end{align*}
+Trouvez les masses \(m_1\), \(m_2\), \(m_3\) et \(m_4\) pour que le système suivant soit en équilibre.
+\EndKnitrBlock{example}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{algebre1_files/figure-latex/unnamed-chunk-34-1} 
+
+}
+
+\caption{La loi des leviers d'Archimède.}\label{fig:unnamed-chunk-34}
+\end{figure}
+
+\hypertarget{la-methode-de-gauss-avec-substitution-arriere}{%
+\section{La méthode de Gauss avec substitution arrière}\label{la-methode-de-gauss-avec-substitution-arriere}}
+
+La section précédente nous a permis d'introduire la méthode d'élimination de Gauss. Celle-ci permettait d'obtenir une matrice sous forme échelonnée. Une fois cette matrice obtenue, il nous était possible d'utiliser la méthode de substitution arrière pour trouver l'ensemble solution du système d'équations linéaires. Dans cette section, nous introduirons la méthode d'élimination de Gauss avec substitution arrière, c'est-à-dire que nous obtiendrons une matrice échelonnée réduite en effectuant la méthode de Gauss et ensuite la méthode de substitution arrière directement sur la matrice augmentée.
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-35}{}{\label{exm:unnamed-chunk-35} }Résolvez le système d'équations linéaires suivant à l'aide de la méthode de Gauss avec substitution arrière.
+\begin{align*}
+\begin{array}{cccccccc}
+&-4x&+&5y&+&z&=&9\\
+&3x&&&+&5z&=&-19\\
+&3x&+&5y&-&4z&=&98\\
+&4x&-&5y&+&5z&=&-57\\
+\end{array}
+\end{align*}
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-36}{}{\label{exm:unnamed-chunk-36} }Résolvez le système d'équations linéaires suivant:
+\begin{align*}
+\begin{array}{cccccccccc}
+&-2w&-&3x&+&5y&-&2z&=&0\\
+&4w&+&2x&-&3y&-&2z&=&4\\
+&14w&+&x&&&-&16z&=&10\\
+\end{array}
+\end{align*}
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-37}{}{\label{exm:unnamed-chunk-37} }Résolvez le système d'équations linéaires suivant:
+\begin{align*}
+\begin{array}{cccccccccc}
+&-2x_{1}&-&3x_{2}&+&4x_{3}&-&20x_{4}&=&15\\
+&x_{1}&-&3x_{2}&-&2x_{3}&-&8x_{4}&=&6\\
+&x_{1}&&&-&2x_{3}&+&4x_{4}&=&-3\\
+\end{array}
+\end{align*}
+\EndKnitrBlock{example}
+
+\hypertarget{une-application-1}{%
+\subsection{Une application}\label{une-application-1}}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-38}{}{\label{exm:unnamed-chunk-38} }Trouvez l'équation de la parabole passant par les points \(P(1,6)\), \(Q(-3,34)\) et \(R(2,9)\).
+\EndKnitrBlock{example}
+
+\hypertarget{matrices}{%
+\chapter{Les matrices}\label{matrices}}
+
+\BeginKnitrBlock{example}[Les photos numériques]
+\protect\hypertarget{exm:unnamed-chunk-39}{}{\label{exm:unnamed-chunk-39} \iffalse (Les photos numériques) \fi{} }Les écrans de nos téléphones intelligents sont formés de pixels rouge, vert et bleu.
+
+Rouge, vert, bleu, abrégé en RVB ou en RGB (de l'anglais « red, green, blue ») est un système de codage informatique des couleurs, le plus proche du matériel. Les écrans d'ordinateurs reconstituent une couleur par synthèse additive à partir de trois couleurs primaires, un rouge, un vert et un bleu, formant sur l'écran une mosaïque trop petite pour être aperçue. Le codage RVB indique une valeur pour chacune de ces couleurs primaires.
+\EndKnitrBlock{example}
+
+\begin{figure}
+
+{\centering \includegraphics[width=9.31in]{resources/images/pixels} 
+
+}
+
+\caption{Quelques exemples de pixels agrandis.}\label{fig:unnamed-chunk-40}
+\end{figure}
+
+Voici un exemple du principe d'utilisation des pixels rouge, vert et bleu: \href{https://docs.google.com/spreadsheets/d/e/2PACX-1vQlMpjcuG6vAjO40W1oMXe3J40wmDczGQEHzdvz1aHF_HadCymBE_OS-f197cYWvoGnnmqERiR7aKkw/pubhtml}{une feuille de calcul pas comme les autres}.
+
+\hypertarget{la-definition-dune-matrice}{%
+\section{La définition d'une matrice}\label{la-definition-dune-matrice}}
+
+Débutons en introduisant la définition d'une matrice. Nous avons déjà rencontré une matrice que nous avions nommé la matrice augmentée lors de la résolution de système d'équations linéaires.
+
+\BeginKnitrBlock{definition}[Une matrice]
+\protect\hypertarget{def:unnamed-chunk-41}{}{\label{def:unnamed-chunk-41} \iffalse (Une matrice) \fi{} }Une matrice \(A\) de dimension \(m \times n\) où \(m\) et \(n\) sont des entiers positifs est un arrangement de \(m\cdot n\) nombres sous la forme de \(m\) lignes horizontales et de \(n\) colonnes verticales. Nous notons habituellement une matrice à l'aide d'une lettre majuscule et nous encadrons les nombres formant la matrice à l'aide de crochets. Nous avons donc:
+\begin{align*}
+A = \begin{bmatrix}
+a_{1,1}&a_{1,2}&\ldots &a_{1,n} \\
+a_{2,1}&a_{2,2}&\ldots &a_{2,n}\\
+\vdots &\vdots & \ddots &\vdots \\
+a_{m,1}&a_{m,2}&\ldots &a_{m,n}
+\end{bmatrix}
+\end{align*}
+
+Le nombre \(a_{i,j}\) correspond à l'entrée \((i,j)\) de la matrice \(A\), c'est-à-dire au nombre situé à l'intersection de la ième ligne et de la jième colonne. Remarquons que nous utilisons une lettre minuscule pour indiquer un nombre de la matrice.
+
+La \emph{ième} ligne et la \emph{jième} colonne de la matrice \(A\) sont respectivement:
+\begin{align*}
+\begin{bmatrix}
+a_{i,1} & a_{i,2} & \ldots & a_{i,n}
+\end{bmatrix}
+\quad 
+\text{et}
+\quad
+\begin{bmatrix}
+a_{1,j} \\
+a_{2,j} \\
+\vdots \\
+a_{m,j}
+\end{bmatrix}
+\end{align*}
+
+En particulier, nous disons qu'une matrice \(A\) de dimension \(1\times n\) est une matrice ligne et qu'une matrice \(A\) de dimension \(m\times 1\) est une matrice colonne.
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{remark}
+\iffalse{} {Remarque. } \fi{}Nous pouvons noter la dimension d'une matrice en utilisant des indices séparés par une virgule. Par exemple, si la matrice \(A\) est de dimension \(m \times n\), nous pouvons l'écrire des deux façons suivantes:
+\begin{align*}
+    A_{m\times n} \qquad \text{ou} \qquad [a_{i,j}]_{m\times n}
+\end{align*}
+\EndKnitrBlock{remark}
+
+\BeginKnitrBlock{remark}
+\iffalse{} {Remarque. } \fi{}Nous pouvons utiliser de grandes parenthèses comme notation lors de l'écriture d'une matrice, c'est-à-dire qu'une matrice \(A\) de dimension \(m \times n\) peut s'écrire:
+\begin{align*}
+A = \begin{pmatrix}
+a_{1,1}&a_{1,2}&\ldots &a_{1,n} \\
+a_{2,1}&a_{2,2}&\ldots &a_{2,n}\\
+\vdots &\vdots & \ddots &\vdots \\
+a_{m,1}&a_{m,2}&\ldots &a_{m,n}
+\end{pmatrix}
+\end{align*}
+Par contre, dans ce manuel, nous utiliserons uniquement les crochets.
+\EndKnitrBlock{remark}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-44}{}{\label{exm:unnamed-chunk-44} }Indiquez la dimension des matrices suivantes.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  \(A = \begin{bmatrix}  10&10&6\\  10&10&-8\\  -7&0&-2\\  \end{bmatrix}\)
+\item
+  \(B = \begin{bmatrix}  9\\  6\\  10\\  3\\  -10\\  \end{bmatrix}\)
+\item
+  \(C = \begin{bmatrix}  7&9&4&5\\  \end{bmatrix}\)
+\item
+  \(D = \begin{bmatrix}  7\\  \end{bmatrix}\)
+\item
+  \(E = \begin{bmatrix}  9&3&1&-7&0\\  -8&-8&10&10&6\\  9&-5&10&10&-8\\  \end{bmatrix}\)
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-45}{}{\label{exm:unnamed-chunk-45} }Soit la matrice suivante:
+\begin{align*}
+A = \begin{bmatrix}
+-2&-10&5&-10\\
+9&7&-2&-5\\
+6&9&3&-10\\
+10&4&-7&-8\\
+3&5&4&7\\
+\end{bmatrix}
+\end{align*}
+Répondez aux questions suivantes.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Déterminez la valeur de l'élément \(a_{1,2}\).
+\item
+  Déterminez la valeur de l'élément \(a_{2,1}\).
+\item
+  Déterminez la valeur de l'élément \(a_{3,3}\).
+\item
+  Déterminez la valeur de l'élément \(a_{4,5}\).
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\hypertarget{sec:matrice-particuliere}{%
+\subsection{Les matrices particulières}\label{sec:matrice-particuliere}}
+
+\BeginKnitrBlock{definition}[Une matrice carrée]
+\protect\hypertarget{def:unnamed-chunk-46}{}{\label{def:unnamed-chunk-46} \iffalse (Une matrice carrée) \fi{} }Soit \(A\) une matrice. Nous disons que \(A\) est une matrice carrée si elle possède le même nombre de lignes que de colonnes, c'est-à-dire que nous pouvons écrire \(A_{m \times m}\).
+
+En particulier, nous disons que les entrées \([a_{i,i}]_{m \times m}\) de la matrice forment la diagonale principale de la matrice. Par exemple, si nous avons la matrice \(A_{4\times 4}\) suivante:
+\begin{align*}
+A = \begin{bmatrix}
+\fbox{$a_{1,1}$} & a_{1,2} & a_{1,3} & a_{1,4} \\
+a_{2,1} & \fbox{$a_{2,2}$} & a_{2,3} & a_{2,4} \\
+a_{3,1} & a_{3,2} & \fbox{$a_{3,3}$} & a_{3,4} \\
+a_{4,1} & a_{4,2} & a_{4,3} & \fbox{$a_{4,4}$} \\
+\end{bmatrix}
+\end{align*}
+les éléments encadrés, qui correspondent aux éléments appartenant à la ième ligne et à la ième colonne, sont les éléments de la diagonale principale.
+
+Il existe également dans une matrice carrée, une diagonale secondaire. Nous disons que les entrées \([a_{m-i+1,i}]_{m \times m}\) (nous aurions aussi pu utiliser la notation \([a_{i,m-i+1}]_{m \times m}\)) de la matrice forment la diagonale secondaire de la matrice. Par exemple, si nous avons la matrice \(A_{4\times 4}\) suivante:
+\begin{align*}
+A = \begin{bmatrix}
+a_{1,1} & a_{1,2} & a_{1,3} & \fbox{$a_{1,4}$} \\
+a_{2,1} & a_{2,2} & \fbox{$a_{2,3}$} & a_{2,4} \\
+a_{3,1} & \fbox{$a_{3,2}$} & a_{3,3} & a_{3,4} \\
+\fbox{$a_{4,1}$} & a_{4,2} & a_{4,3} & a_{4,4} \\
+\end{bmatrix}
+\end{align*}
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{definition}[Les matrices carrées usuelles]
+\protect\hypertarget{def:matrice-usuelle}{}{\label{def:matrice-usuelle} \iffalse (Les matrices carrées usuelles) \fi{} }Voici quelques matrices carrées usuelles:
+
+\begin{itemize}
+\tightlist
+\item
+  La matrice identité, noté \(I_n\), est la matrice ne contenant que des uns sur sa diagonale principale et des zéros partout ailleurs. Par exemple, voici la matrice identité de format \(5 \times 5\):
+  \begin{align*}
+  I_5 &= \begin{bmatrix}
+  1&0&0&0&0\\
+  0&1&0&0&0\\
+  0&0&1&0&0\\
+  0&0&0&1&0\\
+  0&0&0&0&1\\
+  \end{bmatrix}
+  \end{align*}
+\item
+  Une matrice diagonale est une matrice ne contenant que des zéros sauf sur la diagonale principale ou elle peut contenir des nombres différents de zéros. Par exemple, voici une matrice diagonale:
+  \begin{align*}
+  A = \begin{bmatrix}
+  7&0&0&0\\
+  0&9&0&0\\
+  0&0&-8&0\\
+  0&0&0&9\\
+  \end{bmatrix}
+  \end{align*}
+  La matrice \(I_n\) est une matrice diagonale.
+\item
+  Une matrice triangulaire inférieure, notée \(L_n\), est une matrice telle que toutes les entrées au-dessus de la diagonale principale sont nulles. Mathématiquement, nous pouvons écrire:
+  \begin{align*}
+  [l_{i,j}]_n = \begin{cases}
+  l_{i,j} & \text{si } i \geq j \\
+  0 & \text{si } i < j
+  \end{cases} 
+  \end{align*}
+  Nous pouvons représenter la matrice \(L_n\) de la façon suivante:
+  \begin{align*}
+  L_n &= \begin{bmatrix}
+  l_{1,1} & & & & 0 \\
+  l_{2,1} & l_{2,2} & & & \\
+  l_{3,1} & l_{3,2} & \ddots & & \\
+  \vdots & \vdots & \ddots & \ddots & \\
+  l_{n,1} & l_{n,2} & \ldots & l_{n,n-1} & l_{n,n} 
+  \end{bmatrix}
+  \end{align*}
+\item
+  Une matrice triangulaire supérieure, notée \(U_n\), est une matrice telle que toutes les entrées au-dessous de la diagonale principale sont nulles. Mathématiquement, nous pouvons écrire:
+  \begin{align*}
+  [u_{i,j}]_n = \begin{cases}
+  u_{i,j} & \text{si } i \leq j \\
+  0 & \text{si } i > j
+  \end{cases} 
+  \end{align*}
+  Nous pouvons représenter la matrice \(U_n\) de la façon suivante:
+  \begin{align*}
+  U_n &= \begin{bmatrix}
+  u_{1,1} & u_{1,2} & u_{1,3} & \ldots & u_{1,n} \\
+  & u_{2,2} & u_{2,3} & \ldots & u_{2,n} \\
+  & & \ddots & \ddots & \vdots \\
+  & & & \ddots & u_{n-1,n} \\
+  0 & & & & u_{n,n}
+  \end{bmatrix}
+  \end{align*}
+  Notons qu'une matrice sous forme échelonnée est une matrice triangulaire supérieure.
+\item
+  Une matrice symétrique est une matrice telle que \(a_{i,j}=a_{j,i}\) pour toutes les valeurs de \(i\) et de \(j\). Par exemple, les matrices suivantes sont symétriques:
+  \begin{align*}
+  A = \begin{bmatrix}
+  a & b & c & d & e \\
+  b & f & g & h & i \\
+  c & g & j & k & l \\
+  d & h & k & m & n \\
+  e & i & l & n & o
+  \end{bmatrix}
+  \qquad
+  B = \begin{bmatrix}
+  2 & 4 & -5 \\
+  4 & 0 & 3 \\
+  -5 & 3 & 1
+  \end{bmatrix}
+  \end{align*}
+\item
+  Une matrice anti-symétrique est une matrice telle que \(a_{i,j}=-a_{j,i}\) pour toutes les valeurs de \(i\) et de \(j\). Par exemple, les matrices suivantes sont anti-symétriques:
+  \begin{align*}
+  A = \begin{bmatrix}
+  0 & b & c & d & e \\
+  -b & 0 & g & h & i \\
+  -c & -g & 0 & k & l \\
+  -d & -h & -k & 0 & n \\
+  -e & -i & -l & -n & 0
+  \end{bmatrix}
+  \qquad
+  B = \begin{bmatrix}
+  0 & 4 & -5 \\
+  -4 & 0 & 3 \\
+  5 & -3 & 0
+  \end{bmatrix}
+  \end{align*}
+
+  \EndKnitrBlock{definition}
+\end{itemize}
+
+\BeginKnitrBlock{remark}
+\iffalse{} {Remarque. } \fi{}La diagonale principale d'une matrice anti-symétrique n'est composée que de zéros.
+\EndKnitrBlock{remark}
+
+La dernière matrice que nous introduirons n'est pas une matrice carrée mais elle nous sera néanmoins très utile.
+
+\BeginKnitrBlock{definition}[La matrice nulle]
+\protect\hypertarget{def:unnamed-chunk-48}{}{\label{def:unnamed-chunk-48} \iffalse (La matrice nulle) \fi{} }La matrice nulle, notée \(O_{m\times n}\) est une matrice composée uniquement de zéros. Par exemple, les matrices suivantes sont des matrices nulles:
+\begin{align*}
+O_{2\times 2} = \begin{bmatrix}
+0&0\\
+0&0\\
+\end{bmatrix}
+\qquad 
+O_{3,5} = \begin{bmatrix}
+0&0&0&0&0\\
+0&0&0&0&0\\
+0&0&0&0&0\\
+\end{bmatrix}
+\end{align*}
+\EndKnitrBlock{definition}
+
+Les matrices que nous venons de décrire sont celles que nous utiliserons le plus régulièrement. Il existe par contre un très grand nombre de matrices particulières.
+
+\hypertarget{les-operations-matricielles}{%
+\section{Les opérations matricielles}\label{les-operations-matricielles}}
+
+Dans cette section, nous allons introduire les opérations que nous pouvons effectuer sur les matrices.
+
+Avant d'introduire les opérations matricielles, nous débuterons par indiquer les conditions que deux matrices doivent remplir pour être égales.
+
+\BeginKnitrBlock{definition}[L'égalité entre deux matrices]
+\protect\hypertarget{def:unnamed-chunk-49}{}{\label{def:unnamed-chunk-49} \iffalse (L'égalité entre deux matrices) \fi{} }Nous disons que deux matrices \(A=[a_{i,j}]_{m \times n}\) et \(B=[b_{i,j}]_{p \times q}\) sont égales si:
+
+\begin{itemize}
+\tightlist
+\item
+  \(A\) et \(B\) ont la même dimension, c'est-à-dire \(m=p\) et \(n=q\);
+\item
+  tous les éléments correspondants sont égaux, c'est-à-dire \(a_{i,j}=b_{i,j}\) pour tout \(i\) et \(j\).
+\end{itemize}
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-50}{}{\label{exm:unnamed-chunk-50} }Déterminez si les matrices suivantes sont égales.
+\begin{align*}
+A = \begin{bmatrix}
+0&0&0&0&0\\
+0&0&0&0&0\\
+0&0&0&0&0\\
+\end{bmatrix}
+\quad \text{et} \quad
+B = \begin{bmatrix}
+0&0&0\\
+0&0&0\\
+0&0&0\\
+0&0&0\\
+0&0&0\\
+\end{bmatrix}
+\end{align*}
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-51}{}{\label{exm:unnamed-chunk-51} }Déterminez si les matrices suivantes sont égales.
+\begin{align*}
+\begin{bmatrix}
+\cos\left(\frac{\pi}{2}\right)&0&3\\
+3&4\cdot\frac{3}{8}&5\\
+\end{bmatrix}
+\quad \text{et} \quad
+B = \begin{bmatrix}
+0&0&\sqrt{9}\\
+-(-3)&\frac{3}{2}&5\\
+\end{bmatrix}
+\end{align*}
+\EndKnitrBlock{example}
+
+\hypertarget{laddition-et-la-soustraction-de-matrices}{%
+\subsection{L'addition et la soustraction de matrices}\label{laddition-et-la-soustraction-de-matrices}}
+
+\BeginKnitrBlock{definition}[L'addition et soustraction de matrices]
+\protect\hypertarget{def:unnamed-chunk-52}{}{\label{def:unnamed-chunk-52} \iffalse (L'addition et soustraction de matrices) \fi{} }Soit les matrices \(A_{m\times n}\) et \(B_{m\times n}\). Pour être en mesure d'additionner ou de soustraire deux matrices, leur format doit être égal.
+
+Si nous posons \(C=A+B\), alors la matrice \(C\) aura le format \(m\times n\) et l'élément \(c_{i,j}\) sera égal à \([a_{i,j}+b_{i,j}]_{m\times n}\). Nous pouvons donc représenter l'addition de deux matrices de la façon suivante:
+\begin{align*}
+A + B & = 
+\begin{bmatrix}
+a_{1,1}&a_{1,2}&\ldots &a_{1,n} \\
+a_{2,1}&a_{2,2}&\ldots &a_{2,n}\\
+\vdots &\vdots & \ddots &\vdots \\
+a_{m,1}&a_{m,2}&\ldots &a_{m,n}
+\end{bmatrix}
++
+\begin{bmatrix}
+b_{1,1}&b_{1,2}&\ldots &b_{1,n} \\
+b_{2,1}&b_{2,2}&\ldots &b_{2,n}\\
+\vdots &\vdots & \ddots &\vdots \\
+b_{m,1}&b_{m,2}&\ldots &b_{m,n}
+\end{bmatrix} \\
+&=
+\begin{bmatrix}
+a_{1,1}+b_{1,1}&a_{1,2}+b_{1,2}&\ldots &a_{1,n}+b_{1,n} \\
+a_{2,1}+b_{2,1}&a_{2,2}+b_{2,2}&\ldots &a_{2,n}+b_{2,n}\\
+\vdots &\vdots & \ddots &\vdots \\
+a_{m,1}+b_{m,1}&a_{m,2}+b_{m,1}&\ldots &a_{m,n}+b_{m,n}
+\end{bmatrix}
+\end{align*}
+
+D'une manière similaire, si nous posons \(C=A-B\), alors la matrice \(C\) aura le format \(m\times n\) et l'élément \(c_{i,j}\) sera égal à \([a_{i,j}-b_{i,j}]_{m\times n}\).
+\begin{align*}
+A - B & = 
+\begin{bmatrix}
+a_{1,1}&a_{1,2}&\ldots &a_{1,n} \\
+a_{2,1}&a_{2,2}&\ldots &a_{2,n}\\
+\vdots &\vdots & \ddots &\vdots \\
+a_{m,1}&a_{m,2}&\ldots &a_{m,n}
+\end{bmatrix}
+-
+\begin{bmatrix}
+b_{1,1}&b_{1,2}&\ldots &b_{1,n} \\
+b_{2,1}&b_{2,2}&\ldots &b_{2,n}\\
+\vdots &\vdots & \ddots &\vdots \\
+b_{m,1}&b_{m,2}&\ldots &b_{m,n}
+\end{bmatrix} \\
+&=
+\begin{bmatrix}
+a_{1,1}-b_{1,1}&a_{1,2}-b_{1,2}&\ldots &a_{1,n}-b_{1,n} \\
+a_{2,1}-b_{2,1}&a_{2,2}-b_{2,2}&\ldots &a_{2,n}-b_{2,n}\\
+\vdots &\vdots & \ddots &\vdots \\
+a_{m,1}-b_{m,1}&a_{m,2}-b_{m,1}&\ldots &a_{m,n}-b_{m,n}
+\end{bmatrix}
+\end{align*}
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-53}{}{\label{exm:unnamed-chunk-53} }Soit les matrices suivantes:
+\begin{align*}
+A = \begin{bmatrix}
+-10&-8&-4\\
+-5&7&9\\
+-10&4&-10\\
+\end{bmatrix}
+,\quad 
+B = \begin{bmatrix}
+-1&6&-1\\
+-2&-7&3\\
+6&0&4\\
+\end{bmatrix}
+\quad \text{et} \quad
+C = \begin{bmatrix}
+5&-7\\
+-5&-8\\
+4&0\\
+3&10\\
+\end{bmatrix}
+\end{align*}
+Pour les opérations suivantes, dites si l'opération est définie et si oui, trouvez le résultat de l'opération.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  A+B
+\item
+  B-A
+\item
+  A+C
+\item
+  A-A
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\hypertarget{la-multiplication-dune-matrice-par-un-scalaire}{%
+\subsection{La multiplication d'une matrice par un scalaire}\label{la-multiplication-dune-matrice-par-un-scalaire}}
+
+\BeginKnitrBlock{definition}[La multiplication d'une matrice par un scalaire]
+\protect\hypertarget{def:unnamed-chunk-54}{}{\label{def:unnamed-chunk-54} \iffalse (La multiplication d'une matrice par un scalaire) \fi{} }Soit une matrice \(A_{m\times n}\) et un scalaire \(k\in\mathbb{R}\). La multiplication de la matrice
+\(A\) par le scalaire \(k\) donne une matrice \(B=kA\) dont les éléments sont définis comme suit \([b_{i,j}]_{m\times n}=[ka_{i,j}]_{m\times n}\). Nous pouvons donc représenter la multiplication d'une matrice par un scalaire de la façon suivante:
+\begin{align*}
+kA &=
+k
+\begin{bmatrix}
+a_{1,1}&a_{1,2}&\ldots &a_{1,n} \\
+a_{2,1}&a_{2,2}&\ldots &a_{2,n}\\
+\vdots &\vdots & \ddots &\vdots \\
+a_{m,1}&a_{m,2}&\ldots &a_{m,n}
+\end{bmatrix}\\
+&=
+\begin{bmatrix}
+ka_{1,1}&ka_{1,2}&\ldots &ka_{1,n} \\
+ka_{2,1}&ka_{2,2}&\ldots &ka_{2,n}\\
+\vdots &\vdots & \ddots &\vdots \\
+ka_{m,1}&ka_{m,2}&\ldots &ka_{m,n}
+\end{bmatrix}
+\end{align*}
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-55}{}{\label{exm:unnamed-chunk-55} }Soit les matrices suivantes:
+\begin{align*}
+A = 
+\begin{bmatrix}
+-3&5&4\\
+2&-5&8\\
+-6&0&10\\
+\end{bmatrix}
+\quad \text{et} \quad
+B = 
+\begin{bmatrix}
+1&-5\\
+-8&7\\
+-7&-5\\
+-5&9\\
+7&-3\\
+\end{bmatrix}
+\end{align*}
+Effectuez les opérations suivantes:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \(2A\)
+\item
+  \(-3B\)
+\item
+  \(\pi\) \(A\)
+\item
+  \(0B\)
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\hypertarget{la-transposition-de-matrices}{%
+\subsection{La transposition de matrices}\label{la-transposition-de-matrices}}
+
+\BeginKnitrBlock{definition}[La transposition de matrices]
+\protect\hypertarget{def:unnamed-chunk-56}{}{\label{def:unnamed-chunk-56} \iffalse (La transposition de matrices) \fi{} }Soit une matrice \(A_{m\times n}\). Alors, la transposition de la matrice \(A\), notée \(A^T\), est la matrice dont les lignes correspondent aux colonnes de \(A\). Ainsi, la dimension de \(A^T\) est \(n\times m\). De plus, les éléments de la matrice transposée de \(A\) seront \([a_{j,i}]_{n \times m}\). Nous pouvons représenter la transposée de la matrice de la façon suivante:
+
+\begin{align*}
+A^T &= 
+\begin{bmatrix}
+a_{1,1}&a_{1,2}&\ldots &a_{1,n} \\
+a_{2,1}&a_{2,2}&\ldots &a_{2,n}\\
+\vdots &\vdots & \ddots &\vdots \\
+a_{m,1}&a_{m,2}&\ldots &a_{m,n}
+\end{bmatrix}^T \\
+&= 
+\begin{bmatrix}
+a_{1,1}&a_{2,1}&\ldots &a_{m,1} \\
+a_{1,2}&a_{2,2}&\ldots &a_{m,2}\\
+\vdots &\vdots & \ddots &\vdots \\
+a_{1,n}&a_{2,n}&\ldots &a_{m,n}
+\end{bmatrix}
+\end{align*}
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-57}{}{\label{exm:unnamed-chunk-57} }Soit les matrices suivantes:
+\begin{align*}
+A=
+\begin{bmatrix}
+-6&-1&2\\
+-5&-3&1\\
+2&7&9\\
+\end{bmatrix}
+,\quad 
+B=
+\begin{bmatrix}
+1&-9&6\\
+-9&1&9\\
+\end{bmatrix}
+\quad \text{et} \quad
+C=
+\begin{bmatrix}
+-8&0&0&0\\
+0&1&0&0\\
+0&0&-1&0\\
+0&0&0&-10\\
+\end{bmatrix}
+\end{align*}
+Trouvez les matrices suivantes:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \(A^T\)
+\item
+  \(B^T\)
+\item
+  \(C^T\)
+\end{enumerate}
+\EndKnitrBlock{example}
+
+Nous avons vu à la définition \ref{def:matrice-usuelle} de la section \ref{sec:matrice-particuliere} la définition de matrices symétriques et antisymétriques. Nous pouvons maintenant utiliser la définition de la transposée pour exprimer cet état de fait. En effet, nous savons qu'une matrice est symétrique si nous avons que ses éléments sont de la forme \(a_{i,j}=a_{j,i}\) pour toutes les valeurs de \(i\) et de \(j\). Mais ceci correspond exactement à la définition d'une matrice symétrique. Nous avons donc:
+\begin{align*}
+A \text{ est symétrique } \Longleftrightarrow  A=A^T
+\end{align*}
+D'une manière similaire, nous pouvons conclure que:
+\begin{align*}
+A \text{ est antisymétrique } \Longleftrightarrow  A=-A^T
+\end{align*}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-58}{}{\label{exm:unnamed-chunk-58} }Soit la matrice suivante:
+\begin{align*}
+A = \begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{bmatrix}
+\end{align*}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Trouvez la matrice \(B=\dfrac{1}{2}(A+A^T)\).
+\item
+  Montrez que la matrice \(B\) est symétrique.
+\item
+  Trouvez la matrice \(C=\dfrac{1}{2}(A-A^T)\).
+\item
+  Montrez que la matrice \(C\) est antisymétrique.
+\item
+  Montrez que \(A=B+C\).
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\hypertarget{les-proprietes-des-operations-sur-les-matrices}{%
+\subsection{Les propriétés des opérations sur les matrices}\label{les-proprietes-des-operations-sur-les-matrices}}
+
+L'addition, la soustraction, la multiplication par un scalaire et la transposition possèdent des propriétés que nous devons connaître afin
+de bien manipuler les matrices.
+
+\BeginKnitrBlock{theorem}[Les propriétés des matrices]
+\protect\hypertarget{thm:unnamed-chunk-59}{}{\label{thm:unnamed-chunk-59} \iffalse (Les propriétés des matrices) \fi{} }Soit les matrices \(A_{m\times n}\), \(B_{m\times n}\) et \(C_{m\times n}\) ainsi que les scalaires \(k_1,k_2\in\mathbb{R}\). Nous avons alors:
+
+\begin{itemize}
+\tightlist
+\item
+  \(A_{m\times n}+B_{m\times n}=B_{m\times n}+A_{m\times n}\)
+\item
+  \(A_{m\times n}+(B_{m\times n}+C_{m\times n})=(A_{m\times n}+B_{m\times n})+C_{m\times n}\)
+\item
+  \(A_{m\times n}+0_{m\times n}=0_{m\times n}+A_{m\times n}=A_{m\times n}\)
+\item
+  \(A_{m\times n}+(-A_{m\times n})=(-A_{m\times n})+A_{m\times n}=0_{m\times n}\)
+\item
+  \((k_1k_2)A_{m\times n}=k_1(k_2A_{m\times n})\)
+\item
+  \((k_1+k_2)A_{m\times n}=k_1A_{m\times n}+k_2A_{m\times n}\)
+\item
+  \(k_1(A_{m\times n}+B_{m\times n})=k_1A_{m\times n}+k_1B_{m\times n}\)
+\item
+  \((A_{m\times n}^T)^T=A_{m\times n}\)
+\item
+  \((A_{m\times n}+B_{m\times n})^T=A_{m\times n}^T+B_{m\times n}^T\)
+\end{itemize}
+\EndKnitrBlock{theorem}
+
+\hypertarget{le-produit-de-deux-matrices}{%
+\subsection{Le produit de deux matrices}\label{le-produit-de-deux-matrices}}
+
+\BeginKnitrBlock{definition}
+\protect\hypertarget{def:unnamed-chunk-60}{}{\label{def:unnamed-chunk-60} }Soit une matrice \(A_{m\times p}\) et une matrice \(B_{p\times n}\). La matrice \(C_{m\times n}\) est dite être le produit matriciel de \(A\) avec \(B\), noté \(AB\) ou \(A\cdot B\), si l'élément \([c_{i,j}]_{m\times n}\) est donné par:
+\begin{align*}
+c_{i,j}=a_{i,1}b_{1,j}+a_{i,2}b_{2,j}+a_{i,3}b_{3,j}+...+a_{i,p}b_{p,j}=\sum_{k=1}^pa_{i,k}b_{k,j}
+\end{align*}
+pour tout \(i\) allant de \(1,2, \ldots , m\) et \(j\) allant de \(1,2,\ldots , n\).
+
+Nous pouvons représenter le produit matriciel comme à la figure \ref{fig:matrix-multiplication}.
+
+En d'autre termes, nous obtenons le terme \(c_{i,j}\) de la matrice \(C=AB\) en multipliant terme à terme la \emph{ième} \textbf{ligne} de \(A\) avec la \emph{jième} \textbf{colonne} de \(B\).
+\EndKnitrBlock{definition}
+
+\begin{figure}
+
+{\centering \includegraphics[width=8.69in]{resources/images/Depection-of-Matrix-Multiplication} 
+
+}
+
+\caption{Un moyen mnémotechnique pour le produit matriciel.}\label{fig:matrix-multiplication}
+\end{figure}
+
+\BeginKnitrBlock{remark}
+\iffalse{} {Remarque. } \fi{}Pour que le produit matriciel \(AB\) soit défini, il faut absolument que le nombre de colonnes de \(A\) soit le même que le nombre de lignes de \(B\). De plus, le nombre de lignes de \(C\) correspond au nombre de lignes de \(A\) et le nombre de colonnes de \(C\) correspond au nombre de colonnes de \(B\). Nous avons donc:
+\begin{align*}
+C_{m\times n} = A_{m\times \fbox{$p$}}B_{\fbox{$p$} \times n}
+\end{align*}
+\EndKnitrBlock{remark}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-62}{}{\label{exm:unnamed-chunk-62} }Soit les matrices suivantes:
+\begin{align*}
+A_{3\times 2} \qquad B_{2\times 3} \qquad C_{3\times 3} \qquad D_{1\times 3}
+\end{align*}
+Indiquez si les produits matriciels suivants sont définis et si oui, indiquez la dimension de la matrice résultante.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \(A_{3\times 2}B_{2\times 3}\)
+\item
+  \(B_{2\times 3}A_{3\times 2}\)
+\item
+  \(A_{3\times 2}C_{3\times 3}\)
+\item
+  \(C_{3\times 3}A_{3\times 2}\)
+\item
+  \(B_{2\times 3}D_{1\times 3}\)
+\item
+  \(D_{1\times 3}B_{2\times 3}\)
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-63}{}{\label{exm:unnamed-chunk-63} }Soit les matrices suivantes:
+\begin{align*}
+A=\begin{bmatrix}
+3 & 5 & 6 \\
+2 & -1 & 0
+\end{bmatrix}
+\qquad 
+B=\begin{bmatrix}
+1 & 2 & 3 \\
+-9 & 4 & 1 \\
+0 & 1 & 0
+\end{bmatrix}
+\end{align*}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Trouvez, si possible, le produit \(AB\).
+\item
+  Trouvez, si possible, le produit \(BA\).
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{remark}
+\iffalse{} {Remarque. } \fi{}Le produit matriciel n'est pas commutatif,c'est-à-dire que \(AB\neq BA\). Dans l'exemple précédent, nous ne pouvions pas faire \(BA\), car le nombre de colonnes de \(B\), ici 3, n'est pas le même que le nombre de lignes de \(A\), ici 2. Même dans les cas où les dimensions des deux matrices sont compatibles, il est très rare de voir la commutativité du produit matriciel.
+\EndKnitrBlock{remark}
+
+\BeginKnitrBlock{theorem}[Le produit matriciel n'est pas commutatif]
+\protect\hypertarget{thm:unnamed-chunk-65}{}{\label{thm:unnamed-chunk-65} \iffalse (Le produit matriciel n'est pas commutatif) \fi{} }Soit \(A_{m\times n}\) et \(B_{n\times m}\) deux matrices. En général, nous avons:
+\begin{align*}
+A_{m\times n}B_{n\times m} \neq B_{n\times m}A_{m\times n}
+\end{align*}
+\EndKnitrBlock{theorem}
+
+\BeginKnitrBlock{definition}[Les puissances d'une matrice]
+\protect\hypertarget{def:unnamed-chunk-66}{}{\label{def:unnamed-chunk-66} \iffalse (Les puissances d'une matrice) \fi{} }Soit \(A_n\) une matrice carrée. Le produit \(A_nA_n\) est noté \(A_n^2\). De la même façon, le produit \(A_nA_nA_n=A_n^3\) et \(\underbrace{A_nA_n\ldots A_n}_{k \text{ fois}} = A_n^k\). Nous disons que \(A_n^1=A_n\). Si \(A_n\) est une matrice non-nulle, nous pouvons écrire \(A_n^0=I_n\).
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{theorem}[Les propriétés des puissances de matrices]
+\protect\hypertarget{thm:unnamed-chunk-67}{}{\label{thm:unnamed-chunk-67} \iffalse (Les propriétés des puissances de matrices) \fi{} }Soit \(A_p\) une matrice carrée, \(n,m\in\mathbb{N}\) et \(k\) une constante. Les propriétés suivantes sont vérifiées:
+
+\begin{itemize}
+\tightlist
+\item
+  \(A_p^{n}A_p^m=A_p^{n+m}\)
+\item
+  \((A_p^n)^m=A_p^{nm}\)
+\item
+  \((kA_p)^n=k^nA_p^n\)
+\end{itemize}
+\EndKnitrBlock{theorem}
+
+À l'aide du produit matriciel et des puissances de matrices, il nous est possible de définir un certain nombre de matrices particulières qui nous seront utiles.
+
+\BeginKnitrBlock{definition}[Quelques matrice particulières]
+\protect\hypertarget{def:unnamed-chunk-68}{}{\label{def:unnamed-chunk-68} \iffalse (Quelques matrice particulières) \fi{} }Voici quelques matrices particulières:
+
+\begin{itemize}
+\tightlist
+\item
+  Une matrice idempotente est une matrice carrée \(A_{n}\) telle que \(A_n\cdot A_n = A_n\).
+\item
+  Une matrice nilpotente d'ordre \(k\) est une matrice carrée \(A_{n}\) telle que \(A_n^k=0_n\).
+
+  \EndKnitrBlock{definition}
+\end{itemize}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-69}{}{\label{exm:unnamed-chunk-69} }Soit la matrice suivante:
+\begin{align*}
+A=\begin{bmatrix}
+5 & -2 \\
+10 & -4
+\end{bmatrix}
+\end{align*}
+Démontrez que \(A\) est une matrice idempotente.
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-70}{}{\label{exm:unnamed-chunk-70} }Soit la matrice suivante:
+\begin{align*}
+A=\begin{bmatrix}
+5&-3&2\\
+15&-9&6\\
+10&-6&4\\
+\end{bmatrix}
+\end{align*}
+Montrez que \(A\) est une matrice nilpotente et trouvez son ordre de nilpotence.
+\EndKnitrBlock{example}
+
+\hypertarget{les-proprietes-du-produit-matriciel}{%
+\subsection{Les propriétés du produit matriciel}\label{les-proprietes-du-produit-matriciel}}
+
+Voici les propriétés du produit matriciel.
+
+\BeginKnitrBlock{theorem}[Les propriétés du produit matriciel]
+\protect\hypertarget{thm:unnamed-chunk-71}{}{\label{thm:unnamed-chunk-71} \iffalse (Les propriétés du produit matriciel) \fi{} }Soit les matrices \(A\), \(B\) et \(C\) ayant des dimensions compatibles pour les opérations, ainsi que les scalaires \(k_1,k_2\in\mathbb{R}\). De plus, soit \(I\) la matrice identité et \(0\) la matrice nulle. Nous avons alors:
+
+\begin{itemize}
+\tightlist
+\item
+  \(A_{m\times n}(B_{n\times o}C_{o\times p})=(A_{m\times n}B_{n\times o})C_{o\times p}\)
+\item
+  \((k_1A_{m\times n})(k_2B_{n\times o})=(k_1k_2)(A_{m\times n}B_{n\times o})\)
+\item
+  \(A_{m\times n}(B_{n\times o}+C_{n\times o})=A_{m\times n}B_{n\times o}+A_{m\times n}C_{n\times o}\)
+\item
+  \((A_{m\times n}+B_{m\times n})C_{n\times o}=A_{m\times n}C_{n\times o}+B_{m\times n}C_{n\times o}\)
+\item
+  \((A_{m\times n}B_{n\times o})^T=B_{o\times n}^TA_{n\times m}^T\)
+\item
+  \(A_{m\times n}I_n = A_{m\times n}\) et \(I_nB_{n\times o} = B_{n\times o}\)
+\item
+  \(A_{m\times n}0_{n\times o} = 0_{m\times o}\) et \(0_{n\times o}B_{o\times p}=0_{n\times p}\)
+
+  \EndKnitrBlock{theorem}
+\end{itemize}
+
+\hypertarget{la-matrice-inverse}{%
+\section{La matrice inverse}\label{la-matrice-inverse}}
+
+Nous introduirons dans cette section un nouveau type de matrice, la matrice inverse. Comme vous avez pu le constater, nous n'avons pas introduit d'opération de division matricielle, pour la bonne raison qu'une telle opération n'existe pas. Plutôt que de parler de division matricielle, nous parlerons plutôt de multiplication par l'inverse d'une matrice. Il est à noter que la théorie de cette section ne s'applique qu'aux matrices carrées, c'est-à-dire à celles qui ont le même nombre de lignes et de colonnes.
+
+\BeginKnitrBlock{definition}[La matrice inverse]
+\protect\hypertarget{def:unnamed-chunk-72}{}{\label{def:unnamed-chunk-72} \iffalse (La matrice inverse) \fi{} }Soit \(A_{n}\) une matrice carrée. Nous disons que \(A\) possède une matrice inverse, notée \(A^{-1}_n\) si:
+\begin{align*}
+A_n A^{-1}_n = I_n = A^{-1}_n A_n
+\end{align*}
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{remark}
+\iffalse{} {Remarque. } \fi{}Les matrices carrées ne possèdent pas toutes une matrice inverse.
+\EndKnitrBlock{remark}
+
+\BeginKnitrBlock{theorem}[L'unicité de la matrice inverse]
+\protect\hypertarget{thm:unnamed-chunk-74}{}{\label{thm:unnamed-chunk-74} \iffalse (L'unicité de la matrice inverse) \fi{} }Soit \(A_{n}\) une matrice carrée. Si \(A_n\) possède une matrice inverse, notée \(A^{-1}_n\), alors celle-ci est unique.
+\EndKnitrBlock{theorem}
+
+\BeginKnitrBlock{theorem}[Les propriétés de la matrice inverse]
+\protect\hypertarget{thm:unnamed-chunk-75}{}{\label{thm:unnamed-chunk-75} \iffalse (Les propriétés de la matrice inverse) \fi{} }À FAIRE\ldots{}
+\EndKnitrBlock{theorem}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-76}{}{\label{exm:unnamed-chunk-76} }Trouvez l'inverse de la matrice suivante:
+\begin{align*}
+A=\begin{bmatrix}
+1&2\\
+3&4
+\end{bmatrix}
+\end{align*}
+\EndKnitrBlock{example}
+
+Nous remarquons que \(A^{-1}\) correspond à la partie de droite de la matrice augmentée. Ainsi, pour trouver l'inverse d'une matrice \(A\), il faut créer la matrice augmentée \([A|I]\) et, à l'aide de la méthode de Gauss avec substitution arrière, retrouver la matrice identité dans la partie de gauche. À ce moment, \(A^{-1}\) sera la matrice représentée dans la partie de droite.
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-77}{}{\label{exm:unnamed-chunk-77} }Trouvez l'inverse de la matrice suivante:
+\begin{align*}
+A=
+\begin{bmatrix}
+1&1&1\\
+-1&2&-1\\
+0&0&3
+\end{bmatrix}
+\end{align*}
+\EndKnitrBlock{example}
+
+Avant d'aller plus loin, nous pouvons définir quelques matrices spéciales, à l'aide de la matrice inverse.
+
+\BeginKnitrBlock{definition}[La matrice orthogonale]
+\protect\hypertarget{def:unnamed-chunk-78}{}{\label{def:unnamed-chunk-78} \iffalse (La matrice orthogonale) \fi{} }Nous disons qu'une matrice est orthogonale lorsque sa transposée est égale à sa matrice inverse, c'est-à-dire \(A^T=A^{-1}\). Plus précisément, nous avons:
+\begin{align*}
+A^TA=I \text{ et } AA^T=I
+\end{align*}
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-79}{}{\label{exm:unnamed-chunk-79} }Démontrez que la matrice suivante est orthogonale:
+\begin{align*}
+A=\begin{bmatrix}
+\cos(\theta) & -\sin(\theta) \\
+\sin(\theta) & \cos(\theta)
+\end{bmatrix}
+\end{align*}
+\EndKnitrBlock{example}
+
+Lorsque nous connaissons la matrice inverse d'une matrice \(A\), nous pouvons facilement résoudre un système d'équations linéaires de la forme:
+\begin{align*}
+AX=B 
+\end{align*}
+Pour ce faire, il suffit de multiplier à gauche par la matrice inverse de \(A\), c'est-à-dire:
+\begin{align*}
+AX&=B\\
+(A^{-1}A)X&=A^{-1}B\\
+IX&=A^{-1}B\\
+X&=A^{-1}B
+\end{align*}
+Ainsi, la solution du système d'équations linéaires est \(X=A^{-1}B\).
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-80}{}{\label{exm:unnamed-chunk-80} }Trouvez la solution des système d'équations linéaires suivants à l'aide de la matrice inverse.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \begin{align*}
+  \begin{bmatrix}
+  1&1&1\\
+  -1&2&-1\\
+  0&0&3\\
+  \end{bmatrix}
+  \begin{bmatrix}
+  x \\y \\z
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+  7\\
+  9\\
+  -8\\
+  \end{bmatrix}
+  \end{align*}
+\item
+  \begin{align*}
+  \begin{bmatrix}
+  1&1&1\\
+  -1&2&-1\\
+  0&0&3\\
+  \end{bmatrix}
+  \begin{bmatrix}
+  x \\y \\z
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+  9\\
+  3\\
+  -8\\
+  \end{bmatrix}
+  \end{align*}
+\item
+  \begin{align*}
+  \begin{bmatrix}
+  1&1&1\\
+  -1&2&-1\\
+  0&0&3\\
+  \end{bmatrix}
+  \begin{bmatrix}
+  x \\y \\z
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+  -5\\
+  1\\
+  10\\
+  \end{bmatrix}
+  \end{align*}
+
+  \EndKnitrBlock{example}
+\end{enumerate}
+
+L'exemple précédent montre qu'il devient très rapide de trouver la solution de systèmes d'équations linéaires qui possède la même matrice \(A\) lorsque nous connaissons la matrice inverse \(A^{-1}\). Nous n'avons pas à refaire la méthode de Gauss à chaque résolution de système d'équations linéaires.
+
+Ce ne sont pas toutes les matrices carrées qui possèdent une matrice inverse, comme le démontrera l'exemple suivant.
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-81}{}{\label{exm:unnamed-chunk-81} }Trouvez, si possible, la matrice inverse de la matrice suivante:
+\begin{align*}
+A=\begin{bmatrix}
+7&3&-3\\
+-16&-4&-6\\
+-6&-2&0\\
+\end{bmatrix}
+\end{align*}
+\EndKnitrBlock{example}
+
+\hypertarget{determinants}{%
+\chapter{Les déterminants}\label{determinants}}
+
+\hypertarget{le-calcul-dun-determinant}{%
+\section{Le calcul d'un déterminant}\label{le-calcul-dun-determinant}}
+
+Dans cette section, nous verrons la façon de calculer des déterminants de matrices \(1\times 1\), \(2\times 2\), pour ensuite voir une méthode générale pour calculer un déterminant d'une matrice \(n\times n\).
+
+\BeginKnitrBlock{definition}[Le déterminant d'une matrice]
+\protect\hypertarget{def:unnamed-chunk-82}{}{\label{def:unnamed-chunk-82} \iffalse (Le déterminant d'une matrice) \fi{} }Soit une matrice carrée \(A\) de dimension \(n\times n\). Le déterminant de \(A\) est noté \(\vert A\vert\) ou \(\det (A)\).
+\EndKnitrBlock{definition}
+
+\hypertarget{le-calcul-dun-determinant-dune-matrice-1times-1}{%
+\subsection{\texorpdfstring{Le calcul d'un déterminant d'une matrice \(1\times 1\)}{Le calcul d'un déterminant d'une matrice 1\textbackslash times 1}}\label{le-calcul-dun-determinant-dune-matrice-1times-1}}
+
+\BeginKnitrBlock{definition}[Le déterminant d'une matrice $1	imes 1$]
+\protect\hypertarget{def:unnamed-chunk-83}{}{\label{def:unnamed-chunk-83} \iffalse (Le déterminant d'une matrice \(1 imes 1\)) \fi{} }Soit la matrice \(A=[a_{1,1}]\). Le déterminant de \(A\) est \(\vert A\vert=a_{1,1}\).
+\EndKnitrBlock{definition}
+
+Dans le cas d'une matrice \(1\times 1\), le déterminant de \(A\) est tout simplement l'élément \(a_{1,1}\) de la matrice.
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-84}{}{\label{exm:unnamed-chunk-84} }Trouvez le déterminant des matrices suivantes:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \(A=\vert 3\vert\)
+\item
+  \(B=\vert -\pi\vert\)
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\hypertarget{le-calcul-dun-determinant-dune-matrice-2times-2}{%
+\subsection{\texorpdfstring{Le calcul d'un déterminant d'une matrice \(2\times 2\)}{Le calcul d'un déterminant d'une matrice 2\textbackslash times 2}}\label{le-calcul-dun-determinant-dune-matrice-2times-2}}
+
+\BeginKnitrBlock{definition}
+\protect\hypertarget{def:unnamed-chunk-85}{}{\label{def:unnamed-chunk-85} }Soit la matrice:
+\begin{align*}
+A = \begin{bmatrix}
+a_{1,1} & a_{1,2} \\
+a_{2,1} & a_{2,2}
+\end{bmatrix}
+\end{align*}
+Le déterminant de \(A\) est donné par:
+\begin{align*}
+\vert A\vert &= \begin{vmatrix}
+a_{1,1} & a_{1,2} \\
+a_{2,1} & a_{2,2}
+\end{vmatrix}
+=
+a_{1,1}\cdot a_{2,2}-a_{1,2}\cdot a_{2,1}
+\end{align*}
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-86}{}{\label{exm:unnamed-chunk-86} }Trouvez le déterminant des matrices suivantes:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \(\begin{bmatrix} 3&-4\\ 4&5\\ \end{bmatrix}\)
+\item
+  \(\begin{bmatrix} 1&-2\\ -4&1\\ \end{bmatrix}\)
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\hypertarget{le-calcul-dun-determinant-dune-matrice-ntimes-n}{%
+\subsection{\texorpdfstring{Le calcul d'un déterminant d'une matrice \(n\times n\)}{Le calcul d'un déterminant d'une matrice n\textbackslash times n}}\label{le-calcul-dun-determinant-dune-matrice-ntimes-n}}
+
+Les deux sous-sections précédentes nous ont permises de constater que la calcul des déterminants de matrices \(1\times 1\) ou \(2\times 2\) se font de manière assez simple. L'intérêt d'être en mesure de calculer des déterminants de ce type est qu'il est toujours possible d'écrire le déterminant d'une matrice \(n\times n\) en utilisant plusieurs déterminants de matrice \(2\times 2\). Nous voulons donc maintenant étudier la façon d'écrire le déterminant d'une matrice \(n\times n\) en plusieurs déterminants.
+
+\BeginKnitrBlock{definition}[Le mineur d'une matrice]
+\protect\hypertarget{def:unnamed-chunk-87}{}{\label{def:unnamed-chunk-87} \iffalse (Le mineur d'une matrice) \fi{} }Soit \(A\) une matrice de dimension \(n \times n\). Le mineur de la \emph{ième} ligne et de la \emph{jième} colonne, noté \(M_{i,j}\), est le déterminant de la matrice résultante obtenue en enlevant la \emph{ième} ligne et la \emph{jième} colonne.
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-88}{}{\label{exm:unnamed-chunk-88} }Répondez aux questions suivantes:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Trouvez le mineur \(M_{1,2}\) de la matrice \(A=\begin{bmatrix} 10&10&6\\ 10&10&-8\\ -7&0&-2\\ \end{bmatrix}\).
+\item
+  Trouvez le mineur \(M_{2,3}\) de la matrice \(B=\begin{bmatrix} 7&9&-5\\ 9&3&1\\ -8&-8&10\\ \end{bmatrix}\).
+\item
+  Trouvez le mineur \(M_{2,2}\), sans le calculer, de la matrice \(C=\begin{bmatrix} 10&0&9&-10\\ -7&6&6&7\\ 10&-8&10&9\\ 10&-2&3&4\\ \end{bmatrix}\).
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{remark}
+\iffalse{} {Remarque. } \fi{}Il est important de remarquer que le mineur d'une matrice de dimension \(n\times n\) est toujours de dimension \text{$(n-1)\times (n-1)$}. Ceci signifie qu'un mineur diminue la dimension du déterminant que nous voulons calculer.
+\EndKnitrBlock{remark}
+
+\BeginKnitrBlock{definition}[Le cofacteur d'une matrice]
+\protect\hypertarget{def:unnamed-chunk-90}{}{\label{def:unnamed-chunk-90} \iffalse (Le cofacteur d'une matrice) \fi{} }Soit \(A\) une matrice de dimension \(n \times n\). Le cofacteur de la ième ligne et de la jième colonne, noté \(C_{i,j}\), est donné par \((-1)^{i+j}M_{i,j}\), c'est-à-dire que le cofacteur est le mineur multiplié par un signe plus ou un signe moins.
+\EndKnitrBlock{definition}
+
+Le terme \((-1)^{i+j}\) dans l'expression du cofacteur peut être soit de valeur \(1\), soit de valeur \(-1\). La façon la plus facile de se rappeler du signe est de se souvenir de la matrice ci-dessous.
+\begin{align*}
+\begin{bmatrix}
++ & - & + & \ldots \\
+- & + & - & \ldots \\
++ & - & + & \ldots \\
+\vdots & \vdots & \vdots & \ddots
+\end{bmatrix}
+\end{align*}
+Nous remarquons que les signes alternent toujours avec un signe positif à l'élément situé à l'intersection de la première ligne et de la première colonne.
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-91}{}{\label{exm:unnamed-chunk-91} }À FAIRE\ldots{}
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{definition}[L'expansion par cofacteurs d'un déterminant]
+\protect\hypertarget{def:unnamed-chunk-92}{}{\label{def:unnamed-chunk-92} \iffalse (L'expansion par cofacteurs d'un déterminant) \fi{} }Soit \(A\) une matrice de dimension \(n \times n\). Le déterminant de \(A\) est donné par:
+\begin{align*}
+\vert A\vert &= \sum_{k=1}^{n} a_{i,k}C_{i,k} \qquad\text{selon la _ième_ ligne}\\
+\vert A\vert &= \sum_{k=1}^{n} a_{k,j}C_{k,j} \qquad\text{selon la _jième_ colonne}
+\end{align*}
+
+Pour être plus précis, l'expansion du déterminant de \(A\) par la \emph{ième} ligne est donnée par:
+\begin{align*}
+\vert A\vert &= \sum_{k=1}^{n} a_{i,k}C_{i,k} = a_{i,1}C_{i,1}+a_{i,2}C_{i,2}+\ldots + a_{i,n}C_{i,n}
+\end{align*}
+Quant à elle, l'expansion du déterminant de \(A\) par la \emph{jième} colonne est donnée par:
+\begin{align*}
+\vert A\vert &= \sum_{k=1}^{n} a_{k,j}C_{k,j} = a_{1,j}C_{1,j}+a_{2,j}C_{2,j}+\ldots + a_{n,j}C_{n,j}
+\end{align*}
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-93}{}{\label{exm:unnamed-chunk-93} }Répondez aux questions suivantes:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Trouvez le déterminant de la matrice suivante en utilisant l'expansion selon la première ligne.
+  \begin{align*}
+  A=\begin{bmatrix}
+  5&3&-10\\
+  5&-7&-5\\
+  -2&4&-10\\
+  \end{bmatrix}
+  \end{align*}
+\item
+  Trouvez le déterminant de la matrice précédente en utilisant l'expansion selon la première colonne.
+\end{enumerate}
+\EndKnitrBlock{example}
+
+Comme le montre l'exemple précédent, nous pouvons calculer un déterminant en utilisant n'importe quelle ligne ou colonne de la matrice. Puisque le calcul du déterminant implique le produit d'un élément de la matrice par son mineur, cela indique que plus une ligne ou une colonne est composée de zéros, plus le calcul sera simple. L'exemple suivant clarifiera le tout.
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-94}{}{\label{exm:unnamed-chunk-94} }Trouvez le déterminant de la matrice suivante:
+\begin{align*}
+A = \begin{bmatrix}
+-9&0&8\\
+8&0&-3\\
+9&-3&-8\\
+\end{bmatrix}
+\end{align*}
+\EndKnitrBlock{example}
+
+En général, l'expansion d'un déterminant à l'aide des cofacteurs permet de calculer un déterminant d'une matrice \(n\times n\) à l'aide de \(n\) déterminants de dimension \((n-1)\times (n-1)\). Nous devons ensuite effectuer l'expansion des déterminants de dimension \((n-1)\times (n-1)\) jusqu'à obtenir plusieurs déterminants de dimension \(2\times 2\), qui se calculent facilement.
+
+\BeginKnitrBlock{remark}
+\iffalse{} {Remarque. } \fi{}Pour simplifier le calcul d'un déterminant, il faut toujours en faire l'expansion selon la ligne ou la colonne qui contient le plus de zéros possibles.
+\EndKnitrBlock{remark}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-96}{}{\label{exm:unnamed-chunk-96} }Calculez les déterminants des matrices suivantes:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \(A=\begin{bmatrix} 4&3&10&5\\ 5&-7&-3&-5\\ -5&-8&2&0\\ 4&0&-6&0\\ \end{bmatrix}\)
+\item
+  \(B=\begin{bmatrix} 8&-5&9&-1&-4\\ 10&7&-3&0&0\\ 1&-5&-6&0&5\\ 0&0&-5&0&0\\ -7&-5&2&0&0\\ \end{bmatrix}\)
+
+  \EndKnitrBlock{example}
+\end{enumerate}
+
+\BeginKnitrBlock{remark}
+\iffalse{} {Remarque. } \fi{}L'expansion d'un déterminant à l'aide des cofacteurs implique que le déterminant de n'importe quelle matrice triangulaire supérieure ou inférieure est le produit des éléments de sa diagonale principale.
+\EndKnitrBlock{remark}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-98}{}{\label{exm:unnamed-chunk-98} }Calculez les déterminants des matrices suivantes.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \(A=\begin{bmatrix} -9&6&1\\ 0&9&-1\\ 0&0&-10\\ \end{bmatrix}\)
+\item
+  \(B=\begin{bmatrix} -3&0&0&0&0&0&0&0\\ -7&4&0&0&0&0&0&0\\ 6&5&10&0&0&0&0&0\\ -4&-1&-9&-9&0&0&0&0\\ 1&-9&-1&-2&-8&0&0&0\\ -7&-6&-8&-5&8&-2&0&0\\ 2&9&10&6&2&-9&9&0\\ -5&-7&-10&-1&1&-5&0&-5\\ \end{bmatrix}\)
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-99}{}{\label{exm:unnamed-chunk-99} }Démontrez que \(\det(I_n)=1\).
+\EndKnitrBlock{example}
+
+\hypertarget{les-proprietes-des-determinants}{%
+\section{Les propriétés des déterminants}\label{les-proprietes-des-determinants}}
+
+Dans cette section, nous comprendrons et appliquerons les propriétés des déterminants et nous utiliserons celles-ci pour simplifier le calcul d'un déterminant.
+
+L'expansion d'un déterminant à l'aide des cofacteurs requiert un grand nombre d'opérations et de temps, sauf si la matrice est relativement petite ou si elle possède un grand nombre de zéros. Il existe une meilleure méthode, basée sur l'élimination de Gauss. Premièrement, nous devons étudier certaines propriétés des déterminants.
+
+\hypertarget{les-operations-elementaires}{%
+\subsection{Les opérations élémentaires}\label{les-operations-elementaires}}
+
+\BeginKnitrBlock{theorem}[Les propriétés de base des déterminants]
+\protect\hypertarget{thm:proprietes-determinants}{}{\label{thm:proprietes-determinants} \iffalse (Les propriétés de base des déterminants) \fi{} }Les propriétés de base des déterminants sont:
+
+\begin{itemize}
+\tightlist
+\item
+  La matrice \(A\) et sa transposée on le même déterminant, c'est-à-dire \(\det(A) = \det(A^T)\). Par exemple:
+  \begin{align*}
+  \begin{vmatrix}
+  a_1 & a_2 & a_3 \\
+  b_1 & b_2 & b_3 \\
+  c_1 & c_2 & c_3
+  \end{vmatrix}
+  =
+  \begin{vmatrix}
+  a_1 & b_1 & c_1 \\
+  a_2 & b_2 & c_2 \\
+  a_3 & b_3 & c_3
+  \end{vmatrix}
+  \end{align*}
+\item
+  Soit la matrice \(B\) obtenue de la matrice \(A\) en multipliant une de ses lignes (ou colonne) par un scalaire non-nul. Nous avons alors \(\det(B)=k\det(A)\). Par exemple:
+  \begin{align*}
+  \begin{vmatrix}
+  a_1 & a_2 & a_3 \\
+  kb_1 & kb_2 & kb_3 \\
+  c_1 & c_2 & c_3
+  \end{vmatrix}
+  =
+  k\begin{vmatrix}
+  a_1 & a_2 & a_3 \\
+  b_1 & b_2 & b_3 \\
+  c_1 & c_2 & c_3
+  \end{vmatrix}
+  &
+  \phantom{aaa}
+  &
+  \begin{vmatrix}
+  a_1 & a_2 & ka_3 \\
+  b_1 & b_2 & kb_3 \\
+  c_1 & c_2 & kc_3
+  \end{vmatrix}
+  =k\begin{vmatrix}
+  a_1 & a_2 & a_3 \\
+  b_1 & b_2 & b_3 \\
+  c_1 & c_2 & c_3
+  \end{vmatrix}
+  \end{align*}
+\item
+  Soit la matrice \(B_n\) obtenue de la matrice \(A_n\) en faisant \(B_n=kA_n\), où \(k\) est un scalaire. Nous avons alors \(\det(B)=k^n\det(A)\).
+\item
+  Soit la matrice \(B\) obtenue de la matrice \(A\) en interchangeant deux de ses lignes (ou colonnes). Nous avons alors \(\det(B)=-\det(A)\). Par exemple:
+  \begin{align*}
+  \begin{vmatrix}
+  a_1 & a_2 & a_3 \\
+  b_1 & b_2 & b_3 \\
+  c_1 & c_2 & c_3
+  \end{vmatrix}
+  =
+  -\begin{vmatrix}
+  b_1 & b_2 & b_3 \\
+  a_1 & a_2 & a_3 \\
+  c_1 & c_2 & c_3
+  \end{vmatrix}
+  &
+  \phantom{aaa}
+  &
+  \begin{vmatrix}
+  a_1 & a_2 & a_3 \\
+  b_1 & b_2 & b_3 \\
+  c_1 & c_2 & c_3
+  \end{vmatrix}
+  =
+  -\begin{vmatrix}
+  a_1 & a_3 & a_2 \\
+  b_1 & b_3 & b_2 \\
+  c_1 & c_3 & c_2
+  \end{vmatrix}
+  \end{align*}
+\item
+  Si la matrice \(A\) possède une ligne (ou colonne) composée uniquement de zéros, alors \(\det(A)=0\). Par exemple:
+  \begin{align*}
+  \begin{vmatrix}
+  a_1 & a_2 & a_3 \\
+  0 & 0 & 0 \\
+  c_1 & c_2 & c_3
+  \end{vmatrix}
+  =
+  0
+  &
+  \phantom{aaa}
+  &
+  \begin{vmatrix}
+  a_1 & a_2 & 0 \\
+  b_1 & b_2 & 0 \\
+  c_1 & c_2 & 0
+  \end{vmatrix}
+  =0
+  \end{align*}
+\item
+  Si la matrice \(A\) possède deux lignes (ou colonnes) identiques, alors \(\det(A)=0\). Par exemple:
+  \begin{align*}
+  \begin{vmatrix}
+  a_1 & a_2 & a_3 \\
+  a_1 & a_2 & a_3 \\
+  c_1 & c_2 & c_3
+  \end{vmatrix}
+  =
+  0
+  &
+  \phantom{aaa}
+  &
+  \begin{vmatrix}
+  a_1 & a_2 & a_1 \\
+  b_1 & b_2 & b_1 \\
+  c_1 & c_2 & c_1
+  \end{vmatrix}
+  =0
+  \end{align*}
+\item
+  Soit la matrice \(A\) telle que deux lignes (ou colonnes) sont des multiples l'une de l'autre. Nous avons alors \(\det(A)=0\). Par exemple:
+  \begin{align*}
+  \begin{vmatrix}
+  a_1 & a_2 & a_3 \\
+  ka_1 & ka_2 & ka_3 \\
+  c_1 & c_2 & c_3
+  \end{vmatrix}
+  =
+  0
+  &
+  \phantom{aaa}
+  &
+  \begin{vmatrix}
+  a_1 & a_2 & ka_1 \\
+  b_1 & b_2 & kb_1 \\
+  c_1 & c_2 & kc_1
+  \end{vmatrix}
+  =0
+  \end{align*}
+\item
+  Soit la matrice \(B\) obtenue de la matrice \(A\) en additionnant un multiple d'une de ses ligne (ou colonne) à une \textbf{autre} ligne (ou colonne). Nous avons alors \(\det(B)=\det(A)\). Par exemple:
+  \begin{align*}
+  \begin{vmatrix}
+  a_1 & a_2 & a_3 \\
+  b_1 & b_2 & b_3 \\
+  ka_1+c_1 & ka_2+c_2 & ka_3+c_3
+  \end{vmatrix}
+  &=
+  \begin{vmatrix}
+  a_1 & a_2 & a_3 \\
+  b_1 & b_2 & b_3 \\
+  c_1 & c_2 & c_3
+  \end{vmatrix}
+  \\
+  \begin{vmatrix}
+  a_1+ka_3 & a_2 & a_3 \\
+  b_1+kb_3 & b_2 & b_3 \\
+  c_1+kc_3 & c_2 & c_3
+  \end{vmatrix}
+  &=
+  \begin{vmatrix}
+  a_1 & a_2 & a_3 \\
+  b_1 & b_2 & b_3 \\
+  c_1 & c_2 & c_3
+  \end{vmatrix}
+  \end{align*}
+\item
+  Soit \(A_n\) et \(B_n\). Nous avons alors \(\det(AB)=\det(A)\det(B)\).
+\item
+  Si la matrice \(A\) possède une matrice inverse, alors \(\det(A^{-1})=\dfrac{1}{\det(A)}\).
+
+  \EndKnitrBlock{theorem}
+\end{itemize}
+
+Les propriétés précédentes vont nous permettre de simplifier le calcul des déterminants un peu plus loin. Par contre, il n'existe pas de propriété simple pour l'addition de deux matrices.
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-100}{}{\label{exm:unnamed-chunk-100} }Soit les matrices
+\(A=\begin{bmatrix} 7&-8\\ 9&9\\ \end{bmatrix}\) et
+\(B=\begin{bmatrix} 3&-5\\ -8&1\\ \end{bmatrix}\).
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Calculez \(\det(A)\)
+\item
+  Calculez \(\det(B)\)
+\item
+  Calculez \(\det(A)+\det(B)\)
+\item
+  Calculez \(\det(A+B)\)
+\end{enumerate}
+\EndKnitrBlock{example}
+
+L'exemple précédent nous indique que le déterminant d'une somme de matrices n'est pas nécessairement égal à la somme du déterminant de ces matrices.
+
+\BeginKnitrBlock{remark}
+\iffalse{} {Remarque. } \fi{}En général, \(\det(A+B)\neq \det(A)+\det(B)\).
+\EndKnitrBlock{remark}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-102}{}{\label{exm:unnamed-chunk-102} }Soit la matrice suivante:
+\begin{align*}
+D_n =\begin{bmatrix}
+1 & 1 & 1 & 1 & \ldots & 1 \\
+1 & 2 & 2 & 2 & \ldots & 2 \\
+1 & 2 & 3 & 3 & \ldots & 3 \\
+1 & 2 & 3 & 4 & \ldots & 4 \\
+\vdots &&&&& \vdots \\
+1 & 2 & 3 & 4 & \ldots & n
+\end{bmatrix}
+\end{align*}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Trouvez \(\vert D_1\vert\).
+\item
+  Trouvez \(\vert D_2\vert\).
+\item
+  Trouvez \(\vert D_3\vert\).
+\item
+  Trouvez \(\vert D_n\vert\).
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\hypertarget{le-calcul-dun-determinant-a-laide-de-la-methode-de-gauss}{%
+\subsection{Le calcul d'un déterminant à l'aide de la méthode de Gauss}\label{le-calcul-dun-determinant-a-laide-de-la-methode-de-gauss}}
+
+À l'aide du théorème \ref{thm:proprietes-determinants}, nous pouvons remarquer que lors de l'élimination de Gauss, une opération du type:
+
+\bibliography{book.bib,packages.bib}
+
+
+\end{document}

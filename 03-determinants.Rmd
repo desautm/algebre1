@@ -162,9 +162,274 @@ A = \begin{bmatrix}
 En général, l'expansion d'un déterminant à l'aide des cofacteurs permet de calculer un déterminant d'une matrice $n\times n$ à l'aide de $n$ déterminants de dimension $(n-1)\times (n-1)$. Nous devons ensuite effectuer l'expansion des déterminants de dimension $(n-1)\times (n-1)$ jusqu'à obtenir plusieurs déterminants de dimension $2\times 2$, qui se calculent facilement.
 
 ```{remark}
-Pour simplifier le calcul d'un déterminant, il faut toujours en fait l'expansion selon la ligne ou la colonne qui contient le plus de zéros possibles.
+Pour simplifier le calcul d'un déterminant, il faut toujours en faire l'expansion selon la ligne ou la colonne qui contient le plus de zéros possibles.
 ```
 
+```{example}
+Calculez les déterminants des matrices suivantes:
+  
+  a. $A=\begin{bmatrix}
+4&3&10&5\\
+5&-7&-3&-5\\
+-5&-8&2&0\\
+4&0&-6&0\\
+\end{bmatrix}$
+  a. $B=\begin{bmatrix}
+8&-5&9&-1&-4\\
+10&7&-3&0&0\\
+1&-5&-6&0&5\\
+0&0&-5&0&0\\
+-7&-5&2&0&0\\
+\end{bmatrix}$
+  
+```
+
+```{remark}
+L'expansion d'un déterminant à l'aide des cofacteurs implique que le déterminant de n'importe quelle matrice triangulaire supérieure ou inférieure est le produit des éléments de sa diagonale principale.
+```
+
+```{example}
+Calculez les déterminants des matrices suivantes.
+
+  a. $A=\begin{bmatrix}
+-9&6&1\\
+0&9&-1\\
+0&0&-10\\
+\end{bmatrix}$
+  a. $B=\begin{bmatrix}
+-3&0&0&0&0&0&0&0\\
+-7&4&0&0&0&0&0&0\\
+6&5&10&0&0&0&0&0\\
+-4&-1&-9&-9&0&0&0&0\\
+1&-9&-1&-2&-8&0&0&0\\
+-7&-6&-8&-5&8&-2&0&0\\
+2&9&10&6&2&-9&9&0\\
+-5&-7&-10&-1&1&-5&0&-5\\
+\end{bmatrix}$
+
+```
+
+```{example}
+Démontrez que $\det(I_n)=1$.
+```
+
+## Les propriétés des déterminants
+
+Dans cette section, nous comprendrons et appliquerons les propriétés des déterminants et nous utiliserons celles-ci pour simplifier le calcul d'un déterminant.
+
+L'expansion d'un déterminant à l'aide des cofacteurs requiert un grand nombre d'opérations et de temps, sauf si la matrice est relativement petite ou si elle possède un grand nombre de zéros. Il existe une meilleure méthode, basée sur l'élimination de Gauss. Premièrement, nous devons étudier certaines propriétés des déterminants.
+
+### Les opérations élémentaires
+
+```{theorem, name="Les propriétés de base des déterminants", label="proprietes-determinants"}
+Les propriétés de base des déterminants sont:
+  
+  - La matrice $A$ et sa transposée on le même déterminant, c'est-à-dire $\det(A) = \det(A^T)$. Par exemple:
+\begin{align*}
+\begin{vmatrix}
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3 \\
+c_1 & c_2 & c_3
+\end{vmatrix}
+=
+\begin{vmatrix}
+a_1 & b_1 & c_1 \\
+a_2 & b_2 & c_2 \\
+a_3 & b_3 & c_3
+\end{vmatrix}
+\end{align*}
+  - Soit la matrice $B$ obtenue de la matrice $A$ en multipliant une de ses lignes (ou colonne) par un scalaire non-nul. Nous avons alors $\det(B)=k\det(A)$. Par exemple:
+\begin{align*}
+\begin{vmatrix}
+a_1 & a_2 & a_3 \\
+kb_1 & kb_2 & kb_3 \\
+c_1 & c_2 & c_3
+\end{vmatrix}
+=
+k\begin{vmatrix}
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3 \\
+c_1 & c_2 & c_3
+\end{vmatrix}
+&
+\phantom{aaa}
+&
+\begin{vmatrix}
+a_1 & a_2 & ka_3 \\
+b_1 & b_2 & kb_3 \\
+c_1 & c_2 & kc_3
+\end{vmatrix}
+=k\begin{vmatrix}
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3 \\
+c_1 & c_2 & c_3
+\end{vmatrix}
+\end{align*}
+  - Soit la matrice $B_n$ obtenue de la matrice $A_n$ en faisant $B_n=kA_n$, où $k$ est un scalaire. Nous avons alors $\det(B)=k^n\det(A)$.
+  - Soit la matrice $B$ obtenue de la matrice $A$ en interchangeant deux de ses lignes (ou colonnes). Nous avons alors $\det(B)=-\det(A)$. Par exemple:
+\begin{align*}
+\begin{vmatrix}
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3 \\
+c_1 & c_2 & c_3
+\end{vmatrix}
+=
+-\begin{vmatrix}
+b_1 & b_2 & b_3 \\
+a_1 & a_2 & a_3 \\
+c_1 & c_2 & c_3
+\end{vmatrix}
+&
+\phantom{aaa}
+&
+\begin{vmatrix}
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3 \\
+c_1 & c_2 & c_3
+\end{vmatrix}
+=
+-\begin{vmatrix}
+a_1 & a_3 & a_2 \\
+b_1 & b_3 & b_2 \\
+c_1 & c_3 & c_2
+\end{vmatrix}
+\end{align*}
+  - Si la matrice $A$ possède une ligne (ou colonne) composée uniquement de zéros, alors $\det(A)=0$. Par exemple:
+\begin{align*}
+\begin{vmatrix}
+a_1 & a_2 & a_3 \\
+0 & 0 & 0 \\
+c_1 & c_2 & c_3
+\end{vmatrix}
+=
+0
+&
+\phantom{aaa}
+&
+\begin{vmatrix}
+a_1 & a_2 & 0 \\
+b_1 & b_2 & 0 \\
+c_1 & c_2 & 0
+\end{vmatrix}
+=0
+\end{align*}
+  - Si la matrice $A$ possède deux lignes (ou colonnes) identiques, alors $\det(A)=0$. Par exemple:
+\begin{align*}
+\begin{vmatrix}
+a_1 & a_2 & a_3 \\
+a_1 & a_2 & a_3 \\
+c_1 & c_2 & c_3
+\end{vmatrix}
+=
+0
+&
+\phantom{aaa}
+&
+\begin{vmatrix}
+a_1 & a_2 & a_1 \\
+b_1 & b_2 & b_1 \\
+c_1 & c_2 & c_1
+\end{vmatrix}
+=0
+\end{align*}
+  - Soit la matrice $A$ telle que deux lignes (ou colonnes) sont des multiples l'une de l'autre. Nous avons alors $\det(A)=0$. Par exemple:
+\begin{align*}
+\begin{vmatrix}
+a_1 & a_2 & a_3 \\
+ka_1 & ka_2 & ka_3 \\
+c_1 & c_2 & c_3
+\end{vmatrix}
+=
+0
+&
+\phantom{aaa}
+&
+\begin{vmatrix}
+a_1 & a_2 & ka_1 \\
+b_1 & b_2 & kb_1 \\
+c_1 & c_2 & kc_1
+\end{vmatrix}
+=0
+\end{align*}
+  - Soit la matrice $B$ obtenue de la matrice $A$ en additionnant un multiple d'une de ses ligne (ou colonne) à une \textbf{autre} ligne (ou colonne). Nous avons alors $\det(B)=\det(A)$. Par exemple:
+\begin{align*}
+\begin{vmatrix}
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3 \\
+ka_1+c_1 & ka_2+c_2 & ka_3+c_3
+\end{vmatrix}
+&=
+\begin{vmatrix}
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3 \\
+c_1 & c_2 & c_3
+\end{vmatrix}
+\\
+\begin{vmatrix}
+a_1+ka_3 & a_2 & a_3 \\
+b_1+kb_3 & b_2 & b_3 \\
+c_1+kc_3 & c_2 & c_3
+\end{vmatrix}
+&=
+\begin{vmatrix}
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3 \\
+c_1 & c_2 & c_3
+\end{vmatrix}
+\end{align*}
+  - Soit $A_n$ et $B_n$. Nous avons alors $\det(AB)=\det(A)\det(B)$.
+  - Si la matrice $A$ possède une matrice inverse, alors $\det(A^{-1})=\dfrac{1}{\det(A)}$.
+```
+
+Les propriétés précédentes vont nous permettre de simplifier le calcul des déterminants un peu plus loin. Par contre, il n'existe pas de propriété simple pour l'addition de deux matrices.
+
+```{example}
+Soit les matrices 
+$A=\begin{bmatrix}
+7&-8\\
+9&9\\
+\end{bmatrix}$ et
+$B=\begin{bmatrix}
+3&-5\\
+-8&1\\
+\end{bmatrix}$.
+
+  a. Calculez $\det(A)$
+  a. Calculez $\det(B)$
+  a. Calculez $\det(A)+\det(B)$
+  a. Calculez $\det(A+B)$
+
+```
+
+L'exemple précédent nous indique que le déterminant d'une somme de matrices n'est pas nécessairement égal à la somme du déterminant de ces matrices.
+
+```{remark}
+En général, $\det(A+B)\neq \det(A)+\det(B)$.
+```
+
+```{example}
+Soit la matrice suivante:
+\begin{align*}
+D_n =\begin{bmatrix}
+1 & 1 & 1 & 1 & \ldots & 1 \\
+1 & 2 & 2 & 2 & \ldots & 2 \\
+1 & 2 & 3 & 3 & \ldots & 3 \\
+1 & 2 & 3 & 4 & \ldots & 4 \\
+\vdots &&&&& \vdots \\
+1 & 2 & 3 & 4 & \ldots & n
+\end{bmatrix}
+\end{align*}
+
+  a. Trouvez $\vert D_1\vert$.
+  a. Trouvez $\vert D_2\vert$.
+  a. Trouvez $\vert D_3\vert$.
+  a. Trouvez $\vert D_n\vert$.
+
+```
+
+### Le calcul d'un déterminant à l'aide de la méthode de Gauss
+
+À l'aide du théorème \@ref(thm:proprietes-determinants), nous pouvons remarquer que lors de l'élimination de Gauss, une opération du type:
 
 
 

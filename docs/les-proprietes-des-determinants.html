@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.5 Les systèmes d’équations linéaires homogènes | Algèbre linéaire et géométrie vectorielle</title>
+  <title>3.2 Les propriétés des déterminants | Algèbre linéaire et géométrie vectorielle</title>
   <meta name="description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
   <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.5 Les systèmes d’équations linéaires homogènes | Algèbre linéaire et géométrie vectorielle" />
+  <meta property="og:title" content="3.2 Les propriétés des déterminants | Algèbre linéaire et géométrie vectorielle" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="desautm/algebre1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.5 Les systèmes d’équations linéaires homogènes | Algèbre linéaire et géométrie vectorielle" />
+  <meta name="twitter:title" content="3.2 Les propriétés des déterminants | Algèbre linéaire et géométrie vectorielle" />
   
   <meta name="twitter:description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="methode-gauss.html">
-<link rel="next" href="la-methode-de-gauss-avec-substitution-arriere.html">
+<link rel="prev" href="le-calcul-dun-determinant.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -132,66 +132,229 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="les-systemes-dequations-lineaires-homogenes" class="section level2">
-<h2><span class="header-section-number">1.5</span> Les systèmes d’équations linéaires homogènes</h2>
-<p>Les systèmes d’équations linéaires homogènes sont une classe particulière de systèmes d’équations linéaires. Ceux-ci ont la particularité de toujours posséder au moins une solution. Il est impossible qu’un tel système ne possède aucune solution.</p>
+<div id="les-proprietes-des-determinants" class="section level2">
+<h2><span class="header-section-number">3.2</span> Les propriétés des déterminants</h2>
+<p>Dans cette section, nous comprendrons et appliquerons les propriétés des déterminants et nous utiliserons celles-ci pour simplifier le calcul d’un déterminant.</p>
+<p>L’expansion d’un déterminant à l’aide des cofacteurs requiert un grand nombre d’opérations et de temps, sauf si la matrice est relativement petite ou si elle possède un grand nombre de zéros. Il existe une meilleure méthode, basée sur l’élimination de Gauss. Premièrement, nous devons étudier certaines propriétés des déterminants.</p>
+<div id="les-operations-elementaires" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Les opérations élémentaires</h3>
 
-<div class="definition">
-<span id="def:unnamed-chunk-31" class="definition"><strong>Définition 1.11  (Un système d’équations linéaires homogène)  </strong></span>Un <strong>système d’équations linéaires homogène</strong> de <span class="math inline">\(m\)</span> équations et <span class="math inline">\(n\)</span> variables (ou inconnues) <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span>, … et <span class="math inline">\(x_n\)</span> est un ensemble de <span class="math inline">\(m\)</span> équations linéaires de la forme:
+<div class="theorem">
+<p><span id="thm:proprietes-determinants" class="theorem"><strong>Théorème 2.7  (Les propriétés de base des déterminants)  </strong></span>Les propriétés de base des déterminants sont:</p>
+<ul>
+<li>La matrice <span class="math inline">\(A\)</span> et sa transposée on le même déterminant, c’est-à-dire <span class="math inline">\(\det(A) = \det(A^T)\)</span>. Par exemple:
 <span class="math display">\[\begin{align*}
-\begin{array}{cccccccccc}
-&amp;a_{1,1}x_1&amp;+&amp;a_{1,2}x_2&amp;+&amp;\ldots &amp;+&amp;a_{1,n}x_n&amp;=&amp;0 \\
-&amp;a_{2,1}x_1&amp;+&amp;a_{2,2}x_2&amp;+&amp;\ldots &amp;+&amp;a_{2,n}x_n&amp;=&amp;0 \\
-&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;\vdots &amp; \\
-&amp;a_{m,1}x_1&amp;+&amp;a_{m,2}x_2&amp;+&amp;\ldots &amp;+&amp;a_{m,n}x_n&amp;=&amp;0
-\end{array}
-\end{align*}\]</span>
-La matrice augmentée d’un tel système est:
+\begin{vmatrix}
+a_1 &amp; a_2 &amp; a_3 \\
+b_1 &amp; b_2 &amp; b_3 \\
+c_1 &amp; c_2 &amp; c_3
+\end{vmatrix}
+=
+\begin{vmatrix}
+a_1 &amp; b_1 &amp; c_1 \\
+a_2 &amp; b_2 &amp; c_2 \\
+a_3 &amp; b_3 &amp; c_3
+\end{vmatrix}
+\end{align*}\]</span></li>
+<li>Soit la matrice <span class="math inline">\(B\)</span> obtenue de la matrice <span class="math inline">\(A\)</span> en multipliant une de ses lignes (ou colonne) par un scalaire non-nul. Nous avons alors <span class="math inline">\(\det(B)=k\det(A)\)</span>. Par exemple:
 <span class="math display">\[\begin{align*}
-\left[\begin{array}{cccc|c}
-a_{1,1}&amp;a_{1,2}&amp;\ldots &amp;a_{1,n}&amp;0 \\
-a_{2,1}&amp;a_{2,2}&amp;\ldots &amp;a_{2,n}&amp;0 \\
-\vdots &amp;\vdots &amp;&amp;\vdots &amp; \vdots \\
-a_{m,1}&amp;a_{m,2}&amp;\ldots &amp;a_{m,n}&amp;0
-\end{array}\right]
-\end{align*}\]</span>
-</div>
-
-<p>Un système d’équations linéaires homogène possède toujours une solution. En effet, la solution triviale <span class="math inline">\(x_1=x_2=\ldots=x_n=0\)</span> forme toujours une solution d’un système. Puisqu’il est impossible que le système ne possède aucune solution, il possède soit une solution unique (la solution triviale) soit une infinité de solutions.</p>
+\begin{vmatrix}
+a_1 &amp; a_2 &amp; a_3 \\
+kb_1 &amp; kb_2 &amp; kb_3 \\
+c_1 &amp; c_2 &amp; c_3
+\end{vmatrix}
+=
+k\begin{vmatrix}
+a_1 &amp; a_2 &amp; a_3 \\
+b_1 &amp; b_2 &amp; b_3 \\
+c_1 &amp; c_2 &amp; c_3
+\end{vmatrix}
+&amp;
+\phantom{aaa}
+&amp;
+\begin{vmatrix}
+a_1 &amp; a_2 &amp; ka_3 \\
+b_1 &amp; b_2 &amp; kb_3 \\
+c_1 &amp; c_2 &amp; kc_3
+\end{vmatrix}
+=k\begin{vmatrix}
+a_1 &amp; a_2 &amp; a_3 \\
+b_1 &amp; b_2 &amp; b_3 \\
+c_1 &amp; c_2 &amp; c_3
+\end{vmatrix}
+\end{align*}\]</span></li>
+<li>Soit la matrice <span class="math inline">\(B_n\)</span> obtenue de la matrice <span class="math inline">\(A_n\)</span> en faisant <span class="math inline">\(B_n=kA_n\)</span>, où <span class="math inline">\(k\)</span> est un scalaire. Nous avons alors <span class="math inline">\(\det(B)=k^n\det(A)\)</span>.</li>
+<li>Soit la matrice <span class="math inline">\(B\)</span> obtenue de la matrice <span class="math inline">\(A\)</span> en interchangeant deux de ses lignes (ou colonnes). Nous avons alors <span class="math inline">\(\det(B)=-\det(A)\)</span>. Par exemple:
+<span class="math display">\[\begin{align*}
+\begin{vmatrix}
+a_1 &amp; a_2 &amp; a_3 \\
+b_1 &amp; b_2 &amp; b_3 \\
+c_1 &amp; c_2 &amp; c_3
+\end{vmatrix}
+=
+-\begin{vmatrix}
+b_1 &amp; b_2 &amp; b_3 \\
+a_1 &amp; a_2 &amp; a_3 \\
+c_1 &amp; c_2 &amp; c_3
+\end{vmatrix}
+&amp;
+\phantom{aaa}
+&amp;
+\begin{vmatrix}
+a_1 &amp; a_2 &amp; a_3 \\
+b_1 &amp; b_2 &amp; b_3 \\
+c_1 &amp; c_2 &amp; c_3
+\end{vmatrix}
+=
+-\begin{vmatrix}
+a_1 &amp; a_3 &amp; a_2 \\
+b_1 &amp; b_3 &amp; b_2 \\
+c_1 &amp; c_3 &amp; c_2
+\end{vmatrix}
+\end{align*}\]</span></li>
+<li>Si la matrice <span class="math inline">\(A\)</span> possède une ligne (ou colonne) composée uniquement de zéros, alors <span class="math inline">\(\det(A)=0\)</span>. Par exemple:
+<span class="math display">\[\begin{align*}
+\begin{vmatrix}
+a_1 &amp; a_2 &amp; a_3 \\
+0 &amp; 0 &amp; 0 \\
+c_1 &amp; c_2 &amp; c_3
+\end{vmatrix}
+=
+0
+&amp;
+\phantom{aaa}
+&amp;
+\begin{vmatrix}
+a_1 &amp; a_2 &amp; 0 \\
+b_1 &amp; b_2 &amp; 0 \\
+c_1 &amp; c_2 &amp; 0
+\end{vmatrix}
+=0
+\end{align*}\]</span></li>
+<li>Si la matrice <span class="math inline">\(A\)</span> possède deux lignes (ou colonnes) identiques, alors <span class="math inline">\(\det(A)=0\)</span>. Par exemple:
+<span class="math display">\[\begin{align*}
+\begin{vmatrix}
+a_1 &amp; a_2 &amp; a_3 \\
+a_1 &amp; a_2 &amp; a_3 \\
+c_1 &amp; c_2 &amp; c_3
+\end{vmatrix}
+=
+0
+&amp;
+\phantom{aaa}
+&amp;
+\begin{vmatrix}
+a_1 &amp; a_2 &amp; a_1 \\
+b_1 &amp; b_2 &amp; b_1 \\
+c_1 &amp; c_2 &amp; c_1
+\end{vmatrix}
+=0
+\end{align*}\]</span></li>
+<li>Soit la matrice <span class="math inline">\(A\)</span> telle que deux lignes (ou colonnes) sont des multiples l’une de l’autre. Nous avons alors <span class="math inline">\(\det(A)=0\)</span>. Par exemple:
+<span class="math display">\[\begin{align*}
+\begin{vmatrix}
+a_1 &amp; a_2 &amp; a_3 \\
+ka_1 &amp; ka_2 &amp; ka_3 \\
+c_1 &amp; c_2 &amp; c_3
+\end{vmatrix}
+=
+0
+&amp;
+\phantom{aaa}
+&amp;
+\begin{vmatrix}
+a_1 &amp; a_2 &amp; ka_1 \\
+b_1 &amp; b_2 &amp; kb_1 \\
+c_1 &amp; c_2 &amp; kc_1
+\end{vmatrix}
+=0
+\end{align*}\]</span></li>
+<li>Soit la matrice <span class="math inline">\(B\)</span> obtenue de la matrice <span class="math inline">\(A\)</span> en additionnant un multiple d’une de ses ligne (ou colonne) à une  ligne (ou colonne). Nous avons alors <span class="math inline">\(\det(B)=\det(A)\)</span>. Par exemple:
+<span class="math display">\[\begin{align*}
+\begin{vmatrix}
+a_1 &amp; a_2 &amp; a_3 \\
+b_1 &amp; b_2 &amp; b_3 \\
+ka_1+c_1 &amp; ka_2+c_2 &amp; ka_3+c_3
+\end{vmatrix}
+&amp;=
+\begin{vmatrix}
+a_1 &amp; a_2 &amp; a_3 \\
+b_1 &amp; b_2 &amp; b_3 \\
+c_1 &amp; c_2 &amp; c_3
+\end{vmatrix}
+\\
+\begin{vmatrix}
+a_1+ka_3 &amp; a_2 &amp; a_3 \\
+b_1+kb_3 &amp; b_2 &amp; b_3 \\
+c_1+kc_3 &amp; c_2 &amp; c_3
+\end{vmatrix}
+&amp;=
+\begin{vmatrix}
+a_1 &amp; a_2 &amp; a_3 \\
+b_1 &amp; b_2 &amp; b_3 \\
+c_1 &amp; c_2 &amp; c_3
+\end{vmatrix}
+\end{align*}\]</span></li>
+<li>Soit <span class="math inline">\(A_n\)</span> et <span class="math inline">\(B_n\)</span>. Nous avons alors <span class="math inline">\(\det(AB)=\det(A)\det(B)\)</span>.</li>
+<li>Si la matrice <span class="math inline">\(A\)</span> possède une matrice inverse, alors <span class="math inline">\(\det(A^{-1})=\dfrac{1}{\det(A)}\)</span>.
+</div></li>
+</ul>
+<p>Les propriétés précédentes vont nous permettre de simplifier le calcul des déterminants un peu plus loin. Par contre, il n’existe pas de propriété simple pour l’addition de deux matrices.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-32" class="example"><strong>Exemple 1.13  </strong></span>Déterminez les valeurs de <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span> et <span class="math inline">\(d\)</span> qui équilibrent l’équation chimique suivante:
-<span class="math display">\[\begin{align*}
-aC_2H_6+bO_2 \rightarrow cCO_2+dH_2O
-\end{align*}\]</span>
+<p><span id="exm:unnamed-chunk-100" class="example"><strong>Exemple 2.28  </strong></span>Soit les matrices
+<span class="math inline">\(A=\begin{bmatrix} 7&amp;-8\\ 9&amp;9\\ \end{bmatrix}\)</span> et
+<span class="math inline">\(B=\begin{bmatrix} 3&amp;-5\\ -8&amp;1\\ \end{bmatrix}\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Calculez <span class="math inline">\(\det(A)\)</span></li>
+<li>Calculez <span class="math inline">\(\det(B)\)</span></li>
+<li>Calculez <span class="math inline">\(\det(A)+\det(B)\)</span></li>
+<li>Calculez <span class="math inline">\(\det(A+B)\)</span></li>
+</ol>
 </div>
 
-<div id="des-applications" class="section level3">
-<h3><span class="header-section-number">1.5.1</span> Des applications</h3>
+<p>L’exemple précédent nous indique que le déterminant d’une somme de matrices n’est pas nécessairement égal à la somme du déterminant de ces matrices.</p>
+
+<div class="remark">
+ <span class="remark"><em>Remarque. </em></span> En général, <span class="math inline">\(\det(A+B)\neq \det(A)+\det(B)\)</span>.
+</div>
+
 
 <div class="example">
-<span id="exm:unnamed-chunk-33" class="example"><strong>Exemple 1.14  </strong></span>La loi des leviers d’Archimède stipule que deux masses sont en équilibre sur une balance si leurs poids sont inversement proportionnels à leur distance par rapport au point d’appui. En d’autres mots, pour que deux masses <span class="math inline">\(m_1\)</span> et <span class="math inline">\(m_2\)</span> situées respectivement à des distances <span class="math inline">\(d_1\)</span> et <span class="math inline">\(d_2\)</span> du point d’appui soient en équilibre, il faut que:
+<p><span id="exm:unnamed-chunk-102" class="example"><strong>Exemple 2.29  </strong></span>Soit la matrice suivante:
 <span class="math display">\[\begin{align*}
-    m_1d_1 &amp;= m_2d_2
-\end{align*}\]</span>
-Trouvez les masses <span class="math inline">\(m_1\)</span>, <span class="math inline">\(m_2\)</span>, <span class="math inline">\(m_3\)</span> et <span class="math inline">\(m_4\)</span> pour que le système suivant soit en équilibre.
+D_n =\begin{bmatrix}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; \ldots &amp; 1 \\
+1 &amp; 2 &amp; 2 &amp; 2 &amp; \ldots &amp; 2 \\
+1 &amp; 2 &amp; 3 &amp; 3 &amp; \ldots &amp; 3 \\
+1 &amp; 2 &amp; 3 &amp; 4 &amp; \ldots &amp; 4 \\
+\vdots &amp;&amp;&amp;&amp;&amp; \vdots \\
+1 &amp; 2 &amp; 3 &amp; 4 &amp; \ldots &amp; n
+\end{bmatrix}
+\end{align*}\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>Trouvez <span class="math inline">\(\vert D_1\vert\)</span>.</li>
+<li>Trouvez <span class="math inline">\(\vert D_2\vert\)</span>.</li>
+<li>Trouvez <span class="math inline">\(\vert D_3\vert\)</span>.</li>
+<li>Trouvez <span class="math inline">\(\vert D_n\vert\)</span>.</li>
+</ol>
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-34"></span>
-<img src="algebre1_files/figure-html/unnamed-chunk-34-1.png" alt="La loi des leviers d'Archimède." width="75%" />
-<p class="caption">
-Figure 1.5: La loi des leviers d’Archimède.
-</p>
+</div>
+<div id="le-calcul-dun-determinant-a-laide-de-la-methode-de-gauss" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Le calcul d’un déterminant à l’aide de la méthode de Gauss</h3>
+<p>À l’aide du théorème <a href="les-proprietes-des-determinants.html#thm:proprietes-determinants">2.7</a>, nous pouvons remarquer que lors de l’élimination de Gauss, une opération du type:</p>
+
 </div>
 </div>
-</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="methode-gauss.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="la-methode-de-gauss-avec-substitution-arriere.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="le-calcul-dun-determinant.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -221,7 +384,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/desautm/algebre1/edit/master/01-systeme-equation-lineaire.Rmd",
+"link": "https://github.com/desautm/algebre1/edit/master/03-determinants.Rmd",
 "text": "Modifier"
 },
 "history": {
