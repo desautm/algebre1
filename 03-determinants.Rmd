@@ -1,0 +1,177 @@
+# Les déterminants {#determinants}
+
+## Le calcul d'un déterminant
+
+Dans cette section, nous verrons la façon de calculer des déterminants de matrices $1\times 1$, $2\times 2$, pour ensuite voir une méthode générale pour calculer un déterminant d'une matrice $n\times n$.
+
+```{definition, name="Le déterminant d'une matrice"}
+Soit une matrice carrée $A$ de dimension $n\times n$. Le déterminant de $A$ est noté $\vert A\vert$ ou $\det (A)$.
+```
+
+### Le calcul d'un déterminant d'une matrice $1\times 1$
+
+```{definition, name="Le déterminant d'une matrice $1\times 1$"}
+Soit la matrice $A=[a_{1,1}]$. Le déterminant de $A$ est $\vert A\vert=a_{1,1}$. 
+```
+
+Dans le cas d'une matrice $1\times 1$, le déterminant de $A$ est tout simplement l'élément $a_{1,1}$ de la matrice.
+
+```{example}
+Trouvez le déterminant des matrices suivantes:
+ 
+  a. $A=\vert 3\vert$
+  a. $B=\vert -\pi\vert$
+
+```
+
+
+### Le calcul d'un déterminant d'une matrice $2\times 2$
+
+```{definition}
+Soit la matrice:
+\begin{align*}
+A = \begin{bmatrix}
+a_{1,1} & a_{1,2} \\
+a_{2,1} & a_{2,2}
+\end{bmatrix}
+\end{align*}
+Le déterminant de $A$ est donné par:
+\begin{align*}
+\vert A\vert &= \begin{vmatrix}
+a_{1,1} & a_{1,2} \\
+a_{2,1} & a_{2,2}
+\end{vmatrix}
+=
+a_{1,1}\cdot a_{2,2}-a_{1,2}\cdot a_{2,1}
+\end{align*}
+```
+
+```{example}
+Trouvez le déterminant des matrices suivantes:
+
+  a. $\begin{bmatrix}
+3&-4\\
+4&5\\
+\end{bmatrix}$
+  a. $\begin{bmatrix}
+1&-2\\
+-4&1\\
+\end{bmatrix}$
+
+```
+
+### Le calcul d'un déterminant d'une matrice $n\times n$
+
+Les deux sous-sections précédentes nous ont permises de constater que la calcul des déterminants de matrices $1\times 1$ ou $2\times 2$ se font de manière assez simple. L'intérêt d'être en mesure de calculer des déterminants de ce type est qu'il est toujours possible d'écrire le déterminant d'une matrice $n\times n$ en utilisant plusieurs déterminants de matrice $2\times 2$. Nous voulons donc maintenant étudier la façon d'écrire le déterminant d'une matrice $n\times n$ en plusieurs déterminants.
+
+```{definition, name="Le mineur d'une matrice"}
+Soit $A$ une matrice de dimension $n \times n$. Le mineur de la _ième_ ligne et de la _jième_ colonne, noté $M_{i,j}$, est le déterminant de la matrice résultante obtenue en enlevant la _ième_ ligne et la _jième_ colonne.
+```
+
+```{example}
+Répondez aux questions suivantes:
+  
+  a. Trouvez le mineur $M_{1,2}$ de la matrice $A=\begin{bmatrix}
+10&10&6\\
+10&10&-8\\
+-7&0&-2\\
+\end{bmatrix}$.
+  a. Trouvez le mineur $M_{2,3}$ de la matrice $B=\begin{bmatrix}
+7&9&-5\\
+9&3&1\\
+-8&-8&10\\
+\end{bmatrix}$.
+  a. Trouvez le mineur $M_{2,2}$, sans le calculer, de la matrice $C=\begin{bmatrix}
+10&0&9&-10\\
+-7&6&6&7\\
+10&-8&10&9\\
+10&-2&3&4\\
+\end{bmatrix}$.
+
+```
+
+```{remark}
+Il est important de remarquer que le mineur d'une matrice de dimension $n\times n$ est toujours de dimension \text{$(n-1)\times (n-1)$}. Ceci signifie qu'un mineur diminue la dimension du déterminant que nous voulons calculer.
+```
+
+```{definition, name="Le cofacteur d'une matrice"}
+Soit $A$ une matrice de dimension $n \times n$. Le cofacteur de la ième ligne et de la jième colonne, noté $C_{i,j}$, est donné par $(-1)^{i+j}M_{i,j}$, c'est-à-dire que le cofacteur est le mineur multiplié par un signe plus ou un signe moins.
+```
+
+Le terme $(-1)^{i+j}$ dans l'expression du cofacteur peut être soit de valeur $1$, soit de valeur $-1$. La façon la plus facile de se rappeler du signe est de se souvenir de la matrice ci-dessous.
+\begin{align*}
+\begin{bmatrix}
++ & - & + & \ldots \\
+- & + & - & \ldots \\
++ & - & + & \ldots \\
+\vdots & \vdots & \vdots & \ddots
+\end{bmatrix}
+\end{align*}
+Nous remarquons que les signes alternent toujours avec un signe positif à l'élément situé à l'intersection de la première ligne et de la première colonne.
+
+```{example}
+À FAIRE...
+```
+
+```{definition, name="L'expansion par cofacteurs d'un déterminant"}
+Soit $A$ une matrice de dimension $n \times n$. Le déterminant de $A$ est donné par:
+\begin{align*}
+\vert A\vert &= \sum_{k=1}^{n} a_{i,k}C_{i,k} \qquad\text{selon la _ième_ ligne}\\
+\vert A\vert &= \sum_{k=1}^{n} a_{k,j}C_{k,j} \qquad\text{selon la _jième_ colonne}
+\end{align*}
+
+Pour être plus précis, l'expansion du déterminant de $A$ par la _ième_ ligne est donnée par:
+\begin{align*}
+\vert A\vert &= \sum_{k=1}^{n} a_{i,k}C_{i,k} = a_{i,1}C_{i,1}+a_{i,2}C_{i,2}+\ldots + a_{i,n}C_{i,n}
+\end{align*}
+Quant à elle, l'expansion du déterminant de $A$ par la _jième_ colonne est donnée par:
+\begin{align*}
+\vert A\vert &= \sum_{k=1}^{n} a_{k,j}C_{k,j} = a_{1,j}C_{1,j}+a_{2,j}C_{2,j}+\ldots + a_{n,j}C_{n,j}
+\end{align*}
+
+```
+
+```{example}
+Répondez aux questions suivantes:
+  
+  a. Trouvez le déterminant de la matrice suivante en utilisant l'expansion selon la première ligne.
+\begin{align*}
+A=\begin{bmatrix}
+5&3&-10\\
+5&-7&-5\\
+-2&4&-10\\
+\end{bmatrix}
+\end{align*}
+  a. Trouvez le déterminant de la matrice précédente en utilisant l'expansion selon la première colonne.
+
+```
+
+Comme le montre l'exemple précédent, nous pouvons calculer un déterminant en utilisant n'importe quelle ligne ou colonne de la matrice. Puisque le calcul du déterminant implique le produit d'un élément de la matrice par son mineur, cela indique que plus une ligne ou une colonne est composée de zéros, plus le calcul sera simple. L'exemple suivant clarifiera le tout.
+
+```{example}
+Trouvez le déterminant de la matrice suivante:
+\begin{align*}
+A = \begin{bmatrix}
+-9&0&8\\
+8&0&-3\\
+9&-3&-8\\
+\end{bmatrix}
+\end{align*}
+```
+
+En général, l'expansion d'un déterminant à l'aide des cofacteurs permet de calculer un déterminant d'une matrice $n\times n$ à l'aide de $n$ déterminants de dimension $(n-1)\times (n-1)$. Nous devons ensuite effectuer l'expansion des déterminants de dimension $(n-1)\times (n-1)$ jusqu'à obtenir plusieurs déterminants de dimension $2\times 2$, qui se calculent facilement.
+
+```{remark}
+Pour simplifier le calcul d'un déterminant, il faut toujours en fait l'expansion selon la ligne ou la colonne qui contient le plus de zéros possibles.
+```
+
+
+
+
+
+
+
+
+
+
+

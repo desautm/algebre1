@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>À propos de ce document | Algèbre linéaire et géométrie vectorielle</title>
+  <title>2.2 Les matrices particulières | Algèbre linéaire et géométrie vectorielle</title>
   <meta name="description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
   <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="À propos de ce document | Algèbre linéaire et géométrie vectorielle" />
+  <meta property="og:title" content="2.2 Les matrices particulières | Algèbre linéaire et géométrie vectorielle" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="desautm/algebre1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="À propos de ce document | Algèbre linéaire et géométrie vectorielle" />
+  <meta name="twitter:title" content="2.2 Les matrices particulières | Algèbre linéaire et géométrie vectorielle" />
   
   <meta name="twitter:description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="sel.html">
+<link rel="prev" href="la-definition-dune-matrice.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -88,20 +88,9 @@
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>2</b> Les matrices</a><ul>
-<li class="chapter" data-level="2.1" data-path="la-definition-dune-matrice.html"><a href="la-definition-dune-matrice.html"><i class="fa fa-check"></i><b>2.1</b> La définition d’une matrice</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="la-definition-dune-matrice.html"><a href="la-definition-dune-matrice.html#sec:matrice-particuliere"><i class="fa fa-check"></i><b>2.1.1</b> Les matrices particulières</a></li>
+<li class="chapter" data-level="2.1" data-path="la-definition-dune-matrice.html"><a href="la-definition-dune-matrice.html"><i class="fa fa-check"></i><b>2.1</b> La définition d’une matrice</a></li>
+<li class="chapter" data-level="2.2" data-path="les-matrices-particulieres.html"><a href="les-matrices-particulieres.html"><i class="fa fa-check"></i><b>2.2</b> Les matrices particulières</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="les-operations-matricielles.html"><a href="les-operations-matricielles.html"><i class="fa fa-check"></i><b>2.2</b> Les opérations matricielles</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="les-operations-matricielles.html"><a href="les-operations-matricielles.html#laddition-et-la-soustraction-de-matrices"><i class="fa fa-check"></i><b>2.2.1</b> L’addition et la soustraction de matrices</a></li>
-<li class="chapter" data-level="2.2.2" data-path="les-operations-matricielles.html"><a href="les-operations-matricielles.html#la-multiplication-dune-matrice-par-un-scalaire"><i class="fa fa-check"></i><b>2.2.2</b> La multiplication d’une matrice par un scalaire</a></li>
-<li class="chapter" data-level="2.2.3" data-path="les-operations-matricielles.html"><a href="les-operations-matricielles.html#la-transposition-de-matrices"><i class="fa fa-check"></i><b>2.2.3</b> La transposition de matrices</a></li>
-<li class="chapter" data-level="2.2.4" data-path="les-operations-matricielles.html"><a href="les-operations-matricielles.html#les-proprietes-des-operations-sur-les-matrices"><i class="fa fa-check"></i><b>2.2.4</b> Les propriétés des opérations sur les matrices</a></li>
-<li class="chapter" data-level="2.2.5" data-path="les-operations-matricielles.html"><a href="les-operations-matricielles.html#le-produit-de-deux-matrices"><i class="fa fa-check"></i><b>2.2.5</b> Le produit de deux matrices</a></li>
-<li class="chapter" data-level="2.2.6" data-path="les-operations-matricielles.html"><a href="les-operations-matricielles.html#les-proprietes-du-produit-matriciel"><i class="fa fa-check"></i><b>2.2.6</b> Les propriétés du produit matriciel</a></li>
-</ul></li>
-<li class="chapter" data-level="2.3" data-path="la-matrice-inverse.html"><a href="la-matrice-inverse.html"><i class="fa fa-check"></i><b>2.3</b> La matrice inverse</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="determinants.html"><a href="determinants.html"><i class="fa fa-check"></i><b>3</b> Les déterminants</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Publié avec bookdown</a></li>
 
@@ -122,33 +111,119 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="a-propos-de-ce-document" class="section level2 unnumbered">
-<h2>À propos de ce document</h2>
-<div id="remerciements" class="section level3 unnumbered">
-<h3>Remerciements</h3>
-<p>Ce document est généré par l’excellente extension <a href="https://bookdown.org/">bookdown</a> de <a href="https://yihui.name/">Yihui Xie</a>.</p>
-</div>
-<div id="license" class="section level3 unnumbered">
-<h3>License</h3>
-<p>Ce document est mis à disposition selon les termes de la <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International</a>.</p>
-<div class="figure">
-<img src="resources/icons/license_cc.png" alt="Licence Creative Commons" />
-<p class="caption">Licence Creative Commons</p>
+<div id="les-matrices-particulieres" class="section level2">
+<h2><span class="header-section-number">2.2</span> Les matrices particulières</h2>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-8" class="definition"><strong>Définition 2.2  (Une matrice carrée)  </strong></span>Soit <span class="math inline">\(A\)</span> une matrice. Nous disons que <span class="math inline">\(A\)</span> est une matrice carrée si elle possède le même nombre de lignes que de colonnes, c’est-à-dire que nous pouvons écrire <span class="math inline">\(A_{m \times m}\)</span>.</p>
+<p>En particulier, nous disons que les entrées <span class="math inline">\([a_{i,i}]_{m \times m}\)</span> de la matrice forment la diagonale principale de la matrice. Par exemple, si nous avons la matrice <span class="math inline">\(A_{4\times 4}\)</span> suivante:
+<span class="math display">\[\begin{align*}
+A = \begin{bmatrix}
+\fbox{$a_{1,1}$} &amp; a_{1,2} &amp; a_{1,3} &amp; a_{1,4} \\
+a_{2,1} &amp; \fbox{$a_{2,2}$} &amp; a_{2,3} &amp; a_{2,4} \\
+a_{3,1} &amp; a_{3,2} &amp; \fbox{$a_{3,3}$} &amp; a_{3,4} \\
+a_{4,1} &amp; a_{4,2} &amp; a_{4,3} &amp; \fbox{$a_{4,4}$} \\
+\end{bmatrix}
+\end{align*}\]</span>
+les éléments encadrés, qui correspondent aux éléments appartenant à la ième ligne et à la ième colonne, sont les éléments de la diagonale principale.</p>
+Il existe également dans une matrice carrée, une diagonale secondaire. Nous disons que les entrées <span class="math inline">\([a_{m-i+1,i}]_{m \times m}\)</span> (nous aurions aussi pu utiliser la notation <span class="math inline">\([a_{i,m-i+1}]_{m \times m}\)</span>) de la matrice forment la diagonale secondaire de la matrice. Par exemple, si nous avons la matrice <span class="math inline">\(A_{4\times 4}\)</span> suivante:
+<span class="math display">\[\begin{align*}
+A = \begin{bmatrix}
+a_{1,1} &amp; a_{1,2} &amp; a_{1,3} &amp; \fbox{$a_{1,4}$} \\
+a_{2,1} &amp; a_{2,2} &amp; \fbox{$a_{2,3}$} &amp; a_{2,4} \\
+a_{3,1} &amp; \fbox{$a_{3,2}$} &amp; a_{3,3} &amp; a_{3,4} \\
+\fbox{$a_{4,1}$} &amp; a_{4,2} &amp; a_{4,3} &amp; a_{4,4} \\
+\end{bmatrix}
+\end{align*}\]</span>
 </div>
 
-</div>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-9" class="definition"><strong>Définition 2.3  (Les matrices carrées usuelles)  </strong></span>Voici quelques matrices carrées usuelles:</p>
+<ul>
+<li>La matrice identité, noté <span class="math inline">\(I_n\)</span>, est la matrice ne contenant que des uns sur sa diagonale principale et des zéros partout ailleurs. Par exemple, voici la matrice identité de format <span class="math inline">\(5 \times 5\)</span>:
+<span class="math display">\[\begin{align*}
+I_5 &amp;= \begin{bmatrix}
+1&amp;0&amp;0&amp;0&amp;0\\
+0&amp;1&amp;0&amp;0&amp;0\\
+0&amp;0&amp;1&amp;0&amp;0\\
+0&amp;0&amp;0&amp;1&amp;0\\
+0&amp;0&amp;0&amp;0&amp;1\\
+\end{bmatrix}
+\end{align*}\]</span></li>
+<li>Une matrice diagonale est une matrice ne contenant que des zéros sauf sur la diagonale principale ou elle peut contenir des nombres différents de zéros. Par exemple, voici une matrice diagonale:
+<span class="math display">\[\begin{align*}
+A = \begin{bmatrix}
+7&amp;0&amp;0&amp;0\\
+0&amp;9&amp;0&amp;0\\
+0&amp;0&amp;-8&amp;0\\
+0&amp;0&amp;0&amp;9\\
+\end{bmatrix}
+\end{align*}\]</span>
+La matrice <span class="math inline">\(I_n\)</span> est une matrice diagonale.</li>
+<li>Une matrice triangulaire inférieure, notée <span class="math inline">\(L_n\)</span>, est une matrice telle que toutes les entrées au-dessus de la diagonale principale sont nulles. Mathématiquement, nous pouvons écrire:
+<span class="math display">\[\begin{align*}
+[l_{i,j}]_n = \begin{cases}
+l_{i,j} &amp; \text{si } i \geq j \\
+0 &amp; \text{si } i &lt; j
+\end{cases} 
+\end{align*}\]</span>
+Nous pouvons représenter la matrice <span class="math inline">\(L_n\)</span> de la façon suivante:
+<span class="math display">\[\begin{align*}
+L_n &amp;= \begin{bmatrix}
+l_{1,1} &amp; &amp; &amp; &amp; 0 \\
+l_{2,1} &amp; l_{2,2} &amp; &amp; &amp; \\
+l_{3,1} &amp; l_{3,2} &amp; \ddots &amp; &amp; \\
+\vdots &amp; \vdots &amp; \ddots &amp; \ddots &amp; \\
+l_{n,1} &amp; l_{n,2} &amp; \ldots &amp; l_{n,n-1} &amp; l_{n,n} 
+\end{bmatrix}
+\end{align*}\]</span></li>
+<li>Une matrice triangulaire supérieure, notée <span class="math inline">\(U_n\)</span>, est une matrice telle que toutes les entrées au-dessous de la diagonale principale sont nulles. Mathématiquement, nous pouvons écrire:
+<span class="math display">\[\begin{align*}
+[u_{i,j}]_n = \begin{cases}
+u_{i,j} &amp; \text{si } i \leq j \\
+0 &amp; \text{si } i &gt; j
+\end{cases} 
+\end{align*}\]</span>
+Nous pouvons représenter la matrice <span class="math inline">\(U_n\)</span> de la façon suivante:
+<span class="math display">\[\begin{align*}
+U_n &amp;= \begin{bmatrix}
+u_{1,1} &amp; u_{1,2} &amp; u_{1,3} &amp; \ldots &amp; u_{1,n} \\
+&amp; u_{2,2} &amp; u_{2,3} &amp; \ldots &amp; u_{2,n} \\
+&amp; &amp; \ddots &amp; \ddots &amp; \vdots \\
+&amp; &amp; &amp; \ddots &amp; u_{n-1,n} \\
+0 &amp; &amp; &amp; &amp; u_{n,n}
+\end{bmatrix}
+\end{align*}\]</span>
+Notons qu’une matrice sous forme échelonnée est une matrice triangulaire supérieure.</li>
+<li>Une matrice symétrique est une matrice telle que <span class="math inline">\(a_{i,j}=a_{j,i}\)</span> pour toutes les valeurs de <span class="math inline">\(i\)</span> et de <span class="math inline">\(j\)</span>. Par exemple, les matrices suivantes sont symétriques:
+<span class="math display">\[\begin{align*}
+A = \begin{bmatrix}
+a &amp; b &amp; c &amp; d &amp; e \\
+b &amp; f &amp; g &amp; h &amp; i \\
+c &amp; g &amp; j &amp; k &amp; l \\
+d &amp; h &amp; k &amp; m &amp; n \\
+e &amp; i &amp; l &amp; n &amp; o
+\end{bmatrix}
+\qquad
+B = \begin{bmatrix}
+2 &amp; 4 &amp; -5 \\
+4 &amp; 0 &amp; 3 \\
+-5 &amp; 3 &amp; 1
+\end{bmatrix}
+\end{align*}\]</span>
+</div></li>
+</ul>
+
 </div>
 <!-- </div> -->
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="sel.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="la-definition-dune-matrice.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -178,7 +253,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/desautm/algebre1/edit/master/index.Rmd",
+"link": "https://github.com/desautm/algebre1/edit/master/02-algebre-matricielle.Rmd",
 "text": "Modifier"
 },
 "history": {

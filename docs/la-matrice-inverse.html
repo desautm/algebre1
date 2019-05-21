@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.3 La résolution de système d’équations linéaires échelonnés | Algèbre linéaire et géométrie vectorielle</title>
+  <title>2.3 La matrice inverse | Algèbre linéaire et géométrie vectorielle</title>
   <meta name="description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
   <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.3 La résolution de système d’équations linéaires échelonnés | Algèbre linéaire et géométrie vectorielle" />
+  <meta property="og:title" content="2.3 La matrice inverse | Algèbre linéaire et géométrie vectorielle" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="desautm/algebre1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.3 La résolution de système d’équations linéaires échelonnés | Algèbre linéaire et géométrie vectorielle" />
+  <meta name="twitter:title" content="2.3 La matrice inverse | Algèbre linéaire et géométrie vectorielle" />
   
   <meta name="twitter:description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="systeme-equation-lineaire.html">
-<link rel="next" href="methode-gauss.html">
+<link rel="prev" href="les-operations-matricielles.html">
+<link rel="next" href="determinants.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -122,73 +122,167 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="systeme-equation-lineaire-echelonnee" class="section level2">
-<h2><span class="header-section-number">1.3</span> La résolution de système d’équations linéaires échelonnés</h2>
-<p>Nous savons maintenant comment vérifier si les éléments d’un ensemble forme une solution d’un système d’équations linéaires. Nous ne savons par contre pas comment les trouver.</p>
-<p>Par contre, avant d’apprendre des méthodes générales pour résoudre des systèmes d’équations linéaires, nous allons étudier quelques formes particulières de système d’équations linéaires qui se résolvent facilement. Nous en profiterons également pour mettre en lien ces systèmes avec leurs différents types de solutions.</p>
-<p>Les systèmes les plus simples à résoudre sont ceux que nous rencontrons sous une forme échelonnée ou une forme échelonnée réduite.</p>
+<div id="la-matrice-inverse" class="section level2">
+<h2><span class="header-section-number">2.3</span> La matrice inverse</h2>
+<p>Nous introduirons dans cette section un nouveau type de matrice, la matrice inverse. Comme vous avez pu le constater, nous n’avons pas introduit d’opération de division matricielle, pour la bonne raison qu’une telle opération n’existe pas. Plutôt que de parler de division matricielle, nous parlerons plutôt de multiplication par l’inverse d’une matrice. Il est à noter que la théorie de cette section ne s’applique qu’aux matrices carrées, c’est-à-dire à celles qui ont le même nombre de lignes et de colonnes.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-17" class="definition"><strong>Définition 1.8  </strong></span>Un système d’équations linéaires est dit être sous la <strong>forme échelonnée</strong> si les conditions suivantes sont remplies:</p>
-<ul>
-<li>Toutes les lignes non-nulles, c’est-à-dire les lignes qui possèdent au moins un élément différent de zéro, se trouvent au-dessus des lignes nulles, c’est-à-dire des lignes qui ne possèdent que des zéros.</li>
-<li>Le premier élément non-nul d’une ligne, c’est-à-dire le premier élément différent de zéro en partant de la gauche sur la ligne, est toujours situé à droite du premier élément non-nul de la ligne située au-dessus. Nous disons que le premier élément non-nul d’une ligne est le <strong>pivot</strong> de cette ligne.</li>
-<li>Tous les éléments de la colonne situés sous un pivot sont composés de zéros.</li>
-</ul>
-<p>Un système d’équations linéaires est dit être sous la <strong>forme échelonnée réduite</strong> s’il est déjà sous la forme échelonnée et si les conditions suivantes sont remplies:</p>
-<ul>
-<li>Le pivot d’une ligne est le seul élément non-nul de la colonne où il se situe.</li>
-<li>Tous les pivots sont <span class="math inline">\(1\)</span>.</li>
-</ul>
+<span id="def:unnamed-chunk-72" class="definition"><strong>Définition 2.12  (La matrice inverse)  </strong></span>Soit <span class="math inline">\(A_{n}\)</span> une matrice carrée. Nous disons que <span class="math inline">\(A\)</span> possède une matrice inverse, notée <span class="math inline">\(A^{-1}_n\)</span> si:
+<span class="math display">\[\begin{align*}
+A_n A^{-1}_n = I_n = A^{-1}_n A_n
+\end{align*}\]</span>
 </div>
 
-<p>La présente section présente la façon de résoudre des systèmes d’équations linéaires sous forme échelonnée, c’est-à-dire un système composé de <span class="math inline">\(m\)</span> équations et de <span class="math inline">\(n\)</span> inconnues.
-<span class="math display">\[\begin{align*}
-\begin{array}{cccccccccc}
-a_{1,1}x_1 &amp; +&amp; a_{1,2}x_2 &amp; +&amp;  a_{1,3}x_3 &amp; \ldots &amp; +&amp;  a_{1,n}x_n &amp; =&amp; b_1  \\
-        &amp; &amp; a_{2,2}x_2 &amp; +&amp;  a_{2,3}x_3 &amp; \ldots &amp; +&amp; a_{2,n}x_n &amp; =&amp; b_2  \\
-        &amp; &amp;         &amp; &amp;    &amp; \ddots &amp; &amp; \vdots &amp; =&amp; \vdots   \\
-%         &amp; &amp;         &amp; &amp;          &amp; \ddots &amp; &amp; a_{n-1,n} &amp; =&amp; b_{n-1}\\
-       &amp; &amp;         &amp; &amp;          &amp;        &amp; &amp; a_{m,n}x_n &amp; =&amp; b_m
-\end{array}
-\end{align*}\]</span></p>
-<p>Un système d’équations linéaires sous la forme échelonnée se résout lui aussi assez facilement à l’aide de la méthode dite de “substitution arrière”. La méthode tient son nom du fait que nous commençons à résoudre l’équation située à la dernière ligne. Nous substituons ensuite la valeur trouvée dans l’équation précédente pour résoudre cette équation et nous répétons jusqu’à l’équation située sur la première ligne.</p>
+
+<div class="remark">
+ <span class="remark"><em>Remarque. </em></span> Les matrices carrées ne possèdent pas toutes une matrice inverse.
+</div>
+
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-74" class="theorem"><strong>Théorème 2.5  (L’unicité de la matrice inverse)  </strong></span>Soit <span class="math inline">\(A_{n}\)</span> une matrice carrée. Si <span class="math inline">\(A_n\)</span> possède une matrice inverse, notée <span class="math inline">\(A^{-1}_n\)</span>, alors celle-ci est unique.
+</div>
+
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-75" class="theorem"><strong>Théorème 2.6  (Les propriétés de la matrice inverse)  </strong></span>À FAIRE…
+</div>
+
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-18" class="example"><strong>Exemple 1.6  </strong></span>Trouvez l’ensemble solution des systèmes d’équations linéaires suivants, présentés sous la forme échelonnée.</p>
+<span id="exm:unnamed-chunk-76" class="example"><strong>Exemple 2.14  </strong></span>Trouvez l’inverse de la matrice suivante:
+<span class="math display">\[\begin{align*}
+A=\begin{bmatrix}
+1&amp;2\\
+3&amp;4
+\end{bmatrix}
+\end{align*}\]</span>
+</div>
+
+<p>Nous remarquons que <span class="math inline">\(A^{-1}\)</span> correspond à la partie de droite de la matrice augmentée. Ainsi, pour trouver l’inverse d’une matrice <span class="math inline">\(A\)</span>, il faut créer la matrice augmentée <span class="math inline">\([A|I]\)</span> et, à l’aide de la méthode de Gauss avec substitution arrière, retrouver la matrice identité dans la partie de gauche. À ce moment, <span class="math inline">\(A^{-1}\)</span> sera la matrice représentée dans la partie de droite.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-77" class="example"><strong>Exemple 2.15  </strong></span>Trouvez l’inverse de la matrice suivante:
+<span class="math display">\[\begin{align*}
+A=
+\begin{bmatrix}
+1&amp;1&amp;1\\
+-1&amp;2&amp;-1\\
+0&amp;0&amp;3
+\end{bmatrix}
+\end{align*}\]</span>
+</div>
+
+<p>Avant d’aller plus loin, nous pouvons définir quelques matrices spéciales, à l’aide de la matrice inverse.</p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-78" class="definition"><strong>Définition 2.13  (La matrice orthogonale)  </strong></span>Nous disons qu’une matrice est orthogonale lorsque sa transposée est égale à sa matrice inverse, c’est-à-dire <span class="math inline">\(A^T=A^{-1}\)</span>. Plus précisément, nous avons:
+<span class="math display">\[\begin{align*}
+A^TA=I \text{ et } AA^T=I
+\end{align*}\]</span>
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-79" class="example"><strong>Exemple 2.16  </strong></span>Démontrez que la matrice suivante est orthogonale:
+<span class="math display">\[\begin{align*}
+A=\begin{bmatrix}
+\cos(\theta) &amp; -\sin(\theta) \\
+\sin(\theta) &amp; \cos(\theta)
+\end{bmatrix}
+\end{align*}\]</span>
+</div>
+
+<p>Lorsque nous connaissons la matrice inverse d’une matrice <span class="math inline">\(A\)</span>, nous pouvons facilement résoudre un système d’équations linéaires de la forme:
+<span class="math display">\[\begin{align*}
+AX=B 
+\end{align*}\]</span>
+Pour ce faire, il suffit de multiplier à gauche par la matrice inverse de <span class="math inline">\(A\)</span>, c’est-à-dire:
+<span class="math display">\[\begin{align*}
+AX&amp;=B\\
+(A^{-1}A)X&amp;=A^{-1}B\\
+IX&amp;=A^{-1}B\\
+X&amp;=A^{-1}B
+\end{align*}\]</span>
+Ainsi, la solution du système d’équations linéaires est <span class="math inline">\(X=A^{-1}B\)</span>.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-80" class="example"><strong>Exemple 2.17  </strong></span>Trouvez la solution des système d’équations linéaires suivants à l’aide de la matrice inverse.</p>
 <ol style="list-style-type: lower-alpha">
 <li><span class="math display">\[\begin{align*}
-\begin{array}{cccccccc}
-&amp;-10x&amp;+&amp;5y&amp;-&amp;7z&amp;=&amp;40 \\
-&amp;&amp;&amp;y&amp;+&amp;z&amp;=&amp;-12 \\
-&amp;&amp;&amp;&amp;&amp;3z&amp;=&amp;0
-\end{array}
+\begin{bmatrix}
+1&amp;1&amp;1\\
+-1&amp;2&amp;-1\\
+0&amp;0&amp;3\\
+\end{bmatrix}
+\begin{bmatrix}
+x \\y \\z
+\end{bmatrix}
+=
+\begin{bmatrix}
+7\\
+9\\
+-8\\
+\end{bmatrix}
 \end{align*}\]</span></li>
 <li><span class="math display">\[\begin{align*}
-\begin{array}{cccccccccc}
-&amp;-x_{1}&amp;-&amp;4x_{2}&amp;-&amp;2x_{3}&amp;-&amp;x_{4}&amp;=&amp;-4\\
-&amp;&amp;&amp;&amp;&amp;5x_{3}&amp;+&amp;2x_{4}&amp;=&amp;3\\
-&amp;&amp;&amp;&amp;&amp;&amp;&amp;x_{4}&amp;=&amp;-1\\
-\end{array}
+\begin{bmatrix}
+1&amp;1&amp;1\\
+-1&amp;2&amp;-1\\
+0&amp;0&amp;3\\
+\end{bmatrix}
+\begin{bmatrix}
+x \\y \\z
+\end{bmatrix}
+=
+\begin{bmatrix}
+9\\
+3\\
+-8\\
+\end{bmatrix}
 \end{align*}\]</span></li>
 <li><span class="math display">\[\begin{align*}
-\left[\begin{array}{ccc|c}
-7&amp;-4&amp;-2&amp;-9\\
-0&amp;-19&amp;22&amp;-62\\
-0&amp;0&amp;196&amp;826\\
-0&amp;0&amp;0&amp;133\\
-\end{array}\right]
+\begin{bmatrix}
+1&amp;1&amp;1\\
+-1&amp;2&amp;-1\\
+0&amp;0&amp;3\\
+\end{bmatrix}
+\begin{bmatrix}
+x \\y \\z
+\end{bmatrix}
+=
+\begin{bmatrix}
+-5\\
+1\\
+10\\
+\end{bmatrix}
 \end{align*}\]</span>
 </div></li>
 </ol>
+<p>L’exemple précédent montre qu’il devient très rapide de trouver la solution de systèmes d’équations linéaires qui possède la même matrice <span class="math inline">\(A\)</span> lorsque nous connaissons la matrice inverse <span class="math inline">\(A^{-1}\)</span>. Nous n’avons pas à refaire la méthode de Gauss à chaque résolution de système d’équations linéaires.</p>
+<p>Ce ne sont pas toutes les matrices carrées qui possèdent une matrice inverse, comme le démontrera l’exemple suivant.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-81" class="example"><strong>Exemple 2.18  </strong></span>Trouvez, si possible, la matrice inverse de la matrice suivante:
+<span class="math display">\[\begin{align*}
+A=\begin{bmatrix}
+7&amp;3&amp;-3\\
+-16&amp;-4&amp;-6\\
+-6&amp;-2&amp;0\\
+\end{bmatrix}
+\end{align*}\]</span></p>
 </div>
+
+
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="systeme-equation-lineaire.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="methode-gauss.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="les-operations-matricielles.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="determinants.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -218,7 +312,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/desautm/algebre1/edit/master/01-systeme-equation-lineaire.Rmd",
+"link": "https://github.com/desautm/algebre1/edit/master/02-algebre-matricielle.Rmd",
 "text": "Modifier"
 },
 "history": {
