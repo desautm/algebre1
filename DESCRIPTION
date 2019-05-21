@@ -5,6 +5,5 @@ Version: 0.0.1
 Imports: 
   bookdown, 
   ggplot2, 
-  tidyverse, 
-  magick
+  tidyverse
 Remotes: rstudio/bookdown
