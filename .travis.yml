@@ -1,9 +1,9 @@
 language: R
+sudo: false
 cache:
   packages: true
   directories:
-  - _book
+  - _bookdown_files
 
 script:
-  - Rscript -e "bookdown::render_book('index.Rmd', 'bookdown::gitbook')"
-
+- Rscript -e 'bookdown::render_book("index.Rmd", "bookdown::gitbook")'
