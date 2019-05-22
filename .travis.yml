@@ -5,5 +5,13 @@ cache:
   directories:
   - _bookdown_files
 
+addons:
+       apt:
+         update: true
+         sources:
+           - sourceline: 'ppa:opencpu/imagemagick'
+         packages:
+           - libmagick++-dev
+
 script:
   - Rscript -e "rmarkdown::render_site(output_format = 'bookdown::gitbook', encoding = 'UTF-8')"
