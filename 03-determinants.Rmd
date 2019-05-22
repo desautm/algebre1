@@ -8,9 +8,9 @@ Dans cette section, nous verrons la façon de calculer des déterminants de matr
 Soit une matrice carrée $A$ de dimension $n\times n$. Le déterminant de $A$ est noté $\vert A\vert$ ou $\det (A)$.
 ```
 
-### Le calcul d'un déterminant d'une matrice $1\times 1$
+### Le calcul d'un déterminant d'une matrice $1 \times 1$
 
-```{definition, name="Le déterminant d'une matrice $1\times 1$"}
+```{definition}
 Soit la matrice $A=[a_{1,1}]$. Le déterminant de $A$ est $\vert A\vert=a_{1,1}$. 
 ```
 
@@ -436,6 +436,79 @@ D_n =\begin{bmatrix}
 ### Le calcul d'un déterminant à l'aide de la méthode de Gauss
 
 À l'aide du théorème \@ref(thm:proprietes-determinants), nous pouvons remarquer que lors de l'élimination de Gauss, une opération du type:
+\begin{align*}
+	L_i + kL_j \rightarrow L_i 
+\end{align*}
+n'affecte pas le déterminant (en raison de la propriété $8$). Par contre, une opération du type:
+\begin{align*}
+	k_1L_i + k_2L_j \rightarrow L_i 
+\end{align*}
+multiplie le déterminant par $k_1$ (en raison de la propriété $2$). Nous allons utiliser ces connaissances pour simplifier le calcul d'un déterminant. En effet, nous avons vus que calculer le déterminant d'une matrice triangulaire supérieure consiste à multiplier tous les éléments de sa diagonale principale. De plus, la méthode d'élimination de Gauss permet de transformer une matrice en une matrice triangulaire supérieure. Nous allons utiliser ces deux éléments en conjonction.
+
+```{example}
+Trouvez le déterminant de la matrice suivante en effectuant la méthode d'élimination de Gauss.
+\begin{align*}
+A=\begin{bmatrix}
+-8&10&-6\\
+-8&2&-3\\
+9&-9&7\\
+\end{bmatrix}
+\end{align*}
+```
+
+```{example}
+Calculez les déterminants des matrices suivantes.
+
+  a. $A=\begin{bmatrix}
+7&9&-5\\
+9&3&1\\
+-8&-8&10\\
+\end{bmatrix}$
+  a. $B=\begin{bmatrix}
+6&5&4&-3\\
+-6&-5&-1&-5\\
+4&-1&5&-5\\
+4&-3&-4&5\\
+\end{bmatrix}$
+
+
+```
+
+### Quelques preuves sur les déterminants
+
+```{example}
+Démontrez que $|A^k| = |A|^k$, où $k\in\mathbb{N}$.
+```
+
+```{example}
+Démontrez que si $A$ est une matrice nilpotente d'ordre $2$, alors $\det(A)=0$.
+```
+
+```{example}
+Démontrez que si $A$ est une matrice idempotente, alors $\det(A)=\{0,1\}$.
+```
+
+## La méthode de la matrice adjointe
+
+Dans cette section, nous verrons une méthode permettant de trouver la matrice inverse d'une matrice à l'aide des déterminants.
+
+```{definition, name="L'adjointe de la matrice $A$"}
+Soit $A$ une matrice carrée de dimension $n \times n$. La matrice des cofacteurs est la matrice telle que l'entrée $(i,j)$ est le cofacteur $C_{i,j}$ de $A$. La transposée de la matrice des cofacteurs est nommée **l'adjointe** de $A$, notée $\text{Adj}(A)$ et est représentée par:
+\begin{align*}
+\text{Adj}(A) &= \begin{bmatrix}
+C_{1,1} & C_{2,1} & \ldots & C_{n,1} \\
+C_{1,2} & C_{2,2} & \ldots & C_{n,2} \\
+\vdots & \vdots & \ddots & \vdots \\
+C_{1,n} & C_{2,n} & \ldots & C_{n,n}
+\end{bmatrix}
+\end{align*}
+
+```
+
+
+
+
+
 
 
 

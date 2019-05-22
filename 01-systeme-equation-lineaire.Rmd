@@ -29,12 +29,11 @@ Les positions des satellites sont choisies pour que au moins 4 satellites soient
 knitr::include_graphics("resources/images/GPS-Trilateration-Feature-678x322.png")
 ```
 
-# ```{r, echo=FALSE, fig.align='center'}
-# if (knitr:::is_html_output()){
-#   knitr::include_graphics("resources/images/GPS24goldenSML.gif")
-# }
-# ```
-
+```{r, echo=FALSE, fig.align='center'}
+ if (knitr:::is_html_output()){
+   knitr::include_graphics("resources/images/GPS24goldenSML.gif")
+ }
+```
 
 ## Une introduction aux équations linéaires {#sec:intro_equation_lineaire}
 

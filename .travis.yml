@@ -1,26 +1,16 @@
 language: R
+pandoc_version: 2.0.6
 sudo: false
+
 cache:
-  packages: true
+  packages: yes
   directories:
-  - _bookdown_files
+    - $TRAVIS_BUILD_DIR/_bookdown_files
 
 addons:
-       apt:
-         update: true
-         sources:
-           - sourceline: 'ppa:opencpu/imagemagick'
-         packages:
-           - libmagick++-dev
+  apt:
+    packages:
+      - libxml2-dev
 
 script:
   - Rscript -e "rmarkdown::render_site(output_format = 'bookdown::gitbook', encoding = 'UTF-8')"
-  - Rscript -e "rmarkdown::render_site(output_format = 'bookdown::pdf_book', encoding = 'UTF-8')"
-
-deploy:
-  provider: pages
-  local_dir: docs
-  skip_cleanup: true
-  github-token: $GITHUB_PAT  # Set in the settings page of your repository
-  on:
-    branch: master

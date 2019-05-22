@@ -3,10 +3,10 @@ Type: Book
 Title: Does not matter.
 Version: 0.0.1
 Imports: 
-  bookdown, 
+  bookdown,
+  knitr,
   ggplot2, 
   tidyverse, 
   magick
 Remotes: 
-  rstudio/bookdown,
-  ropensci/pdftools
+  rstudio/bookdown

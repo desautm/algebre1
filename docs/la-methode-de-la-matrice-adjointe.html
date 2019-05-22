@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Algèbre linéaire et géométrie vectorielle</title>
+  <title>3.3 La méthode de la matrice adjointe | Algèbre linéaire et géométrie vectorielle</title>
   <meta name="description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
   <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Algèbre linéaire et géométrie vectorielle" />
+  <meta property="og:title" content="3.3 La méthode de la matrice adjointe | Algèbre linéaire et géométrie vectorielle" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="desautm/algebre1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Algèbre linéaire et géométrie vectorielle" />
+  <meta name="twitter:title" content="3.3 La méthode de la matrice adjointe | Algèbre linéaire et géométrie vectorielle" />
   
   <meta name="twitter:description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="les-proprietes-des-determinants.html">
 
-<link rel="next" href="a-propos-de-ce-document.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -134,21 +134,32 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Algèbre linéaire et géométrie vectorielle</h1>
-<p class="author"><em>Marc-André Désautels</em></p>
-<p class="date"><em>2019-05-22</em></p>
+<div id="la-methode-de-la-matrice-adjointe" class="section level2">
+<h2><span class="header-section-number">3.3</span> La méthode de la matrice adjointe</h2>
+<p>Dans cette section, nous verrons une méthode permettant de trouver la matrice inverse d’une matrice à l’aide des déterminants.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-108" class="definition"><strong>Définition 2.20  (L’adjointe de la matrice <span class="math inline">\(A\)</span>)  </strong></span>Soit <span class="math inline">\(A\)</span> une matrice carrée de dimension <span class="math inline">\(n \times n\)</span>. La matrice des cofacteurs est la matrice telle que l’entrée <span class="math inline">\((i,j)\)</span> est le cofacteur <span class="math inline">\(C_{i,j}\)</span> de <span class="math inline">\(A\)</span>. La transposée de la matrice des cofacteurs est nommée <strong>l’adjointe</strong> de <span class="math inline">\(A\)</span>, notée <span class="math inline">\(\text{Adj}(A)\)</span> et est représentée par:
+<span class="math display">\[\begin{align*}
+\text{Adj}(A) &amp;= \begin{bmatrix}
+C_{1,1} &amp; C_{2,1} &amp; \ldots &amp; C_{n,1} \\
+C_{1,2} &amp; C_{2,2} &amp; \ldots &amp; C_{n,2} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+C_{1,n} &amp; C_{2,n} &amp; \ldots &amp; C_{n,n}
+\end{bmatrix}
+\end{align*}\]</span></p>
 </div>
-<div id="introduction" class="section level1 unnumbered">
-<h1>Introduction</h1> 
+
+
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
+<a href="les-proprietes-des-determinants.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="a-propos-de-ce-document.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -178,7 +189,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/desautm/algebre1/edit/master/index.Rmd",
+"link": "https://github.com/desautm/algebre1/edit/master/03-determinants.Rmd",
 "text": "Modifier"
 },
 "history": {
