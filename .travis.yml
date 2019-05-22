@@ -15,3 +15,12 @@ addons:
 
 script:
   - Rscript -e "rmarkdown::render_site(output_format = 'bookdown::gitbook', encoding = 'UTF-8')"
+  - Rscript -e "rmarkdown::render_site(output_format = 'bookdown::pdf_book', encoding = 'UTF-8')"
+
+deploy:
+  provider: pages
+  local_dir: _book
+  skip_cleanup: true
+  github-token: $GITHUB_PAT  # Set in the settings page of your repository
+  on:
+    branch: master
