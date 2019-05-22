@@ -19,7 +19,7 @@ script:
 
 deploy:
   provider: pages
-  local_dir: _book
+  local_dir: docs
   skip_cleanup: true
   github-token: $GITHUB_PAT  # Set in the settings page of your repository
   on:
