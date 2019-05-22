@@ -6,5 +6,6 @@ Imports:
   bookdown, 
   ggplot2, 
   tidyverse, 
-  magick
+  magick,
+  pdftools
 Remotes: rstudio/bookdown
