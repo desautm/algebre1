@@ -22,7 +22,6 @@ addons:
       - libleptonica-dev
       - r-cran-rgdal
       - libfftw3-dev
-      - cargo
 
 script:
   - Rscript -e 'bookdown::render_book("index.Rmd")'
