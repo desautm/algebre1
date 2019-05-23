@@ -627,9 +627,49 @@ Dans cette sous-section, nous allons retrouver une formule impliquant un déterm
 \end{tikzpicture}
 ```
 
+Remarquons que pour trouver la surface du triangle bleu, il est plus simple de trouver la surface totale du rectangle pointillé et d'ensuite enlever la surface des trois triangles rectangles $A$, $B$ et $C$.
 
+Nous avons donc que la surface du rectangle est donnée par:
+\begin{align*}
+\text{Aire}_{\text{rectangle}} = (x_3-x_1)(y_2-y_3)
+\end{align*}
+La surface du triangle $A$ est donnée par:
+\begin{align*}
+\text{Aire}_{\Delta A} = \dfrac{1}{2}(x_2-x_1)(y_2-y_1)
+\end{align*}
+La surface du triangle $B$ est donnée par:
+\begin{align*}
+\text{Aire}_{\Delta B} = \dfrac{1}{2}(x_3-x_2)(y_2-y_3)
+\end{align*}
+La surface du triangle $C$ est donnée par:
+\begin{align*}
+\text{Aire}_{\Delta C} = \dfrac{1}{2}(x_3-x_1)(y_1-y_3)
+\end{align*}
 
+La surface du triangle en bleu est donc donnée par:
+\begin{align*}
+\text{Aire}_{\Delta} &= \text{Aire}_{\text{rectangle}}-\text{Aire}_{\Delta A}-\text{Aire}_{\Delta B}-\text{Aire}_{\Delta C} \\
+&= (x_3-x_1)(y_2-y_3)-\dfrac{1}{2}(x_2-x_1)(y_2-y_1)-\dfrac{1}{2}(x_3-x_2)(y_2-y_3) \\
+& \qquad \qquad -\dfrac{1}{2}(x_3-x_1)(y_1-y_3) \\
+&= \dfrac{-x_2y_3+x_1y_3+x_3y_2-x_1y_2-x_3y_1+x_2y_1}{2} \qquad\text{(en simplifiant)} \\
+&= \dfrac{1}{2}\left((x_3y_2-x_2y_3)-(x_3y_1-x_1y_3)+(x_2y_1-x_1y_2)\right)
+\end{align*}
 
+Étonnamment, la formule précédente peut être exprimée sous la forme du déterminant suivant:
+\begin{align*}
+\dfrac{1}{2}\begin{vmatrix}
+1 & 1 & 1 \\
+x_1 & x_2 & x_3 \\
+y_1 & y_2 & y_3
+\end{vmatrix}
+\end{align*}
+En fait, vous allez probablement remarquer que le déterminant suivant donne la formule de la surface d'un triangle à un signe près. Pour obtenir l'aire du triangle, il faut donc prendre la valeur absolue du déterminant précédent.
+
+```{example}
+Trouvez la surface du triangle dont les coordonnées sont $(-1,1)$, $(2,5)$ et $(10,2)$.
+```
+
+La formule obtenue pour l'aire d'un triangle peut nous aider à savoir si trois points sont colinéaires, c'est-à-dire si ces trois points se trouvent sur la même droite. En effet, si les trois points se trouvent sur la même droite, la surface du triangle sera nulle et donc le déterminant sera nul également.
 
 
 
