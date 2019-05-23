@@ -7,4 +7,4 @@ Imports:
   bookdown, 
   tidyverse
 Remotes:
-  ropensci/magick
+  ropenscilabs/magick

@@ -505,17 +505,104 @@ C_{1,n} & C_{2,n} & \ldots & C_{n,n}
 
 ```
 
+```{example}
+Trouvez la matrice des cofacteurs et la matrice adjointe de la matrice suivante:
+\begin{align*}
+A=\begin{bmatrix}
+2&-1&2\\
+3&2&-5\\
+3&-4&-2\\
+\end{bmatrix}
+\end{align*}
+```
 
+```{theorem}
+Soit $A$ une matrice carrée de dimension $n \times n$. Nous avons alors:
+\begin{align*}
+	A\text{Adj}(A) = \det(A)I_n = \text{Adj}(A)A
+\end{align*}
+```
 
+```{theorem, label="adj-inverse"}
+Soit $A$ une matrice possédant une matrice inverse. Nous avons alors:
+\begin{align*}
+A^{-1} = \dfrac{1}{\det(A)}\text{Adj}(A)
+\end{align*}
+```
 
+```{example}
+Trouvez la matrice inverse de la matrice $A$ suivante à l'aide du théorème \@ref(thm:adj-inverse):
+\begin{align*}
+A=\begin{bmatrix}
+2&-1&2\\
+3&2&-5\\
+3&-4&-2\\
+\end{bmatrix}
+\end{align*}
+```
 
+## La méthode de Cramer
 
+La méthode de Cramer permet de résoudre un système d'équations linéaires qui possède une solution unique et dont la matrice des coefficients est carrée. Elle permet également de ne trouver qu'une ou plusieurs des variables inconnues. Par contre, elle se base sur le calcul de plusieurs déterminants et en pratique, cette méthode est rarement utilisée. On lui préfère l'algorithme de Gauss, beaucoup plus rapide et efficace.
 
+Soit un système d'équations linéaires de la forme $Ax=b$, où la matrice $A$ est carrée, avec:
+\begin{align*}
+A=\begin{bmatrix}
+a_{1,1} & \ldots & a_{1,n} \\
+\vdots & \ddots & \vdots \\
+a_{n,1} & \ldots & a_{n,n}
+\end{bmatrix}
+\qquad
+x=\begin{bmatrix}
+x_1 \\
+\vdots \\
+x_n
+\end{bmatrix}
+\qquad
+b=\begin{bmatrix}
+b_1 \\
+\vdots \\
+b_n
+\end{bmatrix}
+\end{align*}
 
+Soit $A_i$ la matrice obtenue de la matrice $A$ en remplaçant la colonne $i$ de la matrice $A$ par $b$, c'est-à-dire:
+\begin{align*}
+A_i=\begin{bmatrix}
+a_{1,1} & \ldots & a_{1,i-1} & b_1 & a_{1,i+1} & \ldots & a_{1,n} \\
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\
+a_{n,1} & \ldots & a_{n,i-1} & b_n & a_{n,i+1} & \ldots & a_{n,n}
+\end{bmatrix}
+\end{align*}
 
+```{theorem, name="La méthode de Cramer"}
+Si $\det(A)\neq 0$, le système $Ax=b$ possède une solution unique, donnée par:
+\begin{align*}
+x_1=\dfrac{\det(A_1)}{\det(A)}, x_2=\dfrac{\det(A_2)}{\det(A)}, \ldots , x_n=\dfrac{\det(A_n)}{\det(A)}
+\end{align*}
+```
 
+```{example}
+Utilisez la méthode de Cramer pour trouver la solution du système d'équations linéaires suivant:
+\begin{align*}
+\begin{array}{cccccccc}
+&-x&+&y&-&z&=&2\\
+&&&y&+&z&=&5\\
+&x&&&+&z&=&-2\\
+\end{array}
+\end{align*}
+```
 
+```{example}
+Supposez que $ad-bc\neq 0$. Utilisez la méthode de Cramer pour trouver la solution générale du système d'équations linéaires suivant:
+\begin{align*}
+\begin{array}{cccccc}
+&ax&+&by&=&e\\
+&cx&+&dy&=&f\\
+\end{array}
+\end{align*}
+```
 
-
+## Les applications du déterminant
 
 
