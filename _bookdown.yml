@@ -1,7 +1,6 @@
 book_filename: "algebre1"
 repo: https://github.com/desautm/algebre1
 edit: https://github.com/desautm/algebre1/edit/%s
-output_dir: "_book"
 delete_merged_file: true
 language:
   ui:
