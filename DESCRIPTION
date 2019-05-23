@@ -7,4 +7,5 @@ Imports:
   bookdown,
   magick,
   pdftools,
-  tidyverse
+  tidyverse,
+  svglite
