@@ -611,10 +611,14 @@ Cette section contient de multiples applications du déterminant. Nous allons d�
 
 Dans cette sous-section, nous allons retrouver une formule impliquant un déterminant permettant de trouver l'aire d'un triangle dont nous connaissons les coordonnées des trois points le formant. La figure suivante nous aidera à retrouver la formule.
 
-```{tikz, echo=FALSE, fig.cap = "L'aire d'un triangle avec un déterminant.", fig.ext = 'png', cache=TRUE, fig.align="center", out.width="75%"}
+```{tikz, echo=FALSE, fig.cap = "L'aire d'un triangle avec un déterminant.", fig.ext = 'png', cache=TRUE, fig.align="center", out.width="50%"}
 \begin{tikzpicture}
 
 \draw[dashed] (0,0) rectangle (3,4);
+\draw[thick, blue] (0,2)--(2,4)--(3,0)--cycle;
+\node[left] at (0,2) {$(x_1,y_1$};
+\node[above] at (2,4) {$(x_2,y_2$};
+\node[right] at (3,0) {$(x_3,y_3$};
 
 \end{tikzpicture}
 ```

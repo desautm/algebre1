@@ -8,6 +8,14 @@ packages: yes
 directories:
   - _bookdown_files
 
+addons:
+  apt:
+    update: true
+    sources:
+      - sourceline: 'ppa:opencpu/imagemagick'
+    packages:
+      - libmagick++-dev
+
 script:
   - Rscript -e 'bookdown::render_book("index.Rmd")'
 
