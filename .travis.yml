@@ -1,0 +1,29 @@
+language: R
+cache: packages
+pandoc_version: 2.3.1
+sudo: false
+
+addons:
+  apt:
+    sources:
+    - sourceline: 'ppa:opencpu/imagemagick'
+    - sourceline: 'ppa:opencpu/poppler'
+    packages:
+    - libmagick++-dev
+    - libpoppler-cpp-dev
+
+cache:
+packages: yes
+directories:
+  - _bookdown_files
+
+script:
+- Rscript -e 'bookdown::render_book("index.Rmd")'
+
+deploy:
+  provider: pages
+  local_dir: _book
+  skip_cleanup: true
+  github-token: $GITHUB_TRAVIS  # Set in the settings page
+  on:
+    branch: master

@@ -116,6 +116,7 @@
 <li class="chapter" data-level="3.4" data-path="la-methode-de-cramer.html"><a href="la-methode-de-cramer.html"><i class="fa fa-check"></i><b>3.4</b> La méthode de Cramer</a></li>
 <li class="chapter" data-level="3.5" data-path="les-applications-du-determinant.html"><a href="les-applications-du-determinant.html"><i class="fa fa-check"></i><b>3.5</b> Les applications du déterminant</a><ul>
 <li class="chapter" data-level="3.5.1" data-path="les-applications-du-determinant.html"><a href="les-applications-du-determinant.html#laire-dun-triangle-a-laide-des-determinants"><i class="fa fa-check"></i><b>3.5.1</b> L’aire d’un triangle à l’aide des déterminants</a></li>
+<li class="chapter" data-level="3.5.2" data-path="les-applications-du-determinant.html"><a href="les-applications-du-determinant.html#le-polynome-caracteristique-dune-matrice"><i class="fa fa-check"></i><b>3.5.2</b> Le polynôme caractéristique d’une matrice</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -171,7 +172,7 @@ a_{n,1} &amp; \ldots &amp; a_{n,i-1} &amp; b_n &amp; a_{n,i+1} &amp; \ldots &amp
 \end{align*}\]</span></p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-112" class="theorem"><strong>Théorème 2.10  (La méthode de Cramer)  </strong></span>Si <span class="math inline">\(\det(A)\neq 0\)</span>, le système <span class="math inline">\(Ax=b\)</span> possède une solution unique, donnée par:
+<span id="thm:unnamed-chunk-31" class="theorem"><strong>Théorème 2.4  (La méthode de Cramer)  </strong></span>Si <span class="math inline">\(\det(A)\neq 0\)</span>, le système <span class="math inline">\(Ax=b\)</span> possède une solution unique, donnée par:
 <span class="math display">\[\begin{align*}
 x_1=\dfrac{\det(A_1)}{\det(A)}, x_2=\dfrac{\det(A_2)}{\det(A)}, \ldots , x_n=\dfrac{\det(A_n)}{\det(A)}
 \end{align*}\]</span>
@@ -179,7 +180,7 @@ x_1=\dfrac{\det(A_1)}{\det(A)}, x_2=\dfrac{\det(A_2)}{\det(A)}, \ldots , x_n=\df
 
 
 <div class="example">
-<span id="exm:unnamed-chunk-113" class="example"><strong>Exemple 2.37  </strong></span>Utilisez la méthode de Cramer pour trouver la solution du système d’équations linéaires suivant:
+<span id="exm:unnamed-chunk-32" class="example"><strong>Exemple 2.19  </strong></span>Utilisez la méthode de Cramer pour trouver la solution du système d’équations linéaires suivant:
 <span class="math display">\[\begin{align*}
 \begin{array}{cccccccc}
 &amp;-x&amp;+&amp;y&amp;-&amp;z&amp;=&amp;2\\
@@ -191,7 +192,7 @@ x_1=\dfrac{\det(A_1)}{\det(A)}, x_2=\dfrac{\det(A_2)}{\det(A)}, \ldots , x_n=\df
 
 
 <div class="example">
-<span id="exm:unnamed-chunk-114" class="example"><strong>Exemple 2.38  </strong></span>Supposez que <span class="math inline">\(ad-bc\neq 0\)</span>. Utilisez la méthode de Cramer pour trouver la solution générale du système d’équations linéaires suivant:
+<span id="exm:unnamed-chunk-33" class="example"><strong>Exemple 2.20  </strong></span>Supposez que <span class="math inline">\(ad-bc\neq 0\)</span>. Utilisez la méthode de Cramer pour trouver la solution générale du système d’équations linéaires suivant:
 <span class="math display">\[\begin{align*}
 \begin{array}{cccccc}
 &amp;ax&amp;+&amp;by&amp;=&amp;e\\

@@ -671,6 +671,100 @@ Trouvez la surface du triangle dont les coordonnées sont $(-1,1)$, $(2,5)$ et $
 
 La formule obtenue pour l'aire d'un triangle peut nous aider à savoir si trois points sont colinéaires, c'est-à-dire si ces trois points se trouvent sur la même droite. En effet, si les trois points se trouvent sur la même droite, la surface du triangle sera nulle et donc le déterminant sera nul également.
 
+### Le polynôme caractéristique d'une matrice
+
+Le polynôme caractéristique d'une matrice est un polynôme qui renferme d'importantes propriétés de sa matrice. Entre autre, il renferme son déterminant, sa trace et ses valeurs propres. Bien que nous ne puissions voir les valeurs propres d'une matrice dans ce livre, celles-ci sont très importantes en algèbre linéaire. Le polynôme caractéristique est également utile dans un important théorème d'algèbre linéaire, le théorème de Cayley-Hamilton.
+
+```{definition, name="Le polynôme caractéristique"}
+Soit $A_n$ une matrice carrée. Le polynôme caractéristique de $A$, noté $p_{A_n}(t)$, est défini de la façon suivante:
+\begin{align*}
+p_{A_n}(t) = \det(tI_n-A_n)
+\end{align*}
+```
+
+```{example}
+Trouvez le polynôme caractéristique de la matrice suivante:
+\begin{align*}
+A=\begin{bmatrix}
+2 & 1 \\
+-1 & 0
+\end{bmatrix}
+\end{align*}
+```
+
+```{theorem, name="Quelques propriétés du polynôme caractéristique"}
+Soit une matrice $A_n$ et $p_A(t)$ son polynôme caractéristique.
+
+  - Le degré du polynôme est $n$.
+  - Le coefficient de $t^n$ est $1$.
+  - Le coefficient de $t^{n-1}$ est égal à la trace de la matrice $-A$, c'est-à-dire $\text{tr}(-A)=-\text{tr}(A)$.
+  - Le coefficient constant de $p_A(t)$ est égal au déterminant de la matrice $-A$, c'est-à-dire $p_A(0)=\det(-A)=(-1)^n\det(A)$.
+
+
+```
+
+```{example}
+Utilisez les propriétés précédentes pour écrire le polynôme caractéristique d'une matrice $A$ de dimension $2\times 2$.
+```
+
+```{example}
+Le polynôme caractéristique d'un graphe est défini comme le polynôme caractéristique de sa matrice d'adjacence. En particulier, le polynôme caractéristique d'un graphe est un invariant du graphe. Dans cet exemple, nous étudierons en particulier le cas des graphes complets, notés $K_n$. Un graphe complet $K_n$ est un graphe possédant $n$ sommets tous reliés deux à deux par une arête. Voici quelques exemples de graphes complets:
+```
+
+```{tikz, echo=FALSE, fig.cap = "Quelques graphes complets.", fig.ext = 'png', cache=TRUE, fig.align="center", out.width="75%"}
+\begin{tikzpicture}
+
+\begin{scope}
+\def\N{2}
+\foreach \i [evaluate={\j=\i+1;\k=\i+2}] in {1,2,...,\N}{
+	\node[draw,circle,inner sep=1.5pt,fill, blue] at (\i/\N*360:1 cm) {};
+	\draw (\i/\N*360:1 cm)--(\j/\N*360:1 cm);
+	\draw (\i/\N*360:1 cm)--(\k/\N*360:1 cm);
+}
+\node[below,shift={(0,-0.5)}] at (270:1 cm) {$K_{\N}$};
+\end{scope}
+
+\begin{scope}[shift={(2.5,0)}]
+\def\N{3}
+\foreach \i [evaluate={\j=\i+1;\k=\i+2}] in {1,2,...,\N}{
+	\node[draw,circle,inner sep=1.5pt,fill, blue] at (\i/\N*360:1 cm) {};
+	\draw (\i/\N*360:1 cm)--(\j/\N*360:1 cm);
+	\draw (\i/\N*360:1 cm)--(\k/\N*360:1 cm);
+}
+\node[below,shift={(0,-0.5)}] at (270:1 cm) {$K_{\N}$};
+\end{scope}
+
+\begin{scope}[shift={(5,0)}]
+\def\N{4}
+\foreach \i [evaluate={\j=\i+1;\k=\i+2}] in {1,2,...,\N}{
+	\node[draw,circle,inner sep=1.5pt,fill, blue] at (\i/\N*360:1 cm) {};
+	\draw (\i/\N*360:1 cm)--(\j/\N*360:1 cm);
+	\draw (\i/\N*360:1 cm)--(\k/\N*360:1 cm);
+}
+\node[below,shift={(0,-0.5)}] at (270:1 cm) {$K_{\N}$};
+\end{scope}
+
+\begin{scope}[shift={(7.5,0)}]
+\def\N{5}
+\foreach \i [evaluate={\j=\i+1;\k=\i+2}] in {1,2,...,\N}{
+	\node[draw,circle,inner sep=1.5pt,fill, blue] at (\i/\N*360:1 cm) {};
+	\draw (\i/\N*360:1 cm)--(\j/\N*360:1 cm);
+	\draw (\i/\N*360:1 cm)--(\k/\N*360:1 cm);
+}
+\node[below,shift={(0,-0.5)}] at (270:1 cm) {$K_{\N}$};
+\end{scope}
+
+\end{tikzpicture}
+```
+
+
+
+
+
+
+
+
+
 
 
 

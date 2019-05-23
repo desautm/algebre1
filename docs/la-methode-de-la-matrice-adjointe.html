@@ -116,6 +116,7 @@
 <li class="chapter" data-level="3.4" data-path="la-methode-de-cramer.html"><a href="la-methode-de-cramer.html"><i class="fa fa-check"></i><b>3.4</b> La méthode de Cramer</a></li>
 <li class="chapter" data-level="3.5" data-path="les-applications-du-determinant.html"><a href="les-applications-du-determinant.html"><i class="fa fa-check"></i><b>3.5</b> Les applications du déterminant</a><ul>
 <li class="chapter" data-level="3.5.1" data-path="les-applications-du-determinant.html"><a href="les-applications-du-determinant.html#laire-dun-triangle-a-laide-des-determinants"><i class="fa fa-check"></i><b>3.5.1</b> L’aire d’un triangle à l’aide des déterminants</a></li>
+<li class="chapter" data-level="3.5.2" data-path="les-applications-du-determinant.html"><a href="les-applications-du-determinant.html#le-polynome-caracteristique-dune-matrice"><i class="fa fa-check"></i><b>3.5.2</b> Le polynôme caractéristique d’une matrice</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -143,7 +144,7 @@
 <p>Dans cette section, nous verrons une méthode permettant de trouver la matrice inverse d’une matrice à l’aide des déterminants.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-108" class="definition"><strong>Définition 2.20  (L’adjointe de la matrice <span class="math inline">\(A\)</span>)  </strong></span>Soit <span class="math inline">\(A\)</span> une matrice carrée de dimension <span class="math inline">\(n \times n\)</span>. La matrice des cofacteurs est la matrice telle que l’entrée <span class="math inline">\((i,j)\)</span> est le cofacteur <span class="math inline">\(C_{i,j}\)</span> de <span class="math inline">\(A\)</span>. La transposée de la matrice des cofacteurs est nommée <strong>l’adjointe</strong> de <span class="math inline">\(A\)</span>, notée <span class="math inline">\(\text{Adj}(A)\)</span> et est représentée par:
+<p><span id="def:unnamed-chunk-27" class="definition"><strong>Définition 2.7  (L’adjointe de la matrice <span class="math inline">\(A\)</span>)  </strong></span>Soit <span class="math inline">\(A\)</span> une matrice carrée de dimension <span class="math inline">\(n \times n\)</span>. La matrice des cofacteurs est la matrice telle que l’entrée <span class="math inline">\((i,j)\)</span> est le cofacteur <span class="math inline">\(C_{i,j}\)</span> de <span class="math inline">\(A\)</span>. La transposée de la matrice des cofacteurs est nommée <strong>l’adjointe</strong> de <span class="math inline">\(A\)</span>, notée <span class="math inline">\(\text{Adj}(A)\)</span> et est représentée par:
 <span class="math display">\[\begin{align*}
 \text{Adj}(A) &amp;= \begin{bmatrix}
 C_{1,1} &amp; C_{2,1} &amp; \ldots &amp; C_{n,1} \\
@@ -156,7 +157,7 @@ C_{1,n} &amp; C_{2,n} &amp; \ldots &amp; C_{n,n}
 
 
 <div class="example">
-<span id="exm:unnamed-chunk-109" class="example"><strong>Exemple 2.35  </strong></span>Trouvez la matrice des cofacteurs et la matrice adjointe de la matrice suivante:
+<span id="exm:unnamed-chunk-28" class="example"><strong>Exemple 2.17  </strong></span>Trouvez la matrice des cofacteurs et la matrice adjointe de la matrice suivante:
 <span class="math display">\[\begin{align*}
 A=\begin{bmatrix}
 2&amp;-1&amp;2\\
@@ -168,7 +169,7 @@ A=\begin{bmatrix}
 
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-110" class="theorem"><strong>Théorème 2.8  </strong></span>Soit <span class="math inline">\(A\)</span> une matrice carrée de dimension <span class="math inline">\(n \times n\)</span>. Nous avons alors:
+<span id="thm:unnamed-chunk-29" class="theorem"><strong>Théorème 2.2  </strong></span>Soit <span class="math inline">\(A\)</span> une matrice carrée de dimension <span class="math inline">\(n \times n\)</span>. Nous avons alors:
 <span class="math display">\[\begin{align*}
     A\text{Adj}(A) = \det(A)I_n = \text{Adj}(A)A
 \end{align*}\]</span>
@@ -176,7 +177,7 @@ A=\begin{bmatrix}
 
 
 <div class="theorem">
-<span id="thm:adj-inverse" class="theorem"><strong>Théorème 2.9  </strong></span>Soit <span class="math inline">\(A\)</span> une matrice possédant une matrice inverse. Nous avons alors:
+<span id="thm:adj-inverse" class="theorem"><strong>Théorème 2.3  </strong></span>Soit <span class="math inline">\(A\)</span> une matrice possédant une matrice inverse. Nous avons alors:
 <span class="math display">\[\begin{align*}
 A^{-1} = \dfrac{1}{\det(A)}\text{Adj}(A)
 \end{align*}\]</span>
@@ -184,7 +185,7 @@ A^{-1} = \dfrac{1}{\det(A)}\text{Adj}(A)
 
 
 <div class="example">
-<span id="exm:unnamed-chunk-111" class="example"><strong>Exemple 2.36  </strong></span>Trouvez la matrice inverse de la matrice <span class="math inline">\(A\)</span> suivante à l’aide du théorème <a href="la-methode-de-la-matrice-adjointe.html#thm:adj-inverse">2.9</a>:
+<span id="exm:unnamed-chunk-30" class="example"><strong>Exemple 2.18  </strong></span>Trouvez la matrice inverse de la matrice <span class="math inline">\(A\)</span> suivante à l’aide du théorème <a href="la-methode-de-la-matrice-adjointe.html#thm:adj-inverse">2.3</a>:
 <span class="math display">\[\begin{align*}
 A=\begin{bmatrix}
 2&amp;-1&amp;2\\

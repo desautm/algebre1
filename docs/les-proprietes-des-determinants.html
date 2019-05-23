@@ -116,6 +116,7 @@
 <li class="chapter" data-level="3.4" data-path="la-methode-de-cramer.html"><a href="la-methode-de-cramer.html"><i class="fa fa-check"></i><b>3.4</b> La méthode de Cramer</a></li>
 <li class="chapter" data-level="3.5" data-path="les-applications-du-determinant.html"><a href="les-applications-du-determinant.html"><i class="fa fa-check"></i><b>3.5</b> Les applications du déterminant</a><ul>
 <li class="chapter" data-level="3.5.1" data-path="les-applications-du-determinant.html"><a href="les-applications-du-determinant.html#laire-dun-triangle-a-laide-des-determinants"><i class="fa fa-check"></i><b>3.5.1</b> L’aire d’un triangle à l’aide des déterminants</a></li>
+<li class="chapter" data-level="3.5.2" data-path="les-applications-du-determinant.html"><a href="les-applications-du-determinant.html#le-polynome-caracteristique-dune-matrice"><i class="fa fa-check"></i><b>3.5.2</b> Le polynôme caractéristique d’une matrice</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -146,7 +147,7 @@
 <h3><span class="header-section-number">3.2.1</span> Les opérations élémentaires</h3>
 
 <div class="theorem">
-<p><span id="thm:proprietes-determinants" class="theorem"><strong>Théorème 2.7  (Les propriétés de base des déterminants)  </strong></span>Les propriétés de base des déterminants sont:</p>
+<p><span id="thm:proprietes-determinants" class="theorem"><strong>Théorème 2.1  (Les propriétés de base des déterminants)  </strong></span>Les propriétés de base des déterminants sont:</p>
 <ul>
 <li>La matrice <span class="math inline">\(A\)</span> et sa transposée on le même déterminant, c’est-à-dire <span class="math inline">\(\det(A) = \det(A^T)\)</span>. Par exemple:
 <span class="math display">\[\begin{align*}
@@ -309,7 +310,7 @@ c_1 &amp; c_2 &amp; c_3
 <p>Les propriétés précédentes vont nous permettre de simplifier le calcul des déterminants un peu plus loin. Par contre, il n’existe pas de propriété simple pour l’addition de deux matrices.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-100" class="example"><strong>Exemple 2.28  </strong></span>Soit les matrices
+<p><span id="exm:unnamed-chunk-19" class="example"><strong>Exemple 2.10  </strong></span>Soit les matrices
 <span class="math inline">\(A=\begin{bmatrix} 7&amp;-8\\ 9&amp;9\\ \end{bmatrix}\)</span> et
 <span class="math inline">\(B=\begin{bmatrix} 3&amp;-5\\ -8&amp;1\\ \end{bmatrix}\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
@@ -328,7 +329,7 @@ c_1 &amp; c_2 &amp; c_3
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-102" class="example"><strong>Exemple 2.29  </strong></span>Soit la matrice suivante:
+<p><span id="exm:unnamed-chunk-21" class="example"><strong>Exemple 2.11  </strong></span>Soit la matrice suivante:
 <span class="math display">\[\begin{align*}
 D_n =\begin{bmatrix}
 1 &amp; 1 &amp; 1 &amp; 1 &amp; \ldots &amp; 1 \\
@@ -350,7 +351,7 @@ D_n =\begin{bmatrix}
 </div>
 <div id="le-calcul-dun-determinant-a-laide-de-la-methode-de-gauss" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Le calcul d’un déterminant à l’aide de la méthode de Gauss</h3>
-<p>À l’aide du théorème <a href="les-proprietes-des-determinants.html#thm:proprietes-determinants">2.7</a>, nous pouvons remarquer que lors de l’élimination de Gauss, une opération du type:
+<p>À l’aide du théorème <a href="les-proprietes-des-determinants.html#thm:proprietes-determinants">2.1</a>, nous pouvons remarquer que lors de l’élimination de Gauss, une opération du type:
 <span class="math display">\[\begin{align*}
     L_i + kL_j \rightarrow L_i 
 \end{align*}\]</span>
@@ -361,7 +362,7 @@ n’affecte pas le déterminant (en raison de la propriété <span class="math i
 multiplie le déterminant par <span class="math inline">\(k_1\)</span> (en raison de la propriété <span class="math inline">\(2\)</span>). Nous allons utiliser ces connaissances pour simplifier le calcul d’un déterminant. En effet, nous avons vus que calculer le déterminant d’une matrice triangulaire supérieure consiste à multiplier tous les éléments de sa diagonale principale. De plus, la méthode d’élimination de Gauss permet de transformer une matrice en une matrice triangulaire supérieure. Nous allons utiliser ces deux éléments en conjonction.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-103" class="example"><strong>Exemple 2.30  </strong></span>Trouvez le déterminant de la matrice suivante en effectuant la méthode d’élimination de Gauss.
+<span id="exm:unnamed-chunk-22" class="example"><strong>Exemple 2.12  </strong></span>Trouvez le déterminant de la matrice suivante en effectuant la méthode d’élimination de Gauss.
 <span class="math display">\[\begin{align*}
 A=\begin{bmatrix}
 -8&amp;10&amp;-6\\
@@ -373,7 +374,7 @@ A=\begin{bmatrix}
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-104" class="example"><strong>Exemple 2.31  </strong></span>Calculez les déterminants des matrices suivantes.</p>
+<p><span id="exm:unnamed-chunk-23" class="example"><strong>Exemple 2.13  </strong></span>Calculez les déterminants des matrices suivantes.</p>
 <ol style="list-style-type: lower-alpha">
 <li><span class="math inline">\(A=\begin{bmatrix} 7&amp;9&amp;-5\\ 9&amp;3&amp;1\\ -8&amp;-8&amp;10\\ \end{bmatrix}\)</span></li>
 <li><span class="math inline">\(B=\begin{bmatrix} 6&amp;5&amp;4&amp;-3\\ -6&amp;-5&amp;-1&amp;-5\\ 4&amp;-1&amp;5&amp;-5\\ 4&amp;-3&amp;-4&amp;5\\ \end{bmatrix}\)</span></li>
@@ -385,17 +386,17 @@ A=\begin{bmatrix}
 <h3><span class="header-section-number">3.2.3</span> Quelques preuves sur les déterminants</h3>
 
 <div class="example">
-<span id="exm:unnamed-chunk-105" class="example"><strong>Exemple 2.32  </strong></span>Démontrez que <span class="math inline">\(|A^k| = |A|^k\)</span>, où <span class="math inline">\(k\in\mathbb{N}\)</span>.
+<span id="exm:unnamed-chunk-24" class="example"><strong>Exemple 2.14  </strong></span>Démontrez que <span class="math inline">\(|A^k| = |A|^k\)</span>, où <span class="math inline">\(k\in\mathbb{N}\)</span>.
 </div>
 
 
 <div class="example">
-<span id="exm:unnamed-chunk-106" class="example"><strong>Exemple 2.33  </strong></span>Démontrez que si <span class="math inline">\(A\)</span> est une matrice nilpotente d’ordre <span class="math inline">\(2\)</span>, alors <span class="math inline">\(\det(A)=0\)</span>.
+<span id="exm:unnamed-chunk-25" class="example"><strong>Exemple 2.15  </strong></span>Démontrez que si <span class="math inline">\(A\)</span> est une matrice nilpotente d’ordre <span class="math inline">\(2\)</span>, alors <span class="math inline">\(\det(A)=0\)</span>.
 </div>
 
 
 <div class="example">
-<span id="exm:unnamed-chunk-107" class="example"><strong>Exemple 2.34  </strong></span>Démontrez que si <span class="math inline">\(A\)</span> est une matrice idempotente, alors <span class="math inline">\(\det(A)=\{0,1\}\)</span>.
+<span id="exm:unnamed-chunk-26" class="example"><strong>Exemple 2.16  </strong></span>Démontrez que si <span class="math inline">\(A\)</span> est une matrice idempotente, alors <span class="math inline">\(\det(A)=\{0,1\}\)</span>.
 </div>
 
 </div>
