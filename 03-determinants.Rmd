@@ -605,4 +605,18 @@ Supposez que $ad-bc\neq 0$. Utilisez la méthode de Cramer pour trouver la solut
 
 ## Les applications du déterminant
 
+Cette section contient de multiples applications du déterminant. Nous allons débuter en introduisant l'adjointe d'une matrice, qui permet, à l'aide du déterminant, de trouver la matrice inverse d'une matrice. Nous verrons ensuite la méthode de Cramer, qui permet de résoudre un système d'équations linéaires possédant une solution unique et qui permet de ne trouver la valeur que d'une seule variable à la fois. Nous introduirons ensuite des applications permettant de calculer l'aire d'un triangle, ou alors une applications permettant d'associer un polynôme à une matrice.
+
+### L'aire d'un triangle à l'aide des déterminants
+
+
+
+
+
+
+
+
+
+
+
 
