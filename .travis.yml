@@ -13,7 +13,7 @@ script:
 
 deploy:
   provider: pages
-  local_dir: docs
+  local_dir: _book
   skip_cleanup: true
   github-token: $TRAVIS_CI  # Set in the settings page
   on:
