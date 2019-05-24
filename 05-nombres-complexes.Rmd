@@ -68,15 +68,14 @@ Nous pouvons maintenant définir les nombres complexes.
 
 ```{definition, name="Les nombres complexes"}
 Soit $a,b\in\mathbb{R}$. Le nombre complexe $z$ est un nombre que nous pouvons exprimer sous la forme:
-\begin{align*}
-z=a+bi
-\end{align*}
-Nous disons que la partie réelle de $z=a+bi$, notée $\text{RE}(z)$, est $a$. Nous disons que la partie imaginaire de $z=a+bi$, notée $\text{IM}(z)$, est $b$. En particulier, si $\text{IM}(z)=0$ alors $z$ est un nombre réel et si $\text{RE}(z)=0$ alors $z$ est un nombre imaginaire.
+$$ z=a+bi $$
+Nous disons que la partie réelle de $z=a+bi$, notée Re$(z)$, est $a$. Nous disons que la partie imaginaire de $z=a+bi$, notée Im$(z)$, est $b$. En particulier, si Im$(z)=0$ alors $z$ est un nombre réel et si Re$(z)=0$ alors $z$ est un nombre imaginaire.
 
 L'ensemble de tous les nombres complexes est noté par:
 \begin{align*}
-\mathbb{C} &= \left{a+bi \mid a,b\in\mathbb{R} \ \text{et} \ i^2=-1\right}
+\mathbb{C} = \left\{a+bi \mid a,b\in\mathbb{R} \ \text{et} \ i^2=-1\right\}
 \end{align*}
+
 ```
 
 ```{example}
@@ -325,10 +324,8 @@ knitr::include_graphics("resources/images/800px-Stereographic_projection_SW.jpg"
 
 ```{example, name="La transformée de Joukowsky"}
 La transformée de Joukovsky est donnée par:
-\begin{align*}
-z &= \zeta +\dfrac{1}{\zeta}
-\end{align*}
-où $z=x+iy$ et $\zeta=\chi +i\eta $. Cette transformée est très utilisée pour étudier l'écoulement de l'air autour d'un profil d'aile d'avion. Elle permet de transformer un cercle (il est très simple d'étudier l'écoulement autour d'un cercle) en un profil d'aile d'avion (il est difficile d'étudier l'écoulement autour d'une forme complexe).
+$$ z = \zeta +\dfrac{1}{\zeta} $$
+où $z=x+iy$ et $\zeta=\chi+i\eta$. Cette transformée est très utilisée pour étudier l'écoulement de l'air autour d'un profil d'aile d'avion. Elle permet de transformer un cercle (il est très simple d'étudier l'écoulement autour d'un cercle) en un profil d'aile d'avion (il est difficile d'étudier l'écoulement autour d'une forme complexe).
 
   a. Si vous connaissez $\zeta=\chi +i\eta$, trouvez le résultat de la transformée de Joukovsky sous la forme $x+iy$.
   a. Si $\zeta$ correspond à un cercle de rayon $1$ centré à l'origine, trouvez à quoi correspond sa transformation de Joukovsky.
