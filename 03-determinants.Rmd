@@ -697,7 +697,7 @@ Soit une matrice $A_n$ et $p_A(t)$ son polynôme caractéristique.
 
   - Le degré du polynôme est $n$.
   - Le coefficient de $t^n$ est $1$.
-  - Le coefficient de $t^{n-1}$ est égal à la trace de la matrice $-A$, c'est-à-dire $\text{tr}(-A)=-\text{tr}(A)$.
+  - Le coefficient de $t^{n-1}$ est égal à la trace de la matrice $-A$, c'est-à-dire $\text{tr}(-A)=-\text{tr}(A)$.La trace d'une matrice correspond à la somme de ses éléments sur la diagonale principale.
   - Le coefficient constant de $p_A(t)$ est égal au déterminant de la matrice $-A$, c'est-à-dire $p_A(0)=\det(-A)=(-1)^n\det(A)$.
 
 
@@ -757,8 +757,11 @@ Le polynôme caractéristique d'un graphe est défini comme le polynôme caract�
 \end{tikzpicture}
 ```
 
+```{definition, name="La matrice d'adjacence"}
+La **matrice d'adjacence**, notée $A$ d'un graphe, est une matrice carrée de dimension $n \times n$, où $n$ est le nombre de sommets du graphe. Cette matrice est définie de telle façon que l'élément $a_{i,j}$ correspond au nombre d'arêtes reliant le sommet $i$ au sommet $j$. De plus, l'élément $a_{i,i}$ correspond au nombre de boucles au sommet $i$.
+```
 
-
+> EST-CE QUE JE DOIS METTRE LES INFORMATIONS SUR LES GRAPHES EN ANNEXE????????
 
 
 
