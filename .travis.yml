@@ -3,6 +3,9 @@ cache: packages
 pandoc_version: 2.3.1
 sudo: false
 
+cache:
+packages: yes
+
 addons:
   apt:
     sources:
@@ -12,8 +15,6 @@ addons:
     - libmagick++-dev
     - libpoppler-cpp-dev
 
-cache:
-packages: yes
 directories:
   - _bookdown_files
 
