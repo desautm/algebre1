@@ -1,0 +1,32 @@
+# (APPENDIX) Appendices {-} 
+
+# La théorie des graphes {#graphes}
+
+La théorie des graphes est une théorie informatique et mathématique. Les algorithmes élaborés pour résoudre des problèmes concernant les objets de cette théorie ont de nombreuses applications dans tous les domaines liés à la notion de réseau (réseau social, réseau informatique, télécommunications, etc.) et dans bien d'autres domaines (par exemple génétique).
+
+Nous introduisons ici la notion de graphe et quelques matrices associées, que nous utiliserons dans ce volume pour appliquer les notions d'algèbre linéaire.
+
+```{definition, name="Un graphe"}
+Un **graphe** est un ensemble de points, dont certaines paires sont directement reliées par un (ou plusieurs) lien(s). Ces liens peuvent être orientés, c'est-à-dire qu'un lien entre deux points $A$ et $B$ relie soit $A$ vers $B$, soit $B$ vers $A$. Dans ce cas, le graphe est dit **orienté**. Nous représentons un graphe orienté à l'aide de flèches. Sinon, les liens sont symétriques, et le graphe est **non-orienté**. Nous représentons un graphe non-orienté à l'aide de traits.
+
+Voici un exemple de graphe non-orienté:
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
