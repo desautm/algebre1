@@ -1,0 +1,254 @@
+# Les vecteurs de $\mathbb{R}^2$ {#vecteursR2}
+
+## Les vecteurs géométriques
+
+```{definition, name="Vecteur géométrique"}
+Un **vecteur géométrique** est un segment de droite orienté possédant les caractéristiques suivantes:
+  
+  1. Une **origine**: point de départ du segment;
+  1. Une **extrémité**: point d'arrivée du segment, où nous trouvons une pointe de flèche;
+  1. Une **direction**: donnée par une droite $D$ supportant le segment (ou par toute droite parallèle à $D$);
+  1. Un **sens**: de l'origine vers l'extrémité;
+  1. Une **longueur**: distance entre l'origine et l'extrémité du segment.
+
+```
+
+```{remark}
+La direction et le sens d'un vecteur géométrique  peuvent être décrits à l'aide d'un seul angle.
+
+Cet angle est mesuré en sens anti-horaire à partir de l'axe des $x$ positifs.
+```
+
+```{definition, name="Le vecteur nul"}
+Le **vecteur nul**, noté $\overrightarrow{0}$, est le vecteur géométrique dont l'origine et l'extrémité coïncident.
+```
+
+```{remark}
+Voici quelques remarques:
+  
+  1. La direction et le sens de $\overrightarrow{0}$ sont indéterminés.
+  1. La norme de $\overrightarrow{0}$ est $0$, c'est-à-dire $\left\lVert \overrightarrow{0} \right\rVert=0$.
+  1. Si $\left\lVert \overrightarrow{v} \right\rVert=0$, alors $\overrightarrow{v}=\overrightarrow{0}$.
+
+```
+
+La figure \@ref(fig:vecteur-geo) permet de visualiser un vecteur géométrique.
+
+```{tikz, echo=FALSE, out.width="50%", fig.align='center', fig.cap="Un vecteur géométrique", label="vecteur-geo"}
+\begin{tikzpicture}
+
+\draw[very thick,->,>=stealth] (-1,0) -- (4,0) node[below,shift={(0,-0.25)}] {$x$};
+\draw[very thick,->,>=stealth] (0,-1) -- (0,3) node[left,shift={(-0.25,0)}] {$y$};
+\draw[very thick,->,>=stealth,blue] (1,1) -- (3,2);
+
+\draw[dashed] (1,1)--(3,1);
+
+\draw (2cm,1cm) arc (0:26.56:1cm) node[midway,right] {$\theta$};
+
+\node[draw,circle,inner sep=1pt,fill=blue] at (1,1) {};
+\node[draw,circle,inner sep=1pt,fill=blue] at (3,2) {};
+
+\node[left] at (1,1) {$A$};
+\node[right] at (3,2) {$B$};
+
+\draw[help lines] (-1,-1) grid (4,3);
+
+\end{tikzpicture}
+```
+
+```{example}
+Utilisez la figure \@ref(fig:vecteur-geo) pour répondre aux questions suivantes:
+  
+  a. Trouvez l'origine du vecteur.
+  a. Trouvez l'extrémité du vecteur.
+  a. Trouvez la direction du vecteur.
+  a. Trouvez la longueur du vecteur.
+
+```
+
+```{tikz, echo=FALSE, out.width="50%", fig.align='center', fig.cap="Un vecteur géométrique", label="vecteur-geo2"}
+\begin{tikzpicture}
+
+\def\XMin{-4}
+\def\XMax{3}
+\def\YMin{-2}
+\def\YMax{3}
+
+\coordinate (A) at (2,-1);
+\coordinate (B) at (-3,2);
+
+\node[below] at (A) {$A$};
+\node[above] at (B) {$B$};
+
+\draw[help lines] (\XMin,\YMin) grid (\XMax,\YMax);
+\draw[very thick,->,>=stealth] (\XMin,0) -- (\XMax,0) node[right] {$x$};
+\draw[very thick,->,>=stealth] (0,\YMin) -- (0,\YMax) node[above] {$y$};
+
+\foreach \x in {\XMin,...,-1,1,2,...,\XMax}{
+	\draw (\x,2pt)--(\x,-2pt) node[anchor=north] {\x};
+}
+\foreach \y in {\YMin,...,-1,1,2,...,\YMax}{
+	\draw (2pt,\y)--(-2pt,\y) node[anchor=east] {\y};
+}
+
+\draw[very thick,->,>=stealth,blue] (A)--(B);
+
+\end{tikzpicture}
+```
+
+```{example}
+Utilisez la figure \@ref(fig:vecteur-geo2) pour répondre aux questions suivantes:
+  
+  a. Trouvez l'origine du vecteur.
+  a. Trouvez l'extrémité du vecteur.
+  a. Trouvez la direction du vecteur.
+  a. Trouvez la longueur du vecteur.
+
+```
+
+### Les  vecteurs géométriques particuliers
+
+```{definition, name="Vecteurs égaux"}
+Deux vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$ sont **égaux** si et seulement si les deux vecteurs ont:
+  
+  1. la même direction;
+  1. le même sens;
+  1. la même longueur.
+
+Ces deux vecteurs égaux sont notés $\overrightarrow{u}=\overrightarrow{v}$.
+```
+
+```{definition, name="Vecteurs opposés"}
+Deux vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$ sont **opposés** si et seulement si les deux vecteurs ont:
+  
+  1. la même direction;
+  1. un sens contraire;
+  1. la même longueur.
+
+Le vecteur opposé à $\overrightarrow{u}$ est noté $-\overrightarrow{u}$.
+
+De plus, le vecteur opposé à $\overrightarrow{AB}$ est le vecteur $-\overrightarrow{BA}$.
+```
+
+```{definition, name="Vecteurs parallèles"}
+Deux vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$ sont **parallèles** si et seulement si $\overrightarrow{u}$ et $\overrightarrow{v}$ ont la même direction. Les vecteurs parallèles $\overrightarrow{u}$ et $\overrightarrow{v}$ sont notés $\overrightarrow{u}\parallel\overrightarrow{v}$.
+```
+
+```{definition, name="Vecteur unitaire"}
+Un vecteur $\overrightarrow{u}$ tel que $\left\lVert \overrightarrow{u} \right\rVert=1$ est appelé **vecteur unitaire**. Vous pouvez voir quelques exemples de vecteurs unitaires à la figure \@ref(fig:vecteur-unitaire).
+```
+
+```{tikz, echo=FALSE, out.width="50%", fig.align='center', fig.cap="Quelques vecteurs unitaires", label="vecteur-unitaire"}
+\begin{tikzpicture}[scale=2]
+
+\draw[very thick,->,>=stealth] (-1.25,0) -- (1.25,0) node {};
+\draw[very thick,->,>=stealth] (0,-1.25) -- (0,1.25) node {};
+\draw (1,2pt)--(1,-2pt) node[below right] {1};
+\draw (2pt,1)--(-2pt,1) node[above left] {1};
+
+\draw[help lines] (0,0) circle (1cm);
+
+\draw[very thick,->,>=stealth, blue] (0,0)--(70:1cm);
+\draw[very thick,->,>=stealth, blue] (0,0)--(160:1cm);
+\draw[very thick,->,>=stealth, blue] (0,0)--(190:1cm);
+\draw[very thick,->,>=stealth, blue] (0,0)--(295:1cm);
+
+\end{tikzpicture}
+```
+
+### L'addition de vecteurs géométriques
+
+```{definition, name="Vecteur somme"}
+L'addition des vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$ donne le vecteur **somme** noté $\overrightarrow{u}+\overrightarrow{v}$.
+```
+
+Pour additionner deux vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$ par la méthode du triangle, il faut faire coïncider l'origine du deuxième vecteur avec l'extrémité du premier. La résultante est le vecteur dont l'origine coïncide avec celle du premier vecteur et dont l'extrémité coïncide avec celle du deuxième vecteur. Voir la figure \@ref(fig:methode-triangle).
+
+```{tikz, echo=FALSE, out.width="75%", fig.align='center', fig.cap="La méthode du triangle pour additionner des vecteurs", label="methode-triangle"}
+\begin{tikzpicture}
+
+\draw[help lines] (-1,-1) grid (14,5);
+
+
+\coordinate (A) at (0,0);
+\coordinate (B) at (2,4);
+\coordinate (C) at (1,0);
+\coordinate (D) at (5,0);
+ 
+\coordinate (A1) at (7,0);
+\coordinate (B1) at (9,4);
+\coordinate (C1) at (9,4);
+\coordinate (D1) at (13,4);
+
+\draw[>=stealth] (A)--(B) node[midway,above left] {$\overrightarrow{u}$};
+\draw[>=stealth] (C)--(D) node[midway,below] {$\overrightarrow{v}$};
+\draw[>=stealth] (A1)--(B1) node[midway,above left] {$\overrightarrow{u}$};
+\draw[>=stealth] (C1)--(D1) node[midway,above] {$\overrightarrow{v}$};
+\draw[>=stealth,red] (A1)--(D1) node[midway,below right] {$\overrightarrow{u}+\overrightarrow{v}$};
+
+\end{tikzpicture}
+```
+
+### L'addition de $n$ vecteurs
+
+De façon générale, lorsque nous devons additionner plus de deux vecteurs, il suffit de placer ces vecteurs de façon consécutive, c'est-à-dire placer le premier vecteur, faire coïncider l'origine du deuxième avec l'extrémité du premier, faire coïncider l'origine du troisième avec l'extrémité du deuxième, et ainsi de suite.
+
+Le **vecteur somme** est celui dont l'origine coïncide avec celle du premier vecteur et l'extrémité, avec celle du dernier vecteur.
+
+```{remark}
+La loi de Chasles:
+\begin{align*}
+\overrightarrow{AX_1}+\overrightarrow{X_1X_2}+\overrightarrow{X_2X_3}+\ldots+\overrightarrow{X_{n-1}X_n}+\overrightarrow{X_n B}=\overrightarrow{AB}
+\end{align*}
+
+```
+
+```{example}
+Le problème suivant provient du concours 2015 de l'AMQ. Pour souligner l’année de la chèvre, Paula veut construire pour ses chèvres un enclos hexagonal en faisant alterner des murs de métal et des murs de bois. Elle a déjà les 3 murs de métal de longueurs 1 mètre, 2 mètres et 9 mètres et elle veut utiliser tout son bois, qui permet d’obtenir une longueur totale de 18 mètres, pour construire les 3 autres murs. Pour faire les coins en A, B, C, D, E et F, elle utilisera des pentures à ouverture fixe qui forment un angle de $120^{\circ}$ et permettent de joindre un mur de
+métal et un mur de bois. Trouvez quelles seront les longueurs des murs de bois de son enclos. Voir la figure \@ref(fig:concours-amq).
+```
+
+```{tikz,echo=FALSE, out.width="25%", fig.align='center', fig.cap="L'enclos à chèvre.", label="concours-amq"}
+\begin{tikzpicture}
+
+\coordinate[label=below:$A$,draw,circle,fill,inner sep=1.5pt] (A) at (0,0);
+\coordinate[label=below:$B$,draw,circle,fill,inner sep=1.5pt] (B) at (1,0);
+\coordinate[label=right:$C$,draw,circle,fill,inner sep=1.5pt] (C) at ($(B)+(60:11)$);
+\coordinate[label=above:$D$,draw,circle,fill,inner sep=1.5pt] (D) at ($(C)+(120:2)$);
+\coordinate[label=above:$E$,draw,circle,fill,inner sep=1.5pt] (E) at ($(D)+(180:3)$);
+\coordinate[label=left:$F$,draw,circle,fill,inner sep=1.5pt] (F) at ($(E)+(240:9)$);
+ 
+\draw (A)--(B) node[above,midway] {1 m} --(C)--(D) node[above right,midway] {2 m} --(E)--(F) node[above left,midway] {9 m} --(A);
+
+\end{tikzpicture}
+```
+
+
+## Les vecteurs algébriques
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

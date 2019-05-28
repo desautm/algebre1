@@ -708,10 +708,17 @@ Utilisez les propriétés précédentes pour écrire le polynôme caractéristiq
 ```
 
 ```{example}
-Le polynôme caractéristique d'un graphe est défini comme le polynôme caractéristique de sa matrice d'adjacence. En particulier, le polynôme caractéristique d'un graphe est un invariant du graphe. Dans cet exemple, nous étudierons en particulier le cas des graphes complets, notés $K_n$. Un graphe complet $K_n$ est un graphe possédant $n$ sommets tous reliés deux à deux par une arête. Voici quelques exemples de graphes complets:
+Le polynôme caractéristique d'un graphe est défini comme le polynôme caractéristique de sa matrice d'adjacence. En particulier, le polynôme caractéristique d'un graphe est un invariant du graphe. Dans cet exemple, nous étudierons en particulier le cas des graphes complets, notés $K_n$. Un graphe complet $K_n$ est un graphe possédant $n$ sommets tous reliés deux à deux par une arête. Voir la figure \@ref(fig:graphe-complet) pour quelques exemples de graphes complets. Vous pouvez vous rendre à la section \@ref(graphes) pour des définitions concernant les graphes.
+
+Trouvez les polynômes caractéristiques des graphes suivants:
+
+  a. $K_2$
+  a. $K_3$
+  a. $K_4$
+
 ```
 
-```{tikz, echo=FALSE, fig.cap = "Quelques graphes complets.", fig.ext = 'png', cache=TRUE, fig.align="center", out.width="75%"}
+```{tikz, echo=FALSE, fig.cap = "Quelques graphes complets.", fig.ext = 'png', cache=TRUE, fig.align="center", out.width="75%", label="graphe-complet"}
 \begin{tikzpicture}
 
 \begin{scope}
@@ -757,11 +764,7 @@ Le polynôme caractéristique d'un graphe est défini comme le polynôme caract�
 \end{tikzpicture}
 ```
 
-```{definition, name="La matrice d'adjacence"}
-La **matrice d'adjacence**, notée $A$ d'un graphe, est une matrice carrée de dimension $n \times n$, où $n$ est le nombre de sommets du graphe. Cette matrice est définie de telle façon que l'élément $a_{i,j}$ correspond au nombre d'arêtes reliant le sommet $i$ au sommet $j$. De plus, l'élément $a_{i,i}$ correspond au nombre de boucles au sommet $i$.
-```
 
-> EST-CE QUE JE DOIS METTRE LES INFORMATIONS SUR LES GRAPHES EN ANNEXE????????
 
 
 

@@ -1,0 +1,3 @@
+# Les vecteurs de $\mathbb{R}^3$ {#vecteursR3}
+
+## Les vecteurs géométriques
