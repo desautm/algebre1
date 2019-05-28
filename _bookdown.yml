@@ -8,7 +8,7 @@ language:
     edit: "Source "
   label:
     fig: 'Figure '
-    tab: 'Table '
+    tab: 'Tableau '
     eq: 'Équation '
     thm: 'Théorème '
     lem: 'Lemme '

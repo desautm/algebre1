@@ -671,6 +671,46 @@ Trouvez la surface du triangle dont les coordonnées sont $(-1,1)$, $(2,5)$ et $
 
 La formule obtenue pour l'aire d'un triangle peut nous aider à savoir si trois points sont colinéaires, c'est-à-dire si ces trois points se trouvent sur la même droite. En effet, si les trois points se trouvent sur la même droite, la surface du triangle sera nulle et donc le déterminant sera nul également.
 
+
+### La formule des lacets de souliers
+
+La formule des lacets de souliers (également appelée formule de Gauss et formule de l'arpenteur) est un algorithme mathématique permettant de déterminer l'aire d'un polygone simple dont les sommets sont décrits par leurs coordonnées cartésiennes dans le plan. L'utilisateur multiplie les coordonnées correspondantes pour trouver l'aire englobant le polygone et la soustrait de l'aire du polygone environnant pour trouver l'aire du polygone à l'intérieur. C'est ce qu'on appelle la formule des lacets de souliers en raison de la multiplication croisée constante des coordonnées constituant le polygone, comme pour lier les lacets, voir \@ref(fig:shoelace). Cette formule a de multiples applications dans l'arpentage et la foresterie, entre autres domaines.
+
+```{r, echo=FALSE, label="shoelace",out.width="50%", fig.align='center', fig.cap="La méthode des lacets de souliers.",}
+knitr::include_graphics("resources/images/Shoelace.png")
+```
+
+La formule a été décrite par Meister (1724-1788) en 1769 et par Gauss en 1795. Elle peut être vérifiée en divisant le polygone en triangles.
+
+La formule d'aire est valable pour tout polygone (simple) ne se croisant pas, qui peut être convexe ou concave.
+
+ous avons un polygone simple à $n$ côtés dont les sommets sont de coordonnées $(x_i,y_i)$ pour $i=1,2,\ldots, n$. Voici la méthode pour trouver la surface du polygone:
+
+  1. Créez un tableau à 5 colonnes.
+  1. À la colonne 1, indiquez le numéro des sommets en partant d'un point quelconque et en parcourant le polygone en sens *anti-horaire* et en refermant sur le point de départ. La première ligne et la dernière ligne doivent correspondent au même point.
+  1. À la colonne 2, indiquez la coordonnée en $x$ du point correspondant à cette ligne.
+  1. À la colonne 3, indiquez la coordonnée en $y$ du point correspondant à cette ligne.
+  1. À la colonne 4, calculez le produit de la coordonnée en $x$ de cette ligne avec la coordonnée en $y$ de la ligne *suivante*. Vous terminez à l'avant-dernière ligne.
+  1. À la colonne 5, calculez le produit de la coordonnée en $x$ de cette ligne avec la coordonnée en $y$ de la ligne *précédente*. Vous débutez à la deuxième ligne.
+  1. Vous devez faire la somme des colonnes 4 et 5.
+  1. La surface du polygone est la différence, en valeur absolue, des sommes des colonnes 4 et 5, divisée par deux.
+  
+Pour mieux visualiser cette méthode, nous allons la représenter sous forme de tableau, voir le tableau \@ref(tab:lacet-soulier).
+  
+Table: (\#tab:lacet-soulier) La représentation sous forme de tableau de la méthode des lacets de souliers.
+
+| Colonne 1 | Colonne 2 | Colonne 3 |           Colonne 4          |            Colonne 5           |
+|:---------:|:---------:|:---------:|:----------------------------:|:------------------------------:|
+|    $i$    |   $x_i$   |   $y_i$   | $x\times y_{\text{suivant}}$ | $x\times y_{\text{précédent}}$ |
+|     1     |   $x_1$   |   $y_1$   |           $x_1 y_2$          |                                |
+|     2     |   $x_2$   |   $y_2$   |           $x_2 y_3$          |            $x_2 y_1$           |
+|     3     |   $x_3$   |   $y_3$   |           $x_3 y_2$          |            $x_3 y_2$           |
+|   \vdots  |   \vdots  |   \vdots  |            \vdots            |             \vdots             |
+|   $n-1$   | $x_{n-1}$ | $y_{n-1}$ |        $x_{n-1} y_{n}$       |        $x_{n-1} y_{n-2}$       |
+|    $n$    |   $x_n$   |   $y_n$   |           $x_n y_1$          |          $x_n y_{n-1}$         |
+|     1     |   $x_1$   |   $y_1$   |                              |            $x_1 y_n$           |
+|           |           |           |        Somme colonne 4       |         Somme colonne 5        |
+
 ### Le polynôme caractéristique d'une matrice
 
 Le polynôme caractéristique d'une matrice est un polynôme qui renferme d'importantes propriétés de sa matrice. Entre autre, il renferme son déterminant, sa trace et ses valeurs propres. Bien que nous ne puissions voir les valeurs propres d'une matrice dans ce livre, celles-ci sont très importantes en algèbre linéaire. Le polynôme caractéristique est également utile dans un important théorème d'algèbre linéaire, le théorème de Cayley-Hamilton.
