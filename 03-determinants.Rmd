@@ -1,5 +1,215 @@
 # Les déterminants {#determinants}
 
+La théorie des graphes est une théorie informatique et mathématique. Les algorithmes élaborés pour résoudre des problèmes concernant les objets de cette théorie ont de nombreuses applications dans tous les domaines liés à la notion de réseau (réseau social, réseau informatique, télécommunications, etc.) et dans bien d'autres domaines (par exemple génétique). Pour en savoir plus sur cette théorie, vous pouvez aller à l'annexe \@ref(graphes).
+
+Voici un exemple de graphe non-orienté:	
+```{tikz, echo=FALSE, out.width="75%", fig.align='center', fig.cap="Un exemple de graphe non-orienté", label="graphe-non-oriente-determinants"}
+\begin{tikzpicture}
+
+\node[draw] (A) at (0,0) {1};
+\node[draw] (B) at (1,0) {2};
+\node[draw] (C) at (2,0) {3};
+\node[draw] (D) at (3,0) {4};
+\node[draw] (E) at (1,-1) {5};
+\node[draw] (F) at (2,-1) {6};
+
+\draw (A)--(B)--(C)--(D);
+\draw (A)--(E)--(F);
+\draw (B)--(E);
+\draw (C)--(F);
+
+\end{tikzpicture}
+```
+
+Dans cette théorie, nous sommes souvent intéressés par le nombre d'arbres couvrants d'un graphe. Un arbre est un graphe tel que deux sommets ne peuvent être reliés que par un seul chemin.
+
+Voici un exemple d'arbre:
+```{tikz,echo=FALSE, out.width="75%", fig.align='center'}
+\begin{tikzpicture}
+
+\node[draw] (1) at (0,0) {1};
+\node[draw] (2) at (1,0) {2};
+\node[draw] (3) at (2,0) {3};
+\node[draw] (4) at (3,0) {4};
+\node[draw] (5) at (1,-1) {5};
+\node[draw] (6) at (2,-1) {6};
+
+\draw (1)--(2)--(5)--(6)--(3)--(4);
+
+\end{tikzpicture}
+```
+
+```{example}
+Trouvez le nombre d'arbres que nous pouvons créer à partir du graphe de la figure \@ref(fig:graphe-non-oriente-determinants).
+
+Pour répondre à cette question, il est possible d'énumérer tous les arbres différents que nous pouvons former à partir du graphe. À partir de la figure \@ref(fig:arbres-graphe), il existe 11 arbres qui découlent du graphe donné. Comme nous pouvons le constater, il est long et difficile d'énumérer tous les arbres possibles. Il existe par contre une méthode plus rapide pour trouver le nombre d'arbres d'un graphe. Il faut calculer la valeur absolue de n'importe quel cofacteur de la matrice laplacienne du graphe. Un cofacteur est un déterminant et nous étudierons cette notion dans ce chapitre.
+
+Pour notre graphe, sa matrice laplacienne est donnée par:
+\begin{align*}
+L = 
+\begin{bmatrix}
+2&-1&0&0&-1&0\\
+-1&3&-1&0&-1&0\\
+0&-1&3&-1&0&-1\\
+0&0&-1&1&0&0\\
+-1&-1&0&0&3&-1\\
+0&0&-1&0&-1&2\\
+\end{bmatrix}
+\end{align*}
+et la calcul d'un de ses cofacteurs nous donne:
+\begin{align*}
+\begin{vmatrix}
+3&-1&0&-1&0\\
+-1&3&-1&0&-1\\
+0&-1&1&0&0\\
+-1&0&0&3&-1\\
+0&-1&0&-1&2\\
+\end{vmatrix}
+=
+11
+\end{align*}
+Nous obtenons bien $11$ arbres comme nous les avions énuméré ci-haut.
+```
+
+```{tikz, echo=FALSE, out.width="75%", fig.align='center', fig.cap="Tous les arbres du graphe.", label="arbres-graphe"}
+\begin{tikzpicture}
+
+\begin{scope}
+\node[draw] (1) at (0,0) {1};
+\node[draw] (2) at (1,0) {2};
+\node[draw] (3) at (2,0) {3};
+\node[draw] (4) at (3,0) {4};
+\node[draw] (5) at (1,-1) {5};
+\node[draw] (6) at (2,-1) {6};
+
+\draw (1)--(2)--(5)--(6)--(3)--(4);
+\end{scope}
+
+\begin{scope}[shift={(4cm,0)}]
+\node[draw] (1) at (0,0) {1};
+\node[draw] (2) at (1,0) {2};
+\node[draw] (3) at (2,0) {3};
+\node[draw] (4) at (3,0) {4};
+\node[draw] (5) at (1,-1) {5};
+\node[draw] (6) at (2,-1) {6};
+
+\draw (1)--(5)--(6)--(3)--(4);
+\draw (2)--(5);
+\end{scope}
+
+\begin{scope}[shift={(0cm,-2cm)}]
+\node[draw] (1) at (0,0) {1};
+\node[draw] (2) at (1,0) {2};
+\node[draw] (3) at (2,0) {3};
+\node[draw] (4) at (3,0) {4};
+\node[draw] (5) at (1,-1) {5};
+\node[draw] (6) at (2,-1) {6};
+
+\draw (1)--(2)--(3)--(4);
+\draw (2)--(5);
+\draw (3)--(6);
+\end{scope}
+
+\begin{scope}[shift={(4cm,-2cm)}]
+\node[draw] (1) at (0,0) {1};
+\node[draw] (2) at (1,0) {2};
+\node[draw] (3) at (2,0) {3};
+\node[draw] (4) at (3,0) {4};
+\node[draw] (5) at (1,-1) {5};
+\node[draw] (6) at (2,-1) {6};
+
+\draw (1)--(5)--(2)--(3)--(4);
+\draw (3)--(6);
+\end{scope}
+
+\begin{scope}[shift={(0cm,-4cm)}]
+\node[draw] (1) at (0,0) {1};
+\node[draw] (2) at (1,0) {2};
+\node[draw] (3) at (2,0) {3};
+\node[draw] (4) at (3,0) {4};
+\node[draw] (5) at (1,-1) {5};
+\node[draw] (6) at (2,-1) {6};
+
+\draw (1)--(2)--(3)--(6)--(5);
+\draw (3)--(4);
+\end{scope}
+
+\begin{scope}[shift={(4cm,-4cm)}]
+\node[draw] (1) at (0,0) {1};
+\node[draw] (2) at (1,0) {2};
+\node[draw] (3) at (2,0) {3};
+\node[draw] (4) at (3,0) {4};
+\node[draw] (5) at (1,-1) {5};
+\node[draw] (6) at (2,-1) {6};
+
+\draw (1)--(5)--(6)--(3)--(4);
+\draw (3)--(2);
+\end{scope}
+
+\begin{scope}[shift={(0cm,-6cm)}]
+\node[draw] (1) at (0,0) {1};
+\node[draw] (2) at (1,0) {2};
+\node[draw] (3) at (2,0) {3};
+\node[draw] (4) at (3,0) {4};
+\node[draw] (5) at (1,-1) {5};
+\node[draw] (6) at (2,-1) {6};
+
+\draw (1)--(2)--(3)--(4);
+\draw (1)--(5)--(6);
+\end{scope}
+
+\begin{scope}[shift={(4cm,-6cm)}]
+\node[draw] (1) at (0,0) {1};
+\node[draw] (2) at (1,0) {2};
+\node[draw] (3) at (2,0) {3};
+\node[draw] (4) at (3,0) {4};
+\node[draw] (5) at (1,-1) {5};
+\node[draw] (6) at (2,-1) {6};
+
+\draw (1)--(5)--(2)--(3)--(4);
+\draw (5)--(6);
+\end{scope}
+
+\begin{scope}[shift={(0cm,-8cm)}]
+\node[draw] (1) at (0,0) {1};
+\node[draw] (2) at (1,0) {2};
+\node[draw] (3) at (2,0) {3};
+\node[draw] (4) at (3,0) {4};
+\node[draw] (5) at (1,-1) {5};
+\node[draw] (6) at (2,-1) {6};
+
+\draw (1)--(2)--(3)--(4);
+\draw (1)--(5)--(6);
+\end{scope}
+
+\begin{scope}[shift={(4cm,-8cm)}]
+\node[draw] (1) at (0,0) {1};
+\node[draw] (2) at (1,0) {2};
+\node[draw] (3) at (2,0) {3};
+\node[draw] (4) at (3,0) {4};
+\node[draw] (5) at (1,-1) {5};
+\node[draw] (6) at (2,-1) {6};
+
+\draw (1)--(5)--(6)--(3)--(4);
+\draw (1)--(2);
+\end{scope}
+
+\begin{scope}[shift={(0cm,-10cm)}]
+\node[draw] (1) at (0,0) {1};
+\node[draw] (2) at (1,0) {2};
+\node[draw] (3) at (2,0) {3};
+\node[draw] (4) at (3,0) {4};
+\node[draw] (5) at (1,-1) {5};
+\node[draw] (6) at (2,-1) {6};
+
+\draw (1)--(2)--(3)--(4);
+\draw (1)--(5);
+\draw (3)--(6);
+\end{scope}
+
+\end{tikzpicture}
+```
+
 ## Le calcul d'un déterminant
 
 Dans cette section, nous verrons la façon de calculer des déterminants de matrices $1\times 1$, $2\times 2$, pour ensuite voir une méthode générale pour calculer un déterminant d'une matrice $n\times n$.
@@ -111,7 +321,20 @@ Le terme $(-1)^{i+j}$ dans l'expression du cofacteur peut être soit de valeur $
 Nous remarquons que les signes alternent toujours avec un signe positif à l'élément situé à l'intersection de la première ligne et de la première colonne.
 
 ```{example}
-À FAIRE...
+Soit la matrice suivante:
+\begin{align*}
+\begin{bmatrix}
+5&1&0\\
+-2&1&1\\
+3&3&2
+\end{bmatrix}
+\end{align*}
+
+Trouvez:
+  
+  a. $C_{1,1}$
+  a. $C_{3,2}$
+
 ```
 
 ```{definition, name="L'expansion par cofacteurs d'un déterminant"}
@@ -705,11 +928,40 @@ Table: (\#tab:lacet-soulier) La représentation sous forme de tableau de la mét
 |     1     |   $x_1$   |   $y_1$   |           $x_1 y_2$          |                                |
 |     2     |   $x_2$   |   $y_2$   |           $x_2 y_3$          |            $x_2 y_1$           |
 |     3     |   $x_3$   |   $y_3$   |           $x_3 y_2$          |            $x_3 y_2$           |
-|   \vdots  |   \vdots  |   \vdots  |            \vdots            |             \vdots             |
+|  $\vdots$ |  $\vdots$ |  $\vdots$ |           $\vdots$           |            $\vdots$            |
 |   $n-1$   | $x_{n-1}$ | $y_{n-1}$ |        $x_{n-1} y_{n}$       |        $x_{n-1} y_{n-2}$       |
 |    $n$    |   $x_n$   |   $y_n$   |           $x_n y_1$          |          $x_n y_{n-1}$         |
 |     1     |   $x_1$   |   $y_1$   |                              |            $x_1 y_n$           |
 |           |           |           |        Somme colonne 4       |         Somme colonne 5        |
+
+```{example}
+Trouvez la surface du polygone de la figure \@ref(fig:poly-lacets-soulier) à l'aide de la méthode des lacets de souliers.
+```
+
+```{tikz,echo=FALSE,out.width="75%",fig.align="center",fig.cap="Un polygone.",label="poly-lacets-soulier"}
+\begin{tikzpicture}
+
+\def\XMin{-1}
+\def\XMax{15}
+\def\YMin{-1}
+\def\YMax{13}
+
+\draw[help lines] (\XMin,\YMin) grid (\XMax,\YMax);
+\draw[very thick,->,>=stealth] (\XMin,0) -- (\XMax,0) node[right] {$x$};
+\draw[very thick,->,>=stealth] (0,\YMin) -- (0,\YMax) node[above] {$y$};
+
+\foreach \x in {\XMin,...,-1,1,2,...,\XMax}{
+	\draw (\x,2pt)--(\x,-2pt) node[anchor=north] {\x};
+}
+\foreach \y in {\YMin,...,-1,1,2,...,\YMax}{
+	\draw (2pt,\y)--(-2pt,\y) node[anchor=east] {\y};
+}
+
+\draw[fill=gray!50,fill opacity=0.5] (3,4)--(5,6)--(9,5)--(12,8)--(5,11)--(3,4);
+
+\end{tikzpicture}
+```
+
 
 ### Le polynôme caractéristique d'une matrice
 

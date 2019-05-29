@@ -2,6 +2,8 @@
 
 # Les systèmes d'équations linéaires {#sel}
 
+Les systèmes d'équations linéaires se retrouvent dans de nombreux domaines. En voici quelques exemples.
+
 ```{example}
 Pourquoi utilisez-vous Google?
   
@@ -231,6 +233,26 @@ a_{1,1}x_1 & +& a_{1,2}x_2 & +&  a_{1,3}x_3 & \ldots & +&  a_{1,n}x_n & =& b_1  
 \end{array}
 \end{align*}
 
+Voici un exemple de matrice échelonnée:
+$$ \begin{bmatrix}
+\oplus & * & * & * & * & * & * & * & * \\
+0 & 0 & \oplus & * & * & * & * & * & * \\
+0 & 0 & 0 & \oplus & * & * & * & * & * \\ 
+0 & 0 & 0 & 0 & 0 & 0 & \oplus & * & * \\ 
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \oplus \\ 
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 
+\end{bmatrix} $$
+
+La matrice échelonnée réduite associée à l'exemple précédent est:
+$$\begin{bmatrix}
+1 & * & 0 & 0 & * & * & 0 & * & 0 \\
+0 & 0 & 1 & 0 & * & * & 0 & * & 0 \\
+0 & 0 & 0 & 1 & * & * & 0 & * & 0 \\ 
+0 & 0 & 0 & 0 & 0 & 0 & 1 & * & 0 \\ 
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\ 
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 
+\end{bmatrix} $$
+
 Un système d'équations linéaires sous la forme échelonnée se résout lui aussi assez facilement à l'aide de la méthode dite de "substitution arrière". La méthode tient son nom du fait que nous commençons à résoudre l'équation située à la dernière ligne. Nous substituons ensuite la valeur trouvée dans l'équation précédente pour résoudre cette équation et nous répétons jusqu'à l'équation située sur la première ligne.
 
 ```{example}
@@ -291,7 +313,7 @@ Les trois opérations élémentaires sur les équations linéaires ne changent p
 ```{proposition}
 L'opération 
 \begin{align*}
-L_i\leftarrow k_1L_i+k_2L_j
+k_1L_i+k_2L_j \rightarrow L_i
 \end{align*}
 avec $i\neq j$ et $k_1,k_2\in\mathbb{R}\setminus \{0\}$ n'affecte pas l'ensemble solution du système d'équations linéaires.
 ```
@@ -531,7 +553,7 @@ aC_2H_6+bO_2 \rightarrow cCO_2+dH_2O
 \end{align*}
 ```
 
-### Des applications
+### Une application
 
 ```{example}
 La loi des leviers d'Archimède stipule que deux masses sont en équilibre sur une balance si leurs poids sont inversement proportionnels à leur distance par rapport au point d'appui. En d'autres mots, pour que deux masses $m_1$ et $m_2$ situées respectivement à des distances $d_1$ et $d_2$ du point d'appui soient en équilibre, il faut que:

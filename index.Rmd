@@ -18,7 +18,9 @@ library(tidyverse)
 
 # Introduction {-}
 
+
 ## À propos de ce document {-}
+
 
 ### Remerciements {-}
 

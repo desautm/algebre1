@@ -1,16 +1,52 @@
 # Les matrices {#matrices}
 
+```{example, name="Les photos en niveaux de gris"}
+Une image digitale en niveaux de gris peut être représentée mathématiquement par une matrice. Les éléments de la matrice sont des nombres situés dans l'intervalle $0$ (qui représente la couleur noire) et $255$ (qui représente la couleur blanche). Chaque entrée de la matrice peut être visualisée comme un petit carré coloré d'un niveau de gris constant qui dépend de la valeur de l'entrée. Nous appelons ces petits carrés des pixels; ils sont facilement reconnaissables lorsque nous faisons un zoom sur une image.
+
+Par exemple, dans la figure \@ref(fig:baboon), nous avons encadré un carré de dimension $16\times 16$ sur le museau du mandrill. La matrice située sous l'image correspond à l'intensité des niveaux de gris à l'intérieur de ce carré.
+
+\begin{align*}
+\left[
+\begin{array}{cccccccccccccccc}
+168&162&168&173&168&160&170&162&135&92&129&152&145&161&173&175\\
+168&173&176&179&172&169&157&154&136&100&133&149&147&162&175&176\\
+156&167&170&174&163&152&154&152&138&128&96&120&144&166&169&167\\
+177&182&176&175&178&177&166&167&143&136&108&106&135&165&160&167\\
+167&171&160&151&178&182&171&145&143&159&136&103&136&148&159&168\\
+165&175&178&165&157&162&175&179&157&151&149&124&111&143&162&169\\
+166&152&159&165&158&161&166&174&177&166&151&160&120&138&162&163\\
+176&174&171&181&176&170&162&166&168&180&169&155&135&109&156&153\\
+167&175&172&171&174&167&174&178&173&178&182&168&139&112&144&157\\
+173&173&175&179&173&170&174&182&179&169&165&168&165&143&118&145\\
+174&174&178&178&180&171&169&169&172&162&164&156&146&154&106&132\\
+172&172&175&172&181&181&179&183&183&177&180&172&145&136&121&102\\
+171&176&177&179&175&175&175&181&180&168&162&171&169&161&142&117\\
+176&177&176&178&176&177&176&173&177&181&175&160&178&180&170&153\\
+162&166&166&171&175&169&180&186&185&173&182&164&158&170&161&143\\
+173&170&165&173&178&169&158&168&180&179&176&176&167&170&171&161\\
+\end{array}\right]
+\end{align*}
+
+
+```
+
+```{r, echo=FALSE,fig.cap="Une image d'un mandrill.", fig.align='center',out.width="50%",label="baboon"}
+knitr::include_graphics("resources/images/baboon.png")
+```
+
 ```{example, name="Les photos numériques"}
 Les écrans de nos téléphones intelligents sont formés de pixels rouge, vert et bleu.
 
 Rouge, vert, bleu, abrégé en RVB ou en RGB (de l'anglais « red, green, blue ») est un système de codage informatique des couleurs, le plus proche du matériel. Les écrans d'ordinateurs reconstituent une couleur par synthèse additive à partir de trois couleurs primaires, un rouge, un vert et un bleu, formant sur l'écran une mosaïque trop petite pour être aperçue. Le codage RVB indique une valeur pour chacune de ces couleurs primaires.
 ```
 
-```{r, echo=FALSE, fig.align='center',fig.cap="Quelques exemples de pixels agrandis."}
+```{r, echo=FALSE, fig.align='center',out.width="50%",fig.cap="Quelques exemples de pixels agrandis."}
 knitr::include_graphics("resources/images/pixels.png")
 ```
 
 Voici un exemple du principe d'utilisation des pixels rouge, vert et bleu: [une feuille de calcul pas comme les autres](https://docs.google.com/spreadsheets/d/e/2PACX-1vQlMpjcuG6vAjO40W1oMXe3J40wmDczGQEHzdvz1aHF_HadCymBE_OS-f197cYWvoGnnmqERiR7aKkw/pubhtml).
+
+Voici aussi un sketch d'un humoriste portant sur les [feuilles de calcul](https://www.youtube.com/watch?v=UBX2QQHlQ_I).
 
 ## La définition d'une matrice
 
@@ -47,6 +83,49 @@ a_{m,j}
 
 En particulier, nous disons qu'une matrice $A$ de dimension $1\times n$ est une matrice ligne et qu'une matrice $A$ de dimension $m\times 1$ est une matrice colonne.
 ```
+
+La figure \@ref(fig:indices-matrice) présente le positionnement des indices dans une matrice.
+
+```{tikz, echo=FALSE, fig.align="center",out.width="75%",fig.cap="Le positionnement des indices dans une matrice.", label="indices-matrice"}
+\usetikzlibrary{arrows.meta,shapes.geometric,quotes,3d,calc,matrix,positioning,shapes.arrows}
+\begin{tikzpicture}
+
+\matrix (n) [matrix of nodes,
+             nodes={minimum size=8mm},
+             column sep=4mm,
+             row sep=2mm,
+             left delimiter={[},right delimiter={]}]
+{
+$a_{1,1}$ & $a_{1,2}$ & $a_{1,3}$ & $\cdots$ & $a_{1,n}$  \\
+$a_{2,1}$ & $a_{2,2}$ & $a_{2,3}$ & $\cdots$ & $a_{2,n}$   \\
+$a_{3,1}$ & $a_{3,2}$ & $a_{3,3}$ & $\cdots$ & $a_{3,n}$   \\
+$\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$   \\
+$a_{m,1}$ & $a_{m,2}$ & $a_{m,3}$ & $\cdots$ & $a_{m,n}$ \\
+};
+
+\node (O) [above=3mm of n] {};
+
+\matrix (p) [above=3mm of n,
+			 matrix of nodes]
+{
+matrice $m\times n$ \\
+\node[color=red!75] {$n$ colonnes}; \\
+\node[fill=red!75,single arrow, draw=none] {$j$ varie}; \\	
+};
+
+\matrix (q) [left=3mm of n,
+			 matrix of nodes]
+{
+\node[color=blue!75] {$m$}; \\
+\node[color=blue!75] {lignes}; \\
+\node[fill=blue!75,single arrow, draw=none,rotate=-90] {$i$ varie}; \\	
+};
+
+\node[above left=3mm of n] {$a_{i,j}$};
+
+\end{tikzpicture}
+```
+
 
 ```{remark}
 Nous pouvons noter la dimension d'une matrice en utilisant des indices séparés par une virgule. Par exemple, si la matrice $A$ est de dimension $m \times n$, nous pouvons l'écrire des deux façons suivantes:
@@ -301,7 +380,7 @@ B = \begin{bmatrix}
 ```{example}
 Déterminez si les matrices suivantes sont égales.
 \begin{align*}
-\begin{bmatrix}
+A = \begin{bmatrix}
 \cos\left(\frac{\pi}{2}\right)&0&3\\
 3&4\cdot\frac{3}{8}&5\\
 \end{bmatrix}
@@ -720,7 +799,14 @@ Soit $A_{n}$ une matrice carrée. Si $A_n$ possède une matrice inverse, notée 
 ```
 
 ```{theorem, name="Les propriétés de la matrice inverse"}
-À FAIRE...
+Les propriétés de la matrice inverse sont:
+  
+  1. $(A^{-1})^{-1}=A$
+  1. $(kA)^{-1}=\dfrac{1}{k}A^{-1}$
+  1. $(A^T)^{-1}=(A^{-1})^T$
+  1. Pour toutes matrices $n\times n$ inversibles $A$ et $B$, nous avons $(AB)^{-1}=B^{-1}A^{-1}$
+  1. Plus généralement, si $A_1,\ldots,A_k$ sont des matrices $n\times n$ inversibles, alors $(A_1A_2\ldots A_{k-1}A_k)^{-1}=A_k^{-1}A_{k-1}^{-1}\ldots A_{2}^{-1}A_{1}^{-1}$.
+
 ```
 
 ```{example}
@@ -767,6 +853,24 @@ A=\begin{bmatrix}
 \end{bmatrix}
 \end{align*}
 ```
+
+```{example}
+Une **matrice de permutation** est une matrice carrée qui vérifie les propriétés suivantes:
+  
+* les coefficients sont 0 ou 1 ;
+* il y a un et un seul 1 par ligne ;
+* il y a un et un seul 1 par colonne.
+
+Ainsi :
+$$\begin{bmatrix}
+1 & 0 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1\\
+0 & 1 & 0 & 0\end{bmatrix}$$
+  
+est une matrice de permutation. Montrez que la matrice précédente est orthogonale.
+```
+
 
 Lorsque nous connaissons la matrice inverse d'une matrice $A$, nous pouvons facilement résoudre un système d'équations linéaires de la forme:
 \begin{align*}
@@ -833,7 +937,6 @@ x \\y \\z
 \end{bmatrix}
 \end{align*}
 
-
 ```
 
 L'exemple précédent montre qu'il devient très rapide de trouver la solution de systèmes d'équations linéaires qui possède la même matrice $A$ lorsque nous connaissons la matrice inverse $A^{-1}$. Nous n'avons pas à refaire la méthode de Gauss à chaque résolution de système d'équations linéaires.
@@ -849,6 +952,7 @@ A=\begin{bmatrix}
 -6&-2&0\\
 \end{bmatrix}
 \end{align*}
+
 
 ```
 
