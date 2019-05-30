@@ -1,0 +1,103 @@
+# Espace vectoriel et base d'un espace vectoriel {#espace-vectoriel}
+
+Les écrans d'ordinateur et les téléviseurs sont composés d'une multitude de pixels. Chacune de ces pixels permet d'afficher une couleur et l'ensemble forme l'image que nous voyons. À l'intérieur des pixels, il y a trois sous-pixels qui permettent d'afficher les trois couleurs primaires soit le rouge, le vert et le bleu. C'est ce que nous appelons le code rgb (red-green-blue). Grâce à ces trois sous-pixels, il est possible de créer toutes les couleurs aussi bien le blanc que le noir. Pourquoi et qu'est-ce qui justifie le tout mathématiquement?
+
+## Espace vectoriel
+
+Ici, nous étudions un aspect théorique qui permettra de mettre la table à plusieurs outils mathématiques. Il s'agit des espaces vectoriels. Rapidement, un espace vectoriel est un ensemble dans lequel nous définissons une opération interne, que nous nommons addition, et une opération externe, nommée multiplication par un scalaire, entre les éléments de cet ensemble avec ceux d'un corps $\mathbb{K}$. Pour le cours, nous supposerons que le corps $\mathbb{K}$ est $\mathbb{Q}$, $\mathbb{R}$ ou  $\mathbb{C}$. L'opération interne doit satisfaire $5$ conditions (1 à 5) et l'opération externe doit également satisfaire $5$ conditions (6 à 10). 
+
+```{definition, name="Espace vectoriel"}
+Soit un ensemble $V$ muni d'une opération interne $\oplus$, **nommée addition**  et d'une opération externe $\odot$, **nommée multiplication par un scalaire d'un corps $\mathbb{K}$**. $V$ est un **espace vectoriel sur $\mathbb{K}$** si pour tout $\mathbf{u},\mathbf{v}\ \text{et}\ \mathbf{w}\in V$ et pour tout $k_1,k_2\in \mathbb{K}$, les conditions suivantes sont vérifiées:
+
+  1. $(\mathbf{u}\oplus \mathbf{v})\in V$ (Fermeture de l'addition)
+  1. $\mathbf{u}\oplus \mathbf{v}=\mathbf{v}\oplus \mathbf{u}$ (Commutativité)
+  1. $(\mathbf{u}\oplus \mathbf{v})\oplus \mathbf{w}=\mathbf{u}\oplus (\mathbf{v}\oplus \mathbf{w})$ (Associativité)
+  1. Il existe $\mathbf{0}\in V$, l'élément neutre, tel que $\mathbf{u}\oplus\mathbf{0}=\mathbf{u}$ et ce, $\forall \mathbf{u}\in V$
+  1. $\forall \mathbf{u}\in V$, il existe $(-\textbf{u})\in V$, l'élément opposé, tel que $\mathbf{u}\oplus(-\mathbf{u})=\mathbf{0}$
+  1. $(k_1\odot \mathbf{u})\in V$ (Fermeture de la multiplication)
+  1. $(k_1+k_2)\odot \mathbf{u}=(k_1\odot \mathbf{u})\oplus (k_2\odot \mathbf{u})$ 
+  1. $k_1\odot (\mathbf{u}\oplus \mathbf{v})=(k_1\odot\mathbf{u})\oplus (k_1\odot\mathbf{v})$
+  1. $(k_1\cdot k_2)\odot \mathbf{u}=k_1\odot(k_2\odot \mathbf{u})$
+  1. Il existe $1\in \mathbb{K}$, le scalaire unité , tel que $1\odot\mathbf{u}=\mathbf{u}$ et ce, $\forall \mathbf{u}\in V$
+
+À ce moment, les éléments de $V$ se nomment des vecteurs.
+```
+
+```{remark}
+Pour différencier les vecteurs des scalaires, nous les écrivons en gras, $\mathbf{v}$, ou dans certains livres les vecteurs sont soulignés, $\underline{v}$. Ici, le $+$ et le $\cdot$ sont respectivement l'addition et la multiplication usuelle dans le corps.
+```
+
+```{example}
+Démontrez que l'ensemble $V=\left\{[u_1,u_2]\mid u_1,u_2\in\mathbb{R}\right\}=\mathbb{R}^2$  avec l'opération interne $\mathbf{u}\oplus \mathbf{v}=[u_1+v_1, u_2+v_2]$ et l'opération externe $k\odot\mathbf{u}=[k\cdot u_1,k\cdot u_2]$ avec $k\in \mathbb{R}$ est un espace vectoriel sur $\mathbb{R}$.
+```
+
+```{example}
+Soit $V=\left\{[u_1,u_2]\mid u_1,u_2\in\mathbb{Q}\right\}$ avec avec les opérations usuelles des vecteurs algébriques, c'est-à-dire l'opération interne $\mathbf{u}\oplus \mathbf{v}=[u_1+v_1, u_2+v_2]$ et l'opération externe $k\odot\mathbf{u}=[k\cdot u_1,k\cdot u_2]$ avec $k\in \mathbb{K}$. Montrez que $V$ n'est pas un espace vectoriel sur $\mathbb{R}$. 
+```
+
+Nous pouvons créer de nouveaux espaces vectoriels en créant de nouvelles opérations.
+
+```{example}
+Soit $V=\left\{\left.\begin{bmatrix}
+1&a\\
+b&1
+\end{bmatrix}\right| a,b\in\mathbb{R}\right\}$ avec l'opération interne $\begin{bmatrix}
+1&a\\
+b&1
+\end{bmatrix}\oplus \begin{bmatrix}
+1&c\\
+d&1
+\end{bmatrix}=\begin{bmatrix}
+1&a+c\\
+b+d&1
+\end{bmatrix}$ et l'opération externe $k\odot\begin{bmatrix}
+1&a\\
+b&1
+\end{bmatrix}=\begin{bmatrix}
+1&ka\\
+kb&1
+\end{bmatrix}$ avec $k\in \mathbb{R}$. Trouvez l'élément neutre de $V$, $\mathbf{0}$.
+```
+
+```{theorem}
+Les ensembles avec les opérations suivantes sont des espaces vectoriels sur $\mathbb{Q}$ ou $\mathbb{R}$ annoncé:
+  
+  - Les vecteurs de $\mathbb{R}^n$: $\mathbb{R}^n=\left\{[x_1,x_2,...,x_n]\mid x_i\in\mathbb{R}\right\}$, avec les opérations usuelles des vecteurs de $\mathbb{R}^n$.
+  - Les polynômes de degrés $\leq n$: $\mathbb{P}_n=\left\{a_nx^n+a_{n-1}x^{n-1}+...+a_1x+a_0\mid a_i\in\mathbb{R}\right\}$, avec les opérations usuelles sur les polynômes.
+  - Les matrices de dimensions $m\times n$: $\mathbb{M}_{m\times n}=\left\{A\mid A_{m\times n} \text{ matrice à coefficients réels}\right\}$, avec les opérations usuelles sur les matrices.
+  - Les fonctions continues sur $[a,b]$: $\mathscr{C}^0_{[a,b]}=\left\{f\mid  f\text{ est une fonction continue sur $[a,b]$}\right\}$
+  - Les vecteurs de $\mathbb{C}^n$: $\mathbb{C}^n=\left\{[z_1,z_2,...,z_n]\mid z_i\in\mathbb{C}\right\}$, avec les opérations usuelles des vecteurs. Notez que $\mathbb{C}^n$ est aussi un espace vectoriel sur $\mathbb{C}$.
+
+
+```
+
+```{theorem}
+Soit $V$ un espace vectoriel sur le corps $\mathbb{K}$. Soit $\mathbf{v}\in V$ et $k\in\mathbb{K}$, nous avons que:
+
+  - $k\odot\mathbf{0}=\mathbf{0}$,
+  - $0\odot\mathbf{v}=\mathbf{0}$,
+  - si $k\odot\mathbf{v}=\mathbf{0}$, alors $k=0$ ou $\mathbf{v}=\mathbf{0}$,
+  - $(-k)\odot \mathbf{u}=k\odot (-\mathbf{u})=-k\odot \mathbf{u}$
+
+```
+
+## Sous-espace vectoriel
+
+```{definition}
+Soit un espace vectoriel $V$ sur un corps $\mathbb{K}$ et $W$ un sous ensemble non-vide de $V$, $W\subseteq  V$. $E$ est un sous espace vectoriel de $V$ sur le corps $\mathbb{K}$, si $E$ est un espace vectoriel sur $\mathbb{K}$ .
+```
+
+```{theorem}
+Soit un espace vectoriel $V$ sur un corps $\mathbb{K}$ avec l'opération interne $\oplus$ et l'opération externe $\odot$. Le sous ensemble $W$ de $V$ est un sous-espace vectoriel de $V$ si et seulement si:
+
+  - $\mathbf{0}\in W$
+  - $\forall\ \mathbf{u},\mathbf{v}\in W$, nous avons $\mathbf{u}\oplus \mathbf{v}\in W$ 
+  - $\forall\ \mathbf{u}\in W$ et $k\in\mathbb{K}$, nous avons  $k\odot \mathbf{u}\in W$
+
+
+```
+
+## Base d'un espace vectoriel
+
+
+

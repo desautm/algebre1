@@ -1,0 +1,15 @@
+# (PART) La géométrie dans l'espace {-}
+
+# Les droites et les plans dans l'espace {#droites-plans-espace}
+
+Pour projeter une image tridimensionnelle sur un plan, il est possible d'utiliser divers types de projection. La figure \@ref(fig:projection-axonometrique) présente une projection axonométrique, un type de projection parallèle.
+
+```{r,echo=FALSE,out.width="75%",fig.cap="Le principe de la projection axonométrique.",fig.align="center",label="projection-axonometrique"}
+knitr::include_graphics("resources/images/800px-Axonometric_projection.svg.png")
+```
+
+## Les droites de $\mathbb{R}^2$
+
+
+
+
