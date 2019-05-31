@@ -1,3 +1,39 @@
+--- 
+title: "Algèbre linéaire et géométrie vectorielle"
+author: "Marc-André Désautels"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: ["book.bib", "packages.bib"]
+biblio-style: "apalike"
+link-citations: yes
+github-repo: desautm/algebre1
+description: "Un livre sur l'algèbre linéaire et géométrie vectorielle."
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+```
+
+# Introduction {-}
+
+
+## À propos de ce document {-}
+
+
+### Remerciements {-}
+
+Ce document est généré par l'excellente extension [bookdown](https://bookdown.org/) de [Yihui Xie](https://yihui.name/).
+
+### License {-}
+
+Ce document est mis à disposition selon les termes de la [Licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+![Licence Creative Commons](resources/icons/license_cc.png)
+
+<!--chapter:end:index.Rmd-->
+
 # (PART) La géométrie dans l'espace {-}
 
 # Les droites et les plans dans l'espace {#droites-plans-espace}
@@ -270,6 +306,42 @@ Nous désirons trouver une équation qui représentera une droite dans $\mathbb{
 
 Posons $P_0=(x_0,y_0,z_0)$ un point de la droite et $\overrightarrow{u}=[u_1,u_2,u_3]$ un vecteur directeur de la droite, notée $D$. La figure suivante nous aidera à trouver l'équation vectorielle de $D$.
 
+```{tikz,echo=FALSE,out.width="50%",fig.align="center",fig.cap="Une droite de l'espace.",label="droite-R3",engine.opts="\\usepackage{pgfplots}"}
+\begin{tikzpicture}
+
+\begin{axis}[
+	unit vector ratio*=1 1 1,
+	scale=2,
+  view={120}{25},
+  axis lines=center,
+  xmin=-2,
+  xmax=5,
+  ymin=-2,
+  ymax=5,
+  zmin=-2,
+  zmax=5,
+  xlabel={$x$},
+  ylabel={$y$},
+  zlabel={$z$},
+  xlabel style={below},
+  ylabel style={right},
+  ticks=none
+]
+
+\tikzstyle{mystyle}=[draw,circle,inner sep=1pt,fill]
+
+\coordinate [mystyle,label=above:$P_0$] (P0) at (0.2,1,2.8);
+\coordinate [mystyle,label=above:$P$] (P) at (-0.55,2.25,3.55);
+
+\draw[very thick,blue] (2,-2,1)--(-1,3,4) node[right] {$D$};
+\draw[very thick,red,->,>=stealth] (P0)--(P) node[above,midway] {$\overrightarrow{a}$};
+\draw[very thick,red,->,>=stealth] (0,0,0)--(-0.46,0.76,0.46) node[right] {$\overrightarrow{u}$};
+\draw[very thick,->,>=stealth] (0,0,0)--(P0) node[left,midway] {$\overrightarrow{r_0}$};
+\draw[very thick,->,>=stealth] (0,0,0)--(P) node[right,midway] {$\overrightarrow{r}$};
+
+\end{axis}
+\end{tikzpicture}
+```
 
 
 
@@ -278,4 +350,6 @@ Posons $P_0=(x_0,y_0,z_0)$ un point de la droite et $\overrightarrow{u}=[u_1,u_2
 
 
 
+
+<!--chapter:end:08-droites-plans-espace.Rmd-->
 

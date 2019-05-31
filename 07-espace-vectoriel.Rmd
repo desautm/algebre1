@@ -65,7 +65,7 @@ Les ensembles avec les opérations suivantes sont des espaces vectoriels sur $\m
   - Les vecteurs de $\mathbb{R}^n$: $\mathbb{R}^n=\left\{[x_1,x_2,...,x_n]\mid x_i\in\mathbb{R}\right\}$, avec les opérations usuelles des vecteurs de $\mathbb{R}^n$.
   - Les polynômes de degrés $\leq n$: $\mathbb{P}_n=\left\{a_nx^n+a_{n-1}x^{n-1}+...+a_1x+a_0\mid a_i\in\mathbb{R}\right\}$, avec les opérations usuelles sur les polynômes.
   - Les matrices de dimensions $m\times n$: $\mathbb{M}_{m\times n}=\left\{A\mid A_{m\times n} \text{ matrice à coefficients réels}\right\}$, avec les opérations usuelles sur les matrices.
-  - Les fonctions continues sur $[a,b]$: $\mathscr{C}^0_{[a,b]}=\left\{f\mid  f\text{ est une fonction continue sur $[a,b]$}\right\}$
+  - Les fonctions continues sur $[a,b]$: $\mathscr{C}_{[a,b]}=\left\{f\mid  f\text{ est une fonction continue sur $[a,b]$}\right\}$
   - Les vecteurs de $\mathbb{C}^n$: $\mathbb{C}^n=\left\{[z_1,z_2,...,z_n]\mid z_i\in\mathbb{C}\right\}$, avec les opérations usuelles des vecteurs. Notez que $\mathbb{C}^n$ est aussi un espace vectoriel sur $\mathbb{C}$.
 
 
