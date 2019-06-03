@@ -276,7 +276,7 @@ Posons $P_0=(x_0,y_0,z_0)$ un point de la droite et $\overrightarrow{u}=[u_1,u_2
 \begin{axis}[
   unit vector ratio*=1 1 1,
   scale=4,
-  view={120}{35},
+  view={120}{25},
   axis lines=center,
   xmin=-2,
   xmax=5,
@@ -332,11 +332,514 @@ Soit $P_0=(x_0,y_0,z_0)$ un point d'une droite et $u=[u_1,u_2,u_3]$ le vecteur d
 \begin{align*}
 \overrightarrow{r} &= \overrightarrow{r_0}+t\overrightarrow{u} \\
 [x,y,z] &= [x_0,y_0,z_0]+t[u_1,u_2,u_3]
-\end{align*}}
+\end{align*}
 où $t\in\mathbb{R}$.
 ```
 
-Le paramètre $t$ dans l'équation vectorielle d'une droite permet, lorsqu'il est positif, "d'avancer" sur la droite et lorsqu'il est négatif, il permet de "reculer" sur la droite. La figure suivante permet de visualiser cette propriété.
+Le paramètre $t$ dans l'équation vectorielle d'une droite permet, lorsqu'il est positif, "d'avancer" sur la droite et lorsqu'il est négatif, il permet de "reculer" sur la droite. La figure \@ref(fig:droite-R3-parametre-t) permet de visualiser cette propriété.
+
+```{tikz,echo=FALSE,fig.align="center",,engine.opts = list(template = "resources/tikztemplate/mytikz.tex"),fig.cap="La représentation vectorielle d'une droite de $\\mathbb{R}^3$ avec le paramètre $t$",label="droite-R3-parametre-t"}
+\begin{tikzpicture}
+
+\begin{axis}[
+  unit vector ratio*=1 1 1,
+  scale=4,
+  view={120}{25},
+  axis lines=center,
+  xmin=-2,
+  xmax=5,
+  ymin=-2,
+  ymax=5,
+  zmin=-2,
+  zmax=5,
+  xlabel={$x$},
+  ylabel={$y$},
+  zlabel={$z$},
+  xlabel style={below},
+  ylabel style={right},
+  ticks=none
+]
+
+\tikzstyle{mystyle}=[draw,circle,inner sep=1pt,fill]
+
+\coordinate [mystyle,label=below right:$P_0$] (P0) at (0.2,1,2.8);
+\coordinate [mystyle,label=above:$P$] (P) at (-0.55,2.25,3.55);
+
+\draw[very thick,blue] (2,-2,1)--(-1,3,4) node[right] {$D$};
+\draw[very thick,red,->,>=stealth] (P0)--(P) node[above,midway] {$\overrightarrow{a}$};
+\draw[very thick,red,->,>=stealth] (0,0,0)--(-0.46,0.76,0.46) node[right] {$\overrightarrow{u}$};
+\draw[very thick,->,>=stealth] (0,0,0)--(P0) node[left,midway] {$\overrightarrow{r_0}$};
+\draw[very thick,->,>=stealth] (0,0,0)--(P) node[right,midway] {$\overrightarrow{r}$};
+
+\draw[thick] (P0)--(0,0.425,3.5);
+\draw[thick,->,>=stealth] (0,0.425,3.5)--(-0.375,1.05,3.875) node[right] {$t>0$};
+\draw[thick,->,>=stealth] (0.1,0.7125,3.15)--(0.475,0.0875,2.775) node[left] {$t<0$};
+
+\end{axis}
+
+\end{tikzpicture}
+```
+
+Si vous êtes dans la version en ligne de ce document, vous aurez-ci-dessous une représentation d'une droite de l'espace $\mathbb{R}^3$. Vous pouvez modifiez le point de vue et vous pouvez comprendre l'effet du paramètre $t$ en bougeant le point $P$.
+
+<iframe scrolling="no" title="Droite de l'espace" src="https://www.geogebra.org/material/iframe/id/ryttxgnm/width/700/height/500/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="700px" height="500px" style="border:0px;"> </iframe>
+
+Nous pouvons définir de "nouvelles" équations de droites à l'aide de la définition de l'équation vectorielle d'une droite.
+
+```{definition,name="Les équations paramétriques d'une droite de $\\mathbb{R}^3$"}
+Soit $P_0=(x_0,y_0,z_0)$ un point d'une droite et $u=[u_1,u_2,u_3]$ le vecteur directeur de cette droite. Nous savons que l'équation vectorielle de cette droite est donnée par:
+\begin{align*}
+\overrightarrow{r} &= \overrightarrow{r_0}+t\overrightarrow{u} \\
+[x,y,z] &= [x_0,y_0,z_0]+t[u_1,u_2,u_3]
+\end{align*}
+où $t\in\mathbb{R}$.
+
+Puisque l'équation vectorielle d'une droite correspond à une égalité entre deux vecteurs et que deux vecteurs sont égaux lorsque leurs composantes respectives sont égales, nous pouvons écrire:
+\begin{align*}
+x &= x_0 + tu_1 \\
+y &= y_0 + tu_2 \\
+z &= z_0 + tu_3 \\
+\end{align*}
+où $t\in\mathbb{R}$. Les équations précédentes sont nommées les équations paramétriques d'une droite de $\mathbb{R}^3$.
+```
+
+```{example}
+Soit les points $A=(1,2,3)$ et $B=(-3,5,-3)$ faisant partie de la droite $D$.
+
+  a. Trouvez le vecteur directeur de la droite $D$.
+  a. Trouvez l'équation vectorielle de la droite $D$.
+  a. Utilisez l'équation trouvée en b) pour trouver deux points de la droite $D$ autres que $A$ et $B$.
+  a. Est-ce que le point $E=(-1,\frac{7}{2},0)$ fait partie de la droite $D$?
+  a. Est-ce que le point $F=(13,-7,22)$ fait partie de la droite $D$?
+
+
+```
+
+### Les positions relatives de droites dans l'espace
+
+Nous voulons maintenant étudier les positions relatives de deux droites dans l'espace. Si nous avons deux droites de $\mathbb{R}^3$, nous voulons savoir s'il existe un point où les deux droites s'intersectent et si oui, quel est ce point.
+
+Soit deux droites de $\mathbb{R}^3$:
+\begin{align*}
+D_1 :& [x,y,z] = [x_1,y_1,z_1] + t[u_1,u_2,u_3] \\
+D_2 :& [x,y,z] = [x_2,y_2,z_2] + s[v_1,v_2,v_3]
+\end{align*}
+où $t,s\in\mathbb{R}$. 
+
+```{remark}
+Lorsque nous étudions deux droites différentes, il est primordial d'utiliser des paramètres différents, comme les paramètres $t$ et $s$ dans les équations ci-haut.
+```
+
+Si les deux droites se croisent, alors l'équation vectorielle suivante possédera une solution:
+\begin{align*}
+[x_1,y_1,z_1] + t[u_1,u_2,u_3] &= [x_2,y_2,z_2] + s[v_1,v_2,v_3] \\
+t[u_1,u_2,u_3]-s[v_1,v_2,v_3] &= [x_2,y_2,z_2]-[x_1,y_1,z_1] \\
+[tu_1-sv_1,tu_2-sv_2,tu_3-sv_3] &= [x_2-x_1,y_2-y_1,z_2-z_1]
+\end{align*}
+Pour que deux vecteurs de $\mathbb{R}^3$ soient égaux, il faut que leurs composantes respectives soient égales, c'est-à-dire:
+\begin{align*}
+tu_1-sv_1 &= x_2-x_1 \\
+tu_2-sv_2 &= y_2-y_1 \\
+tu_3-sv_3 &= z_2-z_1
+\end{align*}
+Le système d'équations linéaires précédent possède trois équations et deux inconnues, $t$ et $s$. Ce système peut posséder trois types de solutions:
+
+  1. Une unique solution, ce qui signifie que les droites se croisent en un seul point.
+  1. Aucune solution, ce qui signifie que les droites ne se croisent jamais.
+  1. Une infinité de solutions, ce qui signifie que les droites sont parallèles confondues et sont en fait une seule et même droite.
+
+De plus, dans $\mathbb{R}^3$, deux droites peuvent se retrouver dans quatre situations différentes.
+
+  1. Deux droites peuvent être parallèles confondues, c'est-à-dire qu'elles forment une seule et même droite.
+  1. Deux droites peuvent être parallèles distinctes, , c'est-à-dire qu'elles sont parallèles mais ne se touchent jamais.
+  1. Deux droites peuvent être non-parallèles sécantes, c'est-à-dire qu'elles ne sont pas parallèles mais se touchent en un seul point.
+  1. Deux droites peuvent être non-parallèles gauches, c'est-à-dire qu'elles ne sont pas parallèles et ne se touchent jamais.
+
+```{tikz,echo=FALSE,fig.align="center",,engine.opts = list(template = "resources/tikztemplate/mytikz.tex"),fig.cap="De gauche à droite et de haut en bas, nous avons deux droites parallèles confondues, deux droites parallèles distinctes, deux droites sécantes et deux droites gauches",label="quatre-situations-R3"}
+\begin{tikzpicture}
+
+\begin{axis}[
+  unit vector ratio*=1 1 1,
+  scale=2,
+  view={120}{25},
+  axis lines=center,
+  xmin=-2,
+  xmax=5,
+  ymin=-2,
+  ymax=5,
+  zmin=-2,
+  zmax=5,
+  xlabel={$x$},
+  ylabel={$y$},
+  zlabel={$z$},
+  xlabel style={below},
+  ylabel style={right},
+  ticks=none
+]
+\draw [very thick,blue] (-1,4,1)--(4,-1,6);
+\draw [very thick,red,dashed] (-1,4,1)--(4,-1,6);
+\end{axis}
+
+\begin{scope}[shift={(7cm,0cm)}]
+\begin{axis}[
+  unit vector ratio*=1 1 1,
+  scale=2,
+  view={120}{25},
+  axis lines=center,
+  xmin=-2,
+  xmax=5,
+  ymin=-2,
+  ymax=5,
+  zmin=-2,
+  zmax=5,
+  xlabel={$x$},
+  ylabel={$y$},
+  zlabel={$z$},
+  xlabel style={below},
+  ylabel style={right},
+  ticks=none
+]
+\draw [very thick,blue] (-1,4,1)--(4,-1,6);
+\draw [very thick,red] (-1,4,-1)--(4,-1,4);
+\end{axis}
+\end{scope}
+
+\begin{scope}[shift={(0cm,-7cm)}]
+\begin{axis}[
+  unit vector ratio*=1 1 1,
+  scale=2,
+  view={120}{25},
+  axis lines=center,
+  xmin=-2,
+  xmax=5,
+  ymin=-2,
+  ymax=5,
+  zmin=-2,
+  zmax=5,
+  xlabel={$x$},
+  ylabel={$y$},
+  zlabel={$z$},
+  xlabel style={below},
+  ylabel style={right},
+  ticks=none
+]
+\draw [very thick,blue] (-1,4,1)--(4,-1,6);
+\draw [very thick,red] (-8,-1,-6)--(7,4,9);
+\tikzstyle{mystyle}=[draw,circle,inner sep=1pt,fill]
+\coordinate [mystyle] (P0) at (1,2,3);
+\end{axis}
+\end{scope}
+
+\begin{scope}[shift={(7cm,-7cm)}]
+\begin{axis}[
+  unit vector ratio*=1 1 1,
+  scale=2,
+  view={120}{25},
+  axis lines=center,
+  xmin=-2,
+  xmax=5,
+  ymin=-2,
+  ymax=5,
+  zmin=-2,
+  zmax=5,
+  xlabel={$x$},
+  ylabel={$y$},
+  zlabel={$z$},
+  xlabel style={below},
+  ylabel style={right},
+  ticks=none
+]
+\draw [very thick,blue] (-1,4,1)--(4,-1,6);
+\draw [very thick,red] (-5,0,3)--(-3.35,-0.55,1.35);
+\draw [very thick,red] (-2.75,-0.75,0.75)--(-0.5,-1.5,-1.5);
+\end{axis}
+\end{scope}
+
+\end{tikzpicture}
+```
+
+À l'aide des quatres situations précédentes, nous pouvons détailler une technique pour être en mesure, à partir de deux droites, de savoir quelle est la position relative de ces droites.
+
+  1. Trouvez les vecteurs directeurs de chacune des droites.
+  1. Si les vecteurs directeurs sont parallèles, les droites sont parallèles.
+
+      - Trouvez un point sur une des droites et vérifiez s'il fait partie de l'autre droite. 
+      - Si oui, les droites sont parallèles confondues.
+      - Sinon, les droites sont parallèles distinctes.
+
+  1. Si les vecteurs directeurs ne sont pas parallèles, les droites ne sont pas parallèles.
+
+      - Nous devons trouver le système d'équations linéaires correspondant à l'égalité entre les deux droites.
+      - Si le système d'équations linéaires possède une solution, alors les deux droites sont sécantes et vous pouvez trouver le point d'intersection.
+      - Si le système d'équations linéaires ne possède pas de solution, alors les deux droites sont gauches.
+
+Nous allons maintenant faire quelques exemples pour être en mesure de trouver la position relative de deux droites.
+
+```{example,label="droites-paralleles"}
+Déterminez la position relative des deux droites suivantes:
+\begin{align*}
+D_1 : [x,y,z] &= [3,2,1]+s[-4,2,5] \\
+D_2 : [x,y,z] &= [-2,-4,2]+t[12,-6,-15]
+\end{align*}
+```
+
+```{example,label="droites-gauches"}
+Déterminez la position relative des deux droites suivantes:
+\begin{align*}
+D_1 : [x,y,z] &= [5,5,7]+s[1,2,3] \\
+D_2 : [x,y,z] &= [15,14,-5]+t[-4,5,2]
+\end{align*}
+```
+
+```{example,label="droites-secantes"}
+Déterminez la position relative des deux droites suivantes:
+\begin{align*}
+D_1 : [x,y,z] &= [0,2,1]+s[-5,5,3] \\
+D_2 : [x,y,z] &= [-2,-2,3]+t[3,1,1]
+\end{align*}
+```
+
+### L'angle entre deux droites de l'espace
+
+Lorsque nous avons deux droites sécantes de l'espace, il est possible de trouver l'angle entre ces deux droites. Puisque les deux droites sont formées chacune d'un vecteur directeur, il suffit de trouver l'angle entre ces deux vecteurs pour trouver l'angle entre les deux droites.
+
+```{example}
+Trouvez l'angle entre les droites de l'exemple \@ref(exm:droites-secantes).
+```
+
+### Les équations symétriques d'une droite de l'espace
+
+Nous pouvons résoudre n'importe quel problème de droite dans l'espace à l'aide de l'équation vectorielle d'une droite de l'espace. 
+Par exemple, pour trouver la position relative de deux droites, nous devons résoudre un système d'équations linéaires possédant trois équations et deux inconnues. Par contre, dans certaines situations, il est possible de trouver de nouvelles équations de droites qui elles nous permettront de résoudre un système d'équations linéaires possédant deux équations et une seule inconnue.
+
+```{definition,name="Les équations symétriques d'une droite de l'espace"}
+Soit $P_0=(x_0,y_0,z_0)$ un point d'une droite et $u=[u_1,u_2,u_3]$ le vecteur directeur de cette droite. Nous savons que les équations paramétriques de cette droite de $\mathbb{R}^3$ sont:
+\begin{align*}
+x &= x_0 + tu_1 \\
+y &= y_0 + tu_2 \\
+z &= z_0 + tu_3 \\
+\end{align*}
+où $t\in\mathbb{R}$. Si nous isolons le paramètre $t$ dans chacune des équations paramétriques, nous obtenons:
+\begin{align*}
+t &= \dfrac{x-x_0}{u_1} \\
+t &= \dfrac{y-y_0}{u_2} \\
+t &= \dfrac{z-z_0}{u_3}
+\end{align*}
+à condition que les $u_1$, $u_2$ et $u_3$ soient différents de zéros. Nous disons que les équations suivantes sont les équations symétriques d'une droite de l'espace:
+\begin{align*}
+\dfrac{x-x_0}{u_1} = \dfrac{y-y_0}{u_2} = \dfrac{z-z_0}{u_3}
+\end{align*}
+```
+
+Lorsque nous pouvons écrire ces équations, nous pouvons diminuer le nombre d'équations et d'inconnues lorsque nous sommes intéressés par la position relative de deux droites.
+
+```{example}
+À FAIRE
+```
+
+### La distance entre un point et une droite
+
+Il est possible de trouver la distance entre un point et une droite de l'espace. Soit une droite $D$, un point $P$ de cette droite et $\vec u$ le vecteur directeur de $D$. Soit un point $Q$ ne se trouvant pas sur la droite $D$. Utilisons la figure ci-dessous pour trouver une formule nous permettant de trouver la distance entre le point $Q$ et la droite $D$.
+
+```{tikz,echo=FALSE,fig.align="center",,engine.opts = list(template = "resources/tikztemplate/mytikz.tex"),fig.cap="La distance entre un point et une droite dans l'espace.",label="distance-point-droite"}
+\begin{tikzpicture}
+
+\begin{axis}[
+  unit vector ratio*=1 1 1,
+  scale=2,
+  view={120}{25},
+  axis lines=center,
+  xmin=-2,
+  xmax=5,
+  ymin=-2,
+  ymax=5,
+  zmin=-2,
+  zmax=5,
+  xlabel={$x$},
+  ylabel={$y$},
+  zlabel={$z$},
+  xlabel style={below},
+  ylabel style={right},
+  ticks=none
+]
+\draw [very thick,blue] (2,-2,0)--(-1,3,3);
+\draw [very thick,->,>=stealth] (1.25,-0.75,0.75)--(1,0,3);
+\draw [very thick,->,>=stealth,red] (1.25,-0.75,0.75)--(0.2,1,1.8) node[below right] {$\vec u$};
+\draw [very thick,dashed] (1,0,3)--(-0.05,1.75,4.05);
+\draw [very thick,dashed] (0.2,1,1.8)--(-0.05,1.75,4.05);
+
+\tikzstyle{mystyle}=[draw,circle,inner sep=1pt,fill]
+
+\coordinate [mystyle,label=above left:$P$] (P) at (1.25,-0.75,0.75);
+\coordinate [mystyle,label=above:$Q$] (Q) at (1,0,3);
+\coordinate [mystyle,label=below:$R$] (R) at (0.4651,0.5581,1.5349);
+
+\draw[thick] (R)--(Q);
+ 
+\end{axis}
+\end{tikzpicture}
+```
+
+Nous connaissons le vecteur directeur $\vec u$ et nous pouvons calculer le vecteur $\overrightarrow{PQ}$. À l'aide de ses deux vecteurs, nous pouvons construire le parallélogramme représenté sur la figure. Nous pouvons utiliser le produit vectoriel pour trouver la surface d'un parallélogramme. En effet, la surface du parallélogramme de la figure précédente est donnée par:
+\begin{align*}
+\text{Aire} = \lVert\overrightarrow{PQ} \times \vec u\rVert &= \lVert\overrightarrow{PQ}\rVert\lVert\vec u\rVert \sin(\theta) \\
+&= \lVert\vec u\rVert\underbrace{\lVert\overrightarrow{PQ}\rVert\sin(\theta)}_{h=\text{hauteur du parallélogramme}}
+\end{align*}
+Nous avons donc que:
+\begin{align*}
+\lVert\overrightarrow{PQ} \times \vec u\rVert &= \lVert\vec u\rVert h \\
+h &= \dfrac{\lVert\overrightarrow{PQ} \times \vec u\rVert}{\lVert\vec u\rVert}
+\end{align*}
+
+Il est également possible de trouver les coordonnées du point $R$ situé sur la droite $D$ qui est le plus près du point $Q$. En étudiant la figure, nous remarquons que le vecteur $\overrightarrow{PR}$ est en fait le vecteur projection du vecteur $\overrightarrow{PQ}$ sur le vecteur directeur $\vec u$, noté $\overrightarrow{PQ}_{\vec u}$. Nous avons donc:
+\begin{align*}
+\overrightarrow{OR} &= \overrightarrow{OP}+\overrightarrow{PR} \\
+&= \overrightarrow{OP}+\overrightarrow{PQ}_{\vec u}
+\end{align*}
+
+```{example}
+À FAIRE
+```
+
+### La distance entre deux droites parallèles
+
+Puisque deux droites parallèles sont toujours à la même distance l'une de l'autre, il est possible de trouver cette distance à l'aide de la méthode permettant de trouver la distance entre un point et une droite. Soit deux droites $D_1$ et $D_2$ telles que:
+\begin{align*}
+D_1 : \vec r_1 &= \overrightarrow{OP_1}+s\vec u \\
+D_2 : \vec r_2 &= \overrightarrow{OP_2}+t\vec v
+\end{align*}
+
+Pour trouver la distance entre ces deux droites, nous prenons un point quelconque sur une des deux droites et nous calculons sa distance par rapport à l'autre droite.
+
+```{example}
+Trouvez la distance entre les deux droites de l'exemple \@ref(exm:droites-paralleles).
+```
+
+### La distance entre deux droites gauches
+
+Pour trouver la distance entre deux droites gauches, nous devrons user d'un peu d'astuce et de la figure ci-dessous. Soit les deux droites gauches suivantes:
+\begin{align*}
+D_1 : \vec r_1 &= \overrightarrow{OP_1}+s\vec u \\
+D_2 : \vec r_2 &= \overrightarrow{OP_2}+t\vec v 
+\end{align*}
+où $s,t\in\mathbb{R}$. Il existe un point $A$ situé sur la droite $D_1$ et un point $B$ situé sur la droite $D_2$ tels que ces deux points sont les deux points les plus près l'un de l'autre. Nous voulons donc trouver la distance entre ces deux points pour trouver la distance entre les deux droites, comme représenté à la figure \@ref(fig:distance-droites-gauches).
+
+```{tikz,echo=FALSE,fig.align="center",out.width="75%",fig.cap="La distance entre deux droites gauches.",label="distance-droites-gauches"}
+\begin{tikzpicture}
+
+\draw[->,>=stealth] (-1,0)--(4,0) node[right] {$y$};
+\draw[->,>=stealth] (0,-1)--(0,4) node[above] {$z$};
+\draw[->,>=stealth] (0.5,0.5)--(-2,-2) node[below left] {$x$};
+
+\draw[very thick,blue] (-2,0)--(3,1) node[right] {$D_1$};
+\draw[very thick,blue] (-2,4)--(3,3) node[right] {$D_2$};
+
+\draw[very thick,red,->,>=stealth] (-1,0.2)--(0.5,0.5) node[below right] {$\vec u$};
+\draw[very thick,red,->,>=stealth] (-0.5,3.7)--(1,3.4) node[above right] {$\vec v$};
+
+\draw[very thick] (2,0.8)--(2,3.2) node[midway,right] {$d$};
+
+\tikzstyle{mystyle}=[draw,circle,inner sep=1pt,fill]
+\coordinate [mystyle,label=below:$P_1$] (P1) at (-1,0.2);
+\coordinate [mystyle,label=above:$P_2$] (P2) at (-0.5,3.7);
+\coordinate [mystyle,label=below:$A$] (A) at (2,0.8);
+\coordinate [mystyle,label=above:$B$] (B) at (2,3.2);
+
+\end{tikzpicture}
+```
+
+Le vecteur reliant le point $A$ au point $B$ est nécessairement perpendiculaire aux vecteurs directeurs $\vec u$ et $\vec v$. Ceci signifie que $\overrightarrow{AB}$ est parallèle au vecteur obtenu en effectuant le produit vectoriel des vecteurs $\vec u$ et $\vec v$. Nous avons donc que:
+\begin{align*}
+\overrightarrow{AB} &= k (\vec u \times \vec v)
+\end{align*}
+
+Puisque nous nous intéressons à la distance entre les deux droites, nous voulons trouver la longueur du vecteur $\overrightarrow{AB}$, c'est-à-dire:
+\begin{align*}
+\lVert\overrightarrow{AB}\rVert &= \lVert k (\vec u \times \vec v)\rVert \\
+&= |k| \lVert\vec u \times \vec v\rVert
+\end{align*}
+Il est clair que si nous sommes en mesure de trouver la valeur du paramètre $k$, nous allons trouver la distance entre les deux droites.
+
+Pour être en mesure de trouver $k$, nous allons nous intéresser au vecteur $\overrightarrow{OB}-\overrightarrow{OA}$. Nous pouvons écrire ce vecteur de deux manières différentes:
+\begin{align*}
+\overrightarrow{OB} &= \overrightarrow{OA} + k(\vec u \times \vec v) \\
+\overrightarrow{OB}-\overrightarrow{OA} &= k(\vec u \times \vec v)
+\end{align*}
+où $k\in\mathbb{R}$. De plus:
+\begin{align*}
+\overrightarrow{OB} &= \overrightarrow{OP_2} + t\vec v \\
+\overrightarrow{OA} &= \overrightarrow{OP_1} + s\vec u
+\end{align*}
+où $s,t\in\mathbb{R}$, ce qui implique que:
+\begin{align*}
+\overrightarrow{OB}-\overrightarrow{OA} &= (\overrightarrow{OP_2} + t\vec v)-(\overrightarrow{OP_1} + s\vec u) \\
+&= \overrightarrow{OP_2} + t\vec v - \overrightarrow{OP_1} - t\vec v \\
+&= \overrightarrow{P_1P_2} +t\vec v - s\vec u
+\end{align*}
+
+En combinant ces deux vecteurs, nous avons:
+\begin{align*}
+k(\vec u \times \vec v) &= \overrightarrow{P_1P_2} +t\vec v - s\vec u
+\end{align*}
+L'équation précédente possède trois inconnues, $k$, $s$ et $t$. Puisque nous ne nous intéressons qu'à la valeur de $k$, nous allons utiliser les propriétés du produit scalaire pour faire disparaître les inconnues $s$ et $t$. Nous avons:
+\begin{align*}
+k(\vec u \times \vec v)\cdot(\vec u \times \vec v)  &= (\overrightarrow{P_1P_2} +t\vec v - s\vec u)\cdot(\vec u \times \vec v) \\
+k\lVert\vec u \times \vec v\rVert^2 &= \overrightarrow{P_1P_2}\cdot(\vec u \times \vec v)
++\underbrace{t\vec v \cdot(\vec u \times \vec v)}_{=\ 0 \text{ car } \vec v \perp (\vec u \times \vec v) -\underbrace{s\vec u \cdot(\vec u \times \vec v)}_{=\ 0 \text{ car } \vec u \perp (\vec u \times \vec v)} \\
+k\lVert\vec u \times \vec v\rVert^2 &= \overrightarrow{P_1P_2}\cdot(\vec u \times \vec v) \\
+k &= \dfrac{\overrightarrow{P_1P_2}\cdot(\vec u \times \vec v)}{\lVert\vec u \times \vec v\rVert^2}
+\end{align*}
+
+En utilisant cette valeur de $k$ dans la formule trouvée précédemment, nous avons:
+\begin{align*}
+\lVert\overrightarrow{AB}\rVert &= |k| \lVert\vec u \times \vec v\rVert \\
+&= \left|\dfrac{\overrightarrow{P_1P_2}\cdot(\vec u \times \vec v)}{\lVert\vec u \times \vec v\rVert^2}\right| \lVert\vec u \times \vec v\rVert \\
+&= \dfrac{\left|\overrightarrow{P_1P_2}\cdot(\vec u \times \vec v)\right|}{\lVert\vec u \times \vec v\rVert}
+\end{align*}
+La distance entre deux droites non parallèles de l'espace est donc donnée par l'équation précédente.
+
+```{example}
+Trouvez la distance entre les droites de l'exemple \@ref(exm:droites-gauches).
+```
+
+Il est également possible de trouver les deux points $A$ et $B$ situés respectivement sur les droites $D_1$ et $D_2$ les plus près l'un de l'autre. Par nos raisonnements précédents, nous avions:
+\begin{align*}
+k(\vec u \times \vec v) &= \overrightarrow{P_1P_2} +t\vec v - s\vec u
+\end{align*}
+Nous allons déduire deux équations à partir de l'équation précédente. Puisque le vecteur $\lr{\vec u \times \vec v}$ est perpendiculaire à la fois au vecteur $\vec u$ et au vecteur $\vec v$, nous avons:
+\begin{align*}
+k(\vec u \times \vec v) \cdot \vec u &= (\overrightarrow{P_1P_2} +t\vec v - s\vec u)\cdot \vec u \\
+0 &= \overrightarrow{P_1P_2}\cdot \vec u +t\vec v \cdot \vec u - s\vec u \cdot \vec u
+\end{align*}
+et
+\begin{align*}
+k(\vec u \times \vec v) \cdot \vec v &= (\overrightarrow{P_1P_2} +t\vec v - s\vec u)\cdot \vec v \\
+0 &= \overrightarrow{P_1P_2}\cdot \vec v +t\vec v \cdot \vec v - s\vec u \cdot \vec v
+\end{align*}
+Nous pouvons donc trouver les paramètres $s$ et $t$ en résolvant le système d'équations linéaires suivant:
+\begin{align*}
+0 &= \overrightarrow{P_1P_2}\cdot \vec u +t\vec v \cdot \vec u - s\vec u \cdot \vec u \\
+0 &= \overrightarrow{P_1P_2}\cdot \vec v +t\vec v \cdot \vec v - s\vec u \cdot \vec v
+\end{align*}}
+Une fois les paramètres trouvés, nous avons que:
+\begin{align*}
+\overrightarrow{OA} &= \overrightarrow{OP_1} + s\vec u \\
+\overrightarrow{OB} &= \overrightarrow{OP_2} + t\vec v
+\end{align*}
+
+```{example}
+Trouvez les deux points les plus près des droites de l'exemple \@ref(exm:droites-gauches).
+```
+
+## Les plans de l'espace
+
+
+
+
+
+
+
+
 
 
 

@@ -1,3 +1,5 @@
+# (PART) Espaces vectoriels {-}
+
 # Espace vectoriel et base d'un espace vectoriel {#espace-vectoriel}
 
 Les écrans d'ordinateur et les téléviseurs sont composés d'une multitude de pixels. Chacune de ces pixels permet d'afficher une couleur et l'ensemble forme l'image que nous voyons. À l'intérieur des pixels, il y a trois sous-pixels qui permettent d'afficher les trois couleurs primaires soit le rouge, le vert et le bleu. C'est ce que nous appelons le code rgb (red-green-blue). Grâce à ces trois sous-pixels, il est possible de créer toutes les couleurs aussi bien le blanc que le noir. Pourquoi et qu'est-ce qui justifie le tout mathématiquement?

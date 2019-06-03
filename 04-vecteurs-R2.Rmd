@@ -1,3 +1,5 @@
+# (PART) Les vecteurs et les nombres complexes {-}
+
 # Les vecteurs de $\mathbb{R}^2$ {#vecteursR2}
 
 ## Les vecteurs géométriques
