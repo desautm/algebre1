@@ -785,7 +785,7 @@ L'équation précédente possède trois inconnues, $k$, $s$ et $t$. Puisque nous
 \begin{align*}
 k(\vec u \times \vec v)\cdot(\vec u \times \vec v)  &= (\overrightarrow{P_1P_2} +t\vec v - s\vec u)\cdot(\vec u \times \vec v) \\
 k\lVert\vec u \times \vec v\rVert^2 &= \overrightarrow{P_1P_2}\cdot(\vec u \times \vec v)
-+\underbrace{t\vec v \cdot(\vec u \times \vec v)}_{=\ 0 \text{ car } \vec v \perp (\vec u \times \vec v) -\underbrace{s\vec u \cdot(\vec u \times \vec v)}_{=\ 0 \text{ car } \vec u \perp (\vec u \times \vec v)} \\
++\underbrace{t\vec v \cdot(\vec u \times \vec v)}_{=\ 0 \text{ car } \vec v \perp (\vec u \times \vec v)} -\underbrace{s\vec u \cdot(\vec u \times \vec v)}_{=\ 0 \text{ car } \vec u \perp (\vec u \times \vec v)} \\
 k\lVert\vec u \times \vec v\rVert^2 &= \overrightarrow{P_1P_2}\cdot(\vec u \times \vec v) \\
 k &= \dfrac{\overrightarrow{P_1P_2}\cdot(\vec u \times \vec v)}{\lVert\vec u \times \vec v\rVert^2}
 \end{align*}
@@ -806,7 +806,7 @@ Il est également possible de trouver les deux points $A$ et $B$ situés respect
 \begin{align*}
 k(\vec u \times \vec v) &= \overrightarrow{P_1P_2} +t\vec v - s\vec u
 \end{align*}
-Nous allons déduire deux équations à partir de l'équation précédente. Puisque le vecteur $\lr{\vec u \times \vec v}$ est perpendiculaire à la fois au vecteur $\vec u$ et au vecteur $\vec v$, nous avons:
+Nous allons déduire deux équations à partir de l'équation précédente. Puisque le vecteur $(\vec u \times \vec v)$ est perpendiculaire à la fois au vecteur $\vec u$ et au vecteur $\vec v$, nous avons:
 \begin{align*}
 k(\vec u \times \vec v) \cdot \vec u &= (\overrightarrow{P_1P_2} +t\vec v - s\vec u)\cdot \vec u \\
 0 &= \overrightarrow{P_1P_2}\cdot \vec u +t\vec v \cdot \vec u - s\vec u \cdot \vec u
@@ -820,7 +820,7 @@ Nous pouvons donc trouver les paramètres $s$ et $t$ en résolvant le système d
 \begin{align*}
 0 &= \overrightarrow{P_1P_2}\cdot \vec u +t\vec v \cdot \vec u - s\vec u \cdot \vec u \\
 0 &= \overrightarrow{P_1P_2}\cdot \vec v +t\vec v \cdot \vec v - s\vec u \cdot \vec v
-\end{align*}}
+\end{align*}
 Une fois les paramètres trouvés, nous avons que:
 \begin{align*}
 \overrightarrow{OA} &= \overrightarrow{OP_1} + s\vec u \\
