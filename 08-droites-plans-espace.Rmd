@@ -1154,22 +1154,21 @@ P :& \ a(x-x_1)+b(y-y_1)+c(z-z_1)=0
 \end{align*}
 Pour déterminer si la droite et le plan se croisent, il suffit de remplacer les équations paramétriques de la droite dans l'équation cartésienne du plan, c'est-à-dire:
 
-\begin{align*}
+\begin{align}
 a(x-x_1)+b(y-y_1)+c(z-z_1) &= 0 \\
 a(x_0+tu_1-x_1)+b(y_0+tu_2-y_1)+c(z_0+tu_3-z_1) &\overset{?}{=} 0 \\
 -(a(x_0-x_1)+b(y_0-y_1)+c(z_0-z_1)) &\overset{?}{=} t(au_1+bu_2+cu_3) \\
-\dfrac{-(a(x_0-x_1)+b(y_0-y_1)+c(z_0-z_1))}{au_1+bu_2+cu_3} &= t
-(\#eq:position_plan_droite)
-\end{align*}
+\dfrac{-(a(x_0-x_1)+b(y_0-y_1)+c(z_0-z_1))}{au_1+bu_2+cu_3} &= t (\#eq:positionplandroite)
+\end{align}
 
-L'équation \@ref(eq:position_plan_droite) possède une solution uniquement si le dénominateur est différent de zéro, c'est-à-dire si:
+L'équation \@ref(eq:positionplandroite) possède une solution uniquement si le dénominateur est différent de zéro, c'est-à-dire si:
 \begin{align*}
 au_1+bu_2+cu_3 &\neq 0 \\
 [a,b,c]\cdot[u_1,u_2,u_3] &\neq 0 \\
 \vec n \cdot \vec u &\neq 0
 \end{align*}
 
-L'équation \@ref(eq:position_plan_droite) indique que le produit scalaire entre le vecteur normal au plan et le vecteur directeur de la droite ne doit à être égal à zéro. Ceci signifie que si le produit scalaire entre le vecteur normal au plan et le vecteur directeur de la droite est égal à zéro, nous ne pouvons pas trouver de valeur de $t$ pour résoudre l'équation. De plus, si le produit scalaire est nul, ceci signifie également que les vecteurs $\vec n$ et $\vec u$ sont perpendiculaires.
+L'équation \@ref(eq:positionplandroite) indique que le produit scalaire entre le vecteur normal au plan et le vecteur directeur de la droite ne doit à être égal à zéro. Ceci signifie que si le produit scalaire entre le vecteur normal au plan et le vecteur directeur de la droite est égal à zéro, nous ne pouvons pas trouver de valeur de $t$ pour résoudre l'équation. De plus, si le produit scalaire est nul, ceci signifie également que les vecteurs $\vec n$ et $\vec u$ sont perpendiculaires.
 
 Dans $\mathbb{R}^3$, une droite et un plan peuvent se retrouver dans trois situations différentes.
 
@@ -1177,20 +1176,236 @@ Dans $\mathbb{R}^3$, une droite et un plan peuvent se retrouver dans trois situa
   1. Une droite et un plan peuvent être parallèles distincts, c'est-à-dire qu'ils ne se touchent jamais.
   1. Une droite et un plan peuvent être non-parallèles, c'est-à-dire que leur intersection est un point de $\mathbb{R}^3$.
 
-Nous pouvons représenter graphiquement ces trois situations comme à la figure
+Nous pouvons représenter graphiquement ces trois situations comme à la figure \@ref(fig:position-relative-plan-droite).
   
+```{tikz,echo=FALSE,fig.align="center",out.width="95%",fig.cap="De gauche à droite, une droite et un plans parallèles confondus, une droite et un plan parallèles distincts et une droite et un plan non parallèles.",label="position-relative-plan-droite"}
+\begin{tikzpicture}
+\draw[fill=blue,fill opacity=0.5] (-0.5,2)--(-3.5,-1.5)--(2,-1.5)--(5,2)--cycle;
+\draw[red,thick] (-2.9,-0.8)--(4.5,1.4);
+\draw[->,>=stealth] (-1,0)--(4,0) node[right] {$y$};
+\draw[->,>=stealth] (0,-1)--(0,4) node[above] {$z$};
+\draw[->,>=stealth] (0.5,0.5)--(-2,-2) node[below left] {$x$};
+
+\begin{scope}[shift={(9cm,0cm)}]
+\draw[fill=blue,fill opacity=0.5] (-0.5,2)--(-3.5,-1.5)--(2,-1.5)--(5,2)--cycle;
+\draw[red,thick] (-2.9,1.7)--(4.5,3.9);
+\draw[->,>=stealth] (-1,0)--(4,0) node[right] {$y$};
+\draw[->,>=stealth] (0,-1)--(0,4) node[above] {$z$};
+\draw[->,>=stealth] (0.5,0.5)--(-2,-2) node[below left] {$x$};
+\end{scope}
+
+\begin{scope}[shift={(18cm,0cm)}]
+\draw[red,thick] (1,1)--(2,-2);
+\draw[fill=blue,fill opacity=0.5] (-0.5,2)--(-3.5,-1.5)--(2,-1.5)--(5,2)--cycle;
+\draw[red,thick] (0.2,3.5)--(1,1);
+\draw[->,>=stealth] (-1,0)--(4,0) node[right] {$y$};
+\draw[->,>=stealth] (0,-1)--(0,4) node[above] {$z$};
+\draw[->,>=stealth] (0.5,0.5)--(-2,-2) node[below left] {$x$};
+\tikzstyle{mystyle}=[draw,circle,inner sep=1pt,fill]
+\coordinate [mystyle] (P) at (1,1);
+\end{scope}
+
+\end{tikzpicture}
+``` 
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+À l'aide des trois situations précédentes, nous pouvons détailler une technique pour être en mesure, à partir d'une droite et d'un plan, de savoir quelle est la position relative entre ces deux objets.
+
+  1. Trouvez le vecteur directeur directeur de la droite et le vecteur normal du plan.
+  1. Si les vecteurs sont perpendiculaires, alors la droite et le plan sont parallèles.
+ 
+      - Trouvez un point sur la droite et vérifiez s'il fait partie du plan. 
+      - Si oui, la droite et le plan sont parallèles confondus.
+      - Sinon, la droite et le plan sont parallèles distincts.
+
+  1. Si les vecteurs ne sont pas perpendiculaires, la droite et le plan ne sont pas parallèles.
+ 
+      - Nous remplaçons les équations paramétriques de la droite dans l'équation cartésienne du plan et nous isolons le paramètre de la droite.
+      - Nous utilisons le paramètre trouvé pour trouver le point d'intersection entre la droite et le plan.
+
+Nous allons maintenant faire quelques exemples pour être en mesure de trouver la position relative d'une droite et d'un plan.
+
+```{example}
+Trouvez la position relative de la droite et du plan suivant:
+\begin{align*}
+D &: \begin{cases}
+x &= -5+6t \\
+y &= 1 \\
+z &= 5+4t
+\end{cases}
+\ \text{où } t\in\mathbb{R} \\
+P &: -2x+y+3z = 26
+\end{align*}
+```
+
+```{example,label="droite-plan-secants"}
+Trouvez la position relative de la droite et du plan suivant:
+\begin{align*}
+D &: \begin{cases}
+x &= 2-t \\
+y &= 3+2t \\
+z &= 3-4t
+\end{cases}
+\ \text{où } t\in\mathbb{R} \\
+P &: 3x-6y-3z = 4
+\end{align*}
+```
+
+### Des applications
+
+```{example}
+VISION 3D
+```
+
+```{example}
+PROJECTION STÉRÉOGRAPHIQUE
+```
+
+### L'angle entre deux plans
+
+Il est possible de trouver l'angle entre deux plans d'une façon similaire à la technique utilisée pour trouver l'angle entre deux droites sécantes. Soit deux plans non parallèles. Ils s'intersectent nécessairement et cette intersection est une droite. La figure \@ref(fig:angle-plans-secants) représente cette situation.
+
+```{tikz,echo=FALSE,fig.align="center",out.width="75%",fig.cap="La représentation de l'angle entre deux plans sécants.",label="angle-plans-secants"}
+\begin{tikzpicture}
+\draw[fill=red,fill opacity=0.5] (-0.75,-1.5)--(2.25,2)--(5,1)--(2,-2.5)--cycle;
+\draw[fill=blue,fill opacity=0.5] (-0.5,2)--(-3.5,-1.5)--(2,-1.5)--(5,2)--cycle;
+\draw[fill=red,fill opacity=0.5] (-0.75,-1.5)--(2.25,2)--(-0.5,3)--(-3.5,-0.5)--cycle;
+
+\draw[thick] (0.75,0.25)--++(67.5:1) arc (67.5:90:1) node[midway,above] {$\theta$};
+\draw[thick] (-0.75,-1.5)--++(-20.5:1) arc (-20.5:0:1) node[midway,right] {$\theta$};
+
+\draw[very thick,blue,->,>=stealth] (0.75,0.25)--(0.75,3) node[above] {$\vec n_1$};
+\draw[very thick,red,->,>=stealth] (0.75,0.25)--++(67.5:2.75) node[above] {$\vec n_2$};
+
+
+\draw[->,>=stealth] (-1,0)--(4.5,0) node[right] {$y$};
+\draw[->,>=stealth] (0,-1)--(0,4) node[above] {$z$};
+\draw[->,>=stealth] (0.5,0.5)--(-2,-2) node[below left] {$x$};
+
+\tikzstyle{mystyle}=[draw,circle,inner sep=1.25pt,fill]
+\coordinate [mystyle] (P) at (0.75,0.25);
+\end{tikzpicture}
+``` 
+
+Nous remarquons que l'angle formé par les deux plans est égal à l'angle formé par les vecteurs normaux des deux plans. En fait, nous devons être prudent car il est possible que l'angle entre les vecteurs normaux soit plus grand que $90^{\circ}$. Dans ce cas, nous devons calculer l'angle complémentaire pour que l'angle obtenu soit un angle aigu.
+
+```{definition,name="L'angle entre deux plans"}
+Soit deux plans non parallèles de $\mathbb{R}^3$ avec comme vecteurs normaux respectivement $\vec n_1$ et $\vec n_2$. L'angle $\theta$ entre les deux plans est donné par:
+\begin{align*}
+\theta &= \begin{cases}
+\beta & \text{si } \beta\leq 90^{\circ} \\
+180^{\circ}-\beta & \text{sinon}
+\end{cases}
+\end{align*}
+où:
+\begin{align*}
+\beta &= \text{Arccos}\left(\dfrac{\vec n_1 \cdot \vec n_2}{\lVert\vec n_1\rVert\lVert\vec n_2\rVert}\right)
+\end{align*}
+```
+
+```{example}
+Trouvez l'angle entre les plans suivants:
+\begin{align*}
+P_1 &: \ 3(x-1)+2(y-2)+(z-3) = 0 \\
+P_2 &: \ -2(x-3)+5(y+2)+4(z+1) = 0
+\end{align*}
+```
+
+### L'angle entre une droite et un plan
+
+Pour trouver l'angle entre une droite et un plan, nous aurons besoin du vecteur directeur de la droite et du vecteur normal au plan. Nous allons utiliser la figure \@ref(fig:angle-plans-droite) pour trouver une formule nous permettant de trouver l'angle entre une droite et un plan.
+
+```{tikz,echo=FALSE,fig.align="center",out.width="75%",fig.cap="La représentation de l'angle entre une droite et un plan.",label="angle-plans-droite"}
+\begin{tikzpicture}
+\draw[thick] (1,1)--(1,2.25) arc (90:108:1.25) node[midway,above] {$\beta$};
+\draw[thick] (1,1)--(0.5,1) arc (180:108:0.5) node[midway,above left] {$\theta$};
+
+\draw[red,very thick] (1,1)--(1.5,-0.5);
+\draw[fill=blue,fill opacity=0.5] (-0.5,2)--(-3.5,-0.5)--(2,-0.5)--(5,2)--cycle;
+\draw[red,very thick] (0.16,3.5)--(1,1);
+\draw[->,>=stealth] (-1,0)--(4,0) node[right] {$y$};
+\draw[->,>=stealth] (0,-1)--(0,4) node[above] {$z$};
+\draw[->,>=stealth] (0.5,0.5)--(-1,-1) node[below left] {$x$};
+
+\draw[very thick,blue,->,>=stealth] (1,1)--(1,3) node[above] {$\vec n$};
+\draw[very thick,green,->,>=stealth] (1,1)--(0.5,2.5) node[left] {$\vec u$};
+\draw[very thick,dashed] (1,1)--(-1,1);
+
+\tikzstyle{mystyle}=[draw,circle,inner sep=1pt,fill]
+\coordinate [mystyle] (P) at (1,1);
+\end{tikzpicture}
+``` 
+
+Nous désirons trouver l'angle $\theta$ entre la droite et le plan mais si nous utilisons le vecteur directeur de la droite ainsi que le vecteur normal au plan, nous trouverons en fait l'angle $\beta$. Il est clair que ces deux angles sont reliés par la formule suivante:
+\begin{align*}
+\theta + \beta &= 90^{\circ} \\
+\theta &= 90^{\circ}-\beta
+\end{align*}
+
+Nous trouvons donc l'angle entre le vecteur directeur et le vecteur normal et nous trouvons ensuite l'angle complémentaire entre $\beta$ et $90^{\circ}$.
+
+```{example}
+Trouvez l'angle entre la droite et le plan de l'exemple \@ref(exm:droite-plan-secants).
+```
+
+### La distance entre un point et un plan, la distance entre une droite et un plan et la distance entre deux plans
+
+Nous verrons dans cette sous-section que les problèmes de distance suivants se résument tous à la résolution d'un seul et même problème.
+
+  1. La distance entre un point et un plan.
+  1. La distance entre une droite et un plan.
+  1. La distance entre deux plans.
+
+Si nous savons comment trouver la distance entre un point et un plan, nous serons en mesure de résoudre tous les problèmes de distance énumérés ci-dessus.
+
+Soit un point $Q$ et un plan passant par le point $P$ et dont le vecteur normal est $\vec n$. La figure \@ref(fig:distance-point-droite) représente la situation.
+
+```{tikz,echo=FALSE,fig.align="center",out.width="75%",fig.cap="La représentation de la distance entre un point et un plan.",label="distance-point-droite"}
+\begin{tikzpicture}
+\draw[very thick,blue,->,>=stealth] (1,1)--(1,3) node[above] {$\vec n$};
+\draw[fill=blue,fill opacity=0.5] (-0.5,2)--(-3.5,-0.5)--(2,-0.5)--(5,2)--cycle;
+
+\tikzstyle{mystyle}=[draw,circle,inner sep=1pt,fill]
+\coordinate [mystyle,label=right:$R$] (R) at (1,1);
+\coordinate [mystyle,label=right:$Q$] (Q) at (1,2.5);
+\coordinate [mystyle,label=left:$P$] (P) at (-1,0.5);
+
+\draw[->,>=stealth] (-1,0)--(4,0) node[right] {$y$};
+\draw[->,>=stealth] (0,-1)--(0,4) node[above] {$z$};
+\draw[->,>=stealth] (0.5,0.5)--(-1,-1) node[below left] {$x$};
+
+\draw[very thick,red] (P)--(Q);
+\draw[very thick,dashed] (P)--(R);
+\end{tikzpicture}
+``` 
+
+La distance entre le point $Q$ et le plan est donnée par la longueur du vecteur $\overrightarrow{RQ}$. Remarquons que le vecteur $\overrightarrow{RQ}$ correspond à la projection orthogonale du vecteur $\overrightarrow{PQ}$ sur le vecteur normal $\vec n$, c'est-à-dire que:
+\begin{align*}
+\overrightarrow{RQ} &= \overrightarrow{PQ}_{\overrightarrow{n}} \\
+&= \left(\dfrac{\overrightarrow{PQ}\cdot \vec n}{\vec n \cdot \vec n}\right)\vec n
+\end{align*}
+La longueur du vecteur $\overrightarrow{RQ}$ est donc:
+\begin{align*}
+d &= \lVert\overrightarrow{RQ}\rVert \\
+&= \left\lVert\left(\dfrac{\overrightarrow{PQ}\cdot \vec n}{\vec n \cdot \vec n}\right)\vec n\right\rVert \\
+&= \left|\dfrac{\overrightarrow{PQ}\cdot \vec n}{\lVert\vec n\rVert^2}\right| \lVert\vec n\rVert \\
+&= \dfrac{|\overrightarrow{PQ}\cdot \vec n|}{\lVert\vec n\rVert}
+\end{align*}
+
+Il est également possible de trouver le point $R$ qui est le point sur le plan le plus près de $Q$. Nous avons:
+\begin{align*}
+\overrightarrow{OR} &= \overrightarrow{OQ}+\overrightarrow{QR} \\
+&= \overrightarrow{OQ}+\overrightarrow{QP}_{\overrightarrow{n}} \\
+&= \overrightarrow{OQ}+\left(\dfrac{\overrightarrow{QP}\cdot \vec n}{\vec n \cdot \vec n}\right)\vec n
+\end{align*}
+
+```{example}
+Trouvez la distance entre le point $Q=(5,2,3)$ et le plan $3(x-1)+2(y+2)-2(z+1)=0$.
+```
+
+```{example}
+Trouvez la distance entre le point $Q=(1,2,3)$ et le plan $3(x-1)+2(y+2)-2(z+1)=0$.
+```
+
+La technique précédente peut être utilisée pour trouver la distance entre une droite et un plan, si la droite est parallèle au plan. La figure suivante représente la situation.
+
+
