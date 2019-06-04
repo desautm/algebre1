@@ -1035,3 +1035,162 @@ De plus, dans $\mathbb{R}^3$, deux plans peuvent se retrouver dans trois situati
   1. Deux plans peuvent être parallèles confondus, c'est-à-dire qu'ils forment un seul et même plan.
   1. Deux plans peuvent être parallèles distincts, c'est-à-dire qu'ils ne se touchent jamais.
   1. Deux plans peuvent être non-parallèles, c'est-à-dire que leur intersection est une droite de $\mathbb{R}^3$.
+  
+```{tikz,echo=FALSE,fig.align="center",out.width="95%",fig.cap="De gauche à droite, deux plans parallèles confondus, deux plans parallèles distincts et des plans sécants.",label="positions-relatives-plans"}
+\begin{tikzpicture}[scale=0.5]
+
+\draw[fill=blue,fill opacity=0.5] (-0.5,3)--(-3.5,0)--(1.5,-1)--(4.5,2)--cycle;
+\draw[fill=red,fill opacity=0.5] (-0.5,3)--(-3.5,0)--(1.5,-1)--(4.5,2)--cycle;
+\draw[->,>=stealth] (-1,0)--(4,0) node[right] {$y$};
+\draw[->,>=stealth] (0,-1)--(0,4) node[above] {$z$};
+\draw[->,>=stealth] (0.5,0.5)--(-2,-2) node[below left] {$x$};
+
+\begin{scope}[shift={(9cm,0cm)}]
+\draw[fill=blue,fill opacity=0.5] (-0.5,3)--(-3.5,0)--(1.5,-1)--(4.5,2)--cycle;
+\draw[fill=red,fill opacity=0.5] (-0.5,3.75)--(-3.5,0.75)--(1.5,-0.25)--(4.5,2.75)--cycle;
+\draw[->,>=stealth] (-1,0)--(4,0) node[right] {$y$};
+\draw[->,>=stealth] (0,-1)--(0,4) node[above] {$z$};
+\draw[->,>=stealth] (0.5,0.5)--(-2,-2) node[below left] {$x$};
+\end{scope}
+
+\begin{scope}[shift={(18cm,0cm)}]
+\draw[fill=red,fill opacity=0.5] (-0.75,-1.5)--(2.25,2)--(5,1)--(2,-2.5)--cycle;
+\draw[fill=blue,fill opacity=0.5] (-0.5,2)--(-3.5,-1.5)--(2,-1.5)--(5,2)--cycle;
+\draw[fill=red,fill opacity=0.5] (-0.75,-1.5)--(2.25,2)--(-0.5,3)--(-3.5,-0.5)--cycle;
+\draw[->,>=stealth] (-1,0)--(4,0) node[right] {$y$};
+\draw[->,>=stealth] (0,-1)--(0,4) node[above] {$z$};
+\draw[->,>=stealth] (0.5,0.5)--(-2,-2) node[below left] {$x$};
+\end{scope}
+
+\end{tikzpicture}
+```
+
+À l'aide des trois situations précédentes, nous pouvons détailler une technique pour être en mesure, à partir de deux plans, de savoir quelle est la position relative de ces plans.
+
+
+  1. Trouvez les vecteurs normaux de chacun des plans.
+  1. Si les vecteurs normaux sont parallèles, les plans sont parallèles.
+
+      - Trouvez un point sur un des plans et vérifiez s'il fait partie de l'autre plan. 
+      - Si oui, les plans sont parallèles confondus.
+      - Sinon, les plans sont parallèles distincts.
+
+  1. Si les vecteurs normaux ne sont pas parallèles, les plans ne sont pas parallèles.
+
+      - Nous devons trouver le système d'équations linéaires correspondant à l'égalité entre les deux plans.
+      - Le système d'équations linéaires possédera une infinité de solutions qui correspond à l'équation de la droite représentant l'intersection des deux plans.
+
+Nous allons maintenant faire quelques exemples pour être en mesure de trouver la position relative de deux plans.
+
+```{example}
+Trouvez la position relative des deux plans suivants:
+\begin{align*}
+P_1 :& 5(x-3)+(y-4)-4(z+4) = 0 \\
+P_2 :& -10(x+2)-2(y-1)+8(z-5) = 0
+\end{align*}
+```
+
+```{example}
+Trouvez la position relative des deux plans suivants:
+\begin{align*}
+P_1 :& \ 5(x-5)+3(z-5) = 0 \\
+P_2 :& \ 3(x+4)+5(y+1)+2(z-5) = 0
+\end{align*}
+```
+
+Lorsque nous avons trois plans de l'espace, l'intersection est en général un point, comme nous pouvons le visualiser sur la figure suivante. En effet, puisque l'intersection de deux plans est en général une droite, en ajoutant un troisième plan, nous obtenons l'intersection d'une droite et d'un plan, qui est en général un point, comme représenté à la figure \@ref(fig:intersection-trois-plans-point)
+
+```{tikz,echo=FALSE,fig.align="center",out.width="75%",fig.cap="Un exemple d'intersection de trois plans.",label="intersection-trois-plans-point"}
+\begin{tikzpicture}
+%HAUT ROUGE
+\draw[fill=red,fill opacity=0.5] (0,3)--(-1,2.25)--(4,2.25)--(5,3)--cycle;
+%HAUT BLEU ARRIÈRE
+\draw[fill=blue,fill opacity=0.5] (3,2.25)--(3,2.75)--(4,3.5)--(4,3)--cycle;
+%BAS BLEU ARRIÈRE
+\draw[fill=blue,fill opacity=0.5] (3,2.25)--(4,3)--(4,-0.25)--(3,-1)--cycle;
+%HAUT VERT
+\draw[fill=green,fill opacity=0.5] (-1,2.25)--(-1,2.75)--(4,2.75)--(4,2.25)--cycle;
+%BAS VERT
+\draw[fill=green,fill opacity=0.5] (-1,2.25)--(-1,-1)--(4,-1)--(4,2.25)--cycle;
+%BAS ROUGE
+\draw[fill=red,fill opacity=0.5] (-1,2.25)--(-2,1.5)--(3,1.5)--(4,2.25)--cycle;
+%HAUT BLEU AVANT
+\draw[fill=blue,fill opacity=0.5] (2,1.5)--(2,2)--(3,2.75)--(3,2.25)--cycle;
+%BAS BLEU AVANT
+\draw[fill=blue,fill opacity=0.5] (2,1.5)--(3,2.25)--(3,-1)--(2,-1.75)--cycle;
+
+\draw[->,>=stealth] (-1,0)--(4.5,0) node[right] {$y$};
+\draw[->,>=stealth] (0,-1)--(0,4) node[above] {$z$};
+\draw[->,>=stealth] (0.5,0.5)--(-2,-2) node[below left] {$x$};
+
+\tikzstyle{mystyle}=[draw,circle,inner sep=1.25pt,fill]
+\coordinate [mystyle] (P) at (3,2.25);
+
+\end{tikzpicture}
+```
+
+```{example}
+Trouvez la position relative des trois plans suivants:
+\begin{align*}
+P_1 :& \ 3x+4y-4z = -5 \\
+P_2 :& \ x-4y-2z = -1 \\
+P_3 :& \ 5x+5y-4z = -5
+\end{align*}
+```
+
+### La position relative d'une droite et d'un plan
+
+Nous allons maintenant étudier les positions relatives d'une droite et d'un plan de l'espace. Soit une droite et un plan de l'espace, nous désirons savoir s'ils s'intersectent ou non.
+
+Soit une droite et un plan de $\mathbb{R}^3$:
+\begin{align*}
+D :& \begin{cases}
+x &=& x_0+tu_1 \\
+y &=& y_0+tu_2 \\
+z &=& z_0+tu_3
+\end{cases} 
+\ \text{où } t\in\mathbb{R} \\
+P :& \ a(x-x_1)+b(y-y_1)+c(z-z_1)=0 
+\end{align*}
+Pour déterminer si la droite et le plan se croisent, il suffit de remplacer les équations paramétriques de la droite dans l'équation cartésienne du plan, c'est-à-dire:
+
+\begin{align*}
+a(x-x_1)+b(y-y_1)+c(z-z_1) &= 0 \\
+a(x_0+tu_1-x_1)+b(y_0+tu_2-y_1)+c(z_0+tu_3-z_1) &\overset{?}{=} 0 \\
+-(a(x_0-x_1)+b(y_0-y_1)+c(z_0-z_1)) &\overset{?}{=} t(au_1+bu_2+cu_3) \\
+\dfrac{-(a(x_0-x_1)+b(y_0-y_1)+c(z_0-z_1))}{au_1+bu_2+cu_3} &= t
+(\#eq:position-relative-plan-droite)
+\end{align*}
+
+L'équation \@ref(eq:position-relative-plan-droite) possède une solution uniquement si le dénominateur est différent de zéro, c'est-à-dire si:
+\begin{align*}
+au_1+bu_2+cu_3 &\neq 0 \\
+[a,b,c]\cdot[u_1,u_2,u_3] &\neq 0 \\
+\vec n \cdot \vec u &\neq 0
+\end{align*}
+
+L'équation \@ref(eq:position-relative-plan-droite) indique que le produit scalaire entre le vecteur normal au plan et le vecteur directeur de la droite ne doit à être égal à zéro. Ceci signifie que si le produit scalaire entre le vecteur normal au plan et le vecteur directeur de la droite est égal à zéro, nous ne pouvons pas trouver de valeur de $t$ pour résoudre l'équation. De plus, si le produit scalaire est nul, ceci signifie également que les vecteurs $\vec n$ et $\vec u$ sont perpendiculaires.
+
+Dans $\mathbb{R}^3$, une droite et un plan peuvent se retrouver dans trois situations différentes.
+
+  1. Une droite et un plan peuvent être parallèles confondus, c'est-à-dire que la droite fait partie du plan.
+  1. Une droite et un plan peuvent être parallèles distincts, c'est-à-dire qu'ils ne se touchent jamais.
+  1. Une droite et un plan peuvent être non-parallèles, c'est-à-dire que leur intersection est un point de $\mathbb{R}^3$.
+
+Nous pouvons représenter graphiquement ces trois situations comme à la figure
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
