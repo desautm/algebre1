@@ -1018,10 +1018,10 @@ Si les deux plans se croisent, alors le système d'équations linéaires posséd
 \begin{align*}
 ax+by+cz &= -(ax_1+by_1+cz_1) \\
 dx+ey+fz &= -(dx_2+ey_2+fz_2)
-(\#eq:equation-position-relative-plan)
+(\#eq:equation_position_relative_plan)
 \end{align*}
 
-Le système d'équations linéaires \@ref(eq:equation-position-relative-plan) possède deux équations et trois inconnues, $x$, $y$ et $z$. Ce système peut posséder deux types de solutions:
+Le système d'équations linéaires \@ref(eq:equation_position_relative_plan) possède deux équations et trois inconnues, $x$, $y$ et $z$. Ce système peut posséder deux types de solutions:
 
   1. Aucune solution, ce qui signifie que les plans ne se croisent jamais.
   1. Une infinité de solutions, ce qui signifie que les plans se croisent.
@@ -1145,9 +1145,9 @@ Nous allons maintenant étudier les positions relatives d'une droite et d'un pla
 Soit une droite et un plan de $\mathbb{R}^3$:
 \begin{align*}
 D :& \begin{cases}
-x &=& x_0+tu_1 \\
-y &=& y_0+tu_2 \\
-z &=& z_0+tu_3
+x &= x_0+tu_1 \\
+y &= y_0+tu_2 \\
+z &= z_0+tu_3
 \end{cases} 
 \ \text{où } t\in\mathbb{R} \\
 P :& \ a(x-x_1)+b(y-y_1)+c(z-z_1)=0 
@@ -1159,17 +1159,17 @@ a(x-x_1)+b(y-y_1)+c(z-z_1) &= 0 \\
 a(x_0+tu_1-x_1)+b(y_0+tu_2-y_1)+c(z_0+tu_3-z_1) &\overset{?}{=} 0 \\
 -(a(x_0-x_1)+b(y_0-y_1)+c(z_0-z_1)) &\overset{?}{=} t(au_1+bu_2+cu_3) \\
 \dfrac{-(a(x_0-x_1)+b(y_0-y_1)+c(z_0-z_1))}{au_1+bu_2+cu_3} &= t
-(\#eq:position-relative-plan-droite)
+(\#eq:position_plan_droite)
 \end{align*}
 
-L'équation \@ref(eq:position-relative-plan-droite) possède une solution uniquement si le dénominateur est différent de zéro, c'est-à-dire si:
+L'équation \@ref(eq:position_plan_droite) possède une solution uniquement si le dénominateur est différent de zéro, c'est-à-dire si:
 \begin{align*}
 au_1+bu_2+cu_3 &\neq 0 \\
 [a,b,c]\cdot[u_1,u_2,u_3] &\neq 0 \\
 \vec n \cdot \vec u &\neq 0
 \end{align*}
 
-L'équation \@ref(eq:position-relative-plan-droite) indique que le produit scalaire entre le vecteur normal au plan et le vecteur directeur de la droite ne doit à être égal à zéro. Ceci signifie que si le produit scalaire entre le vecteur normal au plan et le vecteur directeur de la droite est égal à zéro, nous ne pouvons pas trouver de valeur de $t$ pour résoudre l'équation. De plus, si le produit scalaire est nul, ceci signifie également que les vecteurs $\vec n$ et $\vec u$ sont perpendiculaires.
+L'équation \@ref(eq:position_plan_droite) indique que le produit scalaire entre le vecteur normal au plan et le vecteur directeur de la droite ne doit à être égal à zéro. Ceci signifie que si le produit scalaire entre le vecteur normal au plan et le vecteur directeur de la droite est égal à zéro, nous ne pouvons pas trouver de valeur de $t$ pour résoudre l'équation. De plus, si le produit scalaire est nul, ceci signifie également que les vecteurs $\vec n$ et $\vec u$ sont perpendiculaires.
 
 Dans $\mathbb{R}^3$, une droite et un plan peuvent se retrouver dans trois situations différentes.
 
