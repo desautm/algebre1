@@ -833,7 +833,76 @@ Trouvez les deux points les plus près des droites de l'exemple \@ref(exm:droite
 
 ## Les plans de l'espace
 
+Dans cette section, nous allons définir les équations qui nous permettent de décrire les plans de l'espace. Nous étudierons également la distance entre un point et un plan, la distance entre deux plans et la position relative de deux plans.
 
+### L'équation vectorielle du plan de l'espace
+
+Il est possible de trouver une équation vectorielle du plan de l'espace, tout comme nous avons trouvé une équation vectorielle pour une droite de l'espace.
+
+Soit $P_0$ un point faisant partie du plan et $\vec u$, $\vec v$ deux vecteurs non parallèles se trouvant dans le plan. Nous voulons trouver une équation nous permettant de trouver un point $P$ faisant partie du plan. À l'aide de la figure suivante, nous pourrons trouver cette équation.
+
+<iframe scrolling="no" title="Plan de l'espace" src="https://www.geogebra.org/material/iframe/id/et4mk7ev/width/700/height/500/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="700px" height="500px" style="border:0px;"> </iframe>
+
+Soit $P$ un point quelconque du plan. Nous pouvons dire que:
+\begin{align*}
+\overrightarrow{OP} &= \overrightarrow{OP_0} + \vec a
+\end{align*}
+Remarquons que le vecteur $\vec a$ peut s'écrire comme une combinaison linéaire des vecteurs $\vec u$ et $\vec v$, c'est-à-dire que:
+\begin{align*}
+\vec a &= s\vec u + t \vec v
+\end{align*}
+où $s,t\in\mathbb{R}$. Nous avons donc:
+\begin{align*}
+\overrightarrow{OP} &= \overrightarrow{OP_0} + \vec a \\
+&= \overrightarrow{OP_0} + s\vec u + t \vec v
+\end{align*}
+où $s,t\in\mathbb{R}$. L'équation précédente est l'équation vectorielle d'un plan.
+
+```{definition,name="L'équation vectorielle d'un plan de l'espace"}
+Nous pouvons maintenant donner la définition de l'équation vectorielle d'un plan de l'espace.
+Soit $P_0=\lr{x_0,y_0,z_0}$ un point d'une droite et $u=\crochet{u_1,u_2,u_3}$ et $v=\crochet{v_1,v_2,v_3}$ deux vecteurs directeurs de ce plan. L'équation vectorielle de ce plan est donnée par:
+\begin{align*}
+\overrightarrow{r} &= \overrightarrow{r_0}+s\overrightarrow{u}+t\overrightarrow{v} \\
+[x,y,z] &= [x_0,y_0,z_0]+s[u_1,u_2,u_3]+t[v_1,v_2,v_3]
+\end{align*}}
+où $s,t\in\mathbb{R}$.
+```
+
+Les paramètres $s$ et $t$ nous permettent d'obtenir tous les points du plan par combinaison linéaire.
+
+Nous pouvons définir de "nouvelles" équations de droites à l'aide de la définition de l'équation vectorielle d'une droite.
+
+```{definition,name="Les équations paramétriques d'un plan de $\\mathbb{R}^3$"}
+Soit $P_0=(x_0,y_0,z_0)$ un point d'une plan et $u=[u_1,u_2,u_3]$, $v=[v_1,v_2,v_3]$ les vecteurs directeurs de ce plan. Nous savons que l'équation vectorielle de ce plan est donnée par:
+\begin{align*}
+\overrightarrow{r} &= \overrightarrow{r_0}+s\overrightarrow{u}+t\overrightarrow{v} \\
+[x,y,z] &= [x_0,y_0,z_0]+s[u_1,u_2,u_3]+t[v_1,v_2,v_3]
+\end{align*}
+où $s,t\in\mathbb{R}$.
+
+Puisque l'équation vectorielle d'un plan correspond à une égalité entre deux vecteurs et que deux vecteurs sont égaux lorsque leurs composantes respectives sont égales, nous pouvons écrire:
+\begin{align*}
+x &= x_0 + su_1 + tv_1 \\
+y &= y_0 + su_2 + tv_2 \\
+z &= z_0 + su_3 + tv_3 \\
+\end{align*}
+où $s,t\in\mathbb{R}$. Les équations précédentes sont nommées les équations paramétriques d'un plan de $\mathbb{R}^3$.
+```
+
+Le prochain exemple permettra de voir comment nous pouvons trouver l'équation d'une droite et ensuite l'utiliser pour trouver certains points de la droite.
+
+```{example}
+Soit les points $A=(3,2,1)$, $B=(-4,0,2)$ et $C=(1,1,2)$ faisant partie du plan $D$.
+
+  a. Trouvez deux vecteurs directeurs du plan $D$.
+  a. Trouvez l'équation vectorielle du plan $D$.
+  a. Utilisez l'équation trouvée en b) pour trouver deux points du plan $D$ autres que $A$, $B$ et $C$.
+  a. Est-ce que le point $E=(-8,1,-1)$ fait partie du plan $D$?
+  a. Est-ce que le point $F=(-15,-2,1)$ fait partie du plan $D$?
+
+```
+
+### L'équation normale du plan de l'espace
 
 
 
