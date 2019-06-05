@@ -15,12 +15,12 @@ En d'autres mots, $\sum_{i=1}^n a_i$ symbolise la somme des nombres obtenue en l
 
 Voici maintenant les propriétés des sommations que nous utiliserons dans ce volume.
 
-  1. $\sum\limits_{i=a}^b k = k \lr{b-a+1}$
+  1. $\sum\limits_{i=a}^b k = k (b-a+1)$
   1. $\sum\limits_{i=a}^b f(i) = \sum\limits_{j=a}^b f(j) = \sum\limits_{k=a}^b f(k) = \ldots$
   1. $\sum\limits_{i=a}^b k f(i) = k \sum\limits_{i=a}^b f(i)$
-  1. $\sum\limits_{i=a}^b \lr{f(i)\pm g(i)} = \sum\limits_{i=a}^b f(i) \pm \sum\limits_{i=a}^b g(i)$
+  1. $\sum\limits_{i=a}^b (f(i)\pm g(i)) = \sum\limits_{i=a}^b f(i) \pm \sum\limits_{i=a}^b g(i)$
   1. $\sum\limits_{i=a}^b \sum\limits_{j=c}^d f(i,j) = \sum\limits_{j=c}^d \sum\limits_{i=a}^b f(i,j)$
-  1. $\sum\limits_{i=a}^b \sum\limits_{j=c}^d f(i,j)g(i) = \sum\limits_{i=a}^b g(i) \lr{\sum\limits_{j=c}^d f(i,j)}$
+  1. $\sum\limits_{i=a}^b \sum\limits_{j=c}^d f(i,j)g(i) = \sum\limits_{i=a}^b g(i) \left(\sum\limits_{j=c}^d f(i,j)\right)$
 
 
 

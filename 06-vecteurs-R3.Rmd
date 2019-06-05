@@ -51,6 +51,9 @@ Un système de coordonnées cartésiennes tridimensionnelles est formé d'une or
   ylabel style={right}
 ]
 
+\tikzstyle{mystyle}=[draw,circle,inner sep=1pt,fill]
+\coordinate [mystyle,label=above:{$P=(x_0,y_0,z_0)$}] (P) at (2,3,2.5);
+
 \end{axis}
 
 \end{tikzpicture}
@@ -60,7 +63,154 @@ Pour représenter un point à l'aide des coordonnées cartésiennes tridimension
 \begin{align*}
 P(x_1,y_1,z_1)
 \end{align*}
-Le premier élément du 3-uplet représente la position sur l'axes des $x$, le second élément du 3-uplet représente la position sur l'axes des $y$ et enfin le troisième élément du 3-uplet représente la position sur l'axes des $z$. En particulier, l'origine $O$ est représentée comme $O(0,0,0)$. Pour faciliter la visualisation, nous pouvons afficher des lignes pointillées pour situer le point sur les trois axes.
+Le premier élément du 3-uplet représente la position sur l'axes des $x$, le second élément du 3-uplet représente la position sur l'axes des $y$ et enfin le troisième élément du 3-uplet représente la position sur l'axes des $z$. En particulier, l'origine $O$ est représentée comme $O(0,0,0)$. Pour faciliter la visualisation, nous pouvons afficher des lignes pointillées pour situer le point sur les trois axes, comme à la figure \@ref(fig:position-point-R3).
+
+```{tikz,echo=FALSE,fig.align="center",,engine.opts = list(template = "resources/tikztemplate/mytikz.tex"),fig.cap="La représentation d'un point en coordonnées cartésiennes tridimensionnelles",label="position-point-R3"}
+\begin{tikzpicture}
+
+\begin{axis}[
+  unit vector ratio*=1 1 1,
+  scale=2,
+  view={120}{25},
+  axis lines=center,
+  xmin=-2,
+  xmax=5.5,
+  ymin=-2,
+  ymax=5.5,
+  zmin=-2,
+  zmax=4.5,
+  xlabel={$x$},
+  ylabel={$y$},
+  zlabel={$z$},
+  xlabel style={below},
+  ylabel style={right},
+  ticks=none
+]
+
+\tikzstyle{mystyle}=[draw,circle,inner sep=1pt,fill]
+\coordinate [mystyle,label=right:{$P=(x_0,y_0,z_0)$}] (P) at (2,3,3.5);
+
+\draw[dashed] (2,0,0)--(2,3,0)--(2,3,3.5);
+\draw[dashed] (2,0,0)--(2,0,3.5)--(2,3,3.5);
+\draw[dashed] (0,0,0)--(0,0,3.5)--(2,0,3.5);
+\draw[dashed] (2,3,0)--(0,3,0)--(0,3,3.5)--(2,3,3.5);
+\draw[dashed] (0,0,3.5)--(0,3,3.5);
+
+\node[above left] at (2,0,0) {$x_0$};
+\node[above right] at (0,3,0) {$y_0$};
+\node[above left] at (0,0,3.5) {$z_0$};
+
+\end{axis}
+
+\end{tikzpicture}
+```
+
+```{example}
+Représentez les points $P(1,2,3)$, $Q(-2,-3,2)$ et $R(0,0,-4)$ dans le même espace cartésien.
+```
+
+Nous allons maintenant donner la définition d'un vecteur dans $\mathbb{R}^3$.
+
+```{definition,name="Les vecteurs de $\\mathbb{R}^3$"}
+Soit $A$ et $B$ deux points distincts représentés par des coordonnées cartésiennes tridimensionnelles. Le vecteur $\overrightarrow{AB}$ peut être représenté par une flèche ayant comme origine le point $A$ et comme arrivée le point $B$. L'emplacement du vecteur dans l'espace n'a pas d'importance. Deux déplacements de deux points d'origine distincts peuvent correspondre au même vecteur. Les seules informations importantes d'un vecteur sont:
+
+  - Direction; Le segment de droite reliant le point $A$ au point $B$.
+  - Sens; Il y a deux sens de parcours possible, du point $A$ au point $B$ ou l'inverse. Par convention, le sens du vecteur $\overrightarrow{AB}$ est du point $A$ vers le point $B$, tandis que le sens du vecteur $\overrightarrow{BA}$ est du point $B$ vers le point $A$.
+  - Norme; La longueur du segment de droite reliant le point $A$ au point $B$.
+
+
+```
+
+SUITE...
+
+
+## Les produits de vecteurs
+
+Dans cette section, nous verrons le produit scalaire qui est définit pour les vecteurs de $\mathbb{R}^n$. Nous verrons ensuite le produit vectoriel qui n'est définit que pour les vecteurs $\mathbb{R}^3$. Enfin, nous discuterons du produit mixte, qui n'est en fait qu'un produit vectoriel suivi d'un produit scalaire.
+
+### Le produit scalaire
+
+Le produit scalaire est une opération mathématique qui à partir de deux vecteurs de même dimension retourne un nombre.
+
+```{definition,name="Le produit scalaire"}
+Soit $\overrightarrow{u}$ et $\overrightarrow{v}$ deux vecteurs de $\mathbb{R}^n$. Le produit scalaire de $\overrightarrow{u}$ et $\overrightarrow{v}$, noté $\overrightarrow{u}\cdot \overrightarrow{v}$, est donné par:
+\begin{align*}
+\overrightarrow{u} \cdot \overrightarrow{v} &= \sum_{k=1}^n u_kv_k
+\end{align*}
+
+Puisque nous avons définit les vecteurs comme des matrices colonnes, nous pouvons écrire le produit scalaire de la façon suivante:
+\begin{align*}
+\overrightarrow{u} \cdot \overrightarrow{v} &= \overrightarrow{u}^T \overrightarrow{v} = 
+\begin{bmatrix}
+u_1 & u_2 & \ldots & u_n
+\end{bmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2 \\
+\vdots \\
+v_n
+\end{bmatrix}
+\end{align*}
+où le produit entre les deux matrices est le produit **matriciel**.
+```
+
+```{example}
+Soit les vecteurs suivants:
+\begin{align*}
+\overrightarrow{u}=\begin{bmatrix}
+3\\
+4\\
+-4\\
+5\\
+\end{bmatrix}
+\qquad 
+\overrightarrow{v}=\begin{bmatrix}
+-2\\
+-4\\
+-2\\
+1\\
+\end{bmatrix}
+\qquad 
+\overrightarrow{w}=\begin{bmatrix}
+0\\
+2\\
+-4\\
+0\\
+\end{bmatrix}
+\end{align*}
+Trouvez les produits scalaires suivants:
+
+  a. $\overrightarrow{u}\cdot\overrightarrow{v}$
+  a. $\overrightarrow{u}\cdot\overrightarrow{w}$
+  a. $\overrightarrow{v}\cdot\overrightarrow{w}$
+
+```
+
+L'exemple précédent nous montre que le produit scalaire de deux vecteurs peut être positif, négatif ou nul.
+
+Il est possible de définir une quantité très importante des vecteurs à l'aide du produit scalaire. En effet, la norme d'un vecteur est donnée par:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
