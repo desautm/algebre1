@@ -21,4 +21,7 @@ language:
     proof: 'Preuve. '
     remark: 'Remarque. '
     solution: 'Solution. '
-
+rmd_files: [
+  "index.Rmd",
+  "06-vecteurs-R3.Rmd"
+]

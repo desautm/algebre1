@@ -189,13 +189,59 @@ Trouvez les produits scalaires suivants:
 L'exemple précédent nous montre que le produit scalaire de deux vecteurs peut être positif, négatif ou nul.
 
 Il est possible de définir une quantité très importante des vecteurs à l'aide du produit scalaire. En effet, la norme d'un vecteur est donnée par:
+\begin{align*}
+\lVert\overrightarrow{u}\rVert &= \sqrt{u_1^2+u_2^2+\ldots +u_n^2} \\
+&= \sqrt{\sum_{k=1}^n u_k^2} \\
+&= \sqrt{\overrightarrow{u} \cdot \overrightarrow{u}} \qquad \text{(par définition du produit scalaire)}
+\end{align*}}
+Nous pouvons également écrire $\lVert\overrightarrow{u}\rVert^2=\overrightarrow{u} \cdot \overrightarrow{u}$.
+
+Nous définissons également la distance euclidienne $d$ entre deux vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$ de la façon suivante:
+\begin{align*}
+d = \lVert\overrightarrow{u}-\overrightarrow{v}\rVert
+\end{align*}
+
+Le produit scalaire possède plusieurs propriétés que nous allons énumérer dans le théorème qui suit.
+
+```{theorem,name="Les propriétés du produit scalaire"}
+Soit $\overrightarrow{u}$, $\overrightarrow{v}$ et $\overrightarrow{w}$ trois vecteurs de $\mathbb{R}^n$ et $c$ un scalaire.
+
+  1. $\overrightarrow{u}\cdot \overrightarrow{v} = \overrightarrow{v}\cdot \overrightarrow{u}$
+  1. $\overrightarrow{u}\cdot (\overrightarrow{v}+\overrightarrow{w})=\overrightarrow{u}\cdot \overrightarrow{v}+\overrightarrow{u}\cdot \overrightarrow{w}$
+  1. $c(\overrightarrow{u}\cdot \overrightarrow{v})=(c\overrightarrow{u})\cdot \overrightarrow{v}=\overrightarrow{u}\cdot (c\overrightarrow{v})$
+  1. $\overrightarrow{u}\cdot \overrightarrow{u} \geq 0$
+  1. $\overrightarrow{u}\cdot \overrightarrow{u} =0$ si et seulement si $\overrightarrow{u}=\overrightarrow{0}$
 
 
+```
 
+```{definition,name="L'interprétation géométrique du produit scalaire"}
+Soit $\overrightarrow{u}$ et $\overrightarrow{v}$ deux vecteurs de $\mathbb{R}^n$. Le produit scalaire de $\overrightarrow{u}$ et $\overrightarrow{v}$ est donné par:
+\begin{align*}
+\overrightarrow{u} \cdot \overrightarrow{v} &= \lVert\overrightarrow{u}\rVert\lVert\overrightarrow{v}\rVert\cos(\theta)
+\end{align*}
+où $\lVert\overrightarrow{u}\rVert$ est la norme du vecteur $\overrightarrow{u}$, $\lVert\overrightarrow{v}\rVert$ est la norme du vecteur $\overrightarrow{v}$ et $\theta$ est l'angle entre les vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$.
+```
 
+```{example}
+Soit $\overrightarrow{u}$ et $\overrightarrow{v}$ deux vecteurs de $\mathbb{R}^n$. Démontrez l'égalité suivante:
+\begin{align*}
+\lVert\overrightarrow{u}+\overrightarrow{v}\rVert^2=\lVert\overrightarrow{u}\rVert^2+\lVert\overrightarrow{v}\rVert^2+2(\overrightarrow{u}\cdot \overrightarrow{v})
+\end{align*}
+```
 
+```{example}
+Soit $\overrightarrow{u}$ et $\overrightarrow{v}$ deux vecteurs de $\mathbb{R}^n$. Démontrez l'égalité suivante:
+\begin{align*}
+\lVert\overrightarrow{u}-\overrightarrow{v}\rVert^2=\lVert\overrightarrow{u}\rVert^2+\lVert\overrightarrow{v}\rVert^2-2(\overrightarrow{u}\cdot \overrightarrow{v})
+\end{align*}
+```
 
+### Des applications
 
+```{example}
+BAG OF WORDS MODEL...
+```
 
 
 
