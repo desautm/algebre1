@@ -1,3 +1,66 @@
-# Les vecteurs de $\mathbb{R}^3$ {#vecteursR3}
+# Les vecteurs de $\mathbb{R}^n$ {#vecteursRn}
+
+Dans cette section, nous allons généraliser les notions de vecteurs dans $\mathbb{R}^2$ vues au chapitre \@ref(vecteursR2). Toutes les propriétés des vecteurs dans $\mathbb{R}^2$ ont leur analogue dans $\mathbb{R}^n$. De plus, nous nous attarderons plus particulièrement aux vecteurs dans $\mathbb{R}^3$ et à la façon de les représenter.
 
 ## Les vecteurs géométriques
+
+```{definition,name="Les vecteurs de $\\mathbb{R}^n$"}
+Un vecteur de $\mathbb{R}^n$, noté $\vec u$, est une matrice colonne composée de $n$ lignes.
+\begin{align*}
+\vec u &= \begin{bmatrix}
+a_1 \\
+a_2 \\
+\vdots \\
+a_n
+\end{bmatrix}
+\end{align*}
+Parfois, pour économiser de l'espace, nous représentons un vecteur sur une ligne de la façon suivante:
+\begin{align*}
+\vec u &= (a_1,a_2,\ldots,a_n)
+\end{align*}
+```
+
+Les vecteurs de $\mathbb{R}^n$ possèdent les mêmes propriétés que les vecteurs de $\mathbb{R}^2$.
+
+### La représentation géométrique des vecteurs de $\mathbb{R}^3$
+
+Comme pour les vecteurs de $\mathbb{R}^2$, il est possible de représenter graphiquement les vecteurs de $\mathbb{R}^3$. Pour ce faire, nous allons nous définir un système de coordonnées et nous allons voir comment représenter des points dans cet espace.
+
+```{definition,name="Les coordonnées cartésiennes tridimensionnelles"}
+Un système de coordonnées cartésiennes tridimensionnelles est formé d'une origine $O$, située à l'intersection des axes $x$, $y$ et $z$. Les axes $x$, $y$ et $z$ sont perpendiculaires entre eux. Les axes $y$ et $z$ sont l'analogue du plan cartésien dans l'espace en deux dimensions. L'axe des $x$ quant à lui doit être vu comme un axe qui "sort" de la page pour représenter la troisième dimension. La figure \@ref(fig:coordonnees-cartesiennes-R3) représente les coordonnées cartésiennes tridimensionnelles.
+```
+
+```{tikz,echo=FALSE,fig.align="center",,engine.opts = list(template = "resources/tikztemplate/mytikz.tex"),fig.cap="La représentation des coordonnées cartésiennes tridimensionnelles",label="coordonnees-cartesiennes-R3"}
+\begin{tikzpicture}
+
+\begin{axis}[
+  unit vector ratio*=1 1 1,
+  scale=4,
+  view={120}{25},
+  axis lines=center,
+  xmin=-2,
+  xmax=5.5,
+  ymin=-2,
+  ymax=5.5,
+  zmin=-2,
+  zmax=4.5,
+  xlabel={$x$},
+  ylabel={$y$},
+  zlabel={$z$},
+  xlabel style={below},
+  ylabel style={right}
+]
+
+\end{axis}
+
+\end{tikzpicture}
+```
+
+Pour représenter un point à l'aide des coordonnées cartésiennes tridimensionnelles, nous devrons le faire à l'aide d'un 3-uplet, c'est-à-dire un point formé de trois coordonnées. 
+\begin{align*}
+P(x_1,y_1,z_1)
+\end{align*}
+Le premier élément du 3-uplet représente la position sur l'axes des $x$, le second élément du 3-uplet représente la position sur l'axes des $y$ et enfin le troisième élément du 3-uplet représente la position sur l'axes des $z$. En particulier, l'origine $O$ est représentée comme $O(0,0,0)$. Pour faciliter la visualisation, nous pouvons afficher des lignes pointillées pour situer le point sur les trois axes.
+
+
+

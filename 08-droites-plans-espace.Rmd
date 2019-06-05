@@ -1015,11 +1015,11 @@ P_1 :& a(x-x_1)+b(y-y_1)+c(z-z_1)=0 \\
 P_2 :& d(x-x_2)+e(y-y_2)+f(z-z_2)=0
 \end{align*}
 Si les deux plans se croisent, alors le système d'équations linéaires possédera une solution:
-\begin{align*}
+\begin{align}
 ax+by+cz &= -(ax_1+by_1+cz_1) \\
 dx+ey+fz &= -(dx_2+ey_2+fz_2)
 (\#eq:equation_position_relative_plan)
-\end{align*}
+\end{align}
 
 Le système d'équations linéaires \@ref(eq:equation_position_relative_plan) possède deux équations et trois inconnues, $x$, $y$ et $z$. Ce système peut posséder deux types de solutions:
 
@@ -1098,7 +1098,7 @@ P_2 :& \ 3(x+4)+5(y+1)+2(z-5) = 0
 \end{align*}
 ```
 
-Lorsque nous avons trois plans de l'espace, l'intersection est en général un point, comme nous pouvons le visualiser sur la figure suivante. En effet, puisque l'intersection de deux plans est en général une droite, en ajoutant un troisième plan, nous obtenons l'intersection d'une droite et d'un plan, qui est en général un point, comme représenté à la figure \@ref(fig:intersection-trois-plans-point)
+Lorsque nous avons trois plans de l'espace, l'intersection est en général un point, comme nous pouvons le visualiser sur la figure suivante. En effet, puisque l'intersection de deux plans est en général une droite, en ajoutant un troisième plan, nous obtenons l'intersection d'une droite et d'un plan, qui est en général un point, comme représenté à la figure \@ref(fig:intersection-trois-plans-point).
 
 ```{tikz,echo=FALSE,fig.align="center",out.width="75%",fig.cap="Un exemple d'intersection de trois plans.",label="intersection-trois-plans-point"}
 \begin{tikzpicture}
@@ -1155,9 +1155,9 @@ P :& \ a(x-x_1)+b(y-y_1)+c(z-z_1)=0
 Pour déterminer si la droite et le plan se croisent, il suffit de remplacer les équations paramétriques de la droite dans l'équation cartésienne du plan, c'est-à-dire:
 
 \begin{align}
-a(x-x_1)+b(y-y_1)+c(z-z_1) &= 0 \\
-a(x_0+tu_1-x_1)+b(y_0+tu_2-y_1)+c(z_0+tu_3-z_1) &\overset{?}{=} 0 \\
--(a(x_0-x_1)+b(y_0-y_1)+c(z_0-z_1)) &\overset{?}{=} t(au_1+bu_2+cu_3) \\
+a(x-x_1)+b(y-y_1)+c(z-z_1) &= 0 \nonumber\\
+a(x_0+tu_1-x_1)+b(y_0+tu_2-y_1)+c(z_0+tu_3-z_1) &\overset{?}{=} 0 \nonumber\\
+-(a(x_0-x_1)+b(y_0-y_1)+c(z_0-z_1)) &\overset{?}{=} t(au_1+bu_2+cu_3) \nonumber\\
 \dfrac{-(a(x_0-x_1)+b(y_0-y_1)+c(z_0-z_1))}{au_1+bu_2+cu_3} &= t (\#eq:positionplandroite)
 \end{align}
 
@@ -1406,6 +1406,70 @@ Trouvez la distance entre le point $Q=(5,2,3)$ et le plan $3(x-1)+2(y+2)-2(z+1)=
 Trouvez la distance entre le point $Q=(1,2,3)$ et le plan $3(x-1)+2(y+2)-2(z+1)=0$.
 ```
 
-La technique précédente peut être utilisée pour trouver la distance entre une droite et un plan, si la droite est parallèle au plan. La figure suivante représente la situation.
+La technique précédente peut être utilisée pour trouver la distance entre une droite et un plan, si la droite est parallèle au plan. La figure \@ref(fig:distance-droite-plan) représente la situation.
+
+```{tikz,echo=FALSE,fig.align="center",out.width="75%",fig.cap="La représentation de la distance entre une droite et un plan parallèles.",label="distance-droite-plan"}
+\begin{tikzpicture}
+\draw[very thick,blue,->,>=stealth] (1,1)--(1,3) node[above] {$\vec n$};
+\draw[fill=blue,fill opacity=0.5] (-0.5,2)--(-3.5,-0.5)--(2,-0.5)--(5,2)--cycle;
+\draw[very thick,green] (-1,2.5)--(4,2.5) node[right] {$D$};
+
+\tikzstyle{mystyle}=[draw,circle,inner sep=1pt,fill]
+\coordinate [mystyle,label=right:$R$] (R) at (1,1);
+\coordinate [mystyle,label=right:$Q$] (Q) at (1,2.5);
+\coordinate [mystyle,label=left:$P$] (P) at (-1,0.5);
+
+\draw[->,>=stealth] (-1,0)--(4,0) node[right] {$y$};
+\draw[->,>=stealth] (0,-1)--(0,4) node[above] {$z$};
+\draw[->,>=stealth] (0.5,0.5)--(-1,-1) node[below left] {$x$};
+
+\draw[very thick,red] (P)--(Q);
+\draw[very thick,dashed] (P)--(R);
+\end{tikzpicture}
+``` 
+
+Il suffit de prendre un point $Q$ sur la droite et de calculer la distance entre ce point et le plan.
+
+De même, la technique précédente peut aussi être utilisée pour trouver la distance entre deux plans parallèles, comme représenté à la figure \@ref(fig:distance-plan-plan).
+
+```{tikz,echo=FALSE,fig.align="center",out.width="75%",fig.cap="La représentation de la distance entre deux plans parallèles.",label="distance-plan-plan"}
+\begin{tikzpicture}
+\draw[fill=blue,fill opacity=0.5] (-0.5,2)--(-3.5,-0.5)--(2,-0.5)--(5,2)--cycle;
+\draw[very thick,red] (-1,0.5)--(1,2.5);
+\draw[fill=red,fill opacity=0.5] (-0.5,3.25)--(-3.5,0.75)--(2,0.75)--(5,3.25)--cycle;
+\draw[very thick,blue,->,>=stealth] (1,1)--(1,3.5) node[above] {$\vec n_1$};
+
+\tikzstyle{mystyle}=[draw,circle,inner sep=1pt,fill]
+\coordinate [mystyle,label=right:$R$] (R) at (1,1);
+\coordinate [mystyle,label=above right:$Q$] (Q) at (1,2.5);
+\coordinate [mystyle,label=left:$P$] (P) at (-1,0.5);
+\coordinate [mystyle] (S) at (-0.75,2);
+
+\draw[->,>=stealth] (-1,0)--(4,0) node[right] {$y$};
+\draw[->,>=stealth] (0,-1)--(0,4) node[above] {$z$};
+\draw[->,>=stealth] (0.5,0.5)--(-1,-1) node[below left] {$x$};
+
+\draw[very thick,dashed] (P)--(R);
+\draw[very thick,red,->,>=stealth] (S)--(-0.75,3.25) node[above] {$\vec n_2$};
+\end{tikzpicture}
+``` 
+
+Il suffit de prendre un point sur le premier plan et de calculer la distance entre ce point et le second plan.
+
+```{example}
+INTERSECTION LIGNE-PLAN POUR VISION 3D...
+```
+
+## Les positions relatives de droites et de plans dans l'espace
+
+
+
+
+
+
+
+
+
+
 
 

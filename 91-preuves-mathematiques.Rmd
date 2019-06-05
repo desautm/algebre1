@@ -1,0 +1,272 @@
+# Les preuves en mathématiques {#preuves}
+
+En mathématiques, une démonstration (ou preuve) permet d'établir une assertion à partir de propriétés admises, ou précédemment démontrées, en s'appuyant sur un raisonnement logique. L'assertion une fois démontrée peut ensuite être elle-même utilisée dans d'autres démonstrations. Dans toute situation où les propriétés admises sont vraies, l'assertion démontrée est vraie ; nous ne pouvons la remettre en cause qu'en remettant en cause une ou plusieurs des hypothèses admises.
+
+Cette description peut s'avérer idéale. Il arrive qu'une démonstration s'appuie partiellement sur l'intuition, géométrique par exemple, et donc que toutes les propriétés admises, les axiomes, ne soient pas explicites. Les démonstrations que nous pouvons trouver dans les Éléments d'Euclide sont par exemple considérées encore aujourd'hui comme des modèles de rigueur, alors qu'Euclide s'appuie en partie sur des axiomes implicites, comme l'a montré David Hilbert dans ses « fondements de la géométrie ». Par ailleurs, les démonstrations des mathématiciens ne sont pas formelles et une démonstration peut être considérée comme correcte dans les grandes lignes, alors que des points resteraient à expliciter en toute rigueur, voire que d'autres sont entachés d'erreurs « mineures ». On rédige une démonstration pour être lu et convaincre les lecteurs, et le niveau de détails nécessaire n'est pas le même suivant les connaissances de ceux-ci.
+
+Il existe de nombreux types de preuves mathématiques:
+
+  - Preuves directes;
+  - Preuves par induction mathématique;
+  - Preuves par transposition;
+  - Preuves par contradiction;
+  - Preuves par construction;
+  - Preuves par épuisement;
+  - Preuves visuelles;
+  - Etc.
+
+Dans cette annexe, nous verrons plus particulièrement deux types de preu\-ves mathématiques, la preuve par contradiction et la preuve par induction mathématique. Nous verrons également la technique du contre-exemple, qui permet de démontrer qu'une assertion est fausse.
+
+## Les preuves par contradiction
+
+*Reductio ad absurbum* (Latin pour "réduction à l'absurde"), aussi connue comme un **argument apagogique**, **reductio ad impossibile**, ou **preuve par contradiction**, est un type d'argument logique où nous posons une hypothèse de départ et nous en déduisons un résultat absurde ou ridicule. Nous concluons ensuite que l'hypothèse de départ devait être fausse puisque celle-ci nous amène à un résultat absurde.
+
+Ce genre de raisonnement utilise la loi de non-contradiction, c'est-à-dire qu'un énoncé ne peut être à la fois vrai et à la fois faux. Dans certains cas, nous pouvons aussi faire appel à la loi du milieu exclus, c'est-à-dire qu'un énoncé doit être soit vrai, soit faux. 
+
+En mathématiques et en logique formelle, ce type de raisonnement réfère à un argument où une contradiction est trouvée à partir d'une hypothèse de départ (prouvant ainsi que cette hypothèse doit être fausse). 
+
+Pour montrer la façon d'écrire ce genre de preuves, voici deux exemples utilisant le raisonnement par contradiction.
+
+### Il existe une infinité de nombres premiers
+
+Un nombre premier est un nombre qui ne possède que 1 et lui-même comme diviseur. Voici la liste des premiers nombres premiers :
+\begin{align*}
+2,3,5,7,11,13,17,\ldots
+\end{align*}
+
+Au moment d'écrire ces lignes, le plus grand nombre premier découvert à ce jour est le quarante-huitième nombre de Mersenne $M_{82589933}=2^{82\ 589\ 933}-1$ dont voici l'écriture:
+
+> 148894445742041325547806458472397916603026273992795324185271289425213239361064475310309971132180337174752834401423587560 ...
+> (24,861,808 décimales omises)
+> ... 062107557947958297531595208807192693676521782184472526640076912114355308311969487633766457823695074037951210325217902591
+
+Ce nombre possède 24 862 048 décimales, il a été découvert par Patrick Laroche du [Great Internet Mersenne Prime Search](https://en.wikipedia.org/wiki/Great_Internet_Mersenne_Prime_Search) (GIMPS) en 2018. Vous pouvez également avoir une petite idée de la façon dont les algorithmes peuvent démontrer qu'un nombre est premier en écoutant cette capsule de [Numberphile](https://www.youtube.com/watch?v=tlpYjrbujG0).
+
+Voici le résultat que nous désirons prouver.
+```{theorem}
+Il existe une infinité de nombres premiers.
+```
+```{proof}
+Puisque nous désirons utiliser la preuve par contradiction et que nous voulons montrer qu'il existe une infinité de nombres premiers, nous allons supposer le contraire.
+
+C'est-à-dire, posons comme hypothèse de départ qu'il n'existe qu'un nombre fini de nombres premiers, dont voici la liste:
+\begin{align*}
+2,3,5,7,11,13,17,\ldots,p
+\end{align*}
+
+Puisque nous avons un nombre fini de nombres premiers, il nous est possible de tous les multiplier, nous obtiendrons donc le nombre suivant:
+\begin{align*}
+Q=2\times 3 \times 5 \times 7 \times 11 \times 13 \times 17 \times \ldots \times p
+\end{align*}
+Au nombre que nous venons d'obtenir, ajoutons 1, nous obtenons donc
+\begin{align*}
+R=2\times 3 \times 5 \times 7 \times 11 \times 13 \times 17 \times \ldots \times p + 1
+\end{align*}
+
+Il est maintenant important de constater que le nombre $R$ est aussi premier, c'est-à-dire qu'il ne se divise que par 1 et par lui-même. En effet, si on divise $R$ par n'importe lequel des nombres premiers de notre liste, il y aura toujours un reste. Nous venons donc de construire un nouveau nombre premier, qui n'était pas dans notre liste. C'est une contradiction car notre liste de départ devait contenir tous les nombres premiers. Notre hypothèse de départ était donc fausse et il existe une infinité de nombres premiers.
+```
+
+### $\sqrt{2}$ est irrationnel
+
+Nous savons qu'un nombre est rationnel lorsqu'il est possible de l'écrire sous la forme $\frac{p}{q}$ où $p \in \mathbb{Z}$ et $q \in \mathbb{Z}^{\star}$. Donc, si un nombre est irrationnel, c'est qu'il est impossible de l'écrire sous la forme $\frac{p}{q}$.
+
+Nous voulons donc montrer le résultat suivant:
+```{theorem}
+$\sqrt{2}$ est irrationnel.
+```
+```{proof}
+Puisque nous voulons montrer que $\sqrt{2}$ est irrationnel, supposons le contraire, c'est-à-dire que 
+\begin{align*}
+\sqrt{2}=\frac{p}{q}
+\end{align*}
+où la fraction $\frac{p}{q}$ est irréductible.
+
+Nous avons donc que
+\begin{align*}
+2&=\frac{p^2}{q^2}
+\end{align*}
+ce qui implique que
+\begin{align*}
+p^2=2q^2
+\end{align*}
+Ce dernier résultat implique que $p^2$ est un nombre pair car il est divisible par 2.
+
+Puisque $p^2$ est pair, ça implique que $p$ est pair. En effet, si $p$ était impair, nous aurions
+\begin{align*}
+(2n+1)^2=4n^2+4n+1
+\end{align*}
+qui est impair.
+
+Puisque $p$ est pair, nous pouvons écrire que $p=2k$ où $k \in \mathbb{N}$. On obtient alors
+\begin{align*}
+(2k)^2 &= 2q^2 \\
+4k^2 &= 2q^2 \\
+2k^2 &= q^2
+\end{align*}
+c'est-à-dire que $q^2=2k^2$, et par le même raisonnement que précédemment, nous pouvons montrer que $q$ est aussi pair.
+
+Mais puisque $p$ est pair et que $q$ est pair, il serait donc possible de les simplifier, ce qui contredit notre hypothèse que notre fraction est irréductible.
+
+Notre hypothèse de départ est donc fausse, ce qui démontre que $\sqrt{2}$ est irrationnel.
+```
+
+## Preuves par induction mathématique
+
+La propriété de base de $\mathbb{N}$ est le principe "d'induction mathématique". Supposons que $P(x)$ signifie que la propriété $P$ est vraie pour le nombre $x$. Alors le principe d'induction mathématique énonce que $P(x)$ est vrai pour tous les nombres naturels $x$ si nous les conditions suivantes sont vérifiées
+
+  1. $P(1)$ est vraie.
+  1. Si $P(k)$ est vraie, alors $P(k+1)$ est aussi vraie.
+
+Notons que la condition (2) ne fait qu'impliquer la véracité de $P(k+1)$ sous l'hypothèse que $P(k)$ est vraie; cela suffit pour assurer la véracité de $P(x)$ pour tout $x$, si la condition (1) est elle aussi vraie. En fait, si $P(1)$ est vraie, alors il s'ensuit que $P(2)$ est vraie (en utilisant (2) dans le cas particulier où $k=1$). Maintenant, puisque $P(2)$ est vrai, il s'ensuit que $P(3)$ est vraie (en utilisant (2) dans le cas particulier où $k=2$). Il est clair que tous les nombres seront éventuellement atteints par une série d'étapes de cette sorte, donc $P(k)$ est vraie pour tous les nombres $k$.
+
+Une illustration imagée du raisonnement derrière l'induction mathématique demande d'imaginer une ligne infinie de personnes
+	\begin{align*}
+		\text{personne numéro 1, personne numéro 2, personne numéro 3, ...}
+	\end{align*}
+Si chacune des personnes doit dire à la personne qui se trouve derrière elle, tout secret qu'on lui dit et qu'un secret est dit à la personne numéro 1, il est clair qu'éventuellement chaque personne apprendra le secret. Si $P(x)$ est l'énoncé qui dit que chaque personne $x$ apprendra le secret, alors les instructions données (de dire tout secret entendu à la personne derrière) nous assurent que la condition (2) est vraie, et de dire le secret à la première personne fait que (1) est vraie. 
+
+L'exemple suivant est un exemple d'induction mathématique. Il existe une formule utile et surprenante qui décrit la somme des $n$ premiers entiers d'une façon simple:
+	\begin{align*}
+		1+\ldots+n=\frac{n(n+1)}{2}
+	\end{align*}
+Démontrons cette formule.
+
+```{theorem}
+$1+\ldots+n=\frac{n(n+1)}{2}$.
+```
+```{proof}
+La propriété ($P$) que nous voulons prouver est la suivante:
+	\begin{align*}
+		1+\ldots+n=\frac{n(n+1)}{2} \qquad (P)
+	\end{align*}
+
+Vérifions que ($P$) est vraie pour $n=1$.
+	\begin{align*}
+		1=\frac{1(1+1)}{2}=\frac{2}{2}=1 \text{  ce qui est vrai}
+	\end{align*}
+
+Supposons que ($P$) est vraie pour $n=k$.
+	\begin{align*}
+		1+\ldots+k=\frac{k(k+1)}{2}
+	\end{align*}
+	
+Montrons que ($P$) est vraie pour $n=k+1$, c'est-à-dire
+	\begin{align*}
+		1+\ldots+k+(k+1)=\frac{(k+1)((k+1)+1)}{2}=\frac{(k+1)(k+2)}{2}
+	\end{align*}
+
+Nous avons donc
+	\begin{align*}
+		1+\ldots+k+(k+1) &= (1+\ldots+k)+(k+1) \\
+						 &= \frac{k(k+1)}{2} + (k+1) \qquad\text{\ (car (P) est vraie pour $n=k$)}\\
+						 &= \frac{k(k+1)+2(k+1)}{2} \\
+						 &= \frac{k^2+k+2k+2}{2} \\
+						 &= \frac{k^2+3k+2}{2} \\
+						 &= \frac{(k+1)(k+2)}{2}
+	\end{align*}
+
+Donc ($P$) est vraie pour tout $n \in \mathbb{N}^{\star}$.
+```
+
+L'exemple précédent illustre un phénomène qui revient fréquemment, en particulier en connection avec des formules comme celle que nous venons de prouver. Bien que la preuve par induction est la plupart du temps relativement simple, la méthode avec laquelle nous avons trouvé la formule reste un mystère.
+
+```{example}
+Nous voulons montrer la propriété ($P$) suivante :
+	\begin{align*}
+		1+3+5+\ldots+(2n-1)=n^2 \quad (P)
+	\end{align*}
+
+Vérifions que ($P$) est vraie pour $n=1$.
+	\begin{align*}
+		1=1^2 \text{ ce qui est vrai}
+	\end{align*}
+	
+Supposons que ($P$) est vraie pour $n=k$, c'est-à-dire que
+	\begin{align*}
+		1+3+5+\ldots+(2k-1)=k^2
+	\end{align*}
+
+Montrons que ($P$) est vraie pour $n=k+1$, c'est-à-dire
+	\begin{align*}
+		1+3+5+\ldots+(2k-1)+(2(k+1)-1)=(k+1)^2
+	\end{align*}
+
+Nous avons donc
+	\begin{align*}
+		1+3+5+\ldots+(2k-1)+(2(k+1)-1) &= (1+3+5+\ldots+(2k-1))+ \\
+									& \qquad +(2(k+1)-1) \\
+		&= (k^2) + (2k+2-1) \qquad\text{(par hypothèse)} \\
+		&= k^2+2k+1 \\
+		&= (k+1)^2
+	\end{align*}
+
+Donc ($P$) est vraie pour tout $n \in \mathbb{N}^{\star}$.
+```
+
+```{example}
+Nous voulons montrer la propriété ($P$) suivante:
+	\begin{align*}
+		\frac{1}{1 \cdot 2} + \frac{1}{2 \cdot 3} + \ldots + \frac{1}{n(n+1)} = \frac{n}{n+1} \quad (P)
+	\end{align*}
+
+Vérifions que ($P$) est vraie pour $n=1$.
+	\begin{align*}
+		\frac{1}{1 \cdot 2} &= \frac{1}{1+1} \\
+		\frac{1}{2} &= \frac{1}{2} \text{ ce qui est vrai}
+	\end{align*}
+
+Supposons ($P$) vraie pour $n=k$, c'est-à-dire
+	\begin{align*}
+		\frac{1}{1 \cdot 2} + \frac{1}{2 \cdot 3} + \ldots + \frac{1}{k(k+1)} = \frac{k}{k+1}
+	\end{align*}
+
+Montrons que ($P$) est vraie pour $n=k+1$, c'est-à-dire
+	\begin{align*}
+		\frac{1}{1 \cdot 2} + \frac{1}{2 \cdot 3} + \ldots + \frac{1}{k(k+1)} + \frac{1}{(k+1)(k+1+1)} &= \frac{k+1}{(k+1)+1} \\
+		&= \frac{k+1}{k+2}
+	\end{align*}
+
+Nous avons donc
+	\begin{align*}
+		\left( \frac{1}{1 \cdot 2} + \frac{1}{2 \cdot 3} + \ldots + \frac{1}{k(k+1)} \right) &+ \frac{1}{(k+1)(k+1+1)} \ldots \\
+		\ldots &= \frac{k}{k+1} + \frac{1}{(k+1)(k+2)} \\
+		&= \frac{k(k+2)+1}{(k+1)(k+2)} \\
+		&= \frac{k^2+2k+1}{(k+1)(k+2)} \\
+		&= \frac{(k+1)^{2}}{(k+1)(k+2)} \\
+		&= \frac{k+1}{k+2}
+	\end{align*}
+
+Donc ($P$) est vraie pour tout $n \in \mathbb{N}^{\star}$.
+```
+
+## Les contres-exemples
+
+La recherche d'un contre-exemple est une méthode utilisée pour prouver qu'une affirmation est fausse. Quand un énoncé commence par «  Pour tout .... », il suffit, pour prouver qu'il est faux, de trouver un élément (« il existe ... ») qui réalise les conditions imposées dans l'hypothèse sans que ne soit vérifiée la conclusion. Contrairement aux deux types de preuves précédentes, l'utilisation d'un contre-exemple ne s'accompagne pas d'une preuve.
+
+Voici un exemple.
+```{example}
+La conjecture de Fermat indique que tous les nombres de la forme $F_n=2^{2^n}+1$, où $n\in\mathbb{N}$, sont premiers. Démontrez que la conjecture de Fermat est fausse.
+
+La "preuve" de Fermat reposait sur l'argumentaire suivant:
+\begin{align*}
+F_0 &= 2^{2^0}+1 = 3 \quad \text{est un nombre premier} \\
+F_1 &= 2^{2^1}+1 = 5 \quad \text{est un nombre premier} \\
+F_2 &= 2^{2^2}+1 = 17 \quad \text{est un nombre premier} \\
+F_3 &= 2^{2^3}+1 = 257 \quad \text{est un nombre premier} \\
+F_4 &= 2^{2^4}+1 = 65\ 537 \quad \text{est un nombre premier} \\
+\vdots &= \vdots 
+\end{align*}
+Pour sa conjecture, Fermat croyait que si on continuait le même genre de calculs, nous obtiendrions toujours des nombres premiers. Pour démontrer que la conjecture est fausse, Euler calcula tout simplement $F_5$:
+\begin{align*}
+F_5 &= 2^{2^5}+1 = 4\ 294\ 967\ 297 = 641 \cdot 6\ 700\ 417 \quad \text{n'est pas un nombre premier}
+\end{align*}
+Puisque nous avons trouvé un contre-exemple à la conjecture, celle-ci est fausse.
+```
+
+
+
+
+
+
+
+

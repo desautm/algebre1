@@ -2,6 +2,8 @@
 
 # Les vecteurs de $\mathbb{R}^2$ {#vecteursR2}
 
+Dans ce chapitre, nous introduisons les vecteurs de $\mathbb{R}^2$, de forme algébrique et géométrique.
+
 ## Les vecteurs géométriques
 
 ```{definition, name="Vecteur géométrique"}
