@@ -1,0 +1,472 @@
+# Les transformations linéaires {#transfos-lineaires}
+
+Dans cette section, nous voulons motiver notre étude des opérations matricielles en étudiant en détail les transformations linéaires. Les transformations linéaires sont entre autre utilisées en infographie pour créer des mondes en trois dimensions et être en mesure de se mouvoir dans ses mondes.
+
+Nous allons particulièrement étudier les transformations de graphiques en deux dimensions. Nous allons étudier les transformations les plus communes que nous voulons appliquer sur des objets en deux dimensions.
+
+Une transformation linéaire d'un objet en deux dimensions est habituellement une matrice de format $3\times 3$ et agit comme un produit matriciel. Nous allons avoir un ensemble de $n$ points $(x_1,y_1)$, $(x_2,y_2)$, ..., $(x_n,y_n)$ que nous allons représenter de la façon suivante:
+\begin{align*}
+\begin{bmatrix}
+x_1 & x_2 & \ldots & x_n \\
+y_1 & y_2 & \ldots & y_n\\
+1&1&\ldots &1
+\end{bmatrix}
+\end{align*}
+Cette matrice se nomme matrice des coordonnées homogènes.
+
+L'avantage de ces transformations linéaires est qu'il est très facile de les visualiser. Pour visualiser l'effet de ces transformations, nous utiliserons comme objet de départ la lettre L de la figure suivante. Cette lettre L a pour sommets les points $(0,0)$, $(3,0)$, $(3,1)$, $(1,1)$, $(1,4)$ et $(0,4)$. Lorsque nous voudrons connaître l'effet d'une transformation linéaire sur cette lettre, il suffira d'observer l'effet de cette transformation sur les six sommets.
+
+```{tikz, echo=FALSE, out.width="50%", fig.align='center', fig.cap="La lettre L sous forme de fil de fer.", label="lettre-L-base"}
+\begin{tikzpicture}
+
+\def\XMin{-1}
+\def\XMax{4}
+\def\YMin{-1}
+\def\YMax{5}
+
+\node[coordinate] (A1) at (0,0) {};
+\node[coordinate] (A2) at (3,0) {};
+\node[coordinate] (A3) at (3,1) {};
+\node[coordinate] (A4) at (1,1) {};
+\node[coordinate] (A5) at (1,4) {};
+\node[coordinate] (A6) at (0,4) {};
+
+%\draw[help lines] (\XMin,\YMin) grid (\XMax,\YMax);
+\draw[very thick,->,>=stealth] (\XMin,0) -- (\XMax,0) node[right] {$x$};
+\draw[very thick,->,>=stealth] (0,\YMin) -- (0,\YMax) node[above] {$y$};
+
+\foreach \x in {\XMin,...,-1,1,2,...,\XMax}{
+	\draw (\x,2pt)--(\x,-2pt) node[anchor=north] {\x};
+}
+\foreach \y in {\YMin,...,-1,1,2,...,\YMax}{
+	\draw (2pt,\y)--(-2pt,\y) node[anchor=east] {\y};
+}
+
+\fill [blue] (A1)--(A2)--(A3)--(A4)--(A5)--(A6)--cycle;
+\draw[very thick] (A1)--(A2)--(A3)--(A4)--(A5)--(A6)--cycle;
+\foreach \i in {1,2,...,6}{
+	\draw[fill=black] (A\i) circle (1.5pt);
+}
+
+\end{tikzpicture}
+```
+
+```{proposition}
+Soit $P$ une matrice de points en coordonnées homogènes d'un objet en $2D$ et $P'$ la matrice de points en coordonnées homogènes obtenue par une transformation linéaire (réflexion, rotation, translation ...). Alors 
+\begin{align*}
+P'=MP
+\end{align*}
+où $M$ est une matrice $3\times 3$ qui dépend de la nature de la transformation.
+```
+
+## La réflexion
+
+```{definition}
+La matrice de réflexion d'un objet en 2D par rapport à l'axe des $x$ est 
+\begin{align*}
+Re_x 
+&= \begin{bmatrix}
+1 & 0 &0\\
+0 & -1&0\\
+0&0&1
+\end{bmatrix}
+\end{align*}
+De même si la réflexion se fait par rapport à l'axe des $y$, nous avons que
+\begin{align*}
+Re_y = \begin{bmatrix}
+-1 & 0 &0\\
+0 & 1&0\\
+0&0&1
+\end{bmatrix}
+\end{align*}
+```
+
+```{example}
+Trouvez la réflexion de la lettre L selon l'axe des $x$ et la réflexion de la lettre L selon l'axe des $y$.
+```
+
+Nous pouvons voir le résultat de ces deux réflexions aux figures \@ref(fig:lettre-L-reflexion-axe-x) et \@ref(fig:lettre-L-reflexion-axe-y).
+
+```{tikz, echo=FALSE, out.width="50%", fig.align='center', fig.cap="Une réflexion de la lettre L selon l'axe des $x$.", label="lettre-L-reflexion-axe-x"}
+\begin{tikzpicture}
+
+\def\XMin{-1}
+\def\XMax{4}
+\def\YMin{-5}
+\def\YMax{5}
+
+\node[coordinate] (A1) at (0,0) {};
+\node[coordinate] (A2) at (3,0) {};
+\node[coordinate] (A3) at (3,1) {};
+\node[coordinate] (A4) at (1,1) {};
+\node[coordinate] (A5) at (1,4) {};
+\node[coordinate] (A6) at (0,4) {};
+
+\node[coordinate] (B1) at (0,0) {};
+\node[coordinate] (B2) at (3,0) {};
+\node[coordinate] (B3) at (3,-1) {};
+\node[coordinate] (B4) at (1,-1) {};
+\node[coordinate] (B5) at (1,-4) {};
+\node[coordinate] (B6) at (0,-4) {};
+
+%\draw[help lines] (\XMin,\YMin) grid (\XMax,\YMax);
+
+\fill [blue] (A1)--(A2)--(A3)--(A4)--(A5)--(A6)--cycle;
+\draw[very thick] (A1)--(A2)--(A3)--(A4)--(A5)--(A6)--cycle;
+\foreach \i in {1,2,...,6}{
+	\draw[fill=blue] (A\i) circle (1.5pt);
+}
+
+\fill [red] (B1)--(B2)--(B3)--(B4)--(B5)--(B6)--cycle;
+\draw[very thick] (B1)--(B2)--(B3)--(B4)--(B5)--(B6)--cycle;
+\foreach \i in {1,2,...,6}{
+	\draw[fill=red] (B\i) circle (1.5pt);
+}
+
+\draw[very thick,->,>=stealth] (\XMin,0) -- (\XMax,0) node[right] {$x$};
+\draw[very thick,->,>=stealth] (0,\YMin) -- (0,\YMax) node[above] {$y$};
+
+\foreach \x in {\XMin,...,-1,1,2,...,\XMax}{
+	\draw (\x,2pt)--(\x,-2pt) node[anchor=north] {\x};
+}
+\foreach \y in {\YMin,...,-1,1,2,...,\YMax}{
+	\draw (2pt,\y)--(-2pt,\y) node[anchor=east] {\y};
+}
+
+\end{tikzpicture}
+```
+
+```{tikz, echo=FALSE, out.width="75%", fig.align='center', fig.cap="Une réflexion de la lettre L selon l'axe des $y$.", label="lettre-L-reflexion-axe-y"}
+\begin{tikzpicture}
+
+\def\XMin{-4}
+\def\XMax{4}
+\def\YMin{-1}
+\def\YMax{5}
+
+\node[coordinate] (A1) at (0,0) {};
+\node[coordinate] (A2) at (3,0) {};
+\node[coordinate] (A3) at (3,1) {};
+\node[coordinate] (A4) at (1,1) {};
+\node[coordinate] (A5) at (1,4) {};
+\node[coordinate] (A6) at (0,4) {};
+
+\node[coordinate] (B1) at (0,0) {};
+\node[coordinate] (B2) at (-3,0) {};
+\node[coordinate] (B3) at (-3,1) {};
+\node[coordinate] (B4) at (-1,1) {};
+\node[coordinate] (B5) at (-1,4) {};
+\node[coordinate] (B6) at (0,4) {};
+
+%\draw[help lines] (\XMin,\YMin) grid (\XMax,\YMax);
+
+\fill [blue] (A1)--(A2)--(A3)--(A4)--(A5)--(A6)--cycle;
+\draw[very thick] (A1)--(A2)--(A3)--(A4)--(A5)--(A6)--cycle;
+\foreach \i in {1,2,...,6}{
+	\draw[fill=blue] (A\i) circle (1.5pt);
+}
+
+\fill [red] (B1)--(B2)--(B3)--(B4)--(B5)--(B6)--cycle;
+\draw[very thick] (B1)--(B2)--(B3)--(B4)--(B5)--(B6)--cycle;
+\foreach \i in {1,2,...,6}{
+	\draw[fill=red] (B\i) circle (1.5pt);
+}
+
+\draw[very thick,->,>=stealth] (\XMin,0) -- (\XMax,0) node[right] {$x$};
+\draw[very thick,->,>=stealth] (0,\YMin) -- (0,\YMax) node[above] {$y$};
+
+\foreach \x in {\XMin,...,-1,1,2,...,\XMax}{
+	\draw (\x,2pt)--(\x,-2pt) node[anchor=north] {\x};
+}
+\foreach \y in {\YMin,...,-1,1,2,...,\YMax}{
+	\draw (2pt,\y)--(-2pt,\y) node[anchor=east] {\y};
+}
+
+\end{tikzpicture}
+```
+
+Nous pouvons également faire une réflexion par rapport à un autre axe passant par le point $(0,0)$.
+
+```{definition}
+La matrice permettant la réflexion d'un objet en deux dimensions par rapport à une droite passant par l'origine et le point $(l_x,l_y)$ est
+\begin{align*}
+	Re_{(l_x,l_y)}=\dfrac{1}{l_x^2+l_y^2}
+	\begin{bmatrix}
+		l_x^2-l_y^2 & 2l_xl_y &0\\
+		2l_xl_y & l_y^2-l_x^2 &0\\
+		0&0&l_x^2+l_y^2
+	\end{bmatrix}
+\end{align*}
+```
+
+```{example}
+Effectuez une réflexion de la lettre L par rapport à une droite passant par l'origine et le point $(-1,1)$.
+```
+
+```{tikz, echo=FALSE, out.width="75%", fig.align='center', fig.cap="Une réflexion de la lettre L selon la droite passant par l'origine et le point (-1,-1).", label="lettre-L-reflexion-droite-origine"}
+\begin{tikzpicture}
+
+\def\XMin{-5}
+\def\XMax{4}
+\def\YMin{-4}
+\def\YMax{5}
+
+\node[coordinate] (A1) at (0,0) {};
+\node[coordinate] (A2) at (3,0) {};
+\node[coordinate] (A3) at (3,1) {};
+\node[coordinate] (A4) at (1,1) {};
+\node[coordinate] (A5) at (1,4) {};
+\node[coordinate] (A6) at (0,4) {};
+
+\node[coordinate] (B1) at (0,0) {};
+\node[coordinate] (B2) at (0,-3) {};
+\node[coordinate] (B3) at (-1,-3) {};
+\node[coordinate] (B4) at (-1,-1) {};
+\node[coordinate] (B5) at (-4,-1) {};
+\node[coordinate] (B6) at (-4,0) {};
+
+%\draw[help lines] (\XMin,\YMin) grid (\XMax,\YMax);
+
+\fill [blue] (A1)--(A2)--(A3)--(A4)--(A5)--(A6)--cycle;
+\draw[very thick] (A1)--(A2)--(A3)--(A4)--(A5)--(A6)--cycle;
+\foreach \i in {1,2,...,6}{
+	\draw[fill=blue] (A\i) circle (1.5pt);
+}
+
+\fill [red] (B1)--(B2)--(B3)--(B4)--(B5)--(B6)--cycle;
+\draw[very thick] (B1)--(B2)--(B3)--(B4)--(B5)--(B6)--cycle;
+\foreach \i in {1,2,...,6}{
+	\draw[fill=red] (B\i) circle (1.5pt);
+}
+
+\draw[very thick,green] (-4.5,4.5)--(3.5,-3.5);
+
+\draw[very thick,->,>=stealth] (\XMin,0) -- (\XMax,0) node[right] {$x$};
+\draw[very thick,->,>=stealth] (0,\YMin) -- (0,\YMax) node[above] {$y$};
+
+\foreach \x in {\XMin,...,-1,1,2,...,\XMax}{
+	\draw (\x,2pt)--(\x,-2pt) node[anchor=north] {\x};
+}
+\foreach \y in {\YMin,...,-1,1,2,...,\YMax}{
+	\draw (2pt,\y)--(-2pt,\y) node[anchor=east] {\y};
+}
+
+\end{tikzpicture}
+```
+
+## La rotation
+
+```{definition}
+La matrice de rotation d'un objet en 2D d'un angle $\theta$ autour de l'origine est 
+\begin{align*}
+	R_{\theta}=\begin{bmatrix}
+		\cos(\theta) & -\sin(\theta)&0 \\
+		\sin(\theta) & \cos(\theta)&0\\
+		0&0&1
+	\end{bmatrix}
+\end{align*}
+où $\theta$ est calculé dans le sens anti-horaire.
+```
+
+```{example}
+Dessinez le L résultant d'une rotation de $45^{\circ}$.
+```
+
+```{tikz, echo=FALSE, out.width="75%", fig.align='center', fig.cap="Une rotation de la lettre L d'un angle de $45^{\\circ}$.", label="lettre-L-rotation-45"}
+\begin{tikzpicture}
+
+\def\XMin{-4}
+\def\XMax{4}
+\def\YMin{-1}
+\def\YMax{5}
+
+\node[coordinate] (A1) at (0,0) {};
+\node[coordinate] (A2) at (3,0) {};
+\node[coordinate] (A3) at (3,1) {};
+\node[coordinate] (A4) at (1,1) {};
+\node[coordinate] (A5) at (1,4) {};
+\node[coordinate] (A6) at (0,4) {};
+
+\node[coordinate] (B1) at (0.0000,0.0000) {};
+\node[coordinate] (B2) at (2.1213,2.1213) {};
+\node[coordinate] (B3) at (1.4142,2.8284) {};
+\node[coordinate] (B4) at (0.0000,1.4142) {};
+\node[coordinate] (B5) at (-2.1213,3.5355) {};
+\node[coordinate] (B6) at (-2.8284,2.8284) {};
+
+%\draw[help lines] (\XMin,\YMin) grid (\XMax,\YMax);
+
+\fill [blue] (A1)--(A2)--(A3)--(A4)--(A5)--(A6)--cycle;
+\draw[very thick] (A1)--(A2)--(A3)--(A4)--(A5)--(A6)--cycle;
+\foreach \i in {1,2,...,6}{
+	\draw[fill=blue] (A\i) circle (1.5pt);
+}
+
+\fill [red] (B1)--(B2)--(B3)--(B4)--(B5)--(B6)--cycle;
+\draw[very thick] (B1)--(B2)--(B3)--(B4)--(B5)--(B6)--cycle;
+\foreach \i in {1,2,...,6}{
+	\draw[fill=red] (B\i) circle (1.5pt);
+}
+
+\draw[very thick,->,>=stealth] (\XMin,0) -- (\XMax,0) node[right] {$x$};
+\draw[very thick,->,>=stealth] (0,\YMin) -- (0,\YMax) node[above] {$y$};
+
+\foreach \x in {\XMin,...,-1,1,2,...,\XMax}{
+	\draw (\x,2pt)--(\x,-2pt) node[anchor=north] {\x};
+}
+\foreach \y in {\YMin,...,-1,1,2,...,\YMax}{
+	\draw (2pt,\y)--(-2pt,\y) node[anchor=east] {\y};
+}
+
+\end{tikzpicture}
+```
+
+## La translation
+
+```{definition}
+La translation d'une matrice de points $P$ en coordonnées homogènes dans la direction $\overrightarrow{t}=[t_1,t_2]$ est donnée par le produit matriciel suivant
+\begin{align*}
+P'=\begin{bmatrix}
+		1 & 0 &t_1\\
+		0 & 1 &t_2\\
+		0&0&1
+	\end{bmatrix}P
+\end{align*}
+```
+
+```{example}
+Effectuez une translation du L suivant le vecteur $[2,-5]$.
+```
+
+```{tikz, echo=FALSE, out.width="75%", fig.align='center', fig.cap="Une translation de la lettre L suivant le vecteur $[2,-5]$.", label="lettre-L-translation"}
+\begin{tikzpicture}
+
+\def\XMin{-1}
+\def\XMax{6}
+\def\YMin{-6}
+\def\YMax{5}
+
+\node[coordinate] (A1) at (0,0) {};
+\node[coordinate] (A2) at (3,0) {};
+\node[coordinate] (A3) at (3,1) {};
+\node[coordinate] (A4) at (1,1) {};
+\node[coordinate] (A5) at (1,4) {};
+\node[coordinate] (A6) at (0,4) {};
+
+\node[coordinate] (B1) at (2,-5) {};
+\node[coordinate] (B2) at (5,-5) {};
+\node[coordinate] (B3) at (5,-4) {};
+\node[coordinate] (B4) at (3,-4) {};
+\node[coordinate] (B5) at (3,-1) {};
+\node[coordinate] (B6) at (2,-1) {};
+
+%\draw[help lines] (\XMin,\YMin) grid (\XMax,\YMax);
+
+\fill [blue] (A1)--(A2)--(A3)--(A4)--(A5)--(A6)--cycle;
+\draw[very thick] (A1)--(A2)--(A3)--(A4)--(A5)--(A6)--cycle;
+\foreach \i in {1,2,...,6}{
+	\draw[fill=blue] (A\i) circle (1.5pt);
+}
+
+\fill [red] (B1)--(B2)--(B3)--(B4)--(B5)--(B6)--cycle;
+\draw[very thick] (B1)--(B2)--(B3)--(B4)--(B5)--(B6)--cycle;
+\foreach \i in {1,2,...,6}{
+	\draw[fill=red] (B\i) circle (1.5pt);
+}
+
+\draw[very thick,->,>=stealth] (\XMin,0) -- (\XMax,0) node[right] {$x$};
+\draw[very thick,->,>=stealth] (0,\YMin) -- (0,\YMax) node[above] {$y$};
+
+\foreach \x in {\XMin,...,-1,1,2,...,\XMax}{
+	\draw (\x,2pt)--(\x,-2pt) node[anchor=north] {\x};
+}
+\foreach \y in {\YMin,...,-1,1,2,...,\YMax}{
+	\draw (2pt,\y)--(-2pt,\y) node[anchor=east] {\y};
+}
+
+\end{tikzpicture}
+```
+
+## La transvection
+
+Il existe deux possibilités de transvection. La première transvection est parallèle à l'axe des $x$ et est équivalente au changement de variable suivant:
+\begin{align*}
+	x'&=x+ky \\
+	y'&=y
+\end{align*}
+Sous forme matricielle, cela correspond à la transformation
+\begin{align*}
+	T_{(k,0)} &= \begin{bmatrix}
+		1 & k &0\\
+		0 & 1&0\\
+		0&0&1
+	\end{bmatrix}
+\end{align*}
+
+Une transvection parallèle à l'axe des $y$ quant à elle est équivalente au changement de variable
+\begin{align*}
+	x'&=x \\
+	y'&=y+kx
+\end{align*}
+Sous forme matricielle, cela correspond à la transformation
+\begin{align*}
+	T_{(0,k)} &= \begin{bmatrix}
+		1 & 0 &0\\
+		k & 1 &0\\
+		0&0&1
+	\end{bmatrix}
+\end{align*}
+
+Il est plus simple de comprendre l'effet d'une transvection en observant l'effet sur notre lettre initiale. La figure \@ref(fig:lettre-L-transvection-axe-x) présente une transvection parallèle à l'axe des $x$ d'un facteur $1$.
+
+```{tikz, echo=FALSE, out.width="75%", fig.align='center', fig.cap="Une transvection de la lettre L suivant l'axe des $x$ d'un facteur 1.", label="lettre-L-transvection-axe-x"}
+\begin{tikzpicture}
+
+\def\XMin{-1}
+\def\XMax{6}
+\def\YMin{-1}
+\def\YMax{5}
+
+\node[coordinate] (A1) at (0,0) {};
+\node[coordinate] (A2) at (3,0) {};
+\node[coordinate] (A3) at (3,1) {};
+\node[coordinate] (A4) at (1,1) {};
+\node[coordinate] (A5) at (1,4) {};
+\node[coordinate] (A6) at (0,4) {};
+
+\node[coordinate] (B1) at (0,0) {};
+\node[coordinate] (B2) at (3,0) {};
+\node[coordinate] (B3) at (4,1) {};
+\node[coordinate] (B4) at (2,1) {};
+\node[coordinate] (B5) at (5,4) {};
+\node[coordinate] (B6) at (4,4) {};
+
+%\draw[help lines] (\XMin,\YMin) grid (\XMax,\YMax);
+
+\fill [blue,fill opacity=0.5] (A1)--(A2)--(A3)--(A4)--(A5)--(A6)--cycle;
+\draw[very thick] (A1)--(A2)--(A3)--(A4)--(A5)--(A6)--cycle;
+\foreach \i in {1,2,...,6}{
+	\draw[fill=blue] (A\i) circle (1.5pt);
+}
+
+\fill [red,fill opacity=0.5] (B1)--(B2)--(B3)--(B4)--(B5)--(B6)--cycle;
+\draw[very thick] (B1)--(B2)--(B3)--(B4)--(B5)--(B6)--cycle;
+\foreach \i in {1,2,...,6}{
+	\draw[fill=red] (B\i) circle (1.5pt);
+}
+
+\draw[very thick,->,>=stealth] (\XMin,0) -- (\XMax,0) node[right] {$x$};
+\draw[very thick,->,>=stealth] (0,\YMin) -- (0,\YMax) node[above] {$y$};
+
+\foreach \x in {\XMin,...,-1,1,2,...,\XMax}{
+	\draw (\x,2pt)--(\x,-2pt) node[anchor=north] {\x};
+}
+\foreach \y in {\YMin,...,-1,1,2,...,\YMax}{
+	\draw (2pt,\y)--(-2pt,\y) node[anchor=east] {\y};
+}
+
+\end{tikzpicture}
+```
+
+## La composition de transformations linéaires
+
