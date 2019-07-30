@@ -21,7 +21,4 @@ language:
     proof: 'Preuve. '
     remark: 'Remarque. '
     solution: 'Solution. '
-rmd_files: [
-  "index.Rmd",
-  "93-transformations-lineaires.Rmd"
-]
+

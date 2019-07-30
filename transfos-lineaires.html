@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 1 Les transformations linéaires | 93-transformations-lineaires.utf8.md</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 1 Les transformations linéaires | 93-transformations-lineaires.utf8.md" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 1 Les transformations linéaires | 93-transformations-lineaires.utf8.md" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="la-reflexion.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Algèbre linéaire et géométrie vectorielle</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="transfos-lineaires.html"><a href="transfos-lineaires.html"><i class="fa fa-check"></i><b>1</b> Les transformations linéaires</a><ul>
+<li class="chapter" data-level="1.1" data-path="la-reflexion.html"><a href="la-reflexion.html"><i class="fa fa-check"></i><b>1.1</b> La réflexion</a></li>
+<li class="chapter" data-level="1.2" data-path="la-rotation.html"><a href="la-rotation.html"><i class="fa fa-check"></i><b>1.2</b> La rotation</a></li>
+<li class="chapter" data-level="1.3" data-path="la-translation.html"><a href="la-translation.html"><i class="fa fa-check"></i><b>1.3</b> La translation</a></li>
+<li class="chapter" data-level="1.4" data-path="la-transvection.html"><a href="la-transvection.html"><i class="fa fa-check"></i><b>1.4</b> La transvection</a></li>
+<li class="chapter" data-level="1.5" data-path="la-composition-de-transformations-lineaires.html"><a href="la-composition-de-transformations-lineaires.html"><i class="fa fa-check"></i><b>1.5</b> La composition de transformations linéaires</a></li>
+<li class="chapter" data-level="1.6" data-path="la-rotation-comme-trois-transvections.html"><a href="la-rotation-comme-trois-transvections.html"><i class="fa fa-check"></i><b>1.6</b> La rotation comme trois transvections</a></li>
+<li class="chapter" data-level="1.7" data-path="un-resume-des-differentes-transformations-lineaires.html"><a href="un-resume-des-differentes-transformations-lineaires.html"><i class="fa fa-check"></i><b>1.7</b> Un résumé des différentes transformations linéaires</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publié avec bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<!--bookdown:title:end-->
+<!--bookdown:title:start-->
+<div id="transfos-lineaires" class="section level1">
+<h1><span class="header-section-number">Chapitre 1</span> Les transformations linéaires</h1>
+<p>Dans cette section, nous voulons motiver notre étude des opérations matricielles en étudiant en détail les transformations linéaires. Les transformations linéaires sont entre autre utilisées en infographie pour créer des mondes en trois dimensions et être en mesure de se mouvoir dans ses mondes.</p>
+<p>Nous allons particulièrement étudier les transformations de graphiques en deux dimensions. Nous allons étudier les transformations les plus communes que nous voulons appliquer sur des objets en deux dimensions.</p>
+<p>Une transformation linéaire d’un objet en deux dimensions est habituellement une matrice de format <span class="math inline">\(3\times 3\)</span> et agit comme un produit matriciel. Nous allons avoir un ensemble de <span class="math inline">\(n\)</span> points <span class="math inline">\((x_1,y_1)\)</span>, <span class="math inline">\((x_2,y_2)\)</span>, …, <span class="math inline">\((x_n,y_n)\)</span> que nous allons représenter de la façon suivante:
+<span class="math display">\[\begin{align*}
+\begin{bmatrix}
+x_1 &amp; x_2 &amp; \ldots &amp; x_n \\
+y_1 &amp; y_2 &amp; \ldots &amp; y_n\\
+1&amp;1&amp;\ldots &amp;1
+\end{bmatrix}
+\end{align*}\]</span>
+Cette matrice se nomme matrice des coordonnées homogènes.</p>
+<p>L’avantage de ces transformations linéaires est qu’il est très facile de les visualiser. Pour visualiser l’effet de ces transformations, nous utiliserons comme objet de départ la lettre L de la figure suivante. Cette lettre L a pour sommets les points <span class="math inline">\((0,0)\)</span>, <span class="math inline">\((3,0)\)</span>, <span class="math inline">\((3,1)\)</span>, <span class="math inline">\((1,1)\)</span>, <span class="math inline">\((1,4)\)</span> et <span class="math inline">\((0,4)\)</span>. Lorsque nous voudrons connaître l’effet d’une transformation linéaire sur cette lettre, il suffira d’observer l’effet de cette transformation sur les six sommets.</p>
+<div class="figure" style="text-align: center"><span id="fig:lettre-L-base"></span>
+<img src="93-transformations-lineaires_files/figure-html/lettre-L-base-1.png" alt="La lettre L sous forme de fil de fer." width="50%" />
+<p class="caption">
+Figure 1.1: La lettre L sous forme de fil de fer.
+</p>
+</div>
+
+<div class="proposition">
+<span id="prp:unnamed-chunk-1" class="proposition"><strong>Proposition 1.1  </strong></span>Soit <span class="math inline">\(P\)</span> une matrice de points en coordonnées homogènes d’un objet en <span class="math inline">\(2D\)</span> et <span class="math inline">\(P&#39;\)</span> la matrice de points en coordonnées homogènes obtenue par une transformation linéaire (réflexion, rotation, translation …). Alors
+<span class="math display">\[\begin{align*}
+P&#39;=MP
+\end{align*}\]</span>
+où <span class="math inline">\(M\)</span> est une matrice <span class="math inline">\(3\times 3\)</span> qui dépend de la nature de la transformation.
+</div>
+ 
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="la-reflexion.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/desautm/algebre1/edit/master/%s",
+"text": "Modifier"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "none"
+},
+"search": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.4 La transvection | 93-transformations-lineaires.utf8.md</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.4 La transvection | 93-transformations-lineaires.utf8.md" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.4 La transvection | 93-transformations-lineaires.utf8.md" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="la-translation.html">
+<link rel="next" href="la-composition-de-transformations-lineaires.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Algèbre linéaire et géométrie vectorielle</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="transfos-lineaires.html"><a href="transfos-lineaires.html"><i class="fa fa-check"></i><b>1</b> Les transformations linéaires</a><ul>
+<li class="chapter" data-level="1.1" data-path="la-reflexion.html"><a href="la-reflexion.html"><i class="fa fa-check"></i><b>1.1</b> La réflexion</a></li>
+<li class="chapter" data-level="1.2" data-path="la-rotation.html"><a href="la-rotation.html"><i class="fa fa-check"></i><b>1.2</b> La rotation</a></li>
+<li class="chapter" data-level="1.3" data-path="la-translation.html"><a href="la-translation.html"><i class="fa fa-check"></i><b>1.3</b> La translation</a></li>
+<li class="chapter" data-level="1.4" data-path="la-transvection.html"><a href="la-transvection.html"><i class="fa fa-check"></i><b>1.4</b> La transvection</a></li>
+<li class="chapter" data-level="1.5" data-path="la-composition-de-transformations-lineaires.html"><a href="la-composition-de-transformations-lineaires.html"><i class="fa fa-check"></i><b>1.5</b> La composition de transformations linéaires</a></li>
+<li class="chapter" data-level="1.6" data-path="la-rotation-comme-trois-transvections.html"><a href="la-rotation-comme-trois-transvections.html"><i class="fa fa-check"></i><b>1.6</b> La rotation comme trois transvections</a></li>
+<li class="chapter" data-level="1.7" data-path="un-resume-des-differentes-transformations-lineaires.html"><a href="un-resume-des-differentes-transformations-lineaires.html"><i class="fa fa-check"></i><b>1.7</b> Un résumé des différentes transformations linéaires</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publié avec bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="la-transvection" class="section level2">
+<h2><span class="header-section-number">1.4</span> La transvection</h2>
+<p>Il existe deux possibilités de transvection. La première transvection est parallèle à l’axe des <span class="math inline">\(x\)</span> et est équivalente au changement de variable suivant:
+<span class="math display">\[\begin{align*}
+    x&#39;&amp;=x+ky \\
+    y&#39;&amp;=y
+\end{align*}\]</span>
+Sous forme matricielle, cela correspond à la transformation
+<span class="math display">\[\begin{align*}
+    T_{(k,0)} &amp;= \begin{bmatrix}
+        1 &amp; k &amp;0\\
+        0 &amp; 1&amp;0\\
+        0&amp;0&amp;1
+    \end{bmatrix}
+\end{align*}\]</span></p>
+<p>Une transvection parallèle à l’axe des <span class="math inline">\(y\)</span> quant à elle est équivalente au changement de variable
+<span class="math display">\[\begin{align*}
+    x&#39;&amp;=x \\
+    y&#39;&amp;=y+kx
+\end{align*}\]</span>
+Sous forme matricielle, cela correspond à la transformation
+<span class="math display">\[\begin{align*}
+    T_{(0,k)} &amp;= \begin{bmatrix}
+        1 &amp; 0 &amp;0\\
+        k &amp; 1 &amp;0\\
+        0&amp;0&amp;1
+    \end{bmatrix}
+\end{align*}\]</span></p>
+<p>Il est plus simple de comprendre l’effet d’une transvection en observant l’effet sur notre lettre initiale. La figure <a href="la-transvection.html#fig:lettre-L-transvection-axe-x">1.7</a> présente une transvection parallèle à l’axe des <span class="math inline">\(x\)</span> d’un facteur <span class="math inline">\(1\)</span>.</p>
+<div class="figure" style="text-align: center"><span id="fig:lettre-L-transvection-axe-x"></span>
+<img src="93-transformations-lineaires_files/figure-html/lettre-L-transvection-axe-x-1.png" alt="Une transvection de la lettre L suivant l'axe des $x$ d'un facteur 1." width="75%" />
+<p class="caption">
+Figure 1.7: Une transvection de la lettre L suivant l’axe des <span class="math inline">\(x\)</span> d’un facteur 1.
+</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="la-translation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="la-composition-de-transformations-lineaires.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/desautm/algebre1/edit/master/%s",
+"text": "Modifier"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "none"
+},
+"search": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

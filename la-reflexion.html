@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.1 La réflexion | 93-transformations-lineaires.utf8.md</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.1 La réflexion | 93-transformations-lineaires.utf8.md" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.1 La réflexion | 93-transformations-lineaires.utf8.md" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="transfos-lineaires.html">
+<link rel="next" href="la-rotation.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Algèbre linéaire et géométrie vectorielle</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="transfos-lineaires.html"><a href="transfos-lineaires.html"><i class="fa fa-check"></i><b>1</b> Les transformations linéaires</a><ul>
+<li class="chapter" data-level="1.1" data-path="la-reflexion.html"><a href="la-reflexion.html"><i class="fa fa-check"></i><b>1.1</b> La réflexion</a></li>
+<li class="chapter" data-level="1.2" data-path="la-rotation.html"><a href="la-rotation.html"><i class="fa fa-check"></i><b>1.2</b> La rotation</a></li>
+<li class="chapter" data-level="1.3" data-path="la-translation.html"><a href="la-translation.html"><i class="fa fa-check"></i><b>1.3</b> La translation</a></li>
+<li class="chapter" data-level="1.4" data-path="la-transvection.html"><a href="la-transvection.html"><i class="fa fa-check"></i><b>1.4</b> La transvection</a></li>
+<li class="chapter" data-level="1.5" data-path="la-composition-de-transformations-lineaires.html"><a href="la-composition-de-transformations-lineaires.html"><i class="fa fa-check"></i><b>1.5</b> La composition de transformations linéaires</a></li>
+<li class="chapter" data-level="1.6" data-path="la-rotation-comme-trois-transvections.html"><a href="la-rotation-comme-trois-transvections.html"><i class="fa fa-check"></i><b>1.6</b> La rotation comme trois transvections</a></li>
+<li class="chapter" data-level="1.7" data-path="un-resume-des-differentes-transformations-lineaires.html"><a href="un-resume-des-differentes-transformations-lineaires.html"><i class="fa fa-check"></i><b>1.7</b> Un résumé des différentes transformations linéaires</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publié avec bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="la-reflexion" class="section level2">
+<h2><span class="header-section-number">1.1</span> La réflexion</h2>
+
+<div class="definition">
+<span id="def:unnamed-chunk-2" class="definition"><strong>Définition 1.1  </strong></span>La matrice de réflexion d’un objet en 2D par rapport à l’axe des <span class="math inline">\(x\)</span> est
+<span class="math display">\[\begin{align*}
+Re_x 
+&amp;= \begin{bmatrix}
+1 &amp; 0 &amp;0\\
+0 &amp; -1&amp;0\\
+0&amp;0&amp;1
+\end{bmatrix}
+\end{align*}\]</span>
+De même si la réflexion se fait par rapport à l’axe des <span class="math inline">\(y\)</span>, nous avons que
+<span class="math display">\[\begin{align*}
+Re_y = \begin{bmatrix}
+-1 &amp; 0 &amp;0\\
+0 &amp; 1&amp;0\\
+0&amp;0&amp;1
+\end{bmatrix}
+\end{align*}\]</span>
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-3" class="example"><strong>Exemple 1.1  </strong></span>Trouvez la réflexion de la lettre L selon l’axe des <span class="math inline">\(x\)</span> et la réflexion de la lettre L selon l’axe des <span class="math inline">\(y\)</span>.
+</div>
+
+<p>Nous pouvons voir le résultat de ces deux réflexions aux figures <a href="la-reflexion.html#fig:lettre-L-reflexion-axe-x">1.2</a> et <a href="la-reflexion.html#fig:lettre-L-reflexion-axe-y">1.3</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:lettre-L-reflexion-axe-x"></span>
+<img src="93-transformations-lineaires_files/figure-html/lettre-L-reflexion-axe-x-1.png" alt="Une réflexion de la lettre L selon l'axe des $x$." width="50%" />
+<p class="caption">
+Figure 1.2: Une réflexion de la lettre L selon l’axe des <span class="math inline">\(x\)</span>.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:lettre-L-reflexion-axe-y"></span>
+<img src="93-transformations-lineaires_files/figure-html/lettre-L-reflexion-axe-y-1.png" alt="Une réflexion de la lettre L selon l'axe des $y$." width="75%" />
+<p class="caption">
+Figure 1.3: Une réflexion de la lettre L selon l’axe des <span class="math inline">\(y\)</span>.
+</p>
+</div>
+<p>Nous pouvons également faire une réflexion par rapport à un autre axe passant par le point <span class="math inline">\((0,0)\)</span>.</p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-4" class="definition"><strong>Définition 1.2  </strong></span>La matrice permettant la réflexion d’un objet en deux dimensions par rapport à une droite passant par l’origine et le point <span class="math inline">\((l_x,l_y)\)</span> est
+<span class="math display">\[\begin{align*}
+    Re_{(l_x,l_y)}=\dfrac{1}{l_x^2+l_y^2}
+    \begin{bmatrix}
+        l_x^2-l_y^2 &amp; 2l_xl_y &amp;0\\
+        2l_xl_y &amp; l_y^2-l_x^2 &amp;0\\
+        0&amp;0&amp;l_x^2+l_y^2
+    \end{bmatrix}
+\end{align*}\]</span>
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-5" class="example"><strong>Exemple 1.2  </strong></span>Effectuez une réflexion de la lettre L par rapport à une droite passant par l’origine et le point <span class="math inline">\((-1,1)\)</span>.
+</div>
+
+<div class="figure" style="text-align: center"><span id="fig:lettre-L-reflexion-droite-origine"></span>
+<img src="93-transformations-lineaires_files/figure-html/lettre-L-reflexion-droite-origine-1.png" alt="Une réflexion de la lettre L selon la droite passant par l'origine et le point (-1,-1)." width="75%" />
+<p class="caption">
+Figure 1.4: Une réflexion de la lettre L selon la droite passant par l’origine et le point (-1,-1).
+</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="transfos-lineaires.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="la-rotation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/desautm/algebre1/edit/master/%s",
+"text": "Modifier"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "none"
+},
+"search": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
