@@ -583,7 +583,7 @@ Il est plus simple de comprendre l'effet d'une transvection en observant l'effet
 \end{scope}
 
 \begin{scope}[shift={(4cm,0)}]
-	\Text{Homothétie selon l'origine}
+	\Text{Homoth{é}tie selon l'origine}
 	\MatrixTransform{\textcolor{blue}{W}}{\textcolor{red}{0}}{0}{\textcolor{blue}{0}}{\textcolor{red}{H}}{0}
 	\ObjetBase{0.25}{1}
 	\begin{scope}[cm={1.2,0,0,1.1,(0,0)}]
@@ -634,7 +634,7 @@ Il est plus simple de comprendre l'effet d'une transvection en observant l'effet
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{scope}[shift={(0,-5.5cm)}]
-	\Text{Réflexion selon l'origine}
+	\Text{R{é}flexion selon l'origine}
 	\MatrixTransform{\textcolor{blue}{-1}}{\textcolor{red}{0}}{0}{\textcolor{blue}{0}}{\textcolor{red}{-1}}{0}
 	\ObjetBase{0.25}{1}
 	\begin{scope}[cm={-1,0,0,-1,(0,0)}]
@@ -645,7 +645,7 @@ Il est plus simple de comprendre l'effet d'une transvection en observant l'effet
 \end{scope}
 
 \begin{scope}[shift={(2cm,-5.5cm)}]
-	\Text{Réflexion selon \\l'axe des $x$}
+	\Text{R{é}flexion selon \\l'axe des $x$}
 	\MatrixTransform{\textcolor{blue}{1}}{\textcolor{red}{0}}{0}{\textcolor{blue}{0}}{\textcolor{red}{-1}}{0}
 	\ObjetBase{0.25}{1}
 	\begin{scope}[cm={1,0,0,-1,(0,0)}]
@@ -656,7 +656,7 @@ Il est plus simple de comprendre l'effet d'une transvection en observant l'effet
 \end{scope}
 
 \begin{scope}[shift={(4cm,-5.5cm)}]
-	\Text{Réflexion selon \\l'axe des $y$}
+	\Text{R{é}flexion selon \\l'axe des $y$}
 	\MatrixTransform{\textcolor{blue}{-1}}{\textcolor{red}{0}}{0}{\textcolor{blue}{0}}{\textcolor{red}{1}}{0}
 	\ObjetBase{0.25}{1}
 	\begin{scope}[cm={-1,0,0,1,(0,0)}]
