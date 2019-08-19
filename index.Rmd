@@ -18,6 +18,7 @@ library(tidyverse)
 
 # Introduction {-}
 
+Ce document est en cours d'élaboration. 
 
 ## À propos de ce document {-}
 
