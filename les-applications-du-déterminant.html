@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3.5 Les applications du déterminant | Algèbre linéaire et géométrie vectorielle</title>
+  <meta name="description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
+  <meta name="generator" content="bookdown 0.15 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3.5 Les applications du déterminant | Algèbre linéaire et géométrie vectorielle" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
+  <meta name="github-repo" content="desautm/algebre1" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3.5 Les applications du déterminant | Algèbre linéaire et géométrie vectorielle" />
+  
+  <meta name="twitter:description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
+  
+
+<meta name="author" content="Marc-André Désautels" />
+
+
+<meta name="date" content="2019-11-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="la-méthode-de-cramer.html"/>
+<link rel="next" href="vecteursR2.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Algèbre linéaire et géométrie vectorielle</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="à-propos-de-ce-document.html"><a href="à-propos-de-ce-document.html"><i class="fa fa-check"></i>À propos de ce document</a><ul>
+<li class="chapter" data-level="" data-path="à-propos-de-ce-document.html"><a href="à-propos-de-ce-document.html#remerciements"><i class="fa fa-check"></i>Remerciements</a></li>
+<li class="chapter" data-level="" data-path="à-propos-de-ce-document.html"><a href="à-propos-de-ce-document.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I L’algèbre matricielle</b></span></li>
+<li class="chapter" data-level="1" data-path="sel.html"><a href="sel.html"><i class="fa fa-check"></i><b>1</b> Les systèmes d’équations linéaires</a><ul>
+<li class="chapter" data-level="1.1" data-path="sec-intro-equation-lineaire.html"><a href="sec-intro-equation-lineaire.html"><i class="fa fa-check"></i><b>1.1</b> Une introduction aux équations linéaires</a></li>
+<li class="chapter" data-level="1.2" data-path="systeme-equation-lineaire.html"><a href="systeme-equation-lineaire.html"><i class="fa fa-check"></i><b>1.2</b> Les systèmes d’équations linéaires</a></li>
+<li class="chapter" data-level="1.3" data-path="systeme-equation-lineaire-echelonnee.html"><a href="systeme-equation-lineaire-echelonnee.html"><i class="fa fa-check"></i><b>1.3</b> La résolution de système d’équations linéaires échelonnés</a></li>
+<li class="chapter" data-level="1.4" data-path="methode-gauss.html"><a href="methode-gauss.html"><i class="fa fa-check"></i><b>1.4</b> La méthode d’élimination de Gauss</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="methode-gauss.html"><a href="methode-gauss.html#une-application"><i class="fa fa-check"></i><b>1.4.1</b> Une application</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="les-systèmes-déquations-linéaires-homogènes.html"><a href="les-systèmes-déquations-linéaires-homogènes.html"><i class="fa fa-check"></i><b>1.5</b> Les systèmes d’équations linéaires homogènes</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="les-systèmes-déquations-linéaires-homogènes.html"><a href="les-systèmes-déquations-linéaires-homogènes.html#une-application-1"><i class="fa fa-check"></i><b>1.5.1</b> Une application</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="la-méthode-de-gauss-avec-substitution-arrière.html"><a href="la-méthode-de-gauss-avec-substitution-arrière.html"><i class="fa fa-check"></i><b>1.6</b> La méthode de Gauss avec substitution arrière</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="la-méthode-de-gauss-avec-substitution-arrière.html"><a href="la-méthode-de-gauss-avec-substitution-arrière.html#une-application-2"><i class="fa fa-check"></i><b>1.6.1</b> Une application</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>2</b> Les matrices</a><ul>
+<li class="chapter" data-level="2.1" data-path="la-définition-dune-matrice.html"><a href="la-définition-dune-matrice.html"><i class="fa fa-check"></i><b>2.1</b> La définition d’une matrice</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="la-définition-dune-matrice.html"><a href="la-définition-dune-matrice.html#sec:matrice-particuliere"><i class="fa fa-check"></i><b>2.1.1</b> Les matrices particulières</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html"><i class="fa fa-check"></i><b>2.2</b> Les opérations matricielles</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#laddition-et-la-soustraction-de-matrices"><i class="fa fa-check"></i><b>2.2.1</b> L’addition et la soustraction de matrices</a></li>
+<li class="chapter" data-level="2.2.2" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#la-multiplication-dune-matrice-par-un-scalaire"><i class="fa fa-check"></i><b>2.2.2</b> La multiplication d’une matrice par un scalaire</a></li>
+<li class="chapter" data-level="2.2.3" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#la-transposition-de-matrices"><i class="fa fa-check"></i><b>2.2.3</b> La transposition de matrices</a></li>
+<li class="chapter" data-level="2.2.4" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#les-propriétés-des-opérations-sur-les-matrices"><i class="fa fa-check"></i><b>2.2.4</b> Les propriétés des opérations sur les matrices</a></li>
+<li class="chapter" data-level="2.2.5" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#le-produit-de-deux-matrices"><i class="fa fa-check"></i><b>2.2.5</b> Le produit de deux matrices</a></li>
+<li class="chapter" data-level="2.2.6" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#les-propriétés-du-produit-matriciel"><i class="fa fa-check"></i><b>2.2.6</b> Les propriétés du produit matriciel</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="la-matrice-inverse.html"><a href="la-matrice-inverse.html"><i class="fa fa-check"></i><b>2.3</b> La matrice inverse</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="determinants.html"><a href="determinants.html"><i class="fa fa-check"></i><b>3</b> Les déterminants</a><ul>
+<li class="chapter" data-level="3.1" data-path="le-calcul-dun-déterminant.html"><a href="le-calcul-dun-déterminant.html"><i class="fa fa-check"></i><b>3.1</b> Le calcul d’un déterminant</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="le-calcul-dun-déterminant.html"><a href="le-calcul-dun-déterminant.html#le-calcul-dun-déterminant-dune-matrice-1-times-1"><i class="fa fa-check"></i><b>3.1.1</b> Le calcul d’un déterminant d’une matrice <span class="math inline">\(1 \times 1\)</span></a></li>
+<li class="chapter" data-level="3.1.2" data-path="le-calcul-dun-déterminant.html"><a href="le-calcul-dun-déterminant.html#le-calcul-dun-déterminant-dune-matrice-2times-2"><i class="fa fa-check"></i><b>3.1.2</b> Le calcul d’un déterminant d’une matrice <span class="math inline">\(2\times 2\)</span></a></li>
+<li class="chapter" data-level="3.1.3" data-path="le-calcul-dun-déterminant.html"><a href="le-calcul-dun-déterminant.html#le-calcul-dun-déterminant-dune-matrice-ntimes-n"><i class="fa fa-check"></i><b>3.1.3</b> Le calcul d’un déterminant d’une matrice <span class="math inline">\(n\times n\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="les-propriétés-des-déterminants.html"><a href="les-propriétés-des-déterminants.html"><i class="fa fa-check"></i><b>3.2</b> Les propriétés des déterminants</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="les-propriétés-des-déterminants.html"><a href="les-propriétés-des-déterminants.html#les-opérations-élémentaires"><i class="fa fa-check"></i><b>3.2.1</b> Les opérations élémentaires</a></li>
+<li class="chapter" data-level="3.2.2" data-path="les-propriétés-des-déterminants.html"><a href="les-propriétés-des-déterminants.html#le-calcul-dun-déterminant-à-laide-de-la-méthode-de-gauss"><i class="fa fa-check"></i><b>3.2.2</b> Le calcul d’un déterminant à l’aide de la méthode de Gauss</a></li>
+<li class="chapter" data-level="3.2.3" data-path="les-propriétés-des-déterminants.html"><a href="les-propriétés-des-déterminants.html#quelques-preuves-sur-les-déterminants"><i class="fa fa-check"></i><b>3.2.3</b> Quelques preuves sur les déterminants</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="la-méthode-de-la-matrice-adjointe.html"><a href="la-méthode-de-la-matrice-adjointe.html"><i class="fa fa-check"></i><b>3.3</b> La méthode de la matrice adjointe</a></li>
+<li class="chapter" data-level="3.4" data-path="la-méthode-de-cramer.html"><a href="la-méthode-de-cramer.html"><i class="fa fa-check"></i><b>3.4</b> La méthode de Cramer</a></li>
+<li class="chapter" data-level="3.5" data-path="les-applications-du-déterminant.html"><a href="les-applications-du-déterminant.html"><i class="fa fa-check"></i><b>3.5</b> Les applications du déterminant</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="les-applications-du-déterminant.html"><a href="les-applications-du-déterminant.html#laire-dun-triangle-à-laide-des-déterminants"><i class="fa fa-check"></i><b>3.5.1</b> L’aire d’un triangle à l’aide des déterminants</a></li>
+<li class="chapter" data-level="3.5.2" data-path="les-applications-du-déterminant.html"><a href="les-applications-du-déterminant.html#la-formule-des-lacets-de-souliers"><i class="fa fa-check"></i><b>3.5.2</b> La formule des lacets de souliers</a></li>
+<li class="chapter" data-level="3.5.3" data-path="les-applications-du-déterminant.html"><a href="les-applications-du-déterminant.html#le-polynôme-caractéristique-dune-matrice"><i class="fa fa-check"></i><b>3.5.3</b> Le polynôme caractéristique d’une matrice</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Les vecteurs et les nombres complexes</b></span></li>
+<li class="chapter" data-level="4" data-path="vecteursR2.html"><a href="vecteursR2.html"><i class="fa fa-check"></i><b>4</b> Les vecteurs de <span class="math inline">\(\mathbb{R}^2\)</span></a><ul>
+<li class="chapter" data-level="4.1" data-path="les-vecteurs-géométriques.html"><a href="les-vecteurs-géométriques.html"><i class="fa fa-check"></i><b>4.1</b> Les vecteurs géométriques</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="les-vecteurs-géométriques.html"><a href="les-vecteurs-géométriques.html#les-vecteurs-géométriques-particuliers"><i class="fa fa-check"></i><b>4.1.1</b> Les vecteurs géométriques particuliers</a></li>
+<li class="chapter" data-level="4.1.2" data-path="les-vecteurs-géométriques.html"><a href="les-vecteurs-géométriques.html#laddition-de-vecteurs-géométriques"><i class="fa fa-check"></i><b>4.1.2</b> L’addition de vecteurs géométriques</a></li>
+<li class="chapter" data-level="4.1.3" data-path="les-vecteurs-géométriques.html"><a href="les-vecteurs-géométriques.html#laddition-de-n-vecteurs"><i class="fa fa-check"></i><b>4.1.3</b> L’addition de <span class="math inline">\(n\)</span> vecteurs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="les-vecteurs-algébriques.html"><a href="les-vecteurs-algébriques.html"><i class="fa fa-check"></i><b>4.2</b> Les vecteurs algébriques</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="nombres-complexes.html"><a href="nombres-complexes.html"><i class="fa fa-check"></i><b>5</b> Les nombres complexes</a><ul>
+<li class="chapter" data-level="5.1" data-path="le-nombre-imaginaire-i.html"><a href="le-nombre-imaginaire-i.html"><i class="fa fa-check"></i><b>5.1</b> Le nombre imaginaire <span class="math inline">\(i\)</span></a></li>
+<li class="chapter" data-level="5.2" data-path="les-opérations-sur-les-nombres-complexes.html"><a href="les-opérations-sur-les-nombres-complexes.html"><i class="fa fa-check"></i><b>5.2</b> Les opérations sur les nombres complexes</a></li>
+<li class="chapter" data-level="5.3" data-path="les-propriétés-des-opérations-sur-les-nombres-complexes.html"><a href="les-propriétés-des-opérations-sur-les-nombres-complexes.html"><i class="fa fa-check"></i><b>5.3</b> Les propriétés des opérations sur les nombres complexes</a></li>
+<li class="chapter" data-level="5.4" data-path="la-représentation-géométrique-des-nombres-complexes.html"><a href="la-représentation-géométrique-des-nombres-complexes.html"><i class="fa fa-check"></i><b>5.4</b> La représentation géométrique des nombres complexes</a></li>
+<li class="chapter" data-level="5.5" data-path="des-applications.html"><a href="des-applications.html"><i class="fa fa-check"></i><b>5.5</b> Des applications</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="vecteursRn.html"><a href="vecteursRn.html"><i class="fa fa-check"></i><b>6</b> Les vecteurs de <span class="math inline">\(\mathbb{R}^n\)</span></a><ul>
+<li class="chapter" data-level="6.1" data-path="les-vecteurs-géométriques-1.html"><a href="les-vecteurs-géométriques-1.html"><i class="fa fa-check"></i><b>6.1</b> Les vecteurs géométriques</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="les-vecteurs-géométriques-1.html"><a href="les-vecteurs-géométriques-1.html#la-représentation-géométrique-des-vecteurs-de-mathbbr3"><i class="fa fa-check"></i><b>6.1.1</b> La représentation géométrique des vecteurs de <span class="math inline">\(\mathbb{R}^3\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="les-produits-de-vecteurs.html"><a href="les-produits-de-vecteurs.html"><i class="fa fa-check"></i><b>6.2</b> Les produits de vecteurs</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="les-produits-de-vecteurs.html"><a href="les-produits-de-vecteurs.html#le-produit-scalaire"><i class="fa fa-check"></i><b>6.2.1</b> Le produit scalaire</a></li>
+<li class="chapter" data-level="6.2.2" data-path="les-produits-de-vecteurs.html"><a href="les-produits-de-vecteurs.html#des-applications-1"><i class="fa fa-check"></i><b>6.2.2</b> Des applications</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Espaces vectoriels</b></span></li>
+<li class="chapter" data-level="7" data-path="espace-vectoriel.html"><a href="espace-vectoriel.html"><i class="fa fa-check"></i><b>7</b> Espace vectoriel et base d’un espace vectoriel</a><ul>
+<li class="chapter" data-level="7.1" data-path="espace-vectoriel-1.html"><a href="espace-vectoriel-1.html"><i class="fa fa-check"></i><b>7.1</b> Espace vectoriel</a></li>
+<li class="chapter" data-level="7.2" data-path="sous-espace-vectoriel.html"><a href="sous-espace-vectoriel.html"><i class="fa fa-check"></i><b>7.2</b> Sous-espace vectoriel</a></li>
+<li class="chapter" data-level="7.3" data-path="base-dun-espace-vectoriel.html"><a href="base-dun-espace-vectoriel.html"><i class="fa fa-check"></i><b>7.3</b> Base d’un espace vectoriel</a></li>
+</ul></li>
+<li class="part"><span><b>IV La géométrie dans l’espace</b></span></li>
+<li class="chapter" data-level="8" data-path="droites-plans-espace.html"><a href="droites-plans-espace.html"><i class="fa fa-check"></i><b>8</b> Les droites et les plans dans l’espace</a><ul>
+<li class="chapter" data-level="8.1" data-path="les-droites-de-mathbbr2.html"><a href="les-droites-de-mathbbr2.html"><i class="fa fa-check"></i><b>8.1</b> Les droites de <span class="math inline">\(\mathbb{R}^2\)</span></a><ul>
+<li class="chapter" data-level="8.1.1" data-path="les-droites-de-mathbbr2.html"><a href="les-droites-de-mathbbr2.html#positions-relatives-de-droites-du-plan"><i class="fa fa-check"></i><b>8.1.1</b> Positions relatives de droites du plan</a></li>
+<li class="chapter" data-level="8.1.2" data-path="les-droites-de-mathbbr2.html"><a href="les-droites-de-mathbbr2.html#les-équations-symétriques-dune-droite-de-mathbbr2"><i class="fa fa-check"></i><b>8.1.2</b> Les équations symétriques d’une droite de <span class="math inline">\(\mathbb{R}^2\)</span></a></li>
+<li class="chapter" data-level="8.1.3" data-path="les-droites-de-mathbbr2.html"><a href="les-droites-de-mathbbr2.html#la-distance-entre-un-point-et-une-droite-de-mathbbr2"><i class="fa fa-check"></i><b>8.1.3</b> La distance entre un point et une droite de <span class="math inline">\(\mathbb{R}^2\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html"><i class="fa fa-check"></i><b>8.2</b> Les droites de l’espace</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#léquation-dune-droite-dans-mathbbr3"><i class="fa fa-check"></i><b>8.2.1</b> L’équation d’une droite dans <span class="math inline">\(\mathbb{R}^3\)</span></a></li>
+<li class="chapter" data-level="8.2.2" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#les-positions-relatives-de-droites-dans-lespace"><i class="fa fa-check"></i><b>8.2.2</b> Les positions relatives de droites dans l’espace</a></li>
+<li class="chapter" data-level="8.2.3" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#langle-entre-deux-droites-de-lespace"><i class="fa fa-check"></i><b>8.2.3</b> L’angle entre deux droites de l’espace</a></li>
+<li class="chapter" data-level="8.2.4" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#les-équations-symétriques-dune-droite-de-lespace"><i class="fa fa-check"></i><b>8.2.4</b> Les équations symétriques d’une droite de l’espace</a></li>
+<li class="chapter" data-level="8.2.5" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#la-distance-entre-un-point-et-une-droite"><i class="fa fa-check"></i><b>8.2.5</b> La distance entre un point et une droite</a></li>
+<li class="chapter" data-level="8.2.6" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#la-distance-entre-deux-droites-parallèles"><i class="fa fa-check"></i><b>8.2.6</b> La distance entre deux droites parallèles</a></li>
+<li class="chapter" data-level="8.2.7" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#la-distance-entre-deux-droites-gauches"><i class="fa fa-check"></i><b>8.2.7</b> La distance entre deux droites gauches</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html"><i class="fa fa-check"></i><b>8.3</b> Les plans de l’espace</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#léquation-vectorielle-du-plan-de-lespace"><i class="fa fa-check"></i><b>8.3.1</b> L’équation vectorielle du plan de l’espace</a></li>
+<li class="chapter" data-level="8.3.2" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#léquation-normale-du-plan-de-lespace"><i class="fa fa-check"></i><b>8.3.2</b> L’équation normale du plan de l’espace</a></li>
+<li class="chapter" data-level="8.3.3" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#les-positions-relatives-de-plans-de-lespace"><i class="fa fa-check"></i><b>8.3.3</b> Les positions relatives de plans de l’espace</a></li>
+<li class="chapter" data-level="8.3.4" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#la-position-relative-dune-droite-et-dun-plan"><i class="fa fa-check"></i><b>8.3.4</b> La position relative d’une droite et d’un plan</a></li>
+<li class="chapter" data-level="8.3.5" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#des-applications-2"><i class="fa fa-check"></i><b>8.3.5</b> Des applications</a></li>
+<li class="chapter" data-level="8.3.6" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#langle-entre-deux-plans"><i class="fa fa-check"></i><b>8.3.6</b> L’angle entre deux plans</a></li>
+<li class="chapter" data-level="8.3.7" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#langle-entre-une-droite-et-un-plan"><i class="fa fa-check"></i><b>8.3.7</b> L’angle entre une droite et un plan</a></li>
+<li class="chapter" data-level="8.3.8" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#la-distance-entre-un-point-et-un-plan-la-distance-entre-une-droite-et-un-plan-et-la-distance-entre-deux-plans"><i class="fa fa-check"></i><b>8.3.8</b> La distance entre un point et un plan, la distance entre une droite et un plan et la distance entre deux plans</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="les-positions-relatives-de-droites-et-de-plans-dans-lespace.html"><a href="les-positions-relatives-de-droites-et-de-plans-dans-lespace.html"><i class="fa fa-check"></i><b>8.4</b> Les positions relatives de droites et de plans dans l’espace</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendices</b></span></li>
+<li class="chapter" data-level="A" data-path="graphes.html"><a href="graphes.html"><i class="fa fa-check"></i><b>A</b> La théorie des graphes</a></li>
+<li class="chapter" data-level="B" data-path="preuves.html"><a href="preuves.html"><i class="fa fa-check"></i><b>B</b> Les preuves en mathématiques</a><ul>
+<li class="chapter" data-level="B.1" data-path="les-preuves-par-contradiction.html"><a href="les-preuves-par-contradiction.html"><i class="fa fa-check"></i><b>B.1</b> Les preuves par contradiction</a><ul>
+<li class="chapter" data-level="B.1.1" data-path="les-preuves-par-contradiction.html"><a href="les-preuves-par-contradiction.html#il-existe-une-infinité-de-nombres-premiers"><i class="fa fa-check"></i><b>B.1.1</b> Il existe une infinité de nombres premiers</a></li>
+<li class="chapter" data-level="B.1.2" data-path="les-preuves-par-contradiction.html"><a href="les-preuves-par-contradiction.html#sqrt2-est-irrationnel"><i class="fa fa-check"></i><b>B.1.2</b> <span class="math inline">\(\sqrt{2}\)</span> est irrationnel</a></li>
+</ul></li>
+<li class="chapter" data-level="B.2" data-path="preuves-par-induction-mathématique.html"><a href="preuves-par-induction-mathématique.html"><i class="fa fa-check"></i><b>B.2</b> Preuves par induction mathématique</a></li>
+<li class="chapter" data-level="B.3" data-path="les-contres-exemples.html"><a href="les-contres-exemples.html"><i class="fa fa-check"></i><b>B.3</b> Les contres-exemples</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="sommation.html"><a href="sommation.html"><i class="fa fa-check"></i><b>C</b> Le symbole de sommation</a></li>
+<li class="chapter" data-level="D" data-path="transfos-lineaires.html"><a href="transfos-lineaires.html"><i class="fa fa-check"></i><b>D</b> Les transformations linéaires</a><ul>
+<li class="chapter" data-level="D.1" data-path="la-réflexion.html"><a href="la-réflexion.html"><i class="fa fa-check"></i><b>D.1</b> La réflexion</a></li>
+<li class="chapter" data-level="D.2" data-path="la-rotation.html"><a href="la-rotation.html"><i class="fa fa-check"></i><b>D.2</b> La rotation</a></li>
+<li class="chapter" data-level="D.3" data-path="la-translation.html"><a href="la-translation.html"><i class="fa fa-check"></i><b>D.3</b> La translation</a></li>
+<li class="chapter" data-level="D.4" data-path="la-transvection.html"><a href="la-transvection.html"><i class="fa fa-check"></i><b>D.4</b> La transvection</a></li>
+<li class="chapter" data-level="D.5" data-path="la-composition-de-transformations-linéaires.html"><a href="la-composition-de-transformations-linéaires.html"><i class="fa fa-check"></i><b>D.5</b> La composition de transformations linéaires</a></li>
+<li class="chapter" data-level="D.6" data-path="la-rotation-comme-trois-transvections.html"><a href="la-rotation-comme-trois-transvections.html"><i class="fa fa-check"></i><b>D.6</b> La rotation comme trois transvections</a></li>
+<li class="chapter" data-level="D.7" data-path="un-résumé-des-différentes-transformations-linéaires.html"><a href="un-résumé-des-différentes-transformations-linéaires.html"><i class="fa fa-check"></i><b>D.7</b> Un résumé des différentes transformations linéaires</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publié avec bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Algèbre linéaire et géométrie vectorielle</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="les-applications-du-déterminant" class="section level2">
+<h2><span class="header-section-number">3.5</span> Les applications du déterminant</h2>
+<p>Cette section contient de multiples applications du déterminant. Nous allons débuter en introduisant l’adjointe d’une matrice, qui permet, à l’aide du déterminant, de trouver la matrice inverse d’une matrice. Nous verrons ensuite la méthode de Cramer, qui permet de résoudre un système d’équations linéaires possédant une solution unique et qui permet de ne trouver la valeur que d’une seule variable à la fois. Nous introduirons ensuite des applications permettant de calculer l’aire d’un triangle, ou alors une applications permettant d’associer un polynôme à une matrice.</p>
+<div id="laire-dun-triangle-à-laide-des-déterminants" class="section level3">
+<h3><span class="header-section-number">3.5.1</span> L’aire d’un triangle à l’aide des déterminants</h3>
+<p>Dans cette sous-section, nous allons retrouver une formule impliquant un déterminant permettant de trouver l’aire d’un triangle dont nous connaissons les coordonnées des trois points le formant. La figure suivante nous aidera à retrouver la formule.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-119"></span>
+<img src="algebre1_files/figure-html/unnamed-chunk-119-1.png" alt="L'aire d'un triangle avec un déterminant." width="50%" />
+<p class="caption">
+Figure 3.3: L’aire d’un triangle avec un déterminant.
+</p>
+</div>
+<p>Remarquons que pour trouver la surface du triangle bleu, il est plus simple de trouver la surface totale du rectangle pointillé et d’ensuite enlever la surface des trois triangles rectangles <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> et <span class="math inline">\(C\)</span>.</p>
+<p>Nous avons donc que la surface du rectangle est donnée par:
+<span class="math display">\[\begin{align*}
+\text{Aire}_{\text{rectangle}} = (x_3-x_1)(y_2-y_3)
+\end{align*}\]</span>
+La surface du triangle <span class="math inline">\(A\)</span> est donnée par:
+<span class="math display">\[\begin{align*}
+\text{Aire}_{\Delta A} = \dfrac{1}{2}(x_2-x_1)(y_2-y_1)
+\end{align*}\]</span>
+La surface du triangle <span class="math inline">\(B\)</span> est donnée par:
+<span class="math display">\[\begin{align*}
+\text{Aire}_{\Delta B} = \dfrac{1}{2}(x_3-x_2)(y_2-y_3)
+\end{align*}\]</span>
+La surface du triangle <span class="math inline">\(C\)</span> est donnée par:
+<span class="math display">\[\begin{align*}
+\text{Aire}_{\Delta C} = \dfrac{1}{2}(x_3-x_1)(y_1-y_3)
+\end{align*}\]</span></p>
+<p>La surface du triangle en bleu est donc donnée par:
+<span class="math display">\[\begin{align*}
+\text{Aire}_{\Delta} &amp;= \text{Aire}_{\text{rectangle}}-\text{Aire}_{\Delta A}-\text{Aire}_{\Delta B}-\text{Aire}_{\Delta C} \\
+&amp;= (x_3-x_1)(y_2-y_3)-\dfrac{1}{2}(x_2-x_1)(y_2-y_1)-\dfrac{1}{2}(x_3-x_2)(y_2-y_3) \\
+&amp; \qquad \qquad -\dfrac{1}{2}(x_3-x_1)(y_1-y_3) \\
+&amp;= \dfrac{-x_2y_3+x_1y_3+x_3y_2-x_1y_2-x_3y_1+x_2y_1}{2} \qquad\text{(en simplifiant)} \\
+&amp;= \dfrac{1}{2}\left((x_3y_2-x_2y_3)-(x_3y_1-x_1y_3)+(x_2y_1-x_1y_2)\right)
+\end{align*}\]</span></p>
+<p>Étonnamment, la formule précédente peut être exprimée sous la forme du déterminant suivant:
+<span class="math display">\[\begin{align*}
+\dfrac{1}{2}\begin{vmatrix}
+1 &amp; 1 &amp; 1 \\
+x_1 &amp; x_2 &amp; x_3 \\
+y_1 &amp; y_2 &amp; y_3
+\end{vmatrix}
+\end{align*}\]</span>
+En fait, vous allez probablement remarquer que le déterminant suivant donne la formule de la surface d’un triangle à un signe près. Pour obtenir l’aire du triangle, il faut donc prendre la valeur absolue du déterminant précédent.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-120" class="example"><strong>Exemple 3.22  </strong></span>Trouvez la surface du triangle dont les coordonnées sont <span class="math inline">\((-1,1)\)</span>, <span class="math inline">\((2,5)\)</span> et <span class="math inline">\((10,2)\)</span>.
+</div>
+
+<p>La formule obtenue pour l’aire d’un triangle peut nous aider à savoir si trois points sont colinéaires, c’est-à-dire si ces trois points se trouvent sur la même droite. En effet, si les trois points se trouvent sur la même droite, la surface du triangle sera nulle et donc le déterminant sera nul également.</p>
+</div>
+<div id="la-formule-des-lacets-de-souliers" class="section level3">
+<h3><span class="header-section-number">3.5.2</span> La formule des lacets de souliers</h3>
+<p>La formule des lacets de souliers (également appelée formule de Gauss et formule de l’arpenteur) est un algorithme mathématique permettant de déterminer l’aire d’un polygone simple dont les sommets sont décrits par leurs coordonnées cartésiennes dans le plan. L’utilisateur multiplie les coordonnées correspondantes pour trouver l’aire englobant le polygone et la soustrait de l’aire du polygone environnant pour trouver l’aire du polygone à l’intérieur. C’est ce qu’on appelle la formule des lacets de souliers en raison de la multiplication croisée constante des coordonnées constituant le polygone, comme pour lier les lacets, voir <a href="les-applications-du-déterminant.html#fig:shoelace">3.4</a>. Cette formule a de multiples applications dans l’arpentage et la foresterie, entre autres domaines.</p>
+<div class="figure" style="text-align: center"><span id="fig:shoelace"></span>
+<img src="resources/images/Shoelace.png" alt="La méthode des lacets de souliers." width="50%" />
+<p class="caption">
+Figure 3.4: La méthode des lacets de souliers.
+</p>
+</div>
+<p>La formule a été décrite par Meister (1724-1788) en 1769 et par Gauss en 1795. Elle peut être vérifiée en divisant le polygone en triangles.</p>
+<p>La formule d’aire est valable pour tout polygone (simple) ne se croisant pas, qui peut être convexe ou concave.</p>
+<p>ous avons un polygone simple à <span class="math inline">\(n\)</span> côtés dont les sommets sont de coordonnées <span class="math inline">\((x_i,y_i)\)</span> pour <span class="math inline">\(i=1,2,\ldots, n\)</span>. Voici la méthode pour trouver la surface du polygone:</p>
+<ol style="list-style-type: decimal">
+<li>Créez un tableau à 5 colonnes.</li>
+<li>À la colonne 1, indiquez le numéro des sommets en partant d’un point quelconque et en parcourant le polygone en sens <em>anti-horaire</em> et en refermant sur le point de départ. La première ligne et la dernière ligne doivent correspondent au même point.</li>
+<li>À la colonne 2, indiquez la coordonnée en <span class="math inline">\(x\)</span> du point correspondant à cette ligne.</li>
+<li>À la colonne 3, indiquez la coordonnée en <span class="math inline">\(y\)</span> du point correspondant à cette ligne.</li>
+<li>À la colonne 4, calculez le produit de la coordonnée en <span class="math inline">\(x\)</span> de cette ligne avec la coordonnée en <span class="math inline">\(y\)</span> de la ligne <em>suivante</em>. Vous terminez à l’avant-dernière ligne.</li>
+<li>À la colonne 5, calculez le produit de la coordonnée en <span class="math inline">\(x\)</span> de cette ligne avec la coordonnée en <span class="math inline">\(y\)</span> de la ligne <em>précédente</em>. Vous débutez à la deuxième ligne.</li>
+<li>Vous devez faire la somme des colonnes 4 et 5.</li>
+<li>La surface du polygone est la différence, en valeur absolue, des sommes des colonnes 4 et 5, divisée par deux.</li>
+</ol>
+<p>Pour mieux visualiser cette méthode, nous allons la représenter sous forme de tableau, voir le tableau <a href="les-applications-du-déterminant.html#tab:lacet-soulier">3.1</a>.</p>
+<table>
+<caption><span id="tab:lacet-soulier">Tableau 3.1: </span> La représentation sous forme de tableau de la méthode des lacets de souliers.</caption>
+<thead>
+<tr class="header">
+<th align="center">Colonne 1</th>
+<th align="center">Colonne 2</th>
+<th align="center">Colonne 3</th>
+<th align="center">Colonne 4</th>
+<th align="center">Colonne 5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(i\)</span></td>
+<td align="center"><span class="math inline">\(x_i\)</span></td>
+<td align="center"><span class="math inline">\(y_i\)</span></td>
+<td align="center"><span class="math inline">\(x\times y_{\text{suivant}}\)</span></td>
+<td align="center"><span class="math inline">\(x\times y_{\text{précédent}}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center"><span class="math inline">\(x_1\)</span></td>
+<td align="center"><span class="math inline">\(y_1\)</span></td>
+<td align="center"><span class="math inline">\(x_1 y_2\)</span></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center"><span class="math inline">\(x_2\)</span></td>
+<td align="center"><span class="math inline">\(y_2\)</span></td>
+<td align="center"><span class="math inline">\(x_2 y_3\)</span></td>
+<td align="center"><span class="math inline">\(x_2 y_1\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="center"><span class="math inline">\(x_3\)</span></td>
+<td align="center"><span class="math inline">\(y_3\)</span></td>
+<td align="center"><span class="math inline">\(x_3 y_2\)</span></td>
+<td align="center"><span class="math inline">\(x_3 y_2\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(n-1\)</span></td>
+<td align="center"><span class="math inline">\(x_{n-1}\)</span></td>
+<td align="center"><span class="math inline">\(y_{n-1}\)</span></td>
+<td align="center"><span class="math inline">\(x_{n-1} y_{n}\)</span></td>
+<td align="center"><span class="math inline">\(x_{n-1} y_{n-2}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(n\)</span></td>
+<td align="center"><span class="math inline">\(x_n\)</span></td>
+<td align="center"><span class="math inline">\(y_n\)</span></td>
+<td align="center"><span class="math inline">\(x_n y_1\)</span></td>
+<td align="center"><span class="math inline">\(x_n y_{n-1}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center"><span class="math inline">\(x_1\)</span></td>
+<td align="center"><span class="math inline">\(y_1\)</span></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(x_1 y_n\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">Somme colonne 4</td>
+<td align="center">Somme colonne 5</td>
+</tr>
+</tbody>
+</table>
+
+<div class="example">
+<span id="exm:unnamed-chunk-121" class="example"><strong>Exemple 3.23  </strong></span>Trouvez la surface du polygone de la figure <a href="les-applications-du-déterminant.html#fig:poly-lacets-soulier">3.5</a> à l’aide de la méthode des lacets de souliers.
+</div>
+
+<div class="figure" style="text-align: center"><span id="fig:poly-lacets-soulier"></span>
+<img src="algebre1_files/figure-html/poly-lacets-soulier-1.png" alt="Un polygone." width="75%" />
+<p class="caption">
+Figure 3.5: Un polygone.
+</p>
+</div>
+</div>
+<div id="le-polynôme-caractéristique-dune-matrice" class="section level3">
+<h3><span class="header-section-number">3.5.3</span> Le polynôme caractéristique d’une matrice</h3>
+<p>Le polynôme caractéristique d’une matrice est un polynôme qui renferme d’importantes propriétés de sa matrice. Entre autre, il renferme son déterminant, sa trace et ses valeurs propres. Bien que nous ne puissions voir les valeurs propres d’une matrice dans ce livre, celles-ci sont très importantes en algèbre linéaire. Le polynôme caractéristique est également utile dans un important théorème d’algèbre linéaire, le théorème de Cayley-Hamilton.</p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-122" class="definition"><strong>Définition 3.8  (Le polynôme caractéristique)  </strong></span>Soit <span class="math inline">\(A_n\)</span> une matrice carrée. Le polynôme caractéristique de <span class="math inline">\(A\)</span>, noté <span class="math inline">\(p_{A_n}(t)\)</span>, est défini de la façon suivante:
+<span class="math display">\[\begin{align*}
+p_{A_n}(t) = \det(tI_n-A_n)
+\end{align*}\]</span>
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-123" class="example"><strong>Exemple 3.24  </strong></span>Trouvez le polynôme caractéristique de la matrice suivante:
+<span class="math display">\[\begin{align*}
+A=\begin{bmatrix}
+2 &amp; 1 \\
+-1 &amp; 0
+\end{bmatrix}
+\end{align*}\]</span>
+</div>
+
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-124" class="theorem"><strong>Théorème 3.5  (Quelques propriétés du polynôme caractéristique)  </strong></span>Soit une matrice <span class="math inline">\(A_n\)</span> et <span class="math inline">\(p_A(t)\)</span> son polynôme caractéristique.</p>
+<ul>
+<li>Le degré du polynôme est <span class="math inline">\(n\)</span>.</li>
+<li>Le coefficient de <span class="math inline">\(t^n\)</span> est <span class="math inline">\(1\)</span>.</li>
+<li>Le coefficient de <span class="math inline">\(t^{n-1}\)</span> est égal à la trace de la matrice <span class="math inline">\(-A\)</span>, c’est-à-dire <span class="math inline">\(\text{tr}(-A)=-\text{tr}(A)\)</span>.La trace d’une matrice correspond à la somme de ses éléments sur la diagonale principale.</li>
+<li>Le coefficient constant de <span class="math inline">\(p_A(t)\)</span> est égal au déterminant de la matrice <span class="math inline">\(-A\)</span>, c’est-à-dire <span class="math inline">\(p_A(0)=\det(-A)=(-1)^n\det(A)\)</span>.</li>
+</ul>
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-125" class="example"><strong>Exemple 3.25  </strong></span>Utilisez les propriétés précédentes pour écrire le polynôme caractéristique d’une matrice <span class="math inline">\(A\)</span> de dimension <span class="math inline">\(2\times 2\)</span>.
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-126" class="example"><strong>Exemple 3.26  </strong></span>Le polynôme caractéristique d’un graphe est défini comme le polynôme caractéristique de sa matrice d’adjacence. En particulier, le polynôme caractéristique d’un graphe est un invariant du graphe. Dans cet exemple, nous étudierons en particulier le cas des graphes complets, notés <span class="math inline">\(K_n\)</span>. Un graphe complet <span class="math inline">\(K_n\)</span> est un graphe possédant <span class="math inline">\(n\)</span> sommets tous reliés deux à deux par une arête. Voir la figure <a href="les-applications-du-déterminant.html#fig:graphe-complet">3.6</a> pour quelques exemples de graphes complets. Vous pouvez vous rendre à la section <a href="graphes.html#graphes">A</a> pour des définitions concernant les graphes.</p>
+<p>Trouvez les polynômes caractéristiques des graphes suivants:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(K_2\)</span></li>
+<li><span class="math inline">\(K_3\)</span></li>
+<li><span class="math inline">\(K_4\)</span></li>
+</ol>
+</div>
+
+<div class="figure" style="text-align: center"><span id="fig:graphe-complet"></span>
+<img src="algebre1_files/figure-html/graphe-complet-1.png" alt="Quelques graphes complets." width="75%" />
+<p class="caption">
+Figure 3.6: Quelques graphes complets.
+</p>
+</div>
+
+</div>
+</div>
+<!-- </div> -->
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="la-méthode-de-cramer.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="vecteursR2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"],
+"github": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/desautm/algebre1/edit/master/03-determinants.Rmd",
+"text": "Modifier"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["algebre1.pdf"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

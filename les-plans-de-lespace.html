@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8.3 Les plans de l’espace | Algèbre linéaire et géométrie vectorielle</title>
+  <meta name="description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
+  <meta name="generator" content="bookdown 0.15 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8.3 Les plans de l’espace | Algèbre linéaire et géométrie vectorielle" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
+  <meta name="github-repo" content="desautm/algebre1" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8.3 Les plans de l’espace | Algèbre linéaire et géométrie vectorielle" />
+  
+  <meta name="twitter:description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
+  
+
+<meta name="author" content="Marc-André Désautels" />
+
+
+<meta name="date" content="2019-11-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="les-droites-de-lespace.html"/>
+<link rel="next" href="les-positions-relatives-de-droites-et-de-plans-dans-lespace.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Algèbre linéaire et géométrie vectorielle</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="à-propos-de-ce-document.html"><a href="à-propos-de-ce-document.html"><i class="fa fa-check"></i>À propos de ce document</a><ul>
+<li class="chapter" data-level="" data-path="à-propos-de-ce-document.html"><a href="à-propos-de-ce-document.html#remerciements"><i class="fa fa-check"></i>Remerciements</a></li>
+<li class="chapter" data-level="" data-path="à-propos-de-ce-document.html"><a href="à-propos-de-ce-document.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I L’algèbre matricielle</b></span></li>
+<li class="chapter" data-level="1" data-path="sel.html"><a href="sel.html"><i class="fa fa-check"></i><b>1</b> Les systèmes d’équations linéaires</a><ul>
+<li class="chapter" data-level="1.1" data-path="sec-intro-equation-lineaire.html"><a href="sec-intro-equation-lineaire.html"><i class="fa fa-check"></i><b>1.1</b> Une introduction aux équations linéaires</a></li>
+<li class="chapter" data-level="1.2" data-path="systeme-equation-lineaire.html"><a href="systeme-equation-lineaire.html"><i class="fa fa-check"></i><b>1.2</b> Les systèmes d’équations linéaires</a></li>
+<li class="chapter" data-level="1.3" data-path="systeme-equation-lineaire-echelonnee.html"><a href="systeme-equation-lineaire-echelonnee.html"><i class="fa fa-check"></i><b>1.3</b> La résolution de système d’équations linéaires échelonnés</a></li>
+<li class="chapter" data-level="1.4" data-path="methode-gauss.html"><a href="methode-gauss.html"><i class="fa fa-check"></i><b>1.4</b> La méthode d’élimination de Gauss</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="methode-gauss.html"><a href="methode-gauss.html#une-application"><i class="fa fa-check"></i><b>1.4.1</b> Une application</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="les-systèmes-déquations-linéaires-homogènes.html"><a href="les-systèmes-déquations-linéaires-homogènes.html"><i class="fa fa-check"></i><b>1.5</b> Les systèmes d’équations linéaires homogènes</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="les-systèmes-déquations-linéaires-homogènes.html"><a href="les-systèmes-déquations-linéaires-homogènes.html#une-application-1"><i class="fa fa-check"></i><b>1.5.1</b> Une application</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="la-méthode-de-gauss-avec-substitution-arrière.html"><a href="la-méthode-de-gauss-avec-substitution-arrière.html"><i class="fa fa-check"></i><b>1.6</b> La méthode de Gauss avec substitution arrière</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="la-méthode-de-gauss-avec-substitution-arrière.html"><a href="la-méthode-de-gauss-avec-substitution-arrière.html#une-application-2"><i class="fa fa-check"></i><b>1.6.1</b> Une application</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>2</b> Les matrices</a><ul>
+<li class="chapter" data-level="2.1" data-path="la-définition-dune-matrice.html"><a href="la-définition-dune-matrice.html"><i class="fa fa-check"></i><b>2.1</b> La définition d’une matrice</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="la-définition-dune-matrice.html"><a href="la-définition-dune-matrice.html#sec:matrice-particuliere"><i class="fa fa-check"></i><b>2.1.1</b> Les matrices particulières</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html"><i class="fa fa-check"></i><b>2.2</b> Les opérations matricielles</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#laddition-et-la-soustraction-de-matrices"><i class="fa fa-check"></i><b>2.2.1</b> L’addition et la soustraction de matrices</a></li>
+<li class="chapter" data-level="2.2.2" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#la-multiplication-dune-matrice-par-un-scalaire"><i class="fa fa-check"></i><b>2.2.2</b> La multiplication d’une matrice par un scalaire</a></li>
+<li class="chapter" data-level="2.2.3" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#la-transposition-de-matrices"><i class="fa fa-check"></i><b>2.2.3</b> La transposition de matrices</a></li>
+<li class="chapter" data-level="2.2.4" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#les-propriétés-des-opérations-sur-les-matrices"><i class="fa fa-check"></i><b>2.2.4</b> Les propriétés des opérations sur les matrices</a></li>
+<li class="chapter" data-level="2.2.5" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#le-produit-de-deux-matrices"><i class="fa fa-check"></i><b>2.2.5</b> Le produit de deux matrices</a></li>
+<li class="chapter" data-level="2.2.6" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#les-propriétés-du-produit-matriciel"><i class="fa fa-check"></i><b>2.2.6</b> Les propriétés du produit matriciel</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="la-matrice-inverse.html"><a href="la-matrice-inverse.html"><i class="fa fa-check"></i><b>2.3</b> La matrice inverse</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="determinants.html"><a href="determinants.html"><i class="fa fa-check"></i><b>3</b> Les déterminants</a><ul>
+<li class="chapter" data-level="3.1" data-path="le-calcul-dun-déterminant.html"><a href="le-calcul-dun-déterminant.html"><i class="fa fa-check"></i><b>3.1</b> Le calcul d’un déterminant</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="le-calcul-dun-déterminant.html"><a href="le-calcul-dun-déterminant.html#le-calcul-dun-déterminant-dune-matrice-1-times-1"><i class="fa fa-check"></i><b>3.1.1</b> Le calcul d’un déterminant d’une matrice <span class="math inline">\(1 \times 1\)</span></a></li>
+<li class="chapter" data-level="3.1.2" data-path="le-calcul-dun-déterminant.html"><a href="le-calcul-dun-déterminant.html#le-calcul-dun-déterminant-dune-matrice-2times-2"><i class="fa fa-check"></i><b>3.1.2</b> Le calcul d’un déterminant d’une matrice <span class="math inline">\(2\times 2\)</span></a></li>
+<li class="chapter" data-level="3.1.3" data-path="le-calcul-dun-déterminant.html"><a href="le-calcul-dun-déterminant.html#le-calcul-dun-déterminant-dune-matrice-ntimes-n"><i class="fa fa-check"></i><b>3.1.3</b> Le calcul d’un déterminant d’une matrice <span class="math inline">\(n\times n\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="les-propriétés-des-déterminants.html"><a href="les-propriétés-des-déterminants.html"><i class="fa fa-check"></i><b>3.2</b> Les propriétés des déterminants</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="les-propriétés-des-déterminants.html"><a href="les-propriétés-des-déterminants.html#les-opérations-élémentaires"><i class="fa fa-check"></i><b>3.2.1</b> Les opérations élémentaires</a></li>
+<li class="chapter" data-level="3.2.2" data-path="les-propriétés-des-déterminants.html"><a href="les-propriétés-des-déterminants.html#le-calcul-dun-déterminant-à-laide-de-la-méthode-de-gauss"><i class="fa fa-check"></i><b>3.2.2</b> Le calcul d’un déterminant à l’aide de la méthode de Gauss</a></li>
+<li class="chapter" data-level="3.2.3" data-path="les-propriétés-des-déterminants.html"><a href="les-propriétés-des-déterminants.html#quelques-preuves-sur-les-déterminants"><i class="fa fa-check"></i><b>3.2.3</b> Quelques preuves sur les déterminants</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="la-méthode-de-la-matrice-adjointe.html"><a href="la-méthode-de-la-matrice-adjointe.html"><i class="fa fa-check"></i><b>3.3</b> La méthode de la matrice adjointe</a></li>
+<li class="chapter" data-level="3.4" data-path="la-méthode-de-cramer.html"><a href="la-méthode-de-cramer.html"><i class="fa fa-check"></i><b>3.4</b> La méthode de Cramer</a></li>
+<li class="chapter" data-level="3.5" data-path="les-applications-du-déterminant.html"><a href="les-applications-du-déterminant.html"><i class="fa fa-check"></i><b>3.5</b> Les applications du déterminant</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="les-applications-du-déterminant.html"><a href="les-applications-du-déterminant.html#laire-dun-triangle-à-laide-des-déterminants"><i class="fa fa-check"></i><b>3.5.1</b> L’aire d’un triangle à l’aide des déterminants</a></li>
+<li class="chapter" data-level="3.5.2" data-path="les-applications-du-déterminant.html"><a href="les-applications-du-déterminant.html#la-formule-des-lacets-de-souliers"><i class="fa fa-check"></i><b>3.5.2</b> La formule des lacets de souliers</a></li>
+<li class="chapter" data-level="3.5.3" data-path="les-applications-du-déterminant.html"><a href="les-applications-du-déterminant.html#le-polynôme-caractéristique-dune-matrice"><i class="fa fa-check"></i><b>3.5.3</b> Le polynôme caractéristique d’une matrice</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Les vecteurs et les nombres complexes</b></span></li>
+<li class="chapter" data-level="4" data-path="vecteursR2.html"><a href="vecteursR2.html"><i class="fa fa-check"></i><b>4</b> Les vecteurs de <span class="math inline">\(\mathbb{R}^2\)</span></a><ul>
+<li class="chapter" data-level="4.1" data-path="les-vecteurs-géométriques.html"><a href="les-vecteurs-géométriques.html"><i class="fa fa-check"></i><b>4.1</b> Les vecteurs géométriques</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="les-vecteurs-géométriques.html"><a href="les-vecteurs-géométriques.html#les-vecteurs-géométriques-particuliers"><i class="fa fa-check"></i><b>4.1.1</b> Les vecteurs géométriques particuliers</a></li>
+<li class="chapter" data-level="4.1.2" data-path="les-vecteurs-géométriques.html"><a href="les-vecteurs-géométriques.html#laddition-de-vecteurs-géométriques"><i class="fa fa-check"></i><b>4.1.2</b> L’addition de vecteurs géométriques</a></li>
+<li class="chapter" data-level="4.1.3" data-path="les-vecteurs-géométriques.html"><a href="les-vecteurs-géométriques.html#laddition-de-n-vecteurs"><i class="fa fa-check"></i><b>4.1.3</b> L’addition de <span class="math inline">\(n\)</span> vecteurs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="les-vecteurs-algébriques.html"><a href="les-vecteurs-algébriques.html"><i class="fa fa-check"></i><b>4.2</b> Les vecteurs algébriques</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="nombres-complexes.html"><a href="nombres-complexes.html"><i class="fa fa-check"></i><b>5</b> Les nombres complexes</a><ul>
+<li class="chapter" data-level="5.1" data-path="le-nombre-imaginaire-i.html"><a href="le-nombre-imaginaire-i.html"><i class="fa fa-check"></i><b>5.1</b> Le nombre imaginaire <span class="math inline">\(i\)</span></a></li>
+<li class="chapter" data-level="5.2" data-path="les-opérations-sur-les-nombres-complexes.html"><a href="les-opérations-sur-les-nombres-complexes.html"><i class="fa fa-check"></i><b>5.2</b> Les opérations sur les nombres complexes</a></li>
+<li class="chapter" data-level="5.3" data-path="les-propriétés-des-opérations-sur-les-nombres-complexes.html"><a href="les-propriétés-des-opérations-sur-les-nombres-complexes.html"><i class="fa fa-check"></i><b>5.3</b> Les propriétés des opérations sur les nombres complexes</a></li>
+<li class="chapter" data-level="5.4" data-path="la-représentation-géométrique-des-nombres-complexes.html"><a href="la-représentation-géométrique-des-nombres-complexes.html"><i class="fa fa-check"></i><b>5.4</b> La représentation géométrique des nombres complexes</a></li>
+<li class="chapter" data-level="5.5" data-path="des-applications.html"><a href="des-applications.html"><i class="fa fa-check"></i><b>5.5</b> Des applications</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="vecteursRn.html"><a href="vecteursRn.html"><i class="fa fa-check"></i><b>6</b> Les vecteurs de <span class="math inline">\(\mathbb{R}^n\)</span></a><ul>
+<li class="chapter" data-level="6.1" data-path="les-vecteurs-géométriques-1.html"><a href="les-vecteurs-géométriques-1.html"><i class="fa fa-check"></i><b>6.1</b> Les vecteurs géométriques</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="les-vecteurs-géométriques-1.html"><a href="les-vecteurs-géométriques-1.html#la-représentation-géométrique-des-vecteurs-de-mathbbr3"><i class="fa fa-check"></i><b>6.1.1</b> La représentation géométrique des vecteurs de <span class="math inline">\(\mathbb{R}^3\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="les-produits-de-vecteurs.html"><a href="les-produits-de-vecteurs.html"><i class="fa fa-check"></i><b>6.2</b> Les produits de vecteurs</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="les-produits-de-vecteurs.html"><a href="les-produits-de-vecteurs.html#le-produit-scalaire"><i class="fa fa-check"></i><b>6.2.1</b> Le produit scalaire</a></li>
+<li class="chapter" data-level="6.2.2" data-path="les-produits-de-vecteurs.html"><a href="les-produits-de-vecteurs.html#des-applications-1"><i class="fa fa-check"></i><b>6.2.2</b> Des applications</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Espaces vectoriels</b></span></li>
+<li class="chapter" data-level="7" data-path="espace-vectoriel.html"><a href="espace-vectoriel.html"><i class="fa fa-check"></i><b>7</b> Espace vectoriel et base d’un espace vectoriel</a><ul>
+<li class="chapter" data-level="7.1" data-path="espace-vectoriel-1.html"><a href="espace-vectoriel-1.html"><i class="fa fa-check"></i><b>7.1</b> Espace vectoriel</a></li>
+<li class="chapter" data-level="7.2" data-path="sous-espace-vectoriel.html"><a href="sous-espace-vectoriel.html"><i class="fa fa-check"></i><b>7.2</b> Sous-espace vectoriel</a></li>
+<li class="chapter" data-level="7.3" data-path="base-dun-espace-vectoriel.html"><a href="base-dun-espace-vectoriel.html"><i class="fa fa-check"></i><b>7.3</b> Base d’un espace vectoriel</a></li>
+</ul></li>
+<li class="part"><span><b>IV La géométrie dans l’espace</b></span></li>
+<li class="chapter" data-level="8" data-path="droites-plans-espace.html"><a href="droites-plans-espace.html"><i class="fa fa-check"></i><b>8</b> Les droites et les plans dans l’espace</a><ul>
+<li class="chapter" data-level="8.1" data-path="les-droites-de-mathbbr2.html"><a href="les-droites-de-mathbbr2.html"><i class="fa fa-check"></i><b>8.1</b> Les droites de <span class="math inline">\(\mathbb{R}^2\)</span></a><ul>
+<li class="chapter" data-level="8.1.1" data-path="les-droites-de-mathbbr2.html"><a href="les-droites-de-mathbbr2.html#positions-relatives-de-droites-du-plan"><i class="fa fa-check"></i><b>8.1.1</b> Positions relatives de droites du plan</a></li>
+<li class="chapter" data-level="8.1.2" data-path="les-droites-de-mathbbr2.html"><a href="les-droites-de-mathbbr2.html#les-équations-symétriques-dune-droite-de-mathbbr2"><i class="fa fa-check"></i><b>8.1.2</b> Les équations symétriques d’une droite de <span class="math inline">\(\mathbb{R}^2\)</span></a></li>
+<li class="chapter" data-level="8.1.3" data-path="les-droites-de-mathbbr2.html"><a href="les-droites-de-mathbbr2.html#la-distance-entre-un-point-et-une-droite-de-mathbbr2"><i class="fa fa-check"></i><b>8.1.3</b> La distance entre un point et une droite de <span class="math inline">\(\mathbb{R}^2\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html"><i class="fa fa-check"></i><b>8.2</b> Les droites de l’espace</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#léquation-dune-droite-dans-mathbbr3"><i class="fa fa-check"></i><b>8.2.1</b> L’équation d’une droite dans <span class="math inline">\(\mathbb{R}^3\)</span></a></li>
+<li class="chapter" data-level="8.2.2" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#les-positions-relatives-de-droites-dans-lespace"><i class="fa fa-check"></i><b>8.2.2</b> Les positions relatives de droites dans l’espace</a></li>
+<li class="chapter" data-level="8.2.3" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#langle-entre-deux-droites-de-lespace"><i class="fa fa-check"></i><b>8.2.3</b> L’angle entre deux droites de l’espace</a></li>
+<li class="chapter" data-level="8.2.4" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#les-équations-symétriques-dune-droite-de-lespace"><i class="fa fa-check"></i><b>8.2.4</b> Les équations symétriques d’une droite de l’espace</a></li>
+<li class="chapter" data-level="8.2.5" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#la-distance-entre-un-point-et-une-droite"><i class="fa fa-check"></i><b>8.2.5</b> La distance entre un point et une droite</a></li>
+<li class="chapter" data-level="8.2.6" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#la-distance-entre-deux-droites-parallèles"><i class="fa fa-check"></i><b>8.2.6</b> La distance entre deux droites parallèles</a></li>
+<li class="chapter" data-level="8.2.7" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#la-distance-entre-deux-droites-gauches"><i class="fa fa-check"></i><b>8.2.7</b> La distance entre deux droites gauches</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html"><i class="fa fa-check"></i><b>8.3</b> Les plans de l’espace</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#léquation-vectorielle-du-plan-de-lespace"><i class="fa fa-check"></i><b>8.3.1</b> L’équation vectorielle du plan de l’espace</a></li>
+<li class="chapter" data-level="8.3.2" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#léquation-normale-du-plan-de-lespace"><i class="fa fa-check"></i><b>8.3.2</b> L’équation normale du plan de l’espace</a></li>
+<li class="chapter" data-level="8.3.3" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#les-positions-relatives-de-plans-de-lespace"><i class="fa fa-check"></i><b>8.3.3</b> Les positions relatives de plans de l’espace</a></li>
+<li class="chapter" data-level="8.3.4" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#la-position-relative-dune-droite-et-dun-plan"><i class="fa fa-check"></i><b>8.3.4</b> La position relative d’une droite et d’un plan</a></li>
+<li class="chapter" data-level="8.3.5" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#des-applications-2"><i class="fa fa-check"></i><b>8.3.5</b> Des applications</a></li>
+<li class="chapter" data-level="8.3.6" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#langle-entre-deux-plans"><i class="fa fa-check"></i><b>8.3.6</b> L’angle entre deux plans</a></li>
+<li class="chapter" data-level="8.3.7" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#langle-entre-une-droite-et-un-plan"><i class="fa fa-check"></i><b>8.3.7</b> L’angle entre une droite et un plan</a></li>
+<li class="chapter" data-level="8.3.8" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#la-distance-entre-un-point-et-un-plan-la-distance-entre-une-droite-et-un-plan-et-la-distance-entre-deux-plans"><i class="fa fa-check"></i><b>8.3.8</b> La distance entre un point et un plan, la distance entre une droite et un plan et la distance entre deux plans</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="les-positions-relatives-de-droites-et-de-plans-dans-lespace.html"><a href="les-positions-relatives-de-droites-et-de-plans-dans-lespace.html"><i class="fa fa-check"></i><b>8.4</b> Les positions relatives de droites et de plans dans l’espace</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendices</b></span></li>
+<li class="chapter" data-level="A" data-path="graphes.html"><a href="graphes.html"><i class="fa fa-check"></i><b>A</b> La théorie des graphes</a></li>
+<li class="chapter" data-level="B" data-path="preuves.html"><a href="preuves.html"><i class="fa fa-check"></i><b>B</b> Les preuves en mathématiques</a><ul>
+<li class="chapter" data-level="B.1" data-path="les-preuves-par-contradiction.html"><a href="les-preuves-par-contradiction.html"><i class="fa fa-check"></i><b>B.1</b> Les preuves par contradiction</a><ul>
+<li class="chapter" data-level="B.1.1" data-path="les-preuves-par-contradiction.html"><a href="les-preuves-par-contradiction.html#il-existe-une-infinité-de-nombres-premiers"><i class="fa fa-check"></i><b>B.1.1</b> Il existe une infinité de nombres premiers</a></li>
+<li class="chapter" data-level="B.1.2" data-path="les-preuves-par-contradiction.html"><a href="les-preuves-par-contradiction.html#sqrt2-est-irrationnel"><i class="fa fa-check"></i><b>B.1.2</b> <span class="math inline">\(\sqrt{2}\)</span> est irrationnel</a></li>
+</ul></li>
+<li class="chapter" data-level="B.2" data-path="preuves-par-induction-mathématique.html"><a href="preuves-par-induction-mathématique.html"><i class="fa fa-check"></i><b>B.2</b> Preuves par induction mathématique</a></li>
+<li class="chapter" data-level="B.3" data-path="les-contres-exemples.html"><a href="les-contres-exemples.html"><i class="fa fa-check"></i><b>B.3</b> Les contres-exemples</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="sommation.html"><a href="sommation.html"><i class="fa fa-check"></i><b>C</b> Le symbole de sommation</a></li>
+<li class="chapter" data-level="D" data-path="transfos-lineaires.html"><a href="transfos-lineaires.html"><i class="fa fa-check"></i><b>D</b> Les transformations linéaires</a><ul>
+<li class="chapter" data-level="D.1" data-path="la-réflexion.html"><a href="la-réflexion.html"><i class="fa fa-check"></i><b>D.1</b> La réflexion</a></li>
+<li class="chapter" data-level="D.2" data-path="la-rotation.html"><a href="la-rotation.html"><i class="fa fa-check"></i><b>D.2</b> La rotation</a></li>
+<li class="chapter" data-level="D.3" data-path="la-translation.html"><a href="la-translation.html"><i class="fa fa-check"></i><b>D.3</b> La translation</a></li>
+<li class="chapter" data-level="D.4" data-path="la-transvection.html"><a href="la-transvection.html"><i class="fa fa-check"></i><b>D.4</b> La transvection</a></li>
+<li class="chapter" data-level="D.5" data-path="la-composition-de-transformations-linéaires.html"><a href="la-composition-de-transformations-linéaires.html"><i class="fa fa-check"></i><b>D.5</b> La composition de transformations linéaires</a></li>
+<li class="chapter" data-level="D.6" data-path="la-rotation-comme-trois-transvections.html"><a href="la-rotation-comme-trois-transvections.html"><i class="fa fa-check"></i><b>D.6</b> La rotation comme trois transvections</a></li>
+<li class="chapter" data-level="D.7" data-path="un-résumé-des-différentes-transformations-linéaires.html"><a href="un-résumé-des-différentes-transformations-linéaires.html"><i class="fa fa-check"></i><b>D.7</b> Un résumé des différentes transformations linéaires</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publié avec bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Algèbre linéaire et géométrie vectorielle</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="les-plans-de-lespace" class="section level2">
+<h2><span class="header-section-number">8.3</span> Les plans de l’espace</h2>
+<p>Dans cette section, nous allons définir les équations qui nous permettent de décrire les plans de l’espace. Nous étudierons également la distance entre un point et un plan, la distance entre deux plans et la position relative de deux plans.</p>
+<div id="léquation-vectorielle-du-plan-de-lespace" class="section level3">
+<h3><span class="header-section-number">8.3.1</span> L’équation vectorielle du plan de l’espace</h3>
+<p>Il est possible de trouver une équation vectorielle du plan de l’espace, tout comme nous avons trouvé une équation vectorielle pour une droite de l’espace.</p>
+<p>Soit <span class="math inline">\(P_0\)</span> un point faisant partie du plan et <span class="math inline">\(\vec u\)</span>, <span class="math inline">\(\vec v\)</span> deux vecteurs non parallèles se trouvant dans le plan. Nous voulons trouver une équation nous permettant de trouver un point <span class="math inline">\(P\)</span> faisant partie du plan. À l’aide de la figure <a href="les-plans-de-lespace.html#fig:equations-plans-vectorielles">8.10</a>, nous pourrons trouver cette équation.</p>
+<div class="figure" style="text-align: center"><span id="fig:equations-plans-vectorielles"></span>
+<img src="algebre1_files/figure-html/equations-plans-vectorielles-1.png" alt="La représentation des équations d'un plan sous forme vectorielle." width="75%" />
+<p class="caption">
+Figure 8.10: La représentation des équations d’un plan sous forme vectorielle.
+</p>
+</div>
+<p>Dans la version en ligne de ce document, vous trouverez ci-dessous une version interactive d’un plan sous forme vectorielle.</p>
+<iframe scrolling="no" title="Plan de l'espace" src="https://www.geogebra.org/material/iframe/id/et4mk7ev/width/700/height/500/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="700px" height="500px" style="border:0px;">
+</iframe>
+<p>Soit <span class="math inline">\(P\)</span> un point quelconque du plan. Nous pouvons dire que:
+<span class="math display">\[\begin{align*}
+\overrightarrow{OP} &amp;= \overrightarrow{OP_0} + \vec a
+\end{align*}\]</span>
+Remarquons que le vecteur <span class="math inline">\(\vec a\)</span> peut s’écrire comme une combinaison linéaire des vecteurs <span class="math inline">\(\vec u\)</span> et <span class="math inline">\(\vec v\)</span>, c’est-à-dire que:
+<span class="math display">\[\begin{align*}
+\vec a &amp;= s\vec u + t \vec v
+\end{align*}\]</span>
+où <span class="math inline">\(s,t\in\mathbb{R}\)</span>. Nous avons donc:
+<span class="math display" id="eq:equation-vectorielle-plan">\[\begin{align}
+\overrightarrow{OP} &amp;= \overrightarrow{OP_0} + \vec a \\
+&amp;= \overrightarrow{OP_0} + s\vec u + t \vec v
+\tag{8.1}
+\end{align}\]</span>
+où <span class="math inline">\(s,t\in\mathbb{R}\)</span>. L’équation <a href="les-plans-de-lespace.html#eq:equation-vectorielle-plan">(8.1)</a> est l’équation vectorielle d’un plan.</p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-216" class="definition"><strong>Définition 8.7  (L’équation vectorielle d’un plan de l’espace)  </strong></span>Nous pouvons maintenant donner la définition de l’équation vectorielle d’un plan de l’espace.
+Soit <span class="math inline">\(P_0=(x_0,y_0,z_0)\)</span> un point d’une droite et <span class="math inline">\(u=[u_1,u_2,u_3]\)</span> et <span class="math inline">\(v=[v_1,v_2,v_3]\)</span> deux vecteurs directeurs de ce plan. L’équation vectorielle de ce plan est donnée par:
+<span class="math display">\[\begin{align*}
+\overrightarrow{r} &amp;= \overrightarrow{r_0}+s\overrightarrow{u}+t\overrightarrow{v} \\
+[x,y,z] &amp;= [x_0,y_0,z_0]+s[u_1,u_2,u_3]+t[v_1,v_2,v_3]
+\end{align*}\]</span>
+où <span class="math inline">\(s,t\in\mathbb{R}\)</span>.
+</div>
+
+<p>Les paramètres <span class="math inline">\(s\)</span> et <span class="math inline">\(t\)</span> nous permettent d’obtenir tous les points du plan par combinaison linéaire.</p>
+<p>Nous pouvons définir de “nouvelles” équations de droites à l’aide de la définition de l’équation vectorielle d’une droite.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-217" class="definition"><strong>Définition 8.8  (Les équations paramétriques d’un plan de <span class="math inline">\(\mathbb{R}^3\)</span>)  </strong></span>Soit <span class="math inline">\(P_0=(x_0,y_0,z_0)\)</span> un point d’une plan et <span class="math inline">\(u=[u_1,u_2,u_3]\)</span>, <span class="math inline">\(v=[v_1,v_2,v_3]\)</span> les vecteurs directeurs de ce plan. Nous savons que l’équation vectorielle de ce plan est donnée par:
+<span class="math display">\[\begin{align*}
+\overrightarrow{r} &amp;= \overrightarrow{r_0}+s\overrightarrow{u}+t\overrightarrow{v} \\
+[x,y,z] &amp;= [x_0,y_0,z_0]+s[u_1,u_2,u_3]+t[v_1,v_2,v_3]
+\end{align*}\]</span>
+où <span class="math inline">\(s,t\in\mathbb{R}\)</span>.</p>
+Puisque l’équation vectorielle d’un plan correspond à une égalité entre deux vecteurs et que deux vecteurs sont égaux lorsque leurs composantes respectives sont égales, nous pouvons écrire:
+<span class="math display">\[\begin{align*}
+x &amp;= x_0 + su_1 + tv_1 \\
+y &amp;= y_0 + su_2 + tv_2 \\
+z &amp;= z_0 + su_3 + tv_3 \\
+\end{align*}\]</span>
+où <span class="math inline">\(s,t\in\mathbb{R}\)</span>. Les équations précédentes sont nommées les équations paramétriques d’un plan de <span class="math inline">\(\mathbb{R}^3\)</span>.
+</div>
+
+<p>Le prochain exemple permettra de voir comment nous pouvons trouver l’équation d’une droite et ensuite l’utiliser pour trouver certains points de la droite.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-218" class="example"><strong>Exemple 8.17  </strong></span>Soit les points <span class="math inline">\(A=(3,2,1)\)</span>, <span class="math inline">\(B=(-4,0,2)\)</span> et <span class="math inline">\(C=(1,1,2)\)</span> faisant partie du plan <span class="math inline">\(D\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Trouvez deux vecteurs directeurs du plan <span class="math inline">\(D\)</span>.</li>
+<li>Trouvez l’équation vectorielle du plan <span class="math inline">\(D\)</span>.</li>
+<li>Utilisez l’équation trouvée en b) pour trouver deux points du plan <span class="math inline">\(D\)</span> autres que <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> et <span class="math inline">\(C\)</span>.</li>
+<li>Est-ce que le point <span class="math inline">\(E=(-8,1,-1)\)</span> fait partie du plan <span class="math inline">\(D\)</span>?</li>
+<li>Est-ce que le point <span class="math inline">\(F=(-15,-2,1)\)</span> fait partie du plan <span class="math inline">\(D\)</span>?</li>
+</ol>
+</div>
+
+</div>
+<div id="léquation-normale-du-plan-de-lespace" class="section level3">
+<h3><span class="header-section-number">8.3.2</span> L’équation normale du plan de l’espace</h3>
+<p>Il est possible de définir une autre équation du plan, qui elle nous sera davantage utile. Cette définition s’appuie sur le vecteur normal au plan.</p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-219" class="definition"><strong>Définition 8.9  (Le vecteur normal au plan)  </strong></span>Soit un plan <span class="math inline">\(D\)</span>. Un vecteur normal au plan, noté <span class="math inline">\(\vec n\)</span>, est un vecteur tel que tous les vecteurs se trouvant sur le plan sont perpendiculaires à <span class="math inline">\(\vec n\)</span>.
+</div>
+
+<p>Nous allons maintenant utiliser le vecteur normal au plan pour définir l’équation normale du plan de l’espace. Soit un plan <span class="math inline">\(P\)</span> et un vecteur <span class="math inline">\(\vec n=[a,b,c]\)</span> normal à ce plan. Soit aussi un point <span class="math inline">\(P(x_0,y_0,z_0)\)</span> connu faisant partie du plan et un point <span class="math inline">\(Q(x,y,z)\)</span> un point quelconque du plan. Nous utiliserons la figure <a href="les-plans-de-lespace.html#fig:equation-plans-normale">8.11</a> pour trouver l’équation normale du plan.</p>
+<div class="figure" style="text-align: center"><span id="fig:equation-plans-normale"></span>
+<img src="algebre1_files/figure-html/equation-plans-normale-1.png" alt="La représentation de l'équation normale d'un plan." width="75%" />
+<p class="caption">
+Figure 8.11: La représentation de l’équation normale d’un plan.
+</p>
+</div>
+<p>Dans la version en ligne de ce document, vous trouverez ci-dessous une version interactive d’un plan sous forme normale.</p>
+<iframe scrolling="no" title="Plan de l'espace normal" src="https://www.geogebra.org/material/iframe/id/y64rcr4s/width/700/height/571/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="700px" height="571px" style="border:0px;">
+</iframe>
+<p>Puisque le vecteur normal <span class="math inline">\(\vec n\)</span> est perpendiculaire à tous les vecteurs se trouvant sur le plan, il est en particulier perpendiculaire au vecteur <span class="math inline">\(\overrightarrow{PQ}\)</span>. Si nous définissons le vecteur <span class="math inline">\(\vec p = \overrightarrow{OP}\)</span> et le vecteur <span class="math inline">\(\vec x=\overrightarrow{OQ}\)</span>, nous avons que:
+<span class="math display" id="eq:equation-plans-normale">\[\begin{align}
+\vec n \cdot (\vec x - \vec p) &amp;= 0 \qquad\text{(car $\vec n \perp (\vec x - \vec p)$)}
+\tag{8.2}
+\end{align}\]</span>
+L’équation <a href="les-plans-de-lespace.html#eq:equation-plans-normale">(8.2)</a> représente l’équation normale d’un plan.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-220" class="definition"><strong>Définition 8.10  (L’équation normale d’un plan)  </strong></span>Soit un plan <span class="math inline">\(P\)</span>. Soit un vecteur normal à ce plan <span class="math inline">\(\vec n=[a,b,c]\)</span> et un point de ce plan <span class="math inline">\(P(x_0,y_0,z_0)\)</span> connu. L’équation normale du plan est donnée par:
+<span class="math display">\[\begin{align*}
+\vec n \cdot (\vec x - \vec p) &amp;= 0 \\
+[a,b,c] \cdot [x-x_0,y-y_0,z-z_0] &amp;= 0 \\
+a(x-x_0)+b(y-y_0)+c(z-z_0) &amp;= 0
+\end{align*}\]</span></p>
+Nous pouvons également écrire l’équation précédente sous une forme légèrement différente:
+<span class="math display">\[\begin{align*}
+a(x-x_0)+b(y-y_0)+c(z-z_0) &amp;= 0 \\
+ax-ax_0+by-by_0+cz-cz_0 &amp;= 0 \\
+ax+by+cz-\underbrace{(ax_0+by_0+cz_0)}_{=d} &amp;= 0 \\
+ax+by+cz-d &amp;= 0
+\end{align*}\]</span>
+</div>
+
+
+<div class="remark">
+ <span class="remark"><em>Remarque. </em></span> Nous utiliserons habituellement l’équation <span class="math inline">\(a(x-x_0)+b(y-y_0)+c(z-z_0) = 0\)</span> comme équation normale du plan, car elle permet de trouver immédiatement le point utilisé comme faisant partie du plan.
+</div>
+
+<p>Remarquons que dans l’équation normale d’un plan n’apparaissent pas de paramètres <span class="math inline">\(s\)</span> et <span class="math inline">\(t\)</span> comme dans l’équation vectorielle d’un plan. L’équation normale consiste en fait en une équation linéaire possédant trois inconnues. Comme nous l’avons vu, une telle équation possède deux paramètres libres. Ceci signifie que pour trouver un point se trouvant sur le plan, il suffit de poser deux des trois inconnues égales à une certaine valeur et de résoudre l’équation ainsi formée.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-222" class="example"><strong>Exemple 8.18  </strong></span>Soit le plan <span class="math inline">\(P\)</span> donné par l’équation suivante:
+<span class="math display">\[\begin{align*}
+3x+2y-z+4 &amp;= 0
+\end{align*}\]</span>
+Trouvez deux points se trouvant sur la plan <span class="math inline">\(P\)</span>.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-223" class="example"><strong>Exemple 8.19  </strong></span>Trouvez l’équation du plan <span class="math inline">\(P\)</span> ayant comme vecteur normal <span class="math inline">\(\vec n=[3,4,2]\)</span> et passant par le point <span class="math inline">\(P(1,2,3)\)</span>.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-224" class="example"><strong>Exemple 8.20  </strong></span>Trouvez l’équation normale du plan <span class="math inline">\(P\)</span> passant par les points <span class="math inline">\(A(-2,1,3)\)</span>, <span class="math inline">\(B(3,3,1)\)</span> et <span class="math inline">\(C(5,-4,-2)\)</span>.
+</div>
+
+</div>
+<div id="les-positions-relatives-de-plans-de-lespace" class="section level3">
+<h3><span class="header-section-number">8.3.3</span> Les positions relatives de plans de l’espace</h3>
+<p>Nous allons maintenant étudier les positions relatives de deux plans. Soit deux plans dans l’espace, nous désirons savoir s’il s’intersecte ou non.</p>
+<p>Soit deux plans de <span class="math inline">\(\mathbb{R}^3\)</span>:
+<span class="math display">\[\begin{align*}
+P_1 :&amp; a(x-x_1)+b(y-y_1)+c(z-z_1)=0 \\
+P_2 :&amp; d(x-x_2)+e(y-y_2)+f(z-z_2)=0
+\end{align*}\]</span>
+Si les deux plans se croisent, alors le système d’équations linéaires possédera une solution:
+<span class="math display">\[\begin{align}
+ax+by+cz &amp;= -(ax_1+by_1+cz_1) \\
+dx+ey+fz &amp;= -(dx_2+ey_2+fz_2)
+(\#eq:equation_position_relative_plan)
+\end{align}\]</span></p>
+<p>Le système d’équations linéaires @ref(eq:equation_position_relative_plan) possède deux équations et trois inconnues, <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span> et <span class="math inline">\(z\)</span>. Ce système peut posséder deux types de solutions:</p>
+<ol style="list-style-type: decimal">
+<li>Aucune solution, ce qui signifie que les plans ne se croisent jamais.</li>
+<li>Une infinité de solutions, ce qui signifie que les plans se croisent.</li>
+</ol>
+
+<div class="remark">
+ <span class="remark"><em>Remarque. </em></span> Il est impossible que le système d’équations linéaires possède une unique solution car nous avons davantage d’inconnues que d’équations.
+</div>
+
+<p>De plus, dans <span class="math inline">\(\mathbb{R}^3\)</span>, deux plans peuvent se retrouver dans trois situations différentes.</p>
+<ol style="list-style-type: decimal">
+<li>Deux plans peuvent être parallèles confondus, c’est-à-dire qu’ils forment un seul et même plan.</li>
+<li>Deux plans peuvent être parallèles distincts, c’est-à-dire qu’ils ne se touchent jamais.</li>
+<li>Deux plans peuvent être non-parallèles, c’est-à-dire que leur intersection est une droite de <span class="math inline">\(\mathbb{R}^3\)</span>.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:positions-relatives-plans"></span>
+<img src="algebre1_files/figure-html/positions-relatives-plans-1.png" alt="De gauche à droite, deux plans parallèles confondus, deux plans parallèles distincts et des plans sécants." width="95%" />
+<p class="caption">
+Figure 8.12: De gauche à droite, deux plans parallèles confondus, deux plans parallèles distincts et des plans sécants.
+</p>
+</div>
+<p>À l’aide des trois situations précédentes, nous pouvons détailler une technique pour être en mesure, à partir de deux plans, de savoir quelle est la position relative de ces plans.</p>
+<ol style="list-style-type: decimal">
+<li>Trouvez les vecteurs normaux de chacun des plans.</li>
+<li><p>Si les vecteurs normaux sont parallèles, les plans sont parallèles.</p>
+<ul>
+<li>Trouvez un point sur un des plans et vérifiez s’il fait partie de l’autre plan.</li>
+<li>Si oui, les plans sont parallèles confondus.</li>
+<li>Sinon, les plans sont parallèles distincts.</li>
+</ul></li>
+<li><p>Si les vecteurs normaux ne sont pas parallèles, les plans ne sont pas parallèles.</p>
+<ul>
+<li>Nous devons trouver le système d’équations linéaires correspondant à l’égalité entre les deux plans.</li>
+<li>Le système d’équations linéaires possédera une infinité de solutions qui correspond à l’équation de la droite représentant l’intersection des deux plans.</li>
+</ul></li>
+</ol>
+<p>Nous allons maintenant faire quelques exemples pour être en mesure de trouver la position relative de deux plans.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-226" class="example"><strong>Exemple 8.21  </strong></span>Trouvez la position relative des deux plans suivants:
+<span class="math display">\[\begin{align*}
+P_1 :&amp; 5(x-3)+(y-4)-4(z+4) = 0 \\
+P_2 :&amp; -10(x+2)-2(y-1)+8(z-5) = 0
+\end{align*}\]</span>
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-227" class="example"><strong>Exemple 8.22  </strong></span>Trouvez la position relative des deux plans suivants:
+<span class="math display">\[\begin{align*}
+P_1 :&amp; \ 5(x-5)+3(z-5) = 0 \\
+P_2 :&amp; \ 3(x+4)+5(y+1)+2(z-5) = 0
+\end{align*}\]</span>
+</div>
+
+<p>Lorsque nous avons trois plans de l’espace, l’intersection est en général un point, comme nous pouvons le visualiser sur la figure suivante. En effet, puisque l’intersection de deux plans est en général une droite, en ajoutant un troisième plan, nous obtenons l’intersection d’une droite et d’un plan, qui est en général un point, comme représenté à la figure <a href="les-plans-de-lespace.html#fig:intersection-trois-plans-point">8.13</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:intersection-trois-plans-point"></span>
+<img src="algebre1_files/figure-html/intersection-trois-plans-point-1.png" alt="Un exemple d'intersection de trois plans." width="75%" />
+<p class="caption">
+Figure 8.13: Un exemple d’intersection de trois plans.
+</p>
+</div>
+
+<div class="example">
+<span id="exm:unnamed-chunk-228" class="example"><strong>Exemple 8.23  </strong></span>Trouvez la position relative des trois plans suivants:
+<span class="math display">\[\begin{align*}
+P_1 :&amp; \ 3x+4y-4z = -5 \\
+P_2 :&amp; \ x-4y-2z = -1 \\
+P_3 :&amp; \ 5x+5y-4z = -5
+\end{align*}\]</span>
+</div>
+
+</div>
+<div id="la-position-relative-dune-droite-et-dun-plan" class="section level3">
+<h3><span class="header-section-number">8.3.4</span> La position relative d’une droite et d’un plan</h3>
+<p>Nous allons maintenant étudier les positions relatives d’une droite et d’un plan de l’espace. Soit une droite et un plan de l’espace, nous désirons savoir s’ils s’intersectent ou non.</p>
+<p>Soit une droite et un plan de <span class="math inline">\(\mathbb{R}^3\)</span>:
+<span class="math display">\[\begin{align*}
+D :&amp; \begin{cases}
+x &amp;= x_0+tu_1 \\
+y &amp;= y_0+tu_2 \\
+z &amp;= z_0+tu_3
+\end{cases} 
+\ \text{où } t\in\mathbb{R} \\
+P :&amp; \ a(x-x_1)+b(y-y_1)+c(z-z_1)=0 
+\end{align*}\]</span>
+Pour déterminer si la droite et le plan se croisent, il suffit de remplacer les équations paramétriques de la droite dans l’équation cartésienne du plan, c’est-à-dire:</p>
+<p><span class="math display" id="eq:positionplandroite">\[\begin{align}
+a(x-x_1)+b(y-y_1)+c(z-z_1) &amp;= 0 \nonumber\\
+a(x_0+tu_1-x_1)+b(y_0+tu_2-y_1)+c(z_0+tu_3-z_1) &amp;\overset{?}{=} 0 \nonumber\\
+-(a(x_0-x_1)+b(y_0-y_1)+c(z_0-z_1)) &amp;\overset{?}{=} t(au_1+bu_2+cu_3) \nonumber\\
+\dfrac{-(a(x_0-x_1)+b(y_0-y_1)+c(z_0-z_1))}{au_1+bu_2+cu_3} &amp;= t \tag{8.3}
+\end{align}\]</span></p>
+<p>L’équation <a href="les-plans-de-lespace.html#eq:positionplandroite">(8.3)</a> possède une solution uniquement si le dénominateur est différent de zéro, c’est-à-dire si:
+<span class="math display">\[\begin{align*}
+au_1+bu_2+cu_3 &amp;\neq 0 \\
+[a,b,c]\cdot[u_1,u_2,u_3] &amp;\neq 0 \\
+\vec n \cdot \vec u &amp;\neq 0
+\end{align*}\]</span></p>
+<p>L’équation <a href="les-plans-de-lespace.html#eq:positionplandroite">(8.3)</a> indique que le produit scalaire entre le vecteur normal au plan et le vecteur directeur de la droite ne doit à être égal à zéro. Ceci signifie que si le produit scalaire entre le vecteur normal au plan et le vecteur directeur de la droite est égal à zéro, nous ne pouvons pas trouver de valeur de <span class="math inline">\(t\)</span> pour résoudre l’équation. De plus, si le produit scalaire est nul, ceci signifie également que les vecteurs <span class="math inline">\(\vec n\)</span> et <span class="math inline">\(\vec u\)</span> sont perpendiculaires.</p>
+<p>Dans <span class="math inline">\(\mathbb{R}^3\)</span>, une droite et un plan peuvent se retrouver dans trois situations différentes.</p>
+<ol style="list-style-type: decimal">
+<li>Une droite et un plan peuvent être parallèles confondus, c’est-à-dire que la droite fait partie du plan.</li>
+<li>Une droite et un plan peuvent être parallèles distincts, c’est-à-dire qu’ils ne se touchent jamais.</li>
+<li>Une droite et un plan peuvent être non-parallèles, c’est-à-dire que leur intersection est un point de <span class="math inline">\(\mathbb{R}^3\)</span>.</li>
+</ol>
+<p>Nous pouvons représenter graphiquement ces trois situations comme à la figure <a href="les-plans-de-lespace.html#fig:position-relative-plan-droite">8.14</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:position-relative-plan-droite"></span>
+<img src="algebre1_files/figure-html/position-relative-plan-droite-1.png" alt="De gauche à droite, une droite et un plans parallèles confondus, une droite et un plan parallèles distincts et une droite et un plan non parallèles." width="95%" />
+<p class="caption">
+Figure 8.14: De gauche à droite, une droite et un plans parallèles confondus, une droite et un plan parallèles distincts et une droite et un plan non parallèles.
+</p>
+</div>
+<p>À l’aide des trois situations précédentes, nous pouvons détailler une technique pour être en mesure, à partir d’une droite et d’un plan, de savoir quelle est la position relative entre ces deux objets.</p>
+<ol style="list-style-type: decimal">
+<li>Trouvez le vecteur directeur directeur de la droite et le vecteur normal du plan.</li>
+<li><p>Si les vecteurs sont perpendiculaires, alors la droite et le plan sont parallèles.</p>
+<ul>
+<li>Trouvez un point sur la droite et vérifiez s’il fait partie du plan.</li>
+<li>Si oui, la droite et le plan sont parallèles confondus.</li>
+<li>Sinon, la droite et le plan sont parallèles distincts.</li>
+</ul></li>
+<li><p>Si les vecteurs ne sont pas perpendiculaires, la droite et le plan ne sont pas parallèles.</p>
+<ul>
+<li>Nous remplaçons les équations paramétriques de la droite dans l’équation cartésienne du plan et nous isolons le paramètre de la droite.</li>
+<li>Nous utilisons le paramètre trouvé pour trouver le point d’intersection entre la droite et le plan.</li>
+</ul></li>
+</ol>
+<p>Nous allons maintenant faire quelques exemples pour être en mesure de trouver la position relative d’une droite et d’un plan.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-229" class="example"><strong>Exemple 8.24  </strong></span>Trouvez la position relative de la droite et du plan suivant:
+<span class="math display">\[\begin{align*}
+D &amp;: \begin{cases}
+x &amp;= -5+6t \\
+y &amp;= 1 \\
+z &amp;= 5+4t
+\end{cases}
+\ \text{où } t\in\mathbb{R} \\
+P &amp;: -2x+y+3z = 26
+\end{align*}\]</span>
+</div>
+
+
+<div class="example">
+<span id="exm:droite-plan-secants" class="example"><strong>Exemple 8.25  </strong></span>Trouvez la position relative de la droite et du plan suivant:
+<span class="math display">\[\begin{align*}
+D &amp;: \begin{cases}
+x &amp;= 2-t \\
+y &amp;= 3+2t \\
+z &amp;= 3-4t
+\end{cases}
+\ \text{où } t\in\mathbb{R} \\
+P &amp;: 3x-6y-3z = 4
+\end{align*}\]</span>
+</div>
+
+</div>
+<div id="des-applications-2" class="section level3">
+<h3><span class="header-section-number">8.3.5</span> Des applications</h3>
+
+<div class="example">
+<span id="exm:unnamed-chunk-230" class="example"><strong>Exemple 8.26  </strong></span>VISION 3D
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-231" class="example"><strong>Exemple 8.27  </strong></span>PROJECTION STÉRÉOGRAPHIQUE
+</div>
+
+</div>
+<div id="langle-entre-deux-plans" class="section level3">
+<h3><span class="header-section-number">8.3.6</span> L’angle entre deux plans</h3>
+<p>Il est possible de trouver l’angle entre deux plans d’une façon similaire à la technique utilisée pour trouver l’angle entre deux droites sécantes. Soit deux plans non parallèles. Ils s’intersectent nécessairement et cette intersection est une droite. La figure <a href="les-plans-de-lespace.html#fig:angle-plans-secants">8.15</a> représente cette situation.</p>
+<div class="figure" style="text-align: center"><span id="fig:angle-plans-secants"></span>
+<img src="algebre1_files/figure-html/angle-plans-secants-1.png" alt="La représentation de l'angle entre deux plans sécants." width="75%" />
+<p class="caption">
+Figure 8.15: La représentation de l’angle entre deux plans sécants.
+</p>
+</div>
+<p>Nous remarquons que l’angle formé par les deux plans est égal à l’angle formé par les vecteurs normaux des deux plans. En fait, nous devons être prudent car il est possible que l’angle entre les vecteurs normaux soit plus grand que <span class="math inline">\(90^{\circ}\)</span>. Dans ce cas, nous devons calculer l’angle complémentaire pour que l’angle obtenu soit un angle aigu.</p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-232" class="definition"><strong>Définition 8.11  (L’angle entre deux plans)  </strong></span>Soit deux plans non parallèles de <span class="math inline">\(\mathbb{R}^3\)</span> avec comme vecteurs normaux respectivement <span class="math inline">\(\vec n_1\)</span> et <span class="math inline">\(\vec n_2\)</span>. L’angle <span class="math inline">\(\theta\)</span> entre les deux plans est donné par:
+<span class="math display">\[\begin{align*}
+\theta &amp;= \begin{cases}
+\beta &amp; \text{si } \beta\leq 90^{\circ} \\
+180^{\circ}-\beta &amp; \text{sinon}
+\end{cases}
+\end{align*}\]</span>
+où:
+<span class="math display">\[\begin{align*}
+\beta &amp;= \text{Arccos}\left(\dfrac{\vec n_1 \cdot \vec n_2}{\lVert\vec n_1\rVert\lVert\vec n_2\rVert}\right)
+\end{align*}\]</span>
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-233" class="example"><strong>Exemple 8.28  </strong></span>Trouvez l’angle entre les plans suivants:
+<span class="math display">\[\begin{align*}
+P_1 &amp;: \ 3(x-1)+2(y-2)+(z-3) = 0 \\
+P_2 &amp;: \ -2(x-3)+5(y+2)+4(z+1) = 0
+\end{align*}\]</span>
+</div>
+
+</div>
+<div id="langle-entre-une-droite-et-un-plan" class="section level3">
+<h3><span class="header-section-number">8.3.7</span> L’angle entre une droite et un plan</h3>
+<p>Pour trouver l’angle entre une droite et un plan, nous aurons besoin du vecteur directeur de la droite et du vecteur normal au plan. Nous allons utiliser la figure <a href="les-plans-de-lespace.html#fig:angle-plans-droite">8.16</a> pour trouver une formule nous permettant de trouver l’angle entre une droite et un plan.</p>
+<div class="figure" style="text-align: center"><span id="fig:angle-plans-droite"></span>
+<img src="algebre1_files/figure-html/angle-plans-droite-1.png" alt="La représentation de l'angle entre une droite et un plan." width="75%" />
+<p class="caption">
+Figure 8.16: La représentation de l’angle entre une droite et un plan.
+</p>
+</div>
+<p>Nous désirons trouver l’angle <span class="math inline">\(\theta\)</span> entre la droite et le plan mais si nous utilisons le vecteur directeur de la droite ainsi que le vecteur normal au plan, nous trouverons en fait l’angle <span class="math inline">\(\beta\)</span>. Il est clair que ces deux angles sont reliés par la formule suivante:
+<span class="math display">\[\begin{align*}
+\theta + \beta &amp;= 90^{\circ} \\
+\theta &amp;= 90^{\circ}-\beta
+\end{align*}\]</span></p>
+<p>Nous trouvons donc l’angle entre le vecteur directeur et le vecteur normal et nous trouvons ensuite l’angle complémentaire entre <span class="math inline">\(\beta\)</span> et <span class="math inline">\(90^{\circ}\)</span>.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-234" class="example"><strong>Exemple 8.29  </strong></span>Trouvez l’angle entre la droite et le plan de l’exemple <a href="les-plans-de-lespace.html#exm:droite-plan-secants">8.25</a>.
+</div>
+
+</div>
+<div id="la-distance-entre-un-point-et-un-plan-la-distance-entre-une-droite-et-un-plan-et-la-distance-entre-deux-plans" class="section level3">
+<h3><span class="header-section-number">8.3.8</span> La distance entre un point et un plan, la distance entre une droite et un plan et la distance entre deux plans</h3>
+<p>Nous verrons dans cette sous-section que les problèmes de distance suivants se résument tous à la résolution d’un seul et même problème.</p>
+<ol style="list-style-type: decimal">
+<li>La distance entre un point et un plan.</li>
+<li>La distance entre une droite et un plan.</li>
+<li>La distance entre deux plans.</li>
+</ol>
+<p>Si nous savons comment trouver la distance entre un point et un plan, nous serons en mesure de résoudre tous les problèmes de distance énumérés ci-dessus.</p>
+<p>Soit un point <span class="math inline">\(Q\)</span> et un plan passant par le point <span class="math inline">\(P\)</span> et dont le vecteur normal est <span class="math inline">\(\vec n\)</span>. La figure <a href="les-plans-de-lespace.html#fig:distance-point-plan">8.17</a> représente la situation.</p>
+<div class="figure" style="text-align: center"><span id="fig:distance-point-plan"></span>
+<img src="algebre1_files/figure-html/distance-point-plan-1.png" alt="La représentation de la distance entre un point et un plan." width="75%" />
+<p class="caption">
+Figure 8.17: La représentation de la distance entre un point et un plan.
+</p>
+</div>
+<p>La distance entre le point <span class="math inline">\(Q\)</span> et le plan est donnée par la longueur du vecteur <span class="math inline">\(\overrightarrow{RQ}\)</span>. Remarquons que le vecteur <span class="math inline">\(\overrightarrow{RQ}\)</span> correspond à la projection orthogonale du vecteur <span class="math inline">\(\overrightarrow{PQ}\)</span> sur le vecteur normal <span class="math inline">\(\vec n\)</span>, c’est-à-dire que:
+<span class="math display">\[\begin{align*}
+\overrightarrow{RQ} &amp;= \overrightarrow{PQ}_{\overrightarrow{n}} \\
+&amp;= \left(\dfrac{\overrightarrow{PQ}\cdot \vec n}{\vec n \cdot \vec n}\right)\vec n
+\end{align*}\]</span>
+La longueur du vecteur <span class="math inline">\(\overrightarrow{RQ}\)</span> est donc:
+<span class="math display">\[\begin{align*}
+d &amp;= \lVert\overrightarrow{RQ}\rVert \\
+&amp;= \left\lVert\left(\dfrac{\overrightarrow{PQ}\cdot \vec n}{\vec n \cdot \vec n}\right)\vec n\right\rVert \\
+&amp;= \left|\dfrac{\overrightarrow{PQ}\cdot \vec n}{\lVert\vec n\rVert^2}\right| \lVert\vec n\rVert \\
+&amp;= \dfrac{|\overrightarrow{PQ}\cdot \vec n|}{\lVert\vec n\rVert}
+\end{align*}\]</span></p>
+<p>Il est également possible de trouver le point <span class="math inline">\(R\)</span> qui est le point sur le plan le plus près de <span class="math inline">\(Q\)</span>. Nous avons:
+<span class="math display">\[\begin{align*}
+\overrightarrow{OR} &amp;= \overrightarrow{OQ}+\overrightarrow{QR} \\
+&amp;= \overrightarrow{OQ}+\overrightarrow{QP}_{\overrightarrow{n}} \\
+&amp;= \overrightarrow{OQ}+\left(\dfrac{\overrightarrow{QP}\cdot \vec n}{\vec n \cdot \vec n}\right)\vec n
+\end{align*}\]</span></p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-235" class="example"><strong>Exemple 8.30  </strong></span>Trouvez la distance entre le point <span class="math inline">\(Q=(5,2,3)\)</span> et le plan <span class="math inline">\(3(x-1)+2(y+2)-2(z+1)=0\)</span>.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-236" class="example"><strong>Exemple 8.31  </strong></span>Trouvez la distance entre le point <span class="math inline">\(Q=(1,2,3)\)</span> et le plan <span class="math inline">\(3(x-1)+2(y+2)-2(z+1)=0\)</span>.
+</div>
+
+<p>La technique précédente peut être utilisée pour trouver la distance entre une droite et un plan, si la droite est parallèle au plan. La figure <a href="les-plans-de-lespace.html#fig:distance-droite-plan">8.18</a> représente la situation.</p>
+<div class="figure" style="text-align: center"><span id="fig:distance-droite-plan"></span>
+<img src="algebre1_files/figure-html/distance-droite-plan-1.png" alt="La représentation de la distance entre une droite et un plan parallèles." width="75%" />
+<p class="caption">
+Figure 8.18: La représentation de la distance entre une droite et un plan parallèles.
+</p>
+</div>
+<p>Il suffit de prendre un point <span class="math inline">\(Q\)</span> sur la droite et de calculer la distance entre ce point et le plan.</p>
+<p>De même, la technique précédente peut aussi être utilisée pour trouver la distance entre deux plans parallèles, comme représenté à la figure <a href="les-plans-de-lespace.html#fig:distance-plan-plan">8.19</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:distance-plan-plan"></span>
+<img src="algebre1_files/figure-html/distance-plan-plan-1.png" alt="La représentation de la distance entre deux plans parallèles." width="75%" />
+<p class="caption">
+Figure 8.19: La représentation de la distance entre deux plans parallèles.
+</p>
+</div>
+<p>Il suffit de prendre un point sur le premier plan et de calculer la distance entre ce point et le second plan.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-237" class="example"><strong>Exemple 8.32  </strong></span>INTERSECTION LIGNE-PLAN POUR VISION 3D…
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="les-droites-de-lespace.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="les-positions-relatives-de-droites-et-de-plans-dans-lespace.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"],
+"github": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/desautm/algebre1/edit/master/08-droites-plans-espace.Rmd",
+"text": "Modifier"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["algebre1.pdf"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

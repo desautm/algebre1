@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7.2 Sous-espace vectoriel | Algèbre linéaire et géométrie vectorielle</title>
+  <meta name="description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
+  <meta name="generator" content="bookdown 0.15 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7.2 Sous-espace vectoriel | Algèbre linéaire et géométrie vectorielle" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
+  <meta name="github-repo" content="desautm/algebre1" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7.2 Sous-espace vectoriel | Algèbre linéaire et géométrie vectorielle" />
+  
+  <meta name="twitter:description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
+  
+
+<meta name="author" content="Marc-André Désautels" />
+
+
+<meta name="date" content="2019-11-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="espace-vectoriel-1.html"/>
+<link rel="next" href="base-dun-espace-vectoriel.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Algèbre linéaire et géométrie vectorielle</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="à-propos-de-ce-document.html"><a href="à-propos-de-ce-document.html"><i class="fa fa-check"></i>À propos de ce document</a><ul>
+<li class="chapter" data-level="" data-path="à-propos-de-ce-document.html"><a href="à-propos-de-ce-document.html#remerciements"><i class="fa fa-check"></i>Remerciements</a></li>
+<li class="chapter" data-level="" data-path="à-propos-de-ce-document.html"><a href="à-propos-de-ce-document.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I L’algèbre matricielle</b></span></li>
+<li class="chapter" data-level="1" data-path="sel.html"><a href="sel.html"><i class="fa fa-check"></i><b>1</b> Les systèmes d’équations linéaires</a><ul>
+<li class="chapter" data-level="1.1" data-path="sec-intro-equation-lineaire.html"><a href="sec-intro-equation-lineaire.html"><i class="fa fa-check"></i><b>1.1</b> Une introduction aux équations linéaires</a></li>
+<li class="chapter" data-level="1.2" data-path="systeme-equation-lineaire.html"><a href="systeme-equation-lineaire.html"><i class="fa fa-check"></i><b>1.2</b> Les systèmes d’équations linéaires</a></li>
+<li class="chapter" data-level="1.3" data-path="systeme-equation-lineaire-echelonnee.html"><a href="systeme-equation-lineaire-echelonnee.html"><i class="fa fa-check"></i><b>1.3</b> La résolution de système d’équations linéaires échelonnés</a></li>
+<li class="chapter" data-level="1.4" data-path="methode-gauss.html"><a href="methode-gauss.html"><i class="fa fa-check"></i><b>1.4</b> La méthode d’élimination de Gauss</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="methode-gauss.html"><a href="methode-gauss.html#une-application"><i class="fa fa-check"></i><b>1.4.1</b> Une application</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="les-systèmes-déquations-linéaires-homogènes.html"><a href="les-systèmes-déquations-linéaires-homogènes.html"><i class="fa fa-check"></i><b>1.5</b> Les systèmes d’équations linéaires homogènes</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="les-systèmes-déquations-linéaires-homogènes.html"><a href="les-systèmes-déquations-linéaires-homogènes.html#une-application-1"><i class="fa fa-check"></i><b>1.5.1</b> Une application</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="la-méthode-de-gauss-avec-substitution-arrière.html"><a href="la-méthode-de-gauss-avec-substitution-arrière.html"><i class="fa fa-check"></i><b>1.6</b> La méthode de Gauss avec substitution arrière</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="la-méthode-de-gauss-avec-substitution-arrière.html"><a href="la-méthode-de-gauss-avec-substitution-arrière.html#une-application-2"><i class="fa fa-check"></i><b>1.6.1</b> Une application</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>2</b> Les matrices</a><ul>
+<li class="chapter" data-level="2.1" data-path="la-définition-dune-matrice.html"><a href="la-définition-dune-matrice.html"><i class="fa fa-check"></i><b>2.1</b> La définition d’une matrice</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="la-définition-dune-matrice.html"><a href="la-définition-dune-matrice.html#sec:matrice-particuliere"><i class="fa fa-check"></i><b>2.1.1</b> Les matrices particulières</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html"><i class="fa fa-check"></i><b>2.2</b> Les opérations matricielles</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#laddition-et-la-soustraction-de-matrices"><i class="fa fa-check"></i><b>2.2.1</b> L’addition et la soustraction de matrices</a></li>
+<li class="chapter" data-level="2.2.2" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#la-multiplication-dune-matrice-par-un-scalaire"><i class="fa fa-check"></i><b>2.2.2</b> La multiplication d’une matrice par un scalaire</a></li>
+<li class="chapter" data-level="2.2.3" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#la-transposition-de-matrices"><i class="fa fa-check"></i><b>2.2.3</b> La transposition de matrices</a></li>
+<li class="chapter" data-level="2.2.4" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#les-propriétés-des-opérations-sur-les-matrices"><i class="fa fa-check"></i><b>2.2.4</b> Les propriétés des opérations sur les matrices</a></li>
+<li class="chapter" data-level="2.2.5" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#le-produit-de-deux-matrices"><i class="fa fa-check"></i><b>2.2.5</b> Le produit de deux matrices</a></li>
+<li class="chapter" data-level="2.2.6" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#les-propriétés-du-produit-matriciel"><i class="fa fa-check"></i><b>2.2.6</b> Les propriétés du produit matriciel</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="la-matrice-inverse.html"><a href="la-matrice-inverse.html"><i class="fa fa-check"></i><b>2.3</b> La matrice inverse</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="determinants.html"><a href="determinants.html"><i class="fa fa-check"></i><b>3</b> Les déterminants</a><ul>
+<li class="chapter" data-level="3.1" data-path="le-calcul-dun-déterminant.html"><a href="le-calcul-dun-déterminant.html"><i class="fa fa-check"></i><b>3.1</b> Le calcul d’un déterminant</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="le-calcul-dun-déterminant.html"><a href="le-calcul-dun-déterminant.html#le-calcul-dun-déterminant-dune-matrice-1-times-1"><i class="fa fa-check"></i><b>3.1.1</b> Le calcul d’un déterminant d’une matrice <span class="math inline">\(1 \times 1\)</span></a></li>
+<li class="chapter" data-level="3.1.2" data-path="le-calcul-dun-déterminant.html"><a href="le-calcul-dun-déterminant.html#le-calcul-dun-déterminant-dune-matrice-2times-2"><i class="fa fa-check"></i><b>3.1.2</b> Le calcul d’un déterminant d’une matrice <span class="math inline">\(2\times 2\)</span></a></li>
+<li class="chapter" data-level="3.1.3" data-path="le-calcul-dun-déterminant.html"><a href="le-calcul-dun-déterminant.html#le-calcul-dun-déterminant-dune-matrice-ntimes-n"><i class="fa fa-check"></i><b>3.1.3</b> Le calcul d’un déterminant d’une matrice <span class="math inline">\(n\times n\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="les-propriétés-des-déterminants.html"><a href="les-propriétés-des-déterminants.html"><i class="fa fa-check"></i><b>3.2</b> Les propriétés des déterminants</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="les-propriétés-des-déterminants.html"><a href="les-propriétés-des-déterminants.html#les-opérations-élémentaires"><i class="fa fa-check"></i><b>3.2.1</b> Les opérations élémentaires</a></li>
+<li class="chapter" data-level="3.2.2" data-path="les-propriétés-des-déterminants.html"><a href="les-propriétés-des-déterminants.html#le-calcul-dun-déterminant-à-laide-de-la-méthode-de-gauss"><i class="fa fa-check"></i><b>3.2.2</b> Le calcul d’un déterminant à l’aide de la méthode de Gauss</a></li>
+<li class="chapter" data-level="3.2.3" data-path="les-propriétés-des-déterminants.html"><a href="les-propriétés-des-déterminants.html#quelques-preuves-sur-les-déterminants"><i class="fa fa-check"></i><b>3.2.3</b> Quelques preuves sur les déterminants</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="la-méthode-de-la-matrice-adjointe.html"><a href="la-méthode-de-la-matrice-adjointe.html"><i class="fa fa-check"></i><b>3.3</b> La méthode de la matrice adjointe</a></li>
+<li class="chapter" data-level="3.4" data-path="la-méthode-de-cramer.html"><a href="la-méthode-de-cramer.html"><i class="fa fa-check"></i><b>3.4</b> La méthode de Cramer</a></li>
+<li class="chapter" data-level="3.5" data-path="les-applications-du-déterminant.html"><a href="les-applications-du-déterminant.html"><i class="fa fa-check"></i><b>3.5</b> Les applications du déterminant</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="les-applications-du-déterminant.html"><a href="les-applications-du-déterminant.html#laire-dun-triangle-à-laide-des-déterminants"><i class="fa fa-check"></i><b>3.5.1</b> L’aire d’un triangle à l’aide des déterminants</a></li>
+<li class="chapter" data-level="3.5.2" data-path="les-applications-du-déterminant.html"><a href="les-applications-du-déterminant.html#la-formule-des-lacets-de-souliers"><i class="fa fa-check"></i><b>3.5.2</b> La formule des lacets de souliers</a></li>
+<li class="chapter" data-level="3.5.3" data-path="les-applications-du-déterminant.html"><a href="les-applications-du-déterminant.html#le-polynôme-caractéristique-dune-matrice"><i class="fa fa-check"></i><b>3.5.3</b> Le polynôme caractéristique d’une matrice</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Les vecteurs et les nombres complexes</b></span></li>
+<li class="chapter" data-level="4" data-path="vecteursR2.html"><a href="vecteursR2.html"><i class="fa fa-check"></i><b>4</b> Les vecteurs de <span class="math inline">\(\mathbb{R}^2\)</span></a><ul>
+<li class="chapter" data-level="4.1" data-path="les-vecteurs-géométriques.html"><a href="les-vecteurs-géométriques.html"><i class="fa fa-check"></i><b>4.1</b> Les vecteurs géométriques</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="les-vecteurs-géométriques.html"><a href="les-vecteurs-géométriques.html#les-vecteurs-géométriques-particuliers"><i class="fa fa-check"></i><b>4.1.1</b> Les vecteurs géométriques particuliers</a></li>
+<li class="chapter" data-level="4.1.2" data-path="les-vecteurs-géométriques.html"><a href="les-vecteurs-géométriques.html#laddition-de-vecteurs-géométriques"><i class="fa fa-check"></i><b>4.1.2</b> L’addition de vecteurs géométriques</a></li>
+<li class="chapter" data-level="4.1.3" data-path="les-vecteurs-géométriques.html"><a href="les-vecteurs-géométriques.html#laddition-de-n-vecteurs"><i class="fa fa-check"></i><b>4.1.3</b> L’addition de <span class="math inline">\(n\)</span> vecteurs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="les-vecteurs-algébriques.html"><a href="les-vecteurs-algébriques.html"><i class="fa fa-check"></i><b>4.2</b> Les vecteurs algébriques</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="nombres-complexes.html"><a href="nombres-complexes.html"><i class="fa fa-check"></i><b>5</b> Les nombres complexes</a><ul>
+<li class="chapter" data-level="5.1" data-path="le-nombre-imaginaire-i.html"><a href="le-nombre-imaginaire-i.html"><i class="fa fa-check"></i><b>5.1</b> Le nombre imaginaire <span class="math inline">\(i\)</span></a></li>
+<li class="chapter" data-level="5.2" data-path="les-opérations-sur-les-nombres-complexes.html"><a href="les-opérations-sur-les-nombres-complexes.html"><i class="fa fa-check"></i><b>5.2</b> Les opérations sur les nombres complexes</a></li>
+<li class="chapter" data-level="5.3" data-path="les-propriétés-des-opérations-sur-les-nombres-complexes.html"><a href="les-propriétés-des-opérations-sur-les-nombres-complexes.html"><i class="fa fa-check"></i><b>5.3</b> Les propriétés des opérations sur les nombres complexes</a></li>
+<li class="chapter" data-level="5.4" data-path="la-représentation-géométrique-des-nombres-complexes.html"><a href="la-représentation-géométrique-des-nombres-complexes.html"><i class="fa fa-check"></i><b>5.4</b> La représentation géométrique des nombres complexes</a></li>
+<li class="chapter" data-level="5.5" data-path="des-applications.html"><a href="des-applications.html"><i class="fa fa-check"></i><b>5.5</b> Des applications</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="vecteursRn.html"><a href="vecteursRn.html"><i class="fa fa-check"></i><b>6</b> Les vecteurs de <span class="math inline">\(\mathbb{R}^n\)</span></a><ul>
+<li class="chapter" data-level="6.1" data-path="les-vecteurs-géométriques-1.html"><a href="les-vecteurs-géométriques-1.html"><i class="fa fa-check"></i><b>6.1</b> Les vecteurs géométriques</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="les-vecteurs-géométriques-1.html"><a href="les-vecteurs-géométriques-1.html#la-représentation-géométrique-des-vecteurs-de-mathbbr3"><i class="fa fa-check"></i><b>6.1.1</b> La représentation géométrique des vecteurs de <span class="math inline">\(\mathbb{R}^3\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="les-produits-de-vecteurs.html"><a href="les-produits-de-vecteurs.html"><i class="fa fa-check"></i><b>6.2</b> Les produits de vecteurs</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="les-produits-de-vecteurs.html"><a href="les-produits-de-vecteurs.html#le-produit-scalaire"><i class="fa fa-check"></i><b>6.2.1</b> Le produit scalaire</a></li>
+<li class="chapter" data-level="6.2.2" data-path="les-produits-de-vecteurs.html"><a href="les-produits-de-vecteurs.html#des-applications-1"><i class="fa fa-check"></i><b>6.2.2</b> Des applications</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Espaces vectoriels</b></span></li>
+<li class="chapter" data-level="7" data-path="espace-vectoriel.html"><a href="espace-vectoriel.html"><i class="fa fa-check"></i><b>7</b> Espace vectoriel et base d’un espace vectoriel</a><ul>
+<li class="chapter" data-level="7.1" data-path="espace-vectoriel-1.html"><a href="espace-vectoriel-1.html"><i class="fa fa-check"></i><b>7.1</b> Espace vectoriel</a></li>
+<li class="chapter" data-level="7.2" data-path="sous-espace-vectoriel.html"><a href="sous-espace-vectoriel.html"><i class="fa fa-check"></i><b>7.2</b> Sous-espace vectoriel</a></li>
+<li class="chapter" data-level="7.3" data-path="base-dun-espace-vectoriel.html"><a href="base-dun-espace-vectoriel.html"><i class="fa fa-check"></i><b>7.3</b> Base d’un espace vectoriel</a></li>
+</ul></li>
+<li class="part"><span><b>IV La géométrie dans l’espace</b></span></li>
+<li class="chapter" data-level="8" data-path="droites-plans-espace.html"><a href="droites-plans-espace.html"><i class="fa fa-check"></i><b>8</b> Les droites et les plans dans l’espace</a><ul>
+<li class="chapter" data-level="8.1" data-path="les-droites-de-mathbbr2.html"><a href="les-droites-de-mathbbr2.html"><i class="fa fa-check"></i><b>8.1</b> Les droites de <span class="math inline">\(\mathbb{R}^2\)</span></a><ul>
+<li class="chapter" data-level="8.1.1" data-path="les-droites-de-mathbbr2.html"><a href="les-droites-de-mathbbr2.html#positions-relatives-de-droites-du-plan"><i class="fa fa-check"></i><b>8.1.1</b> Positions relatives de droites du plan</a></li>
+<li class="chapter" data-level="8.1.2" data-path="les-droites-de-mathbbr2.html"><a href="les-droites-de-mathbbr2.html#les-équations-symétriques-dune-droite-de-mathbbr2"><i class="fa fa-check"></i><b>8.1.2</b> Les équations symétriques d’une droite de <span class="math inline">\(\mathbb{R}^2\)</span></a></li>
+<li class="chapter" data-level="8.1.3" data-path="les-droites-de-mathbbr2.html"><a href="les-droites-de-mathbbr2.html#la-distance-entre-un-point-et-une-droite-de-mathbbr2"><i class="fa fa-check"></i><b>8.1.3</b> La distance entre un point et une droite de <span class="math inline">\(\mathbb{R}^2\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html"><i class="fa fa-check"></i><b>8.2</b> Les droites de l’espace</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#léquation-dune-droite-dans-mathbbr3"><i class="fa fa-check"></i><b>8.2.1</b> L’équation d’une droite dans <span class="math inline">\(\mathbb{R}^3\)</span></a></li>
+<li class="chapter" data-level="8.2.2" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#les-positions-relatives-de-droites-dans-lespace"><i class="fa fa-check"></i><b>8.2.2</b> Les positions relatives de droites dans l’espace</a></li>
+<li class="chapter" data-level="8.2.3" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#langle-entre-deux-droites-de-lespace"><i class="fa fa-check"></i><b>8.2.3</b> L’angle entre deux droites de l’espace</a></li>
+<li class="chapter" data-level="8.2.4" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#les-équations-symétriques-dune-droite-de-lespace"><i class="fa fa-check"></i><b>8.2.4</b> Les équations symétriques d’une droite de l’espace</a></li>
+<li class="chapter" data-level="8.2.5" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#la-distance-entre-un-point-et-une-droite"><i class="fa fa-check"></i><b>8.2.5</b> La distance entre un point et une droite</a></li>
+<li class="chapter" data-level="8.2.6" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#la-distance-entre-deux-droites-parallèles"><i class="fa fa-check"></i><b>8.2.6</b> La distance entre deux droites parallèles</a></li>
+<li class="chapter" data-level="8.2.7" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#la-distance-entre-deux-droites-gauches"><i class="fa fa-check"></i><b>8.2.7</b> La distance entre deux droites gauches</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html"><i class="fa fa-check"></i><b>8.3</b> Les plans de l’espace</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#léquation-vectorielle-du-plan-de-lespace"><i class="fa fa-check"></i><b>8.3.1</b> L’équation vectorielle du plan de l’espace</a></li>
+<li class="chapter" data-level="8.3.2" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#léquation-normale-du-plan-de-lespace"><i class="fa fa-check"></i><b>8.3.2</b> L’équation normale du plan de l’espace</a></li>
+<li class="chapter" data-level="8.3.3" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#les-positions-relatives-de-plans-de-lespace"><i class="fa fa-check"></i><b>8.3.3</b> Les positions relatives de plans de l’espace</a></li>
+<li class="chapter" data-level="8.3.4" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#la-position-relative-dune-droite-et-dun-plan"><i class="fa fa-check"></i><b>8.3.4</b> La position relative d’une droite et d’un plan</a></li>
+<li class="chapter" data-level="8.3.5" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#des-applications-2"><i class="fa fa-check"></i><b>8.3.5</b> Des applications</a></li>
+<li class="chapter" data-level="8.3.6" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#langle-entre-deux-plans"><i class="fa fa-check"></i><b>8.3.6</b> L’angle entre deux plans</a></li>
+<li class="chapter" data-level="8.3.7" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#langle-entre-une-droite-et-un-plan"><i class="fa fa-check"></i><b>8.3.7</b> L’angle entre une droite et un plan</a></li>
+<li class="chapter" data-level="8.3.8" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#la-distance-entre-un-point-et-un-plan-la-distance-entre-une-droite-et-un-plan-et-la-distance-entre-deux-plans"><i class="fa fa-check"></i><b>8.3.8</b> La distance entre un point et un plan, la distance entre une droite et un plan et la distance entre deux plans</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="les-positions-relatives-de-droites-et-de-plans-dans-lespace.html"><a href="les-positions-relatives-de-droites-et-de-plans-dans-lespace.html"><i class="fa fa-check"></i><b>8.4</b> Les positions relatives de droites et de plans dans l’espace</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendices</b></span></li>
+<li class="chapter" data-level="A" data-path="graphes.html"><a href="graphes.html"><i class="fa fa-check"></i><b>A</b> La théorie des graphes</a></li>
+<li class="chapter" data-level="B" data-path="preuves.html"><a href="preuves.html"><i class="fa fa-check"></i><b>B</b> Les preuves en mathématiques</a><ul>
+<li class="chapter" data-level="B.1" data-path="les-preuves-par-contradiction.html"><a href="les-preuves-par-contradiction.html"><i class="fa fa-check"></i><b>B.1</b> Les preuves par contradiction</a><ul>
+<li class="chapter" data-level="B.1.1" data-path="les-preuves-par-contradiction.html"><a href="les-preuves-par-contradiction.html#il-existe-une-infinité-de-nombres-premiers"><i class="fa fa-check"></i><b>B.1.1</b> Il existe une infinité de nombres premiers</a></li>
+<li class="chapter" data-level="B.1.2" data-path="les-preuves-par-contradiction.html"><a href="les-preuves-par-contradiction.html#sqrt2-est-irrationnel"><i class="fa fa-check"></i><b>B.1.2</b> <span class="math inline">\(\sqrt{2}\)</span> est irrationnel</a></li>
+</ul></li>
+<li class="chapter" data-level="B.2" data-path="preuves-par-induction-mathématique.html"><a href="preuves-par-induction-mathématique.html"><i class="fa fa-check"></i><b>B.2</b> Preuves par induction mathématique</a></li>
+<li class="chapter" data-level="B.3" data-path="les-contres-exemples.html"><a href="les-contres-exemples.html"><i class="fa fa-check"></i><b>B.3</b> Les contres-exemples</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="sommation.html"><a href="sommation.html"><i class="fa fa-check"></i><b>C</b> Le symbole de sommation</a></li>
+<li class="chapter" data-level="D" data-path="transfos-lineaires.html"><a href="transfos-lineaires.html"><i class="fa fa-check"></i><b>D</b> Les transformations linéaires</a><ul>
+<li class="chapter" data-level="D.1" data-path="la-réflexion.html"><a href="la-réflexion.html"><i class="fa fa-check"></i><b>D.1</b> La réflexion</a></li>
+<li class="chapter" data-level="D.2" data-path="la-rotation.html"><a href="la-rotation.html"><i class="fa fa-check"></i><b>D.2</b> La rotation</a></li>
+<li class="chapter" data-level="D.3" data-path="la-translation.html"><a href="la-translation.html"><i class="fa fa-check"></i><b>D.3</b> La translation</a></li>
+<li class="chapter" data-level="D.4" data-path="la-transvection.html"><a href="la-transvection.html"><i class="fa fa-check"></i><b>D.4</b> La transvection</a></li>
+<li class="chapter" data-level="D.5" data-path="la-composition-de-transformations-linéaires.html"><a href="la-composition-de-transformations-linéaires.html"><i class="fa fa-check"></i><b>D.5</b> La composition de transformations linéaires</a></li>
+<li class="chapter" data-level="D.6" data-path="la-rotation-comme-trois-transvections.html"><a href="la-rotation-comme-trois-transvections.html"><i class="fa fa-check"></i><b>D.6</b> La rotation comme trois transvections</a></li>
+<li class="chapter" data-level="D.7" data-path="un-résumé-des-différentes-transformations-linéaires.html"><a href="un-résumé-des-différentes-transformations-linéaires.html"><i class="fa fa-check"></i><b>D.7</b> Un résumé des différentes transformations linéaires</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publié avec bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Algèbre linéaire et géométrie vectorielle</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sous-espace-vectoriel" class="section level2">
+<h2><span class="header-section-number">7.2</span> Sous-espace vectoriel</h2>
+
+<div class="definition">
+<span id="def:unnamed-chunk-194" class="definition"><strong>Définition 7.2  </strong></span>Soit un espace vectoriel <span class="math inline">\(V\)</span> sur un corps <span class="math inline">\(\mathbb{K}\)</span> et <span class="math inline">\(W\)</span> un sous ensemble non-vide de <span class="math inline">\(V\)</span>, <span class="math inline">\(W\subseteq V\)</span>. <span class="math inline">\(E\)</span> est un sous espace vectoriel de <span class="math inline">\(V\)</span> sur le corps <span class="math inline">\(\mathbb{K}\)</span>, si <span class="math inline">\(E\)</span> est un espace vectoriel sur <span class="math inline">\(\mathbb{K}\)</span> .
+</div>
+
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-195" class="theorem"><strong>Théorème 7.3  </strong></span>Soit un espace vectoriel <span class="math inline">\(V\)</span> sur un corps <span class="math inline">\(\mathbb{K}\)</span> avec l’opération interne <span class="math inline">\(\oplus\)</span> et l’opération externe <span class="math inline">\(\odot\)</span>. Le sous ensemble <span class="math inline">\(W\)</span> de <span class="math inline">\(V\)</span> est un sous-espace vectoriel de <span class="math inline">\(V\)</span> si et seulement si:</p>
+<ul>
+<li><span class="math inline">\(\mathbf{0}\in W\)</span></li>
+<li><span class="math inline">\(\forall\ \mathbf{u},\mathbf{v}\in W\)</span>, nous avons <span class="math inline">\(\mathbf{u}\oplus \mathbf{v}\in W\)</span></li>
+<li><span class="math inline">\(\forall\ \mathbf{u}\in W\)</span> et <span class="math inline">\(k\in\mathbb{K}\)</span>, nous avons <span class="math inline">\(k\odot \mathbf{u}\in W\)</span></li>
+</ul>
+</div>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="espace-vectoriel-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="base-dun-espace-vectoriel.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"],
+"github": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/desautm/algebre1/edit/master/07-espace-vectoriel.Rmd",
+"text": "Modifier"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["algebre1.pdf"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

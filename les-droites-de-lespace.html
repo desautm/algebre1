@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8.2 Les droites de l’espace | Algèbre linéaire et géométrie vectorielle</title>
+  <meta name="description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
+  <meta name="generator" content="bookdown 0.15 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8.2 Les droites de l’espace | Algèbre linéaire et géométrie vectorielle" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
+  <meta name="github-repo" content="desautm/algebre1" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8.2 Les droites de l’espace | Algèbre linéaire et géométrie vectorielle" />
+  
+  <meta name="twitter:description" content="Un livre sur l’algèbre linéaire et géométrie vectorielle." />
+  
+
+<meta name="author" content="Marc-André Désautels" />
+
+
+<meta name="date" content="2019-11-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="les-droites-de-mathbbr2.html"/>
+<link rel="next" href="les-plans-de-lespace.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Algèbre linéaire et géométrie vectorielle</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="à-propos-de-ce-document.html"><a href="à-propos-de-ce-document.html"><i class="fa fa-check"></i>À propos de ce document</a><ul>
+<li class="chapter" data-level="" data-path="à-propos-de-ce-document.html"><a href="à-propos-de-ce-document.html#remerciements"><i class="fa fa-check"></i>Remerciements</a></li>
+<li class="chapter" data-level="" data-path="à-propos-de-ce-document.html"><a href="à-propos-de-ce-document.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I L’algèbre matricielle</b></span></li>
+<li class="chapter" data-level="1" data-path="sel.html"><a href="sel.html"><i class="fa fa-check"></i><b>1</b> Les systèmes d’équations linéaires</a><ul>
+<li class="chapter" data-level="1.1" data-path="sec-intro-equation-lineaire.html"><a href="sec-intro-equation-lineaire.html"><i class="fa fa-check"></i><b>1.1</b> Une introduction aux équations linéaires</a></li>
+<li class="chapter" data-level="1.2" data-path="systeme-equation-lineaire.html"><a href="systeme-equation-lineaire.html"><i class="fa fa-check"></i><b>1.2</b> Les systèmes d’équations linéaires</a></li>
+<li class="chapter" data-level="1.3" data-path="systeme-equation-lineaire-echelonnee.html"><a href="systeme-equation-lineaire-echelonnee.html"><i class="fa fa-check"></i><b>1.3</b> La résolution de système d’équations linéaires échelonnés</a></li>
+<li class="chapter" data-level="1.4" data-path="methode-gauss.html"><a href="methode-gauss.html"><i class="fa fa-check"></i><b>1.4</b> La méthode d’élimination de Gauss</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="methode-gauss.html"><a href="methode-gauss.html#une-application"><i class="fa fa-check"></i><b>1.4.1</b> Une application</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="les-systèmes-déquations-linéaires-homogènes.html"><a href="les-systèmes-déquations-linéaires-homogènes.html"><i class="fa fa-check"></i><b>1.5</b> Les systèmes d’équations linéaires homogènes</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="les-systèmes-déquations-linéaires-homogènes.html"><a href="les-systèmes-déquations-linéaires-homogènes.html#une-application-1"><i class="fa fa-check"></i><b>1.5.1</b> Une application</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="la-méthode-de-gauss-avec-substitution-arrière.html"><a href="la-méthode-de-gauss-avec-substitution-arrière.html"><i class="fa fa-check"></i><b>1.6</b> La méthode de Gauss avec substitution arrière</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="la-méthode-de-gauss-avec-substitution-arrière.html"><a href="la-méthode-de-gauss-avec-substitution-arrière.html#une-application-2"><i class="fa fa-check"></i><b>1.6.1</b> Une application</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>2</b> Les matrices</a><ul>
+<li class="chapter" data-level="2.1" data-path="la-définition-dune-matrice.html"><a href="la-définition-dune-matrice.html"><i class="fa fa-check"></i><b>2.1</b> La définition d’une matrice</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="la-définition-dune-matrice.html"><a href="la-définition-dune-matrice.html#sec:matrice-particuliere"><i class="fa fa-check"></i><b>2.1.1</b> Les matrices particulières</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html"><i class="fa fa-check"></i><b>2.2</b> Les opérations matricielles</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#laddition-et-la-soustraction-de-matrices"><i class="fa fa-check"></i><b>2.2.1</b> L’addition et la soustraction de matrices</a></li>
+<li class="chapter" data-level="2.2.2" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#la-multiplication-dune-matrice-par-un-scalaire"><i class="fa fa-check"></i><b>2.2.2</b> La multiplication d’une matrice par un scalaire</a></li>
+<li class="chapter" data-level="2.2.3" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#la-transposition-de-matrices"><i class="fa fa-check"></i><b>2.2.3</b> La transposition de matrices</a></li>
+<li class="chapter" data-level="2.2.4" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#les-propriétés-des-opérations-sur-les-matrices"><i class="fa fa-check"></i><b>2.2.4</b> Les propriétés des opérations sur les matrices</a></li>
+<li class="chapter" data-level="2.2.5" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#le-produit-de-deux-matrices"><i class="fa fa-check"></i><b>2.2.5</b> Le produit de deux matrices</a></li>
+<li class="chapter" data-level="2.2.6" data-path="les-opérations-matricielles.html"><a href="les-opérations-matricielles.html#les-propriétés-du-produit-matriciel"><i class="fa fa-check"></i><b>2.2.6</b> Les propriétés du produit matriciel</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="la-matrice-inverse.html"><a href="la-matrice-inverse.html"><i class="fa fa-check"></i><b>2.3</b> La matrice inverse</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="determinants.html"><a href="determinants.html"><i class="fa fa-check"></i><b>3</b> Les déterminants</a><ul>
+<li class="chapter" data-level="3.1" data-path="le-calcul-dun-déterminant.html"><a href="le-calcul-dun-déterminant.html"><i class="fa fa-check"></i><b>3.1</b> Le calcul d’un déterminant</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="le-calcul-dun-déterminant.html"><a href="le-calcul-dun-déterminant.html#le-calcul-dun-déterminant-dune-matrice-1-times-1"><i class="fa fa-check"></i><b>3.1.1</b> Le calcul d’un déterminant d’une matrice <span class="math inline">\(1 \times 1\)</span></a></li>
+<li class="chapter" data-level="3.1.2" data-path="le-calcul-dun-déterminant.html"><a href="le-calcul-dun-déterminant.html#le-calcul-dun-déterminant-dune-matrice-2times-2"><i class="fa fa-check"></i><b>3.1.2</b> Le calcul d’un déterminant d’une matrice <span class="math inline">\(2\times 2\)</span></a></li>
+<li class="chapter" data-level="3.1.3" data-path="le-calcul-dun-déterminant.html"><a href="le-calcul-dun-déterminant.html#le-calcul-dun-déterminant-dune-matrice-ntimes-n"><i class="fa fa-check"></i><b>3.1.3</b> Le calcul d’un déterminant d’une matrice <span class="math inline">\(n\times n\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="les-propriétés-des-déterminants.html"><a href="les-propriétés-des-déterminants.html"><i class="fa fa-check"></i><b>3.2</b> Les propriétés des déterminants</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="les-propriétés-des-déterminants.html"><a href="les-propriétés-des-déterminants.html#les-opérations-élémentaires"><i class="fa fa-check"></i><b>3.2.1</b> Les opérations élémentaires</a></li>
+<li class="chapter" data-level="3.2.2" data-path="les-propriétés-des-déterminants.html"><a href="les-propriétés-des-déterminants.html#le-calcul-dun-déterminant-à-laide-de-la-méthode-de-gauss"><i class="fa fa-check"></i><b>3.2.2</b> Le calcul d’un déterminant à l’aide de la méthode de Gauss</a></li>
+<li class="chapter" data-level="3.2.3" data-path="les-propriétés-des-déterminants.html"><a href="les-propriétés-des-déterminants.html#quelques-preuves-sur-les-déterminants"><i class="fa fa-check"></i><b>3.2.3</b> Quelques preuves sur les déterminants</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="la-méthode-de-la-matrice-adjointe.html"><a href="la-méthode-de-la-matrice-adjointe.html"><i class="fa fa-check"></i><b>3.3</b> La méthode de la matrice adjointe</a></li>
+<li class="chapter" data-level="3.4" data-path="la-méthode-de-cramer.html"><a href="la-méthode-de-cramer.html"><i class="fa fa-check"></i><b>3.4</b> La méthode de Cramer</a></li>
+<li class="chapter" data-level="3.5" data-path="les-applications-du-déterminant.html"><a href="les-applications-du-déterminant.html"><i class="fa fa-check"></i><b>3.5</b> Les applications du déterminant</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="les-applications-du-déterminant.html"><a href="les-applications-du-déterminant.html#laire-dun-triangle-à-laide-des-déterminants"><i class="fa fa-check"></i><b>3.5.1</b> L’aire d’un triangle à l’aide des déterminants</a></li>
+<li class="chapter" data-level="3.5.2" data-path="les-applications-du-déterminant.html"><a href="les-applications-du-déterminant.html#la-formule-des-lacets-de-souliers"><i class="fa fa-check"></i><b>3.5.2</b> La formule des lacets de souliers</a></li>
+<li class="chapter" data-level="3.5.3" data-path="les-applications-du-déterminant.html"><a href="les-applications-du-déterminant.html#le-polynôme-caractéristique-dune-matrice"><i class="fa fa-check"></i><b>3.5.3</b> Le polynôme caractéristique d’une matrice</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Les vecteurs et les nombres complexes</b></span></li>
+<li class="chapter" data-level="4" data-path="vecteursR2.html"><a href="vecteursR2.html"><i class="fa fa-check"></i><b>4</b> Les vecteurs de <span class="math inline">\(\mathbb{R}^2\)</span></a><ul>
+<li class="chapter" data-level="4.1" data-path="les-vecteurs-géométriques.html"><a href="les-vecteurs-géométriques.html"><i class="fa fa-check"></i><b>4.1</b> Les vecteurs géométriques</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="les-vecteurs-géométriques.html"><a href="les-vecteurs-géométriques.html#les-vecteurs-géométriques-particuliers"><i class="fa fa-check"></i><b>4.1.1</b> Les vecteurs géométriques particuliers</a></li>
+<li class="chapter" data-level="4.1.2" data-path="les-vecteurs-géométriques.html"><a href="les-vecteurs-géométriques.html#laddition-de-vecteurs-géométriques"><i class="fa fa-check"></i><b>4.1.2</b> L’addition de vecteurs géométriques</a></li>
+<li class="chapter" data-level="4.1.3" data-path="les-vecteurs-géométriques.html"><a href="les-vecteurs-géométriques.html#laddition-de-n-vecteurs"><i class="fa fa-check"></i><b>4.1.3</b> L’addition de <span class="math inline">\(n\)</span> vecteurs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="les-vecteurs-algébriques.html"><a href="les-vecteurs-algébriques.html"><i class="fa fa-check"></i><b>4.2</b> Les vecteurs algébriques</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="nombres-complexes.html"><a href="nombres-complexes.html"><i class="fa fa-check"></i><b>5</b> Les nombres complexes</a><ul>
+<li class="chapter" data-level="5.1" data-path="le-nombre-imaginaire-i.html"><a href="le-nombre-imaginaire-i.html"><i class="fa fa-check"></i><b>5.1</b> Le nombre imaginaire <span class="math inline">\(i\)</span></a></li>
+<li class="chapter" data-level="5.2" data-path="les-opérations-sur-les-nombres-complexes.html"><a href="les-opérations-sur-les-nombres-complexes.html"><i class="fa fa-check"></i><b>5.2</b> Les opérations sur les nombres complexes</a></li>
+<li class="chapter" data-level="5.3" data-path="les-propriétés-des-opérations-sur-les-nombres-complexes.html"><a href="les-propriétés-des-opérations-sur-les-nombres-complexes.html"><i class="fa fa-check"></i><b>5.3</b> Les propriétés des opérations sur les nombres complexes</a></li>
+<li class="chapter" data-level="5.4" data-path="la-représentation-géométrique-des-nombres-complexes.html"><a href="la-représentation-géométrique-des-nombres-complexes.html"><i class="fa fa-check"></i><b>5.4</b> La représentation géométrique des nombres complexes</a></li>
+<li class="chapter" data-level="5.5" data-path="des-applications.html"><a href="des-applications.html"><i class="fa fa-check"></i><b>5.5</b> Des applications</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="vecteursRn.html"><a href="vecteursRn.html"><i class="fa fa-check"></i><b>6</b> Les vecteurs de <span class="math inline">\(\mathbb{R}^n\)</span></a><ul>
+<li class="chapter" data-level="6.1" data-path="les-vecteurs-géométriques-1.html"><a href="les-vecteurs-géométriques-1.html"><i class="fa fa-check"></i><b>6.1</b> Les vecteurs géométriques</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="les-vecteurs-géométriques-1.html"><a href="les-vecteurs-géométriques-1.html#la-représentation-géométrique-des-vecteurs-de-mathbbr3"><i class="fa fa-check"></i><b>6.1.1</b> La représentation géométrique des vecteurs de <span class="math inline">\(\mathbb{R}^3\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="les-produits-de-vecteurs.html"><a href="les-produits-de-vecteurs.html"><i class="fa fa-check"></i><b>6.2</b> Les produits de vecteurs</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="les-produits-de-vecteurs.html"><a href="les-produits-de-vecteurs.html#le-produit-scalaire"><i class="fa fa-check"></i><b>6.2.1</b> Le produit scalaire</a></li>
+<li class="chapter" data-level="6.2.2" data-path="les-produits-de-vecteurs.html"><a href="les-produits-de-vecteurs.html#des-applications-1"><i class="fa fa-check"></i><b>6.2.2</b> Des applications</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Espaces vectoriels</b></span></li>
+<li class="chapter" data-level="7" data-path="espace-vectoriel.html"><a href="espace-vectoriel.html"><i class="fa fa-check"></i><b>7</b> Espace vectoriel et base d’un espace vectoriel</a><ul>
+<li class="chapter" data-level="7.1" data-path="espace-vectoriel-1.html"><a href="espace-vectoriel-1.html"><i class="fa fa-check"></i><b>7.1</b> Espace vectoriel</a></li>
+<li class="chapter" data-level="7.2" data-path="sous-espace-vectoriel.html"><a href="sous-espace-vectoriel.html"><i class="fa fa-check"></i><b>7.2</b> Sous-espace vectoriel</a></li>
+<li class="chapter" data-level="7.3" data-path="base-dun-espace-vectoriel.html"><a href="base-dun-espace-vectoriel.html"><i class="fa fa-check"></i><b>7.3</b> Base d’un espace vectoriel</a></li>
+</ul></li>
+<li class="part"><span><b>IV La géométrie dans l’espace</b></span></li>
+<li class="chapter" data-level="8" data-path="droites-plans-espace.html"><a href="droites-plans-espace.html"><i class="fa fa-check"></i><b>8</b> Les droites et les plans dans l’espace</a><ul>
+<li class="chapter" data-level="8.1" data-path="les-droites-de-mathbbr2.html"><a href="les-droites-de-mathbbr2.html"><i class="fa fa-check"></i><b>8.1</b> Les droites de <span class="math inline">\(\mathbb{R}^2\)</span></a><ul>
+<li class="chapter" data-level="8.1.1" data-path="les-droites-de-mathbbr2.html"><a href="les-droites-de-mathbbr2.html#positions-relatives-de-droites-du-plan"><i class="fa fa-check"></i><b>8.1.1</b> Positions relatives de droites du plan</a></li>
+<li class="chapter" data-level="8.1.2" data-path="les-droites-de-mathbbr2.html"><a href="les-droites-de-mathbbr2.html#les-équations-symétriques-dune-droite-de-mathbbr2"><i class="fa fa-check"></i><b>8.1.2</b> Les équations symétriques d’une droite de <span class="math inline">\(\mathbb{R}^2\)</span></a></li>
+<li class="chapter" data-level="8.1.3" data-path="les-droites-de-mathbbr2.html"><a href="les-droites-de-mathbbr2.html#la-distance-entre-un-point-et-une-droite-de-mathbbr2"><i class="fa fa-check"></i><b>8.1.3</b> La distance entre un point et une droite de <span class="math inline">\(\mathbb{R}^2\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html"><i class="fa fa-check"></i><b>8.2</b> Les droites de l’espace</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#léquation-dune-droite-dans-mathbbr3"><i class="fa fa-check"></i><b>8.2.1</b> L’équation d’une droite dans <span class="math inline">\(\mathbb{R}^3\)</span></a></li>
+<li class="chapter" data-level="8.2.2" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#les-positions-relatives-de-droites-dans-lespace"><i class="fa fa-check"></i><b>8.2.2</b> Les positions relatives de droites dans l’espace</a></li>
+<li class="chapter" data-level="8.2.3" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#langle-entre-deux-droites-de-lespace"><i class="fa fa-check"></i><b>8.2.3</b> L’angle entre deux droites de l’espace</a></li>
+<li class="chapter" data-level="8.2.4" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#les-équations-symétriques-dune-droite-de-lespace"><i class="fa fa-check"></i><b>8.2.4</b> Les équations symétriques d’une droite de l’espace</a></li>
+<li class="chapter" data-level="8.2.5" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#la-distance-entre-un-point-et-une-droite"><i class="fa fa-check"></i><b>8.2.5</b> La distance entre un point et une droite</a></li>
+<li class="chapter" data-level="8.2.6" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#la-distance-entre-deux-droites-parallèles"><i class="fa fa-check"></i><b>8.2.6</b> La distance entre deux droites parallèles</a></li>
+<li class="chapter" data-level="8.2.7" data-path="les-droites-de-lespace.html"><a href="les-droites-de-lespace.html#la-distance-entre-deux-droites-gauches"><i class="fa fa-check"></i><b>8.2.7</b> La distance entre deux droites gauches</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html"><i class="fa fa-check"></i><b>8.3</b> Les plans de l’espace</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#léquation-vectorielle-du-plan-de-lespace"><i class="fa fa-check"></i><b>8.3.1</b> L’équation vectorielle du plan de l’espace</a></li>
+<li class="chapter" data-level="8.3.2" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#léquation-normale-du-plan-de-lespace"><i class="fa fa-check"></i><b>8.3.2</b> L’équation normale du plan de l’espace</a></li>
+<li class="chapter" data-level="8.3.3" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#les-positions-relatives-de-plans-de-lespace"><i class="fa fa-check"></i><b>8.3.3</b> Les positions relatives de plans de l’espace</a></li>
+<li class="chapter" data-level="8.3.4" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#la-position-relative-dune-droite-et-dun-plan"><i class="fa fa-check"></i><b>8.3.4</b> La position relative d’une droite et d’un plan</a></li>
+<li class="chapter" data-level="8.3.5" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#des-applications-2"><i class="fa fa-check"></i><b>8.3.5</b> Des applications</a></li>
+<li class="chapter" data-level="8.3.6" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#langle-entre-deux-plans"><i class="fa fa-check"></i><b>8.3.6</b> L’angle entre deux plans</a></li>
+<li class="chapter" data-level="8.3.7" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#langle-entre-une-droite-et-un-plan"><i class="fa fa-check"></i><b>8.3.7</b> L’angle entre une droite et un plan</a></li>
+<li class="chapter" data-level="8.3.8" data-path="les-plans-de-lespace.html"><a href="les-plans-de-lespace.html#la-distance-entre-un-point-et-un-plan-la-distance-entre-une-droite-et-un-plan-et-la-distance-entre-deux-plans"><i class="fa fa-check"></i><b>8.3.8</b> La distance entre un point et un plan, la distance entre une droite et un plan et la distance entre deux plans</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="les-positions-relatives-de-droites-et-de-plans-dans-lespace.html"><a href="les-positions-relatives-de-droites-et-de-plans-dans-lespace.html"><i class="fa fa-check"></i><b>8.4</b> Les positions relatives de droites et de plans dans l’espace</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendices</b></span></li>
+<li class="chapter" data-level="A" data-path="graphes.html"><a href="graphes.html"><i class="fa fa-check"></i><b>A</b> La théorie des graphes</a></li>
+<li class="chapter" data-level="B" data-path="preuves.html"><a href="preuves.html"><i class="fa fa-check"></i><b>B</b> Les preuves en mathématiques</a><ul>
+<li class="chapter" data-level="B.1" data-path="les-preuves-par-contradiction.html"><a href="les-preuves-par-contradiction.html"><i class="fa fa-check"></i><b>B.1</b> Les preuves par contradiction</a><ul>
+<li class="chapter" data-level="B.1.1" data-path="les-preuves-par-contradiction.html"><a href="les-preuves-par-contradiction.html#il-existe-une-infinité-de-nombres-premiers"><i class="fa fa-check"></i><b>B.1.1</b> Il existe une infinité de nombres premiers</a></li>
+<li class="chapter" data-level="B.1.2" data-path="les-preuves-par-contradiction.html"><a href="les-preuves-par-contradiction.html#sqrt2-est-irrationnel"><i class="fa fa-check"></i><b>B.1.2</b> <span class="math inline">\(\sqrt{2}\)</span> est irrationnel</a></li>
+</ul></li>
+<li class="chapter" data-level="B.2" data-path="preuves-par-induction-mathématique.html"><a href="preuves-par-induction-mathématique.html"><i class="fa fa-check"></i><b>B.2</b> Preuves par induction mathématique</a></li>
+<li class="chapter" data-level="B.3" data-path="les-contres-exemples.html"><a href="les-contres-exemples.html"><i class="fa fa-check"></i><b>B.3</b> Les contres-exemples</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="sommation.html"><a href="sommation.html"><i class="fa fa-check"></i><b>C</b> Le symbole de sommation</a></li>
+<li class="chapter" data-level="D" data-path="transfos-lineaires.html"><a href="transfos-lineaires.html"><i class="fa fa-check"></i><b>D</b> Les transformations linéaires</a><ul>
+<li class="chapter" data-level="D.1" data-path="la-réflexion.html"><a href="la-réflexion.html"><i class="fa fa-check"></i><b>D.1</b> La réflexion</a></li>
+<li class="chapter" data-level="D.2" data-path="la-rotation.html"><a href="la-rotation.html"><i class="fa fa-check"></i><b>D.2</b> La rotation</a></li>
+<li class="chapter" data-level="D.3" data-path="la-translation.html"><a href="la-translation.html"><i class="fa fa-check"></i><b>D.3</b> La translation</a></li>
+<li class="chapter" data-level="D.4" data-path="la-transvection.html"><a href="la-transvection.html"><i class="fa fa-check"></i><b>D.4</b> La transvection</a></li>
+<li class="chapter" data-level="D.5" data-path="la-composition-de-transformations-linéaires.html"><a href="la-composition-de-transformations-linéaires.html"><i class="fa fa-check"></i><b>D.5</b> La composition de transformations linéaires</a></li>
+<li class="chapter" data-level="D.6" data-path="la-rotation-comme-trois-transvections.html"><a href="la-rotation-comme-trois-transvections.html"><i class="fa fa-check"></i><b>D.6</b> La rotation comme trois transvections</a></li>
+<li class="chapter" data-level="D.7" data-path="un-résumé-des-différentes-transformations-linéaires.html"><a href="un-résumé-des-différentes-transformations-linéaires.html"><i class="fa fa-check"></i><b>D.7</b> Un résumé des différentes transformations linéaires</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publié avec bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Algèbre linéaire et géométrie vectorielle</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="les-droites-de-lespace" class="section level2">
+<h2><span class="header-section-number">8.2</span> Les droites de l’espace</h2>
+<p>Dans cette section, nous nous intéresserons à l’équation d’une droite dans l’espace <span class="math inline">\(\mathbb{R}^3\)</span>. Nous verrons qu’il existe plus d’une équation. Ensuite, nous nous intéresserons…</p>
+<div id="léquation-dune-droite-dans-mathbbr3" class="section level3">
+<h3><span class="header-section-number">8.2.1</span> L’équation d’une droite dans <span class="math inline">\(\mathbb{R}^3\)</span></h3>
+<p>Nous désirons trouver une équation qui représentera une droite dans <span class="math inline">\(\mathbb{R}^3\)</span>. Nous débuterons par une équation de type vectorielle. Pour trouver l’équation d’une droite, nous aurons besoin de deux informations. La première sera un point sur cette droite et la seconde information sera un vecteur représentant la direction de la droite.</p>
+<p>Posons <span class="math inline">\(P_0=(x_0,y_0,z_0)\)</span> un point de la droite et <span class="math inline">\(\overrightarrow{u}=[u_1,u_2,u_3]\)</span> un vecteur directeur de la droite, notée <span class="math inline">\(D\)</span>. La figure <a href="les-droites-de-lespace.html#fig:droite-R3">8.5</a> nous aidera à trouver l’équation vectorielle de <span class="math inline">\(D\)</span>.</p>
+<div class="figure" style="text-align: center"><span id="fig:droite-R3"></span>
+<img src="algebre1_files/figure-html/droite-R3-1.png" alt="La représentation vectorielle d'une droite de $\mathbb{R}^3$." width="672" />
+<p class="caption">
+Figure 8.5: La représentation vectorielle d’une droite de <span class="math inline">\(\mathbb{R}^3\)</span>.
+</p>
+</div>
+<p>Nous désirons trouver une équation permettant de trouver n’importe quel point <span class="math inline">\(P\)</span> se trouvant sur la droite <span class="math inline">\(D\)</span>. Posons <span class="math inline">\(P=(x,y,z)\)</span>. Pour trouver la position de <span class="math inline">\(P\)</span>, nous utiliserons les vecteurs <span class="math inline">\(\overrightarrow{r_0}\)</span> et <span class="math inline">\(\overrightarrow{r}\)</span> qui représentent respectivement la position du point <span class="math inline">\(P_0\)</span> et du point <span class="math inline">\(P\)</span>. De plus, nous posons que le vecteur <span class="math inline">\(\overrightarrow{a}\)</span> est égal au vecteur <span class="math inline">\(\overrightarrow{P_0 P}\)</span>.</p>
+<p>Remarquons que nous pouvons écrire:
+<span class="math display">\[\begin{align*}
+\overrightarrow{r} &amp;= \overrightarrow{r_0}+\overrightarrow{a}
+\end{align*}\]</span>
+Le vecteur <span class="math inline">\(\overrightarrow{r_0}\)</span> est en fait le vecteur <span class="math inline">\(\overrightarrow{OP_0}\)</span> et puisque nous connaissons le point <span class="math inline">\(P_0\)</span>, nous connaissons le vecteur <span class="math inline">\(\overrightarrow{r_0}\)</span>. Le vecteur <span class="math inline">\(\overrightarrow{a}\)</span> quant à lui est parallèle au vecteur <span class="math inline">\(\overrightarrow{u}\)</span> et nous pouvons donc écrire que:
+<span class="math display">\[\begin{align*}
+\overrightarrow{a} &amp;= t\overrightarrow{u}
+\end{align*}\]</span>
+où <span class="math inline">\(t\in\mathbb{R}\)</span>. Nous avons donc:
+<span class="math display">\[\begin{align*}
+\overrightarrow{r} &amp;= \overrightarrow{r_0}+t\overrightarrow{u} \\
+[x,y,z] &amp;= [x_0,y_0,z_0]+t[u_1,u_2,u_3]
+\end{align*}\]</span>
+où <span class="math inline">\(t\in\mathbb{R}\)</span>.</p>
+<p>Nous pouvons maintenant donner la définition de l’équation vectorielle d’une droite.</p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-205" class="definition"><strong>Définition 8.4  (L’équation vectorielle d’une droite)  </strong></span>Soit <span class="math inline">\(P_0=(x_0,y_0,z_0)\)</span> un point d’une droite et <span class="math inline">\(u=[u_1,u_2,u_3]\)</span> le vecteur directeur de cette droite. L’équation vectorielle de cette droite est donnée par:
+<span class="math display">\[\begin{align*}
+\overrightarrow{r} &amp;= \overrightarrow{r_0}+t\overrightarrow{u} \\
+[x,y,z] &amp;= [x_0,y_0,z_0]+t[u_1,u_2,u_3]
+\end{align*}\]</span>
+où <span class="math inline">\(t\in\mathbb{R}\)</span>.
+</div>
+
+<p>Le paramètre <span class="math inline">\(t\)</span> dans l’équation vectorielle d’une droite permet, lorsqu’il est positif, “d’avancer” sur la droite et lorsqu’il est négatif, il permet de “reculer” sur la droite. La figure <a href="les-droites-de-lespace.html#fig:droite-R3-parametre-t">8.6</a> permet de visualiser cette propriété.</p>
+<div class="figure" style="text-align: center"><span id="fig:droite-R3-parametre-t"></span>
+<img src="algebre1_files/figure-html/droite-R3-parametre-t-1.png" alt="La représentation vectorielle d'une droite de $\mathbb{R}^3$ avec le paramètre $t$" width="672" />
+<p class="caption">
+Figure 8.6: La représentation vectorielle d’une droite de <span class="math inline">\(\mathbb{R}^3\)</span> avec le paramètre <span class="math inline">\(t\)</span>
+</p>
+</div>
+<p>Si vous êtes dans la version en ligne de ce document, vous aurez-ci-dessous une représentation d’une droite de l’espace <span class="math inline">\(\mathbb{R}^3\)</span>. Vous pouvez modifiez le point de vue et vous pouvez comprendre l’effet du paramètre <span class="math inline">\(t\)</span> en bougeant le point <span class="math inline">\(P\)</span>.</p>
+<iframe scrolling="no" title="Droite de l'espace" src="https://www.geogebra.org/material/iframe/id/ryttxgnm/width/700/height/500/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="700px" height="500px" style="border:0px;">
+</iframe>
+<p>Nous pouvons définir de “nouvelles” équations de droites à l’aide de la définition de l’équation vectorielle d’une droite.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-206" class="definition"><strong>Définition 8.5  (Les équations paramétriques d’une droite de <span class="math inline">\(\mathbb{R}^3\)</span>)  </strong></span>Soit <span class="math inline">\(P_0=(x_0,y_0,z_0)\)</span> un point d’une droite et <span class="math inline">\(u=[u_1,u_2,u_3]\)</span> le vecteur directeur de cette droite. Nous savons que l’équation vectorielle de cette droite est donnée par:
+<span class="math display">\[\begin{align*}
+\overrightarrow{r} &amp;= \overrightarrow{r_0}+t\overrightarrow{u} \\
+[x,y,z] &amp;= [x_0,y_0,z_0]+t[u_1,u_2,u_3]
+\end{align*}\]</span>
+où <span class="math inline">\(t\in\mathbb{R}\)</span>.</p>
+Puisque l’équation vectorielle d’une droite correspond à une égalité entre deux vecteurs et que deux vecteurs sont égaux lorsque leurs composantes respectives sont égales, nous pouvons écrire:
+<span class="math display">\[\begin{align*}
+x &amp;= x_0 + tu_1 \\
+y &amp;= y_0 + tu_2 \\
+z &amp;= z_0 + tu_3 \\
+\end{align*}\]</span>
+où <span class="math inline">\(t\in\mathbb{R}\)</span>. Les équations précédentes sont nommées les équations paramétriques d’une droite de <span class="math inline">\(\mathbb{R}^3\)</span>.
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-207" class="example"><strong>Exemple 8.7  </strong></span>Soit les points <span class="math inline">\(A=(1,2,3)\)</span> et <span class="math inline">\(B=(-3,5,-3)\)</span> faisant partie de la droite <span class="math inline">\(D\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Trouvez le vecteur directeur de la droite <span class="math inline">\(D\)</span>.</li>
+<li>Trouvez l’équation vectorielle de la droite <span class="math inline">\(D\)</span>.</li>
+<li>Utilisez l’équation trouvée en b) pour trouver deux points de la droite <span class="math inline">\(D\)</span> autres que <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span>.</li>
+<li>Est-ce que le point <span class="math inline">\(E=(-1,\frac{7}{2},0)\)</span> fait partie de la droite <span class="math inline">\(D\)</span>?</li>
+<li>Est-ce que le point <span class="math inline">\(F=(13,-7,22)\)</span> fait partie de la droite <span class="math inline">\(D\)</span>?</li>
+</ol>
+</div>
+
+</div>
+<div id="les-positions-relatives-de-droites-dans-lespace" class="section level3">
+<h3><span class="header-section-number">8.2.2</span> Les positions relatives de droites dans l’espace</h3>
+<p>Nous voulons maintenant étudier les positions relatives de deux droites dans l’espace. Si nous avons deux droites de <span class="math inline">\(\mathbb{R}^3\)</span>, nous voulons savoir s’il existe un point où les deux droites s’intersectent et si oui, quel est ce point.</p>
+<p>Soit deux droites de <span class="math inline">\(\mathbb{R}^3\)</span>:
+<span class="math display">\[\begin{align*}
+D_1 :&amp; [x,y,z] = [x_1,y_1,z_1] + t[u_1,u_2,u_3] \\
+D_2 :&amp; [x,y,z] = [x_2,y_2,z_2] + s[v_1,v_2,v_3]
+\end{align*}\]</span>
+où <span class="math inline">\(t,s\in\mathbb{R}\)</span>.</p>
+
+<div class="remark">
+ <span class="remark"><em>Remarque. </em></span> Lorsque nous étudions deux droites différentes, il est primordial d’utiliser des paramètres différents, comme les paramètres <span class="math inline">\(t\)</span> et <span class="math inline">\(s\)</span> dans les équations ci-haut.
+</div>
+
+<p>Si les deux droites se croisent, alors l’équation vectorielle suivante possédera une solution:
+<span class="math display">\[\begin{align*}
+[x_1,y_1,z_1] + t[u_1,u_2,u_3] &amp;= [x_2,y_2,z_2] + s[v_1,v_2,v_3] \\
+t[u_1,u_2,u_3]-s[v_1,v_2,v_3] &amp;= [x_2,y_2,z_2]-[x_1,y_1,z_1] \\
+[tu_1-sv_1,tu_2-sv_2,tu_3-sv_3] &amp;= [x_2-x_1,y_2-y_1,z_2-z_1]
+\end{align*}\]</span>
+Pour que deux vecteurs de <span class="math inline">\(\mathbb{R}^3\)</span> soient égaux, il faut que leurs composantes respectives soient égales, c’est-à-dire:
+<span class="math display">\[\begin{align*}
+tu_1-sv_1 &amp;= x_2-x_1 \\
+tu_2-sv_2 &amp;= y_2-y_1 \\
+tu_3-sv_3 &amp;= z_2-z_1
+\end{align*}\]</span>
+Le système d’équations linéaires précédent possède trois équations et deux inconnues, <span class="math inline">\(t\)</span> et <span class="math inline">\(s\)</span>. Ce système peut posséder trois types de solutions:</p>
+<ol style="list-style-type: decimal">
+<li>Une unique solution, ce qui signifie que les droites se croisent en un seul point.</li>
+<li>Aucune solution, ce qui signifie que les droites ne se croisent jamais.</li>
+<li>Une infinité de solutions, ce qui signifie que les droites sont parallèles confondues et sont en fait une seule et même droite.</li>
+</ol>
+<p>De plus, dans <span class="math inline">\(\mathbb{R}^3\)</span>, deux droites peuvent se retrouver dans quatre situations différentes.</p>
+<ol style="list-style-type: decimal">
+<li>Deux droites peuvent être parallèles confondues, c’est-à-dire qu’elles forment une seule et même droite.</li>
+<li>Deux droites peuvent être parallèles distinctes, , c’est-à-dire qu’elles sont parallèles mais ne se touchent jamais.</li>
+<li>Deux droites peuvent être non-parallèles sécantes, c’est-à-dire qu’elles ne sont pas parallèles mais se touchent en un seul point.</li>
+<li>Deux droites peuvent être non-parallèles gauches, c’est-à-dire qu’elles ne sont pas parallèles et ne se touchent jamais.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:quatre-situations-R3"></span>
+<img src="algebre1_files/figure-html/quatre-situations-R3-1.png" alt="De gauche à droite et de haut en bas, nous avons deux droites parallèles confondues, deux droites parallèles distinctes, deux droites sécantes et deux droites gauches" width="672" />
+<p class="caption">
+Figure 8.7: De gauche à droite et de haut en bas, nous avons deux droites parallèles confondues, deux droites parallèles distinctes, deux droites sécantes et deux droites gauches
+</p>
+</div>
+<p>À l’aide des quatres situations précédentes, nous pouvons détailler une technique pour être en mesure, à partir de deux droites, de savoir quelle est la position relative de ces droites.</p>
+<ol style="list-style-type: decimal">
+<li>Trouvez les vecteurs directeurs de chacune des droites.</li>
+<li><p>Si les vecteurs directeurs sont parallèles, les droites sont parallèles.</p>
+<ul>
+<li>Trouvez un point sur une des droites et vérifiez s’il fait partie de l’autre droite.</li>
+<li>Si oui, les droites sont parallèles confondues.</li>
+<li>Sinon, les droites sont parallèles distinctes.</li>
+</ul></li>
+<li><p>Si les vecteurs directeurs ne sont pas parallèles, les droites ne sont pas parallèles.</p>
+<ul>
+<li>Nous devons trouver le système d’équations linéaires correspondant à l’égalité entre les deux droites.</li>
+<li>Si le système d’équations linéaires possède une solution, alors les deux droites sont sécantes et vous pouvez trouver le point d’intersection.</li>
+<li>Si le système d’équations linéaires ne possède pas de solution, alors les deux droites sont gauches.</li>
+</ul></li>
+</ol>
+<p>Nous allons maintenant faire quelques exemples pour être en mesure de trouver la position relative de deux droites.</p>
+
+<div class="example">
+<span id="exm:droites-paralleles" class="example"><strong>Exemple 8.8  </strong></span>Déterminez la position relative des deux droites suivantes:
+<span class="math display">\[\begin{align*}
+D_1 : [x,y,z] &amp;= [3,2,1]+s[-4,2,5] \\
+D_2 : [x,y,z] &amp;= [-2,-4,2]+t[12,-6,-15]
+\end{align*}\]</span>
+</div>
+
+
+<div class="example">
+<span id="exm:droites-gauches" class="example"><strong>Exemple 8.9  </strong></span>Déterminez la position relative des deux droites suivantes:
+<span class="math display">\[\begin{align*}
+D_1 : [x,y,z] &amp;= [5,5,7]+s[1,2,3] \\
+D_2 : [x,y,z] &amp;= [15,14,-5]+t[-4,5,2]
+\end{align*}\]</span>
+</div>
+
+
+<div class="example">
+<span id="exm:droites-secantes" class="example"><strong>Exemple 8.10  </strong></span>Déterminez la position relative des deux droites suivantes:
+<span class="math display">\[\begin{align*}
+D_1 : [x,y,z] &amp;= [0,2,1]+s[-5,5,3] \\
+D_2 : [x,y,z] &amp;= [-2,-2,3]+t[3,1,1]
+\end{align*}\]</span>
+</div>
+
+</div>
+<div id="langle-entre-deux-droites-de-lespace" class="section level3">
+<h3><span class="header-section-number">8.2.3</span> L’angle entre deux droites de l’espace</h3>
+<p>Lorsque nous avons deux droites sécantes de l’espace, il est possible de trouver l’angle entre ces deux droites. Puisque les deux droites sont formées chacune d’un vecteur directeur, il suffit de trouver l’angle entre ces deux vecteurs pour trouver l’angle entre les deux droites.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-209" class="example"><strong>Exemple 8.11  </strong></span>Trouvez l’angle entre les droites de l’exemple <a href="les-droites-de-lespace.html#exm:droites-secantes">8.10</a>.
+</div>
+
+</div>
+<div id="les-équations-symétriques-dune-droite-de-lespace" class="section level3">
+<h3><span class="header-section-number">8.2.4</span> Les équations symétriques d’une droite de l’espace</h3>
+<p>Nous pouvons résoudre n’importe quel problème de droite dans l’espace à l’aide de l’équation vectorielle d’une droite de l’espace.
+Par exemple, pour trouver la position relative de deux droites, nous devons résoudre un système d’équations linéaires possédant trois équations et deux inconnues. Par contre, dans certaines situations, il est possible de trouver de nouvelles équations de droites qui elles nous permettront de résoudre un système d’équations linéaires possédant deux équations et une seule inconnue.</p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-210" class="definition"><strong>Définition 8.6  (Les équations symétriques d’une droite de l’espace)  </strong></span>Soit <span class="math inline">\(P_0=(x_0,y_0,z_0)\)</span> un point d’une droite et <span class="math inline">\(u=[u_1,u_2,u_3]\)</span> le vecteur directeur de cette droite. Nous savons que les équations paramétriques de cette droite de <span class="math inline">\(\mathbb{R}^3\)</span> sont:
+<span class="math display">\[\begin{align*}
+x &amp;= x_0 + tu_1 \\
+y &amp;= y_0 + tu_2 \\
+z &amp;= z_0 + tu_3 \\
+\end{align*}\]</span>
+où <span class="math inline">\(t\in\mathbb{R}\)</span>. Si nous isolons le paramètre <span class="math inline">\(t\)</span> dans chacune des équations paramétriques, nous obtenons:
+<span class="math display">\[\begin{align*}
+t &amp;= \dfrac{x-x_0}{u_1} \\
+t &amp;= \dfrac{y-y_0}{u_2} \\
+t &amp;= \dfrac{z-z_0}{u_3}
+\end{align*}\]</span>
+à condition que les <span class="math inline">\(u_1\)</span>, <span class="math inline">\(u_2\)</span> et <span class="math inline">\(u_3\)</span> soient différents de zéros. Nous disons que les équations suivantes sont les équations symétriques d’une droite de l’espace:
+<span class="math display">\[\begin{align*}
+\dfrac{x-x_0}{u_1} = \dfrac{y-y_0}{u_2} = \dfrac{z-z_0}{u_3}
+\end{align*}\]</span>
+</div>
+
+<p>Lorsque nous pouvons écrire ces équations, nous pouvons diminuer le nombre d’équations et d’inconnues lorsque nous sommes intéressés par la position relative de deux droites.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-211" class="example"><strong>Exemple 8.12  </strong></span>À FAIRE
+</div>
+
+</div>
+<div id="la-distance-entre-un-point-et-une-droite" class="section level3">
+<h3><span class="header-section-number">8.2.5</span> La distance entre un point et une droite</h3>
+<p>Il est possible de trouver la distance entre un point et une droite de l’espace. Soit une droite <span class="math inline">\(D\)</span>, un point <span class="math inline">\(P\)</span> de cette droite et <span class="math inline">\(\vec u\)</span> le vecteur directeur de <span class="math inline">\(D\)</span>. Soit un point <span class="math inline">\(Q\)</span> ne se trouvant pas sur la droite <span class="math inline">\(D\)</span>. Utilisons la figure ci-dessous pour trouver une formule nous permettant de trouver la distance entre le point <span class="math inline">\(Q\)</span> et la droite <span class="math inline">\(D\)</span>.</p>
+<div class="figure" style="text-align: center"><span id="fig:distance-point-droite"></span>
+<img src="algebre1_files/figure-html/distance-point-droite-1.png" alt="La distance entre un point et une droite dans l'espace." width="672" />
+<p class="caption">
+Figure 8.8: La distance entre un point et une droite dans l’espace.
+</p>
+</div>
+<p>Nous connaissons le vecteur directeur <span class="math inline">\(\vec u\)</span> et nous pouvons calculer le vecteur <span class="math inline">\(\overrightarrow{PQ}\)</span>. À l’aide de ses deux vecteurs, nous pouvons construire le parallélogramme représenté sur la figure. Nous pouvons utiliser le produit vectoriel pour trouver la surface d’un parallélogramme. En effet, la surface du parallélogramme de la figure précédente est donnée par:
+<span class="math display">\[\begin{align*}
+\text{Aire} = \lVert\overrightarrow{PQ} \times \vec u\rVert &amp;= \lVert\overrightarrow{PQ}\rVert\lVert\vec u\rVert \sin(\theta) \\
+&amp;= \lVert\vec u\rVert\underbrace{\lVert\overrightarrow{PQ}\rVert\sin(\theta)}_{h=\text{hauteur du parallélogramme}}
+\end{align*}\]</span>
+Nous avons donc que:
+<span class="math display">\[\begin{align*}
+\lVert\overrightarrow{PQ} \times \vec u\rVert &amp;= \lVert\vec u\rVert h \\
+h &amp;= \dfrac{\lVert\overrightarrow{PQ} \times \vec u\rVert}{\lVert\vec u\rVert}
+\end{align*}\]</span></p>
+<p>Il est également possible de trouver les coordonnées du point <span class="math inline">\(R\)</span> situé sur la droite <span class="math inline">\(D\)</span> qui est le plus près du point <span class="math inline">\(Q\)</span>. En étudiant la figure, nous remarquons que le vecteur <span class="math inline">\(\overrightarrow{PR}\)</span> est en fait le vecteur projection du vecteur <span class="math inline">\(\overrightarrow{PQ}\)</span> sur le vecteur directeur <span class="math inline">\(\vec u\)</span>, noté <span class="math inline">\(\overrightarrow{PQ}_{\vec u}\)</span>. Nous avons donc:
+<span class="math display">\[\begin{align*}
+\overrightarrow{OR} &amp;= \overrightarrow{OP}+\overrightarrow{PR} \\
+&amp;= \overrightarrow{OP}+\overrightarrow{PQ}_{\vec u}
+\end{align*}\]</span></p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-212" class="example"><strong>Exemple 8.13  </strong></span>À FAIRE
+</div>
+
+</div>
+<div id="la-distance-entre-deux-droites-parallèles" class="section level3">
+<h3><span class="header-section-number">8.2.6</span> La distance entre deux droites parallèles</h3>
+<p>Puisque deux droites parallèles sont toujours à la même distance l’une de l’autre, il est possible de trouver cette distance à l’aide de la méthode permettant de trouver la distance entre un point et une droite. Soit deux droites <span class="math inline">\(D_1\)</span> et <span class="math inline">\(D_2\)</span> telles que:
+<span class="math display">\[\begin{align*}
+D_1 : \vec r_1 &amp;= \overrightarrow{OP_1}+s\vec u \\
+D_2 : \vec r_2 &amp;= \overrightarrow{OP_2}+t\vec v
+\end{align*}\]</span></p>
+<p>Pour trouver la distance entre ces deux droites, nous prenons un point quelconque sur une des deux droites et nous calculons sa distance par rapport à l’autre droite.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-213" class="example"><strong>Exemple 8.14  </strong></span>Trouvez la distance entre les deux droites de l’exemple <a href="les-droites-de-lespace.html#exm:droites-paralleles">8.8</a>.
+</div>
+
+</div>
+<div id="la-distance-entre-deux-droites-gauches" class="section level3">
+<h3><span class="header-section-number">8.2.7</span> La distance entre deux droites gauches</h3>
+<p>Pour trouver la distance entre deux droites gauches, nous devrons user d’un peu d’astuce et de la figure ci-dessous. Soit les deux droites gauches suivantes:
+<span class="math display">\[\begin{align*}
+D_1 : \vec r_1 &amp;= \overrightarrow{OP_1}+s\vec u \\
+D_2 : \vec r_2 &amp;= \overrightarrow{OP_2}+t\vec v 
+\end{align*}\]</span>
+où <span class="math inline">\(s,t\in\mathbb{R}\)</span>. Il existe un point <span class="math inline">\(A\)</span> situé sur la droite <span class="math inline">\(D_1\)</span> et un point <span class="math inline">\(B\)</span> situé sur la droite <span class="math inline">\(D_2\)</span> tels que ces deux points sont les deux points les plus près l’un de l’autre. Nous voulons donc trouver la distance entre ces deux points pour trouver la distance entre les deux droites, comme représenté à la figure <a href="les-droites-de-lespace.html#fig:distance-droites-gauches">8.9</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:distance-droites-gauches"></span>
+<img src="algebre1_files/figure-html/distance-droites-gauches-1.png" alt="La distance entre deux droites gauches." width="75%" />
+<p class="caption">
+Figure 8.9: La distance entre deux droites gauches.
+</p>
+</div>
+<p>Le vecteur reliant le point <span class="math inline">\(A\)</span> au point <span class="math inline">\(B\)</span> est nécessairement perpendiculaire aux vecteurs directeurs <span class="math inline">\(\vec u\)</span> et <span class="math inline">\(\vec v\)</span>. Ceci signifie que <span class="math inline">\(\overrightarrow{AB}\)</span> est parallèle au vecteur obtenu en effectuant le produit vectoriel des vecteurs <span class="math inline">\(\vec u\)</span> et <span class="math inline">\(\vec v\)</span>. Nous avons donc que:
+<span class="math display">\[\begin{align*}
+\overrightarrow{AB} &amp;= k (\vec u \times \vec v)
+\end{align*}\]</span></p>
+<p>Puisque nous nous intéressons à la distance entre les deux droites, nous voulons trouver la longueur du vecteur <span class="math inline">\(\overrightarrow{AB}\)</span>, c’est-à-dire:
+<span class="math display">\[\begin{align*}
+\lVert\overrightarrow{AB}\rVert &amp;= \lVert k (\vec u \times \vec v)\rVert \\
+&amp;= |k| \lVert\vec u \times \vec v\rVert
+\end{align*}\]</span>
+Il est clair que si nous sommes en mesure de trouver la valeur du paramètre <span class="math inline">\(k\)</span>, nous allons trouver la distance entre les deux droites.</p>
+<p>Pour être en mesure de trouver <span class="math inline">\(k\)</span>, nous allons nous intéresser au vecteur <span class="math inline">\(\overrightarrow{OB}-\overrightarrow{OA}\)</span>. Nous pouvons écrire ce vecteur de deux manières différentes:
+<span class="math display">\[\begin{align*}
+\overrightarrow{OB} &amp;= \overrightarrow{OA} + k(\vec u \times \vec v) \\
+\overrightarrow{OB}-\overrightarrow{OA} &amp;= k(\vec u \times \vec v)
+\end{align*}\]</span>
+où <span class="math inline">\(k\in\mathbb{R}\)</span>. De plus:
+<span class="math display">\[\begin{align*}
+\overrightarrow{OB} &amp;= \overrightarrow{OP_2} + t\vec v \\
+\overrightarrow{OA} &amp;= \overrightarrow{OP_1} + s\vec u
+\end{align*}\]</span>
+où <span class="math inline">\(s,t\in\mathbb{R}\)</span>, ce qui implique que:
+<span class="math display">\[\begin{align*}
+\overrightarrow{OB}-\overrightarrow{OA} &amp;= (\overrightarrow{OP_2} + t\vec v)-(\overrightarrow{OP_1} + s\vec u) \\
+&amp;= \overrightarrow{OP_2} + t\vec v - \overrightarrow{OP_1} - t\vec v \\
+&amp;= \overrightarrow{P_1P_2} +t\vec v - s\vec u
+\end{align*}\]</span></p>
+<p>En combinant ces deux vecteurs, nous avons:
+<span class="math display">\[\begin{align*}
+k(\vec u \times \vec v) &amp;= \overrightarrow{P_1P_2} +t\vec v - s\vec u
+\end{align*}\]</span>
+L’équation précédente possède trois inconnues, <span class="math inline">\(k\)</span>, <span class="math inline">\(s\)</span> et <span class="math inline">\(t\)</span>. Puisque nous ne nous intéressons qu’à la valeur de <span class="math inline">\(k\)</span>, nous allons utiliser les propriétés du produit scalaire pour faire disparaître les inconnues <span class="math inline">\(s\)</span> et <span class="math inline">\(t\)</span>. Nous avons:
+<span class="math display">\[\begin{align*}
+k(\vec u \times \vec v)\cdot(\vec u \times \vec v)  &amp;= (\overrightarrow{P_1P_2} +t\vec v - s\vec u)\cdot(\vec u \times \vec v) \\
+k\lVert\vec u \times \vec v\rVert^2 &amp;= \overrightarrow{P_1P_2}\cdot(\vec u \times \vec v)
++\underbrace{t\vec v \cdot(\vec u \times \vec v)}_{=\ 0 \text{ car } \vec v \perp (\vec u \times \vec v)} -\underbrace{s\vec u \cdot(\vec u \times \vec v)}_{=\ 0 \text{ car } \vec u \perp (\vec u \times \vec v)} \\
+k\lVert\vec u \times \vec v\rVert^2 &amp;= \overrightarrow{P_1P_2}\cdot(\vec u \times \vec v) \\
+k &amp;= \dfrac{\overrightarrow{P_1P_2}\cdot(\vec u \times \vec v)}{\lVert\vec u \times \vec v\rVert^2}
+\end{align*}\]</span></p>
+<p>En utilisant cette valeur de <span class="math inline">\(k\)</span> dans la formule trouvée précédemment, nous avons:
+<span class="math display">\[\begin{align*}
+\lVert\overrightarrow{AB}\rVert &amp;= |k| \lVert\vec u \times \vec v\rVert \\
+&amp;= \left|\dfrac{\overrightarrow{P_1P_2}\cdot(\vec u \times \vec v)}{\lVert\vec u \times \vec v\rVert^2}\right| \lVert\vec u \times \vec v\rVert \\
+&amp;= \dfrac{\left|\overrightarrow{P_1P_2}\cdot(\vec u \times \vec v)\right|}{\lVert\vec u \times \vec v\rVert}
+\end{align*}\]</span>
+La distance entre deux droites non parallèles de l’espace est donc donnée par l’équation précédente.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-214" class="example"><strong>Exemple 8.15  </strong></span>Trouvez la distance entre les droites de l’exemple <a href="les-droites-de-lespace.html#exm:droites-gauches">8.9</a>.
+</div>
+
+<p>Il est également possible de trouver les deux points <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> situés respectivement sur les droites <span class="math inline">\(D_1\)</span> et <span class="math inline">\(D_2\)</span> les plus près l’un de l’autre. Par nos raisonnements précédents, nous avions:
+<span class="math display">\[\begin{align*}
+k(\vec u \times \vec v) &amp;= \overrightarrow{P_1P_2} +t\vec v - s\vec u
+\end{align*}\]</span>
+Nous allons déduire deux équations à partir de l’équation précédente. Puisque le vecteur <span class="math inline">\((\vec u \times \vec v)\)</span> est perpendiculaire à la fois au vecteur <span class="math inline">\(\vec u\)</span> et au vecteur <span class="math inline">\(\vec v\)</span>, nous avons:
+<span class="math display">\[\begin{align*}
+k(\vec u \times \vec v) \cdot \vec u &amp;= (\overrightarrow{P_1P_2} +t\vec v - s\vec u)\cdot \vec u \\
+0 &amp;= \overrightarrow{P_1P_2}\cdot \vec u +t\vec v \cdot \vec u - s\vec u \cdot \vec u
+\end{align*}\]</span>
+et
+<span class="math display">\[\begin{align*}
+k(\vec u \times \vec v) \cdot \vec v &amp;= (\overrightarrow{P_1P_2} +t\vec v - s\vec u)\cdot \vec v \\
+0 &amp;= \overrightarrow{P_1P_2}\cdot \vec v +t\vec v \cdot \vec v - s\vec u \cdot \vec v
+\end{align*}\]</span>
+Nous pouvons donc trouver les paramètres <span class="math inline">\(s\)</span> et <span class="math inline">\(t\)</span> en résolvant le système d’équations linéaires suivant:
+<span class="math display">\[\begin{align*}
+0 &amp;= \overrightarrow{P_1P_2}\cdot \vec u +t\vec v \cdot \vec u - s\vec u \cdot \vec u \\
+0 &amp;= \overrightarrow{P_1P_2}\cdot \vec v +t\vec v \cdot \vec v - s\vec u \cdot \vec v
+\end{align*}\]</span>
+Une fois les paramètres trouvés, nous avons que:
+<span class="math display">\[\begin{align*}
+\overrightarrow{OA} &amp;= \overrightarrow{OP_1} + s\vec u \\
+\overrightarrow{OB} &amp;= \overrightarrow{OP_2} + t\vec v
+\end{align*}\]</span></p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-215" class="example"><strong>Exemple 8.16  </strong></span>Trouvez les deux points les plus près des droites de l’exemple <a href="les-droites-de-lespace.html#exm:droites-gauches">8.9</a>.
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="les-droites-de-mathbbr2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="les-plans-de-lespace.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"],
+"github": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/desautm/algebre1/edit/master/08-droites-plans-espace.Rmd",
+"text": "Modifier"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["algebre1.pdf"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
